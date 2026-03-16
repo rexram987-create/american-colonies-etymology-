@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>מסצ'וסטס (1630) | המושבות האמריקאיות</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        darkBg: '#0f172a',
+                        darkCard: '#1e293b',
+                        gold: '#fbbf24',
+                    },
+                    fontFamily: {
+                        sans: ['system-ui', '-apple-system', 'Segoe UI', 'Roboto', 'Helvetica', 'Arial', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    <!-- Phosphor Icons -->
+    <script src="https://unpkg.com/@phosphor-icons/web"></script>
+    <style>
+        body { transition: background-color 0.3s ease, color 0.3s ease; }
+        .content-section { scroll-margin-top: 100px; }
+    </style>
+</head>
+<body class="bg-gray-50 text-gray-900 dark:bg-darkBg dark:text-gray-100 font-sans antialiased selection:bg-blue-200 dark:selection:bg-blue-900">
+
+    <!-- ניווט עליון (Header) -->
+    <header class="relative z-40 w-full bg-white dark:bg-darkBg border-b border-gray-200 dark:border-gray-800 shadow-sm">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between h-20">
+                <!-- כפתור חזרה -->
+                <a href="index.html" class="flex items-center gap-2 text-blue-600 dark:text-gold hover:text-blue-800 dark:hover:text-yellow-400 transition-colors touch-manipulation font-semibold bg-blue-50 dark:bg-gray-800 px-4 py-2 rounded-full">
+                    <i class="ph ph-arrow-right text-xl"></i>
+                    <span>חזרה לדף הבית</span>
+                </a>
+                
+                <!-- תפריט כפתורים -->
+                <div class="flex items-center gap-4">
+                    <button onclick="toggleDarkMode()" class="p-3 rounded-full bg-gray-200 dark:bg-gray-800 hover:bg-gray-300 dark:hover:bg-gray-700 transition-colors touch-manipulation" aria-label="החלף מצב תצוגה">
+                        <i class="ph ph-moon text-xl block dark:hidden"></i>
+                        <i class="ph ph-sun text-xl hidden dark:block text-gold"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <main class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+        
+        <!-- כותרת ראשית (Hero) -->
+        <div class="mb-12 text-center md:text-right">
+            <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-green-100 dark:bg-green-900/40 text-green-800 dark:text-green-300 text-sm font-semibold tracking-wide mb-4">
+                <i class="ph ph-calendar-blank"></i>
+                שנת הקמה: 1628 (זיכיון) / 1630 (הגירה המונית)
+            </div>
+            <h1 class="text-4xl md:text-5xl lg:text-6xl font-extrabold leading-tight text-gray-900 dark:text-white mb-6">
+                מושבת מפרץ מסצ'וסטס
+            </h1>
+            <p class="text-xl text-gray-600 dark:text-gray-300 leading-relaxed">
+                ראשיתה של "ההגירה הגדולה". בניגוד לקבוצות הקטנות של וירג'יניה ופלימות', הפוריטנים הגיעו לאמריקה באלפיהם, מאורגנים להפליא, חמושים באידאולוגיה בלתי מתפשרת להקים "עיר על גבעה" שתשמש אור לעולם כולו.
+            </p>
+        </div>
+
+        <!-- תמונה ראשית -->
+        <div class="w-full h-64 md:h-96 rounded-3xl overflow-hidden mb-16 shadow-2xl relative border border-gray-200 dark:border-gray-800">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/1/1a/John_Winthrop_Arrival.jpg/1200px-John_Winthrop_Arrival.jpg" alt="" class="w-full h-full object-cover">
+            <div class="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/80 to-transparent p-4 text-white text-sm md:text-base text-center">
+                הגעת צי אוניותיו של ג'ון וינתרופ למפרץ מסצ'וסטס, 1630. תחילתה של הגירה המונית ויסוד בוסטון.
+            </div>
+        </div>
+
+        <article class="space-y-16">
+            
+            <!-- 1. שנות פעילות ויעדים -->
+            <section class="content-section bg-white dark:bg-darkCard p-8 rounded-3xl shadow-sm border border-gray-100 dark:border-gray-800">
+                <div class="flex items-center gap-3 mb-6">
+                    <div class="p-3 bg-blue-100 dark:bg-gray-800 rounded-2xl text-blue-600 dark:text-gold">
+                        <i class="ph ph-target text-3xl"></i>
+                    </div>
+                    <h2 class="text-3xl font-bold">1. שנות פעילות, הקמה ויעדים</h2>
+                </div>
+                <div class="text-lg text-gray-700 dark:text-gray-300 leading-relaxed space-y-4">
+                    <p><strong>שנת הקמה:</strong> הזיכיון ניתן ב-1628, אך ההתיישבות המסיבית והקמת הממשל החלו בקיץ 1630 עם הגעת "צי וינתרופ" (11 ספינות נושאות כ-700 מתיישבים).</p>
+                    <p><strong>ישות מקימה:</strong> "חברת מפרץ מסצ'וסטס" (Massachusetts Bay Company) - חברת מניות משותפת אנגלית שקיבלה זיכיון מהמלך צ'ארלס הראשון. בניגוד לחברות אחרות, הפוריטנים רכשו את השליטה בחברה ולקחו את צ'ארטר (מסמך הזיכיון) עצמו איתם לאמריקה, מה שהבטיח להם עצמאות פוליטית ומשפטית מוחלטת מלונדון.</p>
+                    <p><strong>היעדים המקוריים (הגירה לעומת קולוניאליזם):</strong> 
+                        המתיישבים במסצ'וסטס לא באו לחפש זהב כהרפתקנים (כמו בוירג'יניה) ולא באו כפליטים עניים (כמו בפלימות'). זו הייתה הגירה של משפחות שלמות ממעמד הביניים - סוחרים, עורכי דין, חקלאים מבוססים ובעלי מלאכה אמידים. מטרתם הייתה להקים מודל חברתי-כלכלי-דתי מושלם ורווחי, מבוסס על עבודה קשה (מוסר העבודה הפרוטסטנטי), חינוך קפדני ומשמעת קהילתית ברזל.
+                    </p>
+                </div>
+            </section>
+
+            <!-- 2. דמויות מפתח: ג'ון וינתרופ -->
+            <section class="content-section bg-white dark:bg-darkCard p-8 rounded-3xl shadow-sm border border-gray-100 dark:border-gray-800 border-r-4 border-r-blue-500 dark:border-r-gold">
+                <div class="flex items-center gap-3 mb-6">
+                    <div class="p-3 bg-blue-100 dark:bg-gray-800 rounded-2xl text-blue-600 dark:text-gold">
+                        <i class="ph ph-user text-3xl"></i>
+                    </div>
+                    <h2 class="text-3xl font-bold">2. רקע המייסדים: ג'ון וינתרופ</h2>
+                </div>
+                <div class="text-lg text-gray-700 dark:text-gray-300 leading-relaxed space-y-4">
+                    <p><strong>ג'ון וינתרופ (John Winthrop)</strong> - חי בין השנים 1588–1649. עורך דין אמיד, אביה המייסד של העיר בוסטון ומי שנבחר למושל מושבת מפרץ מסצ'וסטס לא פחות מ-12 פעמים.</p>
+                    <p><strong>ילדות, רקע ומשבר אמוני:</strong> 
+                        וינתרופ נולד למשפחת אצולה כפרית עשירה בכפר אדוארדסטון שבמחוז סאפוק, אנגליה. אביו היה בעל אחוזה גדול. כנער, ג'ון נשלח ללמוד בטריניטי קולג' שבאוניברסיטת קיימברידג' - שם נחשף לראשונה לכתבים הפוריטניים הקפדניים. בשנות העשרים המוקדמות לחייו, למרות עושרו, עבר משבר נפשי ורוחני עמוק. הוא סבל מדיכאונות והרגיש כי אורח החיים החומרי והפזרני של אנגליה מושחת ומרחיק אותו מאלוהים. הוא מצא נחמה רק בתיאולוגיה הפוריטנית המחמירה.
+                    </p>
+                    <p><strong>הישגים היסטוריים ומנהיגות:</strong> 
+                        כאשר המלך צ'ארלס הראשון החל לרדוף פוריטנים באנגליה, וינתרופ הבין שעתידם אינו שם. ב-1629 הוא ארגן את ההגירה הגדולה וחתם על "הסכם קיימברידג'". בעודו על סיפון אוניית הדגל "ארבלה" בלב אוקיינוס (1630), נשא וינתרופ את הדרשה המפורסמת ביותר בהיסטוריה האמריקאית: <em>"דוגמה לצדקה נוצרית"</em>. בדרשה זו טבע את המונח <strong>"עיר על גבעה" (City upon a Hill)</strong> - החזון שעל אמריקה להיות חברת מופת מוסרית שעיני כל העולם נשואות אליה. כמושל, הוא בנה את התשתית החוקית והכלכלית של מסצ'וסטס, אך במקביל גירש באכזריות כל מי שהעז לחלוק על הדוקטרינה הפוריטנית.
+                    </p>
+                </div>
+            </section>
+
+            <!-- 3. אידאולוגיה וסיבת ההקמה -->
+            <section class="content-section bg-white dark:bg-darkCard p-8 rounded-3xl shadow-sm border border-gray-100 dark:border-gray-800">
+                <div class="flex items-center gap-3 mb-6">
+                    <div class="p-3 bg-blue-100 dark:bg-gray-800 rounded-2xl text-blue-600 dark:text-gold">
+                        <i class="ph ph-scales text-3xl"></i>
+                    </div>
+                    <h2 class="text-3xl font-bold">3. אידאולוגיה: פוריטניזם (Puritanism)</h2>
+                </div>
+                <div class="text-lg text-gray-700 dark:text-gray-300 leading-relaxed space-y-4">
+                    <p>
+                        חשוב להבדיל היטב בין האידאולוגיה של מסצ'וסטס (פוריטנים) לזו של פלימות' (בדלנים):
+                    </p>
+                    <ul class="list-disc list-inside space-y-4 ml-4">
+                        <li><strong>תיקון מבפנים לעומת בריחה:</strong> הבדלנים בפלימות' פרשו לחלוטין מהכנסייה האנגליקנית. הפוריטנים של מסצ'וסטס לעומת זאת, סירבו להיפרד מהכנסייה באופן רשמי; מטרתם הייתה <strong>"לטהר" (Purify)</strong> אותה ואת אנגליה כולה משרידי הטקסים הקתוליים. הם האמינו שאם יקימו חברת מופת טהורה באמריקה ("עיר על גבעה"), אנגליה תראה את הצלחתם ותחקה אותם.</li>
+                        <li><strong>תאוקרטיה ואי-סובלנות דתית:</strong> למרות שברחו מאנגליה עקב רדיפות דת, הפוריטנים של מסצ'וסטס לא הקימו דמוקרטיה חופשית. הם הקימו תאוקרטיה חמורה. החוק האזרחי והחוק הדתי היו אחד. רק חברי כנסייה רשמיים שהוכיחו "חווית ישועה" הורשו להצביע. מי שחלק על התיאולוגיה שלהם - כמו רוג'ר ויליאמס (מייסד רוד איילנד בהמשך) או אן האצ'ינסון - גורש אל השלג במקרה הטוב, או נתלה במקרה הרע (כפי שקרה לקווייקרים שחזרו לבוסטון).</li>
+                        <li><strong>חינוך וקרוא וכתוב:</strong> חלק מרכזי באידאולוגיה הפוריטנית היה החובה הדתית של כל אדם לקרוא בתנ"ך בעצמו. כדי למנוע מ"השטן הזקן והרמאי" להרחיק אנשים מהכתובים, מסצ'וסטס העבירה את חוקי החינוך הציבורי הראשונים באמריקה והקימה ב-1636 את <strong>אוניברסיטת הרווארד (Harvard)</strong> כדי להכשיר כמרי כנסייה.</li>
+                    </ul>
+                </div>
+            </section>
+
+            <!-- 4. גיאוגרפיה, הידרולוגיה ובחירת המיקום -->
+            <section class="content-section bg-white dark:bg-darkCard p-8 rounded-3xl shadow-sm border border-gray-100 dark:border-gray-800">
+                <div class="flex items-center gap-3 mb-6">
+                    <div class="p-3 bg-blue-100 dark:bg-gray-800 rounded-2xl text-blue-600 dark:text-gold">
+                        <i class="ph ph-map-pin text-3xl"></i>
+                    </div>
+                    <h2 class="text-3xl font-bold">4. גיאוגרפיה והידרולוגיה: בוסטון ונהר צ'ארלס</h2>
+                </div>
+                
+                <div class="mb-10">
+                    <h3 class="text-2xl font-bold text-blue-800 dark:text-blue-300 mb-4 border-b border-gray-200 dark:border-gray-700 pb-2">א. מערכת נהר צ'ארלס (Charles River)</h3>
+                    <div class="text-lg text-gray-700 dark:text-gray-300 leading-relaxed space-y-4">
+                        <p><strong>מידע הידרולוגי:</strong> נהר צ'ארלס הוא נהר קצר יחסית (כ-129 ק"מ) הזורם במזרח מסצ'וסטס ונשפך לאוקיינוס האטלנטי במפרץ בוסטון. בניגוד לזרמים האדירים והעמוקים של נהר הג'יימס בוירג'יניה, נהר צ'ארלס מתאפיין בזרימה איטית ומתפתלת, ואגן הניקוז שלו כולל אגמים וביצות טבעיות המנקים את המים לאורך מסלולם. השפך הרחב של הנהר למפרץ יוצר נמל טבעי (Estuary) עמוק ומוגן היטב מסערות האוקיינוס.</p>
+                        
+                        <!-- אטימולוגיה של הנהר -->
+                        <div class="mt-6 bg-gray-50 dark:bg-gray-800/50 p-6 rounded-2xl border border-gray-100 dark:border-gray-700">
+                            <h4 class="text-xl font-bold mb-4 flex items-center gap-2 text-gray-900 dark:text-white">
+                                <i class="ph ph-text-aa text-blue-600 dark:text-gold"></i> מחקר אטימולוגי של נהר צ'ארלס
+                            </h4>
+                            <ul class="space-y-4 text-gray-700 dark:text-gray-300">
+                                <li>
+                                    <strong class="text-blue-800 dark:text-blue-300 font-mono text-lg">Quinobequin (שם מקורי):</strong> 
+                                    שמו הילידי בשפת המסצ'וסט. משמעות השם היא "מתפתל" או "מעגלי", המתאר במדויק את מסלולו הנחשי של הנהר על פני המישור.
+                                </li>
+                                <li>
+                                    <strong class="text-blue-800 dark:text-blue-300 font-mono text-lg">Charles River (שם אנגלי):</strong> 
+                                    בשנת 1614, קפטן ג'ון סמית' מיפה את האזור והגיש את המפה לנסיך האנגלי צ'ארלס (לימים המלך צ'ארלס הראשון). הוא ביקש מהנסיך הצעיר להחליף את השמות "הפראיים" לשמות אנגליים אציליים. הנסיך קרא לנהר על שם עצמו. 
+                                    <strong>מקור השם Charles:</strong> מגיע מהשפה הגרמאנית העתיקה למילה <em>karl</em>, שמשמעותה "אדם חופשי" או "איש זקן/בשל" (אשר התפתחה דרך הלטינית <em>Carolus</em> לצרפתית ואנגלית).
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- תת סעיף ב: בחירת המיקום -->
+                <div>
+                    <h3 class="text-2xl font-bold text-blue-800 dark:text-blue-300 mb-4 border-b border-gray-200 dark:border-gray-700 pb-2">ב. מדוע נבחר חצי האי שומוט (בוסטון)?</h3>
+                    <div class="text-lg text-gray-700 dark:text-gray-300 leading-relaxed space-y-4">
+                        <p>
+                            כאשר צי וינתרופ הגיע ב-1630, הם התיישבו תחילה בעיירה צ'ארלסטאון מצפון לנהר. אולם, מקורות המים שם היו גרועים ומחלות החלו להתפשט. הם ניצלו מאסון נוסף בסגנון ג'יימסטאון הודות להחלטה גיאוגרפית מהירה. מתיישב בודד שחי מעבר לנהר על חצי אי בשם "שומוט" (Shawmut Peninsula) - הזמין את וינתרופ לעבור לשם. וינתרופ העביר את כל הקהילה לחצי האי ושינה את שמו ל<strong>בוסטון</strong> (על שם העיר באנגליה ממנה באו רבים מהם).
+                        </p>
+                        <p><strong>היתרונות הגיאוגרפיים וההידרולוגיים של חצי האי שומוט:</strong></p>
+                        <ul class="list-disc list-inside space-y-2 ml-4 mb-4">
+                            <li><strong>"המעיין הגדול" (The Great Spring):</strong> היתרון ההידרולוגי הדרמטי ביותר. חצי האי שפע נביעות של מים מתוקים וטהורים שפרצו ישירות מהגבעות. מקור המים הנקי מנע את מחלות המעיים והטיפוס שחיסלו את וירג'יניה בשנותיה הראשונות.</li>
+                            <li><strong>הגנה טבעית:</strong> חצי האי שומוט היה מוקף מים מכל עבריו וחובר ליבשת באמצעות רצועת חול דקיקה ("The Neck"), מה שהפך אותו למבצר טבעי שניתן היה להגן עליו בקלות מפני התקפות שבטים (או צבא צרפתי).</li>
+                            <li><strong>טופוגרפיה (שלושת ההרים):</strong> על חצי האי התנשאה גבעה בעלת שלוש פסגות (Trimountaine, ממנה נגזר היום שם הרחוב בבוסטון Tremont). הגבעות סיפקו נקודות תצפית לים והגנה טבעית מפני רוחות חורף קשות.</li>
+                        </ul>
+                    </div>
+                </div>
+            </section>
+
+            <!-- 5. מחקר אטימולוגי מפורט של מסצ'וסטס -->
+            <section class="content-section bg-white dark:bg-darkCard p-8 rounded-3xl shadow-sm border border-gray-100 dark:border-gray-800">
+                <div class="flex items-center gap-3 mb-6">
+                    <div class="p-3 bg-blue-100 dark:bg-gray-800 rounded-2xl text-blue-600 dark:text-gold">
+                        <i class="ph ph-text-aa text-3xl"></i>
+                    </div>
+                    <h2 class="text-3xl font-bold">5. מחקר אטימולוגי: המושבה Massachusetts</h2>
+                </div>
+                
+                <div class="overflow-x-auto mt-6">
+                    <table class="w-full text-right border-collapse">
+                        <thead>
+                            <tr class="bg-blue-50 dark:bg-gray-800 text-blue-900 dark:text-gold border-b-2 border-blue-200 dark:border-gray-700">
+                                <th class="p-4 font-bold rounded-tr-xl">מרכיב בשם</th>
+                                <th class="p-4 font-bold">מקור לשוני (אלגונקווין)</th>
+                                <th class="p-4 font-bold rounded-tl-xl">משמעות והקשר היסטורי</th>
+                            </tr>
+                        </thead>
+                        <tbody class="text-gray-700 dark:text-gray-300">
+                            <tr class="border-b border-gray-100 dark:border-gray-800 hover:bg-gray-50 dark:hover:bg-gray-800/50 transition-colors">
+                                <td class="p-4 font-mono font-bold text-xl">Mass</td>
+                                <td class="p-4">שפת המסצ'וסט: <em>Massa</em> או <em>Missi</em></td>
+                                <td class="p-4">
+                                    גדול (Great) או רחב ממדים. המילה משמשת גם בשמות נהרות ילידיים אחרים (כמו מיסיסיפי - הנהר הגדול).
+                                </td>
+                            </tr>
+                            <tr class="border-b border-gray-100 dark:border-gray-800 hover:bg-gray-50 dark:hover:bg-gray-800/50 transition-colors">
+                                <td class="p-4 font-mono font-bold text-xl">adchu</td>
+                                <td class="p-4">שפת המסצ'וסט: <em>Wadchu</em></td>
+                                <td class="p-4">
+                                    הר (Mountain) או גבעה נישאה.
+                                </td>
+                            </tr>
+                            <tr class="border-b border-gray-100 dark:border-gray-800 hover:bg-gray-50 dark:hover:bg-gray-800/50 transition-colors">
+                                <td class="p-4 font-mono font-bold text-xl">-s</td>
+                                <td class="p-4">סיומת דקדוקית ילידית</td>
+                                <td class="p-4">
+                                    משמש כצורת הקטנה (Diminutive) או כסיומת ריבוי של שרשרת גבעות.
+                                </td>
+                            </tr>
+                            <tr class="border-b border-gray-100 dark:border-gray-800 hover:bg-gray-50 dark:hover:bg-gray-800/50 transition-colors">
+                                <td class="p-4 font-mono font-bold text-xl">-et</td>
+                                <td class="p-4">סיומת מיקום: <em>ut</em> או <em>et</em></td>
+                                <td class="p-4">
+                                    סיומת המציינת "במקום של-" או "לצד-".
+                                </td>
+                            </tr>
+                            <tr class="bg-blue-50/50 dark:bg-gray-800/30">
+                                <td class="p-4 font-bold text-blue-800 dark:text-blue-300">הלחם משמעויות</td>
+                                <td colspan="2" class="p-4 text-lg font-semibold text-gray-900 dark:text-white">
+                                    <strong>"במקום של הגבעה הגדולה"</strong>. השם ניתן במקור על ידי הילידים לשבט המרכזי ששכן באזור (שבט המסצ'וסט). הגבעה המדוברת היא רכס הגבעות הכחולות (Great Blue Hill) הנמצא מדרום לבוסטון, המהווה את הנקודה הגבוהה ביותר בסמוך לחוף וימש כנקודת ציון ליורדי ים ולשבטים המקומיים.
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </section>
+
+        </article>
+
+    </main>
+
+    <!-- כותרת תחתונה (Footer) -->
+    <footer class="bg-white dark:bg-darkBg border-t border-gray-200 dark:border-gray-800 py-8 mt-12">
+        <div class="max-w-7xl mx-auto px-4 text-center text-gray-500 dark:text-gray-400">
+            <p class="font-bold text-gray-700 dark:text-gray-300">נבנה על ידי ג'מיני ורם בעבור מחקר היסטורי ואטימולוגי.</p>
+            <p class="text-sm mt-2">מותאם אישית לקריאה נוחה על מסכי פרימיום (Samsung S25 Ultra).</p>
+        </div>
+    </footer>
+
+    <!-- JavaScript Base Logic -->
+    <script>
+        function toggleDarkMode() {
+            const htmlClasses = document.documentElement.classList;
+            if (htmlClasses.contains('dark')) {
+                htmlClasses.remove('dark');
+                localStorage.theme = 'light';
+            } else {
+                htmlClasses.add('dark');
+                localStorage.theme = 'dark';
+            }
+        }
+
+        if (localStorage.theme === 'dark' || (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+            document.documentElement.classList.add('dark');
+        } else {
+            document.documentElement.classList.remove('dark');
+        }
+    </script>
+</body>
+</html>
+
