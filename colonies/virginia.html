@@ -1,1 +1,340 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>וירג'יניה (1607) | המושבות האמריקאיות</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        darkBg: '#0f172a',
+                        darkCard: '#1e293b',
+                        gold: '#fbbf24',
+                    },
+                    fontFamily: {
+                        sans: ['system-ui', '-apple-system', 'Segoe UI', 'Roboto', 'Helvetica', 'Arial', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    <!-- Phosphor Icons -->
+    <script src="https://unpkg.com/@phosphor-icons/web"></script>
+    <style>
+        body { transition: background-color 0.3s ease, color 0.3s ease; }
+        .content-section { scroll-margin-top: 100px; }
+    </style>
+</head>
+<body class="bg-gray-50 text-gray-900 dark:bg-darkBg dark:text-gray-100 font-sans antialiased selection:bg-blue-200 dark:selection:bg-blue-900">
+
+    <!-- ניווט עליון (Header) -->
+    <header class="relative z-40 w-full bg-white dark:bg-darkBg border-b border-gray-200 dark:border-gray-800 shadow-sm">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between h-20">
+                <!-- כפתור חזרה -->
+                <a href="index.html" class="flex items-center gap-2 text-blue-600 dark:text-gold hover:text-blue-800 dark:hover:text-yellow-400 transition-colors touch-manipulation font-semibold bg-blue-50 dark:bg-gray-800 px-4 py-2 rounded-full">
+                    <i class="ph ph-arrow-right text-xl"></i>
+                    <span>חזרה לדף הבית</span>
+                </a>
+                
+                <!-- תפריט כפתורים -->
+                <div class="flex items-center gap-4">
+                    <button onclick="toggleDarkMode()" class="p-3 rounded-full bg-gray-200 dark:bg-gray-800 hover:bg-gray-300 dark:hover:bg-gray-700 transition-colors touch-manipulation" aria-label="החלף מצב תצוגה">
+                        <i class="ph ph-moon text-xl block dark:hidden"></i>
+                        <i class="ph ph-sun text-xl hidden dark:block text-gold"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <main class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+        
+        <!-- כותרת ראשית (Hero) -->
+        <div class="mb-12 text-center md:text-right">
+            <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-green-100 dark:bg-green-900/40 text-green-800 dark:text-green-300 text-sm font-semibold tracking-wide mb-4">
+                <i class="ph ph-calendar-blank"></i>
+                שנת הקמה: 1607
+            </div>
+            <h1 class="text-4xl md:text-5xl lg:text-6xl font-extrabold leading-tight text-gray-900 dark:text-white mb-6">
+                מושבת וירג'יניה
+            </h1>
+            <p class="text-xl text-gray-600 dark:text-gray-300 leading-relaxed">
+                ההתיישבות האנגלית הקבועה הראשונה בעולם החדש. סיפור אפי ורווי דם של הישרדות כנגד כל הסיכויים, אינטרסים כלכליים של אימפריה, מאבק בלתי פוסק באיתני הטבע ובמקומיים, והולדת הדמוקרטיה והעבדות באמריקה באותה שנה ממש.
+            </p>
+        </div>
+
+        <!-- תמונה ראשית -->
+        <div class="w-full h-64 md:h-96 rounded-3xl overflow-hidden mb-16 shadow-2xl relative border border-gray-200 dark:border-gray-800">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/c2/Jamestown_settlement_panorama.jpg/1200px-Jamestown_settlement_panorama.jpg" alt="" class="w-full h-full object-cover">
+            <div class="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/80 to-transparent p-4 text-white text-sm md:text-base text-center">
+                שחזור של מבצר ג'יימסטאון, ההתיישבות הראשונה בוירג'יניה (1607). המבצר נבנה בצורת משולש להגנה יעילה.
+            </div>
+        </div>
+
+        <article class="space-y-16">
+            
+            <!-- 1. שנות פעילות ויעדים -->
+            <section class="content-section bg-white dark:bg-darkCard p-8 rounded-3xl shadow-sm border border-gray-100 dark:border-gray-800">
+                <div class="flex items-center gap-3 mb-6">
+                    <div class="p-3 bg-blue-100 dark:bg-gray-800 rounded-2xl text-blue-600 dark:text-gold">
+                        <i class="ph ph-target text-3xl"></i>
+                    </div>
+                    <h2 class="text-3xl font-bold">1. שנות פעילות, הקמה ויעדים</h2>
+                </div>
+                <div class="text-lg text-gray-700 dark:text-gray-300 leading-relaxed space-y-4">
+                    <p><strong>שנת הקמה:</strong> מאי 1607.</p>
+                    <p><strong>ישות מקימה:</strong> "חברת וירג'יניה של לונדון" (Virginia Company of London) - חברת מניות משותפת שקיבלה צ'ארטר (זיכיון קולוניאלי) ישירות מהמלך ג'יימס הראשון באפריל 1606. בשנת 1624, לאחר סדרת אסונות כלכליים וצבאיים, ביטל המלך את הזיכיון והפך את וירג'יניה ל<strong>מושבת כתר (Royal Colony)</strong> בשליטה ישירה של המונרכיה.</p>
+                    <p><strong>היעדים המקוריים, כישלון הזהב וזמן ההרעבה:</strong> 
+                        המתיישבים הראשונים (104 במספר, רובם "ג'נטלמנים" שלא הורגלו בעבודת כפיים) נשלחו עם יעדים ברורים: למצוא זהב כפי שמצאו הספרדים, ולגלות נתיב מים לאסיה. החיפוש האובססיבי אחר זהב הוביל להזנחת החקלאות. כאשר סמית' עזב ב-1609, שקעה המושבה ל<strong>"זמן ההרעבה" (The Starving Time)</strong> של חורף 1609-1610. המתיישבים הכלואים במבצר על ידי האינדיאנים נאלצו לאכול את סוסיהם, כלביהם, חולדות, ואף התגלו עדויות ארכיאולוגיות מודרניות (סימני חיתוך על עצמות גולגולת של נערה בת 14) לקניבליזם של ממש בניסיון נואש לשרוד. 
+                    </p>
+                    <p><strong>התפנית הכלכלית ושנת 1619:</strong>
+                        המושבה ניצלה כלכלית ב-1612 כאשר ג'ון רולף הצליח להבריח ולטפח זרעי טבק מתוקים מסוג "אורינוקו" מאזור הקריביים. הטבק הפך ללהיט באירופה ול"זהב החום" של וירג'יניה. שנת 1619 הייתה שנת מפנה כפולה: מצד אחד, הוקם <strong>בית הנבחרים (House of Burgesses)</strong>, המוסד הדמוקרטי המחוקק הראשון באמריקה. מצד שני, באוגוסט של אותה שנה, עגנה ספינה פיראטית הולנדית והציעה סחר ב-20 אפריקאים מאנגולה. זהו התיעוד הראשון של הבאת עבדים אפריקאים לאמריקה הבריטית, אירוע שהתווה את עתידה הכלכלי והמוסרי של היבשת למאות שנים.
+                    </p>
+                </div>
+            </section>
+
+            <!-- 2. דמויות מפתח: סר וולטר ראלי -->
+            <section class="content-section bg-white dark:bg-darkCard p-8 rounded-3xl shadow-sm border border-gray-100 dark:border-gray-800 border-r-4 border-r-blue-500 dark:border-r-gold">
+                <div class="flex items-center gap-3 mb-6">
+                    <div class="p-3 bg-blue-100 dark:bg-gray-800 rounded-2xl text-blue-600 dark:text-gold">
+                        <i class="ph ph-crown text-3xl"></i>
+                    </div>
+                    <h2 class="text-3xl font-bold">2. מבשר ההתיישבות: סר וולטר ראלי</h2>
+                </div>
+                <div class="text-lg text-gray-700 dark:text-gray-300 leading-relaxed space-y-4">
+                    <p><strong>סר וולטר ראלי (Sir Walter Raleigh)</strong> - (1552–1618). איש אשכולות, מגלה ארצות, סופר ולוחם. ראלי מעולם לא ביקר אישית בצפון אמריקה, אך הוא האיש שחלם, מימן והגה את רעיון "וירג'יניה".</p>
+                    <p><strong>ילדות ורקע:</strong> נולד למשפחת אצולה כפרית, פרוטסטנטית באדיקות, במחוז דבון (Devon) שבאנגליה. בילדותו חווה משפחתו רדיפות קשות מצד המלכה מרי הקתולית ("מרי הדמומית"), אירועים שצרבו בו שנאה יוקדת לספרד (שהייתה מעוז הקתוליות באירופה).</p>
+                    <p><strong>אידאולוגיה והישגים:</strong> ראלי הפך לאחד ממאהביה וחביביה של המלכה אליזבת הראשונה. הוא האמין שעל אנגליה להקים בסיסים בצפון אמריקה כראש גשר נגד ההגמוניה הספרדית. ב-1584, קיבל מהמלכה זיכיון לחקור את אמריקה. הוא זה שהעניק לכל החוף המזרחי את השם "וירג'יניה". ראלי מימן את הקמת מושבת רואנוק ב-1587 ("המושבה האבודה"), וכישלונו סלל את הדרך להבנה שנדרשת חברת מניות ממוסדת (חברת לונדון) ולא מימון פרטי.</p>
+                    <p><strong>סופו הטראגי:</strong> לאחר מותה של המלכה אליזבת, ירש ג'יימס הראשון את הכתר. המלך ג'יימס שאף לשלום עם ספרד וראה בראלי (שהמשיך לשדוד ספינות ספרדיות) מטרד מסוכן. ראלי נכלא במצודת לונדון (Tower of London) במשך 13 שנים, שם כתב את ספרו "היסטוריה של העולם". ב-1618, לאחר ניסיון אחרון וכושל למצוא את העיר האגדית אל דוראדו בדרום אמריקה, הוצא ראלי להורג בעריפת ראש בצו המלך ג'יימס, בניסיון לפייס את שגריר ספרד הזועם.</p>
+                </div>
+            </section>
+
+            <!-- 3. רקע המייסדים: קפטן ג'ון סמית' -->
+            <section class="content-section bg-white dark:bg-darkCard p-8 rounded-3xl shadow-sm border border-gray-100 dark:border-gray-800 border-r-4 border-r-blue-500 dark:border-r-gold">
+                <div class="flex items-center gap-3 mb-6">
+                    <div class="p-3 bg-blue-100 dark:bg-gray-800 rounded-2xl text-blue-600 dark:text-gold">
+                        <i class="ph ph-sword text-3xl"></i>
+                    </div>
+                    <h2 class="text-3xl font-bold">3. דמויות מפתח: קפטן ג'ון סמית'</h2>
+                </div>
+                <div class="text-lg text-gray-700 dark:text-gray-300 leading-relaxed space-y-4">
+                    <p>
+                        <strong>קפטן ג'ון סמית' (1580–1631)</strong>. האיש שהציל את ג'יימסטאון מכיליון בשנותיה הראשונות, ומחבר הספר "היסטוריה כללית של וירג'יניה".
+                    </p>
+                    <p><strong>ילדות ותחילת הדרך:</strong> סמית' נולד בכפר אלפורד שבלינקולנשייר, אנגליה. אביו היה חוואי אריס. בגיל 16, לאחר מות אביו, יצא לים. הרקע "הנחות" שלו גרם לחיכוך מתמיד ומתנשא מצד האצילים במשלחת לג'יימסטאון, שבשלב מסוים אף כלאו אותו בספינה באשמת מרידה.</p>
+                    <p><strong>הישגים צבאיים לפני אמריקה:</strong> לחם בהולנד נגד הספרדים, ולאחר מכן שימש כשכיר חרב של צבא האימפריה הרומית הקדושה נגד העות'מאנים בטרנסילבניה (שם נטען שערף את ראשיהם של שלושה לוחמים טורקים בדו-קרב). ב-1602 נשבה בקרב, נמכר לעבדות בקרים, רצח את אדונו, ונמלט חזרה לאנגליה.</p>
+                    <p>
+                        <strong>מנהיגות בג'יימסטאון ומפות היסטוריות:</strong> כאשר סמית' תפס את ההנהגה, הוא הנהיג משמעת צבאית קשה: <em>"מי שלא יעבוד, לא יאכל"</em>. בנוסף להצלת המושבה מרעב, הישגו הגדול היה חקר יסודי של מפרץ צ'ספיק ונהר הג'יימס ב-1608. הוא שרטט מפות כה מדויקות של גופי המים וכפרי האינדיאנים, שהן שימשו את אנגליה במשך למעלה ממאה שנים.
+                    </p>
+                    <p><strong>הפציעה והעזיבה:</strong> בסתיו 1609, סמית' שכב בסירתו לאחר סיור, כאשר גיץ הצית את שק אבק השריפה שנשא על מותנו. הפיצוץ גרם לו לכוויות קשות וקרע בשר מגופו. כדי לכבות את האש הוא נאלץ לקפוץ לנהר הקפוא. הפציעה האנושה אילצה אותו להפליג מיד לאנגליה לקבלת טיפול רפואי. הוא מעולם לא חזר לוירג'יניה.</p>
+                </div>
+            </section>
+
+            <!-- 4. דמויות מפתח: פוקהונטס -->
+            <section class="content-section bg-white dark:bg-darkCard p-8 rounded-3xl shadow-sm border border-gray-100 dark:border-gray-800 border-r-4 border-r-blue-500 dark:border-r-gold">
+                <div class="flex items-center gap-3 mb-6">
+                    <div class="p-3 bg-blue-100 dark:bg-gray-800 rounded-2xl text-blue-600 dark:text-gold">
+                        <i class="ph ph-feather text-3xl"></i>
+                    </div>
+                    <h2 class="text-3xl font-bold">4. דמויות מפתח: פוקהונטס</h2>
+                </div>
+                <div class="text-lg text-gray-700 dark:text-gray-300 leading-relaxed space-y-4 mb-6">
+                    <p><strong>פוקהונטס (Pocahontas)</strong> - חיה בין השנים 1596 (בערך) ל-1617. הדמות הילידית המפורסמת ביותר בראשית ההיסטוריה האמריקאית, שחייה גישור בין שני העולמות.</p>
+                    <p><strong>ילדות ורקע:</strong> נולדה כבתו המועדפת של צ'יף פווהאטן (Wahunsenacawh), שליט עליון של אימפריה אינדיאנית רבת עוצמה ששלטה על כ-30 שבטים באזור וירג'יניה. היא גדלה כבת אצולה שבטית, למדה מסורות של לקטות ופוליטיקה, ונחשפה לאנגלים כנערה צעירה סביב גיל 11, אז נהגה להגיע למבצר ולהתריע בפני המתיישבים על תוכניותיו של אביה.</p>
+                    <p><strong>חטיפה, המרה ונישואין:</strong> ב-1613, במהלך מלחמת אנגליה-פווהאטן הראשונה, היא פותתה לעלות לספינה אנגלית ונחטפה על ידי קפטן ארגול, במטרה לשמש קלף מיקוח לשחרור שבויים אנגלים. במהלך השבי הממושך, היא הודרכה בדת הנוצרית, הוטבלה, וקיבלה את השם הבריטי "רבקה" (בהשראת רבקה אמנו התנ"כית, כאם לשתי אומות). באפריל 1614, היא נישאה ליזם הטבק ג'ון רולף (John Rolfe). מנישואים אלו נולד בנם היחיד, תומאס רולף. נישואין אלו הביאו ל"שלום פוקהונטס" - הפסקת אש בת מספר שנים שאיפשרה למושבה לפרוח.</p>
+                    <p><strong>המסע לאנגליה והסוף הטרגי:</strong> בשנת 1616, חברת וירג'יניה החליטה להשתמש בה כ"יחסי ציבור" כדי למשוך משקיעים. פוקהונטס, בעלה ובנה הפליגו ללונדון, שם הוצגה כ"ליידי רבקה, הנסיכה מווירג'יניה". היא זכתה לכבוד רב, השתתפה בנשפים בארמון, ואף הוצגה רשמית בפני המלך ג'יימס הראשון והמלכה אן. במרץ 1617, בעת שעמדו להפליג חזרה לוירג'יניה, חלתה פוקהונטס אנושות (כנראה מדלקת ריאות, שחפת או דיזנטריה) ומתה על ספינתם בעיירה גרייבסנד (Gravesend) באנגליה, והיא רק בת 21. היא קבורה שם עד היום.</p>
+                </div>
+                
+                <!-- אטימולוגיה של פוקהונטס -->
+                <h3 class="text-xl font-bold text-gray-900 dark:text-white mb-4 mt-8 flex items-center gap-2">
+                    <i class="ph ph-text-aa text-blue-600 dark:text-gold"></i>
+                    מחקר אטימולוגי של שמותיה
+                </h3>
+                <div class="overflow-x-auto">
+                    <table class="w-full text-right border-collapse">
+                        <thead>
+                            <tr class="bg-blue-50 dark:bg-gray-800 text-blue-900 dark:text-gold border-b-2 border-blue-200 dark:border-gray-700">
+                                <th class="p-4 font-bold rounded-tr-xl">שם / כינוי</th>
+                                <th class="p-4 font-bold">מקור לשוני</th>
+                                <th class="p-4 font-bold rounded-tl-xl">משמעות והסבר</th>
+                            </tr>
+                        </thead>
+                        <tbody class="text-gray-700 dark:text-gray-300">
+                            <tr class="border-b border-gray-100 dark:border-gray-800 hover:bg-gray-50 dark:hover:bg-gray-800/50 transition-colors">
+                                <td class="p-4 font-mono font-bold text-xl">Matoaka<br><span class="text-sm font-normal text-gray-500">(מאטואקה)</span></td>
+                                <td class="p-4">שפת הפווהאטן (משפחת שפות האלגונקווין)</td>
+                                <td class="p-4">
+                                    זהו היה שמה <strong>האמיתי והסודי</strong> שניתן לה בלידתה. משמעותו המילולית היא "פרח בין שני זרמים" או "שלג בהיר/נוצה לבנה". ההסתרת השם האמיתי מהאנגלים נועדה להגן עליה רוחנית מפני כישוף ומאגיה זרה של הלבנים.
+                                </td>
+                            </tr>
+                            <tr class="border-b border-gray-100 dark:border-gray-800 hover:bg-gray-50 dark:hover:bg-gray-800/50 transition-colors">
+                                <td class="p-4 font-mono font-bold text-xl">Pocahontas<br><span class="text-sm font-normal text-gray-500">(פוקהונטס)</span></td>
+                                <td class="p-4">שפת הפווהאטן</td>
+                                <td class="p-4">
+                                    זהו למעשה <strong>כינוי חיבה מילדות</strong>. הפירוש המקובל הוא "הילדה השובבה", "המשתעשעת", או "זו שמתנהגת בחוסר משמעת". הכינוי מעיד על אופייה הנמרץ כילדה סקרנית וחופשייה שהרבתה לשחק במחנה.
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </section>
+
+            <!-- 5. אידאולוגיה וסיבת ההקמה -->
+            <section class="content-section bg-white dark:bg-darkCard p-8 rounded-3xl shadow-sm border border-gray-100 dark:border-gray-800">
+                <div class="flex items-center gap-3 mb-6">
+                    <div class="p-3 bg-blue-100 dark:bg-gray-800 rounded-2xl text-blue-600 dark:text-gold">
+                        <i class="ph ph-scales text-3xl"></i>
+                    </div>
+                    <h2 class="text-3xl font-bold">5. אידאולוגיה וסיבת ההקמה הכללית</h2>
+                </div>
+                <div class="text-lg text-gray-700 dark:text-gray-300 leading-relaxed space-y-4">
+                    <p>
+                        בניגוד למושבות הצפוניות (כמו פלימות' ומסצ'וסטס) שהונעו מאידאולוגיה טהורה של חופש דת, האידאולוגיה מאחורי וירג'יניה הייתה ברובה הגדול <strong>גיאופוליטית וכלכלית-קפיטליסטית מובהקת.</strong>
+                    </p>
+                    <ul class="list-disc list-inside space-y-2 ml-4">
+                        <li><strong>כלכלה אימפריאלית (מרקנטיליזם):</strong> אנגליה רצתה חלק מעוגת העושר שצברה ספרד. חברת לונדון ראתה במושבה מפעל לעשיית רווחים, הספקת חומרי גלם הכרחיים (כמו עצים חסונים לבניית ספינות הצי המלכותי, זכוכית וברזל), ופתיחת שווקים חדשים.</li>
+                        <li><strong>מאזן כוחות צבאי:</strong> המושבה נועדה להוות בסיס קדמי אסטרטגי שימנע מהספרדים השתלטות על החוף המזרחי, וייצור "יתד" פרוטסטנטי באזור שנשלט קתולית על ידי אירופה הדרומית.</li>
+                        <li><strong>אידאולוגיה אזרחית (לאחר 1619):</strong> עם הקמת "בית הנבחרים", נוספה לראשונה אידאולוגיה של שלטון אזרחי משותף, בו למתיישבים (הגברים, הלבנים, בעלי האדמות) יש זכות להצביע ולקבוע חוקים מקומיים, מה שהניח את התשתית לרעיונות המהפכה האמריקאית מאה וחמישים שנים מאוחר יותר.</li>
+                    </ul>
+                </div>
+            </section>
+
+            <!-- 6. בחירת מיקום המושבה ונהר הג'יימס -->
+            <section class="content-section bg-white dark:bg-darkCard p-8 rounded-3xl shadow-sm border border-gray-100 dark:border-gray-800">
+                <div class="flex items-center gap-3 mb-6">
+                    <div class="p-3 bg-blue-100 dark:bg-gray-800 rounded-2xl text-blue-600 dark:text-gold">
+                        <i class="ph ph-map-pin text-3xl"></i>
+                    </div>
+                    <h2 class="text-3xl font-bold">6. גיאוגרפיה: נהר הג'יימס ובחירת המיקום</h2>
+                </div>
+                
+                <!-- תת סעיף א: נהר הג'יימס -->
+                <div class="mb-10">
+                    <h3 class="text-2xl font-bold text-blue-800 dark:text-blue-300 mb-4 border-b border-gray-200 dark:border-gray-700 pb-2">א. מערכת נהר הג'יימס (The James River)</h3>
+                    <div class="text-lg text-gray-700 dark:text-gray-300 leading-relaxed space-y-4">
+                        <p><strong>מידע הידרולוגי, עומק ואקולוגיה:</strong> נהר הג'יימס הוא הנהר הגדול ביותר בוירג'יניה (אורכו 560 ק"מ). אגן הניקוז שלו עצום. מבחינה הידרולוגית (Bathymetry), אזור שפך הנהר אליו הגיעו האנגלים, ובמיוחד ליד האי ג'יימסטאון, מתאפיין בבורות עומק טבעיים שהגיעו עד ל-<strong>6 פאתום (כ-11 מטרים) עומק ממש בקו הגדה.</strong> בנוסף, הנהר שפע באותם ימים בדגי <strong>חדקן אטלנטי (Atlantic Sturgeon)</strong> – דגי ענק ששקלו מאות קילוגרמים. בחודשי האביב הם עלו בנהר להטיל ביצים והיוו מקור חלבון קריטי שהציל את המתיישבים מרעב בשנתיים הראשונות.</p>
+                        
+                        <p><strong>חשיבות אסטרטגית והיסטורית:</strong> הנהר היה העורק הראשי. העומק הנדיר של 11 מטרים איפשר לגליאונים האוקייניים האנגליים הכבדים (ששוקע המים שלהם עמוק) להיצמד ישירות ליבשה ולקשור את הספינה לעצים, מבלי להזדקק לסירות קטנות לפריקה. בהמשך, כשכלכלת הטבק שגשגה, נבנו האחוזות הגדולות בדיוק על גדות הג'יימס, כך שניתן היה להטעין את החביות למסחר בינלאומי ללא מערכת כבישים.</p>
+                        
+                        <!-- אטימולוגיה של הנהר -->
+                        <div class="mt-6 bg-gray-50 dark:bg-gray-800/50 p-6 rounded-2xl border border-gray-100 dark:border-gray-700">
+                            <h4 class="text-xl font-bold mb-4 flex items-center gap-2 text-gray-900 dark:text-white">
+                                <i class="ph ph-text-aa text-blue-600 dark:text-gold"></i> מחקר אטימולוגי של נהר הג'יימס
+                            </h4>
+                            <ul class="space-y-4 text-gray-700 dark:text-gray-300">
+                                <li>
+                                    <strong class="text-blue-800 dark:text-blue-300 font-mono text-lg">Powhatan River (שם מקורי):</strong> 
+                                    כינוי ילידי על שם הקונפדרציה. משמעות השם בשפתם היא "ליד המפלים" או "מעבר המים העצום", המייצג את קו המפלים בו הנהר יורד באשדות.
+                                </li>
+                                <li>
+                                    <strong class="text-blue-800 dark:text-blue-300 font-mono text-lg">James River (שם אנגלי):</strong> 
+                                    נקרא על ידי משלחת ניופורט במאי 1607, מיד עם כניסתם לאזור, כאות כנעה ולכבודו של <strong>ג'יימס הראשון, מלך אנגליה</strong> (והמלך ג'יימס השישי של סקוטלנד), מחלק הזיכיונות הקולוניאליים.
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- תת סעיף ב: בחירת המיקום -->
+                <div>
+                    <h3 class="text-2xl font-bold text-blue-800 dark:text-blue-300 mb-4 border-b border-gray-200 dark:border-gray-700 pb-2">ב. מדוע נבחר אי ג'יימסטאון?</h3>
+                    <div class="text-lg text-gray-700 dark:text-gray-300 leading-relaxed space-y-4">
+                        <p>ההחלטה להתיישב על האי, כמאה קילומטרים אל תוך היבשת, נבעה משלושה שיקולים טקטיים, אך התבררה כאסון טבע:</p>
+                        <ul class="list-disc list-inside space-y-2 ml-4 mb-4">
+                            <li><strong>הסוואה מהארמדה הספרדית:</strong> האנגלים היו משוכנעים שהצי הספרדי רודף אחריהם. העומק במעלה הנהר הסתיר את התורנים שלהם מעיני ספינות פטרול בים הפתוח.</li>
+                            <li><strong>עגינה צמודת חוף:</strong> כאמור, העומק יוצא הדופן (6 פאתום) צמוד לחוף איפשר עבודה קלה.</li>
+                            <li><strong>הגנה מקומית מוחלטת:</strong> האי חובר ליבשה במצר בוץ דק, כך שהיה קל לבנות ביצורים ולמנוע פשיטת רגלים פתאומית של לוחמי הפווהאטן.</li>
+                        </ul>
+                        <p><strong>האסון האקולוגי (The Ecological Disaster):</strong> היתרונות הצבאיים לא פיצו על הגיאוגרפיה הבוגדנית. האי היה אזור ביצתי (Swamp) נמוך, שהיווה חממה אידיאלית ליתושי אנופלס מעבירי מחלות קטלניות כמו מלריה וקדחת צהובה. בנוסף, בשל הגאות והמיעוט בגשמי הקיץ, מי הים המלוחים ממפרץ צ'ספיק עלו בנהר הג'יימס מעבר לאי, ויצרו תופעה שבה הנהר לא התנקז. מי השתייה ומי הפסולת (ביוב) נלכדו סביב האי במים עכורים, דבר שהוביל למגפות של דיזנטריה וטיפוס בקרב המתיישבים, והפך את המקום למלכודת מוות.</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- 7. מחקר אטימולוגי מפורט של וירג'יניה -->
+            <section class="content-section bg-white dark:bg-darkCard p-8 rounded-3xl shadow-sm border border-gray-100 dark:border-gray-800">
+                <div class="flex items-center gap-3 mb-6">
+                    <div class="p-3 bg-blue-100 dark:bg-gray-800 rounded-2xl text-blue-600 dark:text-gold">
+                        <i class="ph ph-text-aa text-3xl"></i>
+                    </div>
+                    <h2 class="text-3xl font-bold">7. מחקר אטימולוגי: המושבה Virginia</h2>
+                </div>
+                
+                <div class="overflow-x-auto mt-6">
+                    <table class="w-full text-right border-collapse">
+                        <thead>
+                            <tr class="bg-blue-50 dark:bg-gray-800 text-blue-900 dark:text-gold border-b-2 border-blue-200 dark:border-gray-700">
+                                <th class="p-4 font-bold rounded-tr-xl">מרכיב בשם</th>
+                                <th class="p-4 font-bold">מקור לשוני</th>
+                                <th class="p-4 font-bold rounded-tl-xl">משמעות והקשר היסטורי</th>
+                            </tr>
+                        </thead>
+                        <tbody class="text-gray-700 dark:text-gray-300">
+                            <tr class="border-b border-gray-100 dark:border-gray-800 hover:bg-gray-50 dark:hover:bg-gray-800/50 transition-colors">
+                                <td class="p-4 font-mono font-bold text-xl">Virgin</td>
+                                <td class="p-4">לטינית: <em>virgo</em> (בתולה / עלמה טהורה)</td>
+                                <td class="p-4">
+                                    מתייחס באופן ישיר ובלעדי למלכה <strong>אליזבת הראשונה</strong> מאנגליה, אשר נודעה בכינויה ההיסטורי והפוליטי "המלכה הבתולה" (The Virgin Queen) מכיוון שסירבה בעקשנות להינשא ולהכפיף את אנגליה למלך זר, בטענה שהיא נשואה לעמה.
+                                </td>
+                            </tr>
+                            <tr class="border-b border-gray-100 dark:border-gray-800 hover:bg-gray-50 dark:hover:bg-gray-800/50 transition-colors">
+                                <td class="p-4 font-mono font-bold text-xl">-ia</td>
+                                <td class="p-4">סיומת לטינית ויוונית עתיקה</td>
+                                <td class="p-4">
+                                    סיומת גיאוגרפית קלאסית המשמשת לציון טריטוריה רחבה או להורות על "הארץ של-". נפוצה מאוד באנגלית ובמתן שמות למקומות חדשים (כגון אוסטרל-יה, קולומב-יה, פנסילבנ-יה).
+                                </td>
+                            </tr>
+                            <tr class="bg-blue-50/50 dark:bg-gray-800/30">
+                                <td class="p-4 font-bold text-blue-800 dark:text-blue-300">הלחם משמעויות</td>
+                                <td colspan="2" class="p-4 text-lg font-semibold text-gray-900 dark:text-white">
+                                    <strong>"ארץ הבתולה"</strong> או "הארץ של המלכה הבתולה". השם ניתן לראשונה על ידי סר וולטר ראלי בשנת 1584, לאחר חזרת משלחת הסיור הראשונה שלו, כדי להפגין נאמנות מוחלטת למלכתו ולהעניק לה, כביכול, עולם חדש וטהור לשלוט בו.
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </section>
+
+        </article>
+
+    </main>
+
+    <!-- כותרת תחתונה (Footer) -->
+    <footer class="bg-white dark:bg-darkBg border-t border-gray-200 dark:border-gray-800 py-8 mt-12">
+        <div class="max-w-7xl mx-auto px-4 text-center text-gray-500 dark:text-gray-400">
+            <p class="font-bold text-gray-700 dark:text-gray-300">נבנה על ידי ג'מיני ורם בעבור מחקר היסטורי ואטימולוגי.</p>
+            <p class="text-sm mt-2">מותאם אישית לקריאה נוחה על מסכי פרימיום (Samsung S25 Ultra).</p>
+        </div>
+    </footer>
+
+    <!-- JavaScript Base Logic -->
+    <script>
+        // ניהול מצב כהה (Dark Mode)
+        function toggleDarkMode() {
+            const htmlClasses = document.documentElement.classList;
+            if (htmlClasses.contains('dark')) {
+                htmlClasses.remove('dark');
+                localStorage.theme = 'light';
+            } else {
+                htmlClasses.add('dark');
+                localStorage.theme = 'dark';
+            }
+        }
+
+        // בדיקת העדפת משתמש בטעינה הראשונית (סנכרון עם שאר האתר)
+        if (localStorage.theme === 'dark' || (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+            document.documentElement.classList.add('dark');
+        } else {
+            document.documentElement.classList.remove('dark');
+        }
+    </script>
+</body>
+</html>
+
+
 
