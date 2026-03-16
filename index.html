@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>המושבות האמריקאיות | היסטוריה ואטימולוגיה</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        darkBg: '#0f172a',
+                        darkCard: '#1e293b',
+                        gold: '#fbbf24',
+                    },
+                    fontFamily: {
+                        sans: ['system-ui', '-apple-system', 'Segoe UI', 'Roboto', 'Helvetica', 'Arial', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    <!-- Phosphor Icons -->
+    <script src="https://unpkg.com/@phosphor-icons/web"></script>
+    <style>
+        /* מעברים חלקים למצב כהה */
+        body { transition: background-color 0.3s ease, color 0.3s ease; }
+        .card-hover { transition: transform 0.2s ease, box-shadow 0.2s ease; }
+        .card-hover:hover { transform: translateY(-5px); }
+    </style>
+</head>
+<body class="bg-gray-50 text-gray-900 dark:bg-darkBg dark:text-gray-100 font-sans antialiased selection:bg-blue-200 dark:selection:bg-blue-900">
+
+    <!-- ניווט עליון (Header) - עודכן לתצוגה רגילה ולא נדבקת -->
+    <header class="relative z-40 w-full bg-white dark:bg-darkBg border-b border-gray-200 dark:border-gray-800 shadow-sm">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between h-20">
+                <!-- לוגו / כותרת -->
+                <div class="flex items-center gap-3">
+                    <i class="ph ph-compass-rose text-4xl text-blue-600 dark:text-gold"></i>
+                    <h1 class="text-2xl font-bold tracking-tight">אמריקה הבריטית</h1>
+                </div>
+                
+                <!-- תפריט כפתורים -->
+                <div class="flex items-center gap-4">
+                    <button onclick="openModal()" class="px-5 py-2.5 rounded-full bg-blue-100 dark:bg-blue-900/50 text-blue-700 dark:text-blue-300 font-medium hover:bg-blue-200 dark:hover:bg-blue-800 transition-colors flex items-center gap-2 touch-manipulation">
+                        <i class="ph ph-info text-xl"></i>
+                        <span>אודות הפרויקט</span>
+                    </button>
+                    <button onclick="toggleDarkMode()" class="p-3 rounded-full bg-gray-200 dark:bg-gray-800 hover:bg-gray-300 dark:hover:bg-gray-700 transition-colors touch-manipulation" aria-label="החלף מצב תצוגה">
+                        <i class="ph ph-moon text-xl block dark:hidden"></i>
+                        <i class="ph ph-sun text-xl hidden dark:block text-gold"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+        
+        <!-- מקטע מבוא (Hero & Introduction) -->
+        <section class="mb-20 text-center md:text-right flex flex-col md:flex-row gap-10 items-center">
+            <div class="md:w-2/3 space-y-6">
+                <div class="inline-block px-4 py-1.5 rounded-full bg-blue-100 dark:bg-blue-900/40 text-blue-800 dark:text-blue-300 text-sm font-semibold tracking-wide mb-2">
+                    1607 - 1732
+                </div>
+                <h2 class="text-4xl md:text-5xl lg:text-6xl font-extrabold leading-tight text-gray-900 dark:text-white">
+                    לידתה של אומה: <br>
+                    <span class="text-transparent bg-clip-text bg-gradient-to-l from-blue-600 to-indigo-500 dark:from-gold dark:to-yellow-300">
+                        13 המושבות ופליימות'
+                    </span>
+                </h2>
+                <p class="text-lg md:text-xl text-gray-600 dark:text-gray-300 leading-relaxed max-w-3xl">
+                    פרויקט מחקרי זה צולל אל שורשיה של ההתיישבות הבריטית בצפון אמריקה. החל מהקמתה של ג'יימסטאון בווירג'יניה ב-1607, דרך מסעם ההיסטורי של האבות העולים לפליימות', ועד לייסודה של ג'ורג'יה ב-1732. אנו מנתחים כאן לא רק את העובדות ההיסטוריות ואת האידאולוגיה שמאחורי כל מושבה, אלא מתעמקים <strong>באטימולוגיה המלאה</strong> של שמותיהן – פירוק השמות למרכיביהם המקוריים, בין אם מדובר בשפות ילידיות, לטינית, או מורשת אצולה בריטית.
+                </p>
+                <div class="pt-4 flex flex-wrap gap-4 justify-center md:justify-start">
+                    <a href="#colonies-grid" class="px-8 py-3.5 rounded-full bg-blue-600 hover:bg-blue-700 text-white font-semibold transition-colors shadow-lg shadow-blue-500/30 flex items-center gap-2">
+                        <span>חקור את המושבות</span>
+                        <i class="ph ph-arrow-down"></i>
+                    </a>
+                    <a href="#timeline" class="px-8 py-3.5 rounded-full bg-white dark:bg-darkCard border-2 border-gray-200 dark:border-gray-700 hover:border-blue-500 dark:hover:border-gold font-semibold transition-colors flex items-center gap-2">
+                        <span>ציר הזמן ההיסטורי</span>
+                        <i class="ph ph-clock-counter-clockwise"></i>
+                    </a>
+                </div>
+            </div>
+            <div class="md:w-1/3 relative w-full aspect-square max-w-md mx-auto">
+                <div class="absolute inset-0 bg-gradient-to-tr from-blue-500/20 to-transparent dark:from-gold/20 rounded-3xl transform rotate-3 scale-105"></div>
+                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/1/1d/Map_of_territorial_growth_1775.svg/800px-Map_of_territorial_growth_1775.svg.png" alt="" class="rounded-3xl shadow-2xl relative z-10 object-cover w-full h-full border border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-800 p-2" onerror="this.src='data:image/svg+xml;utf8,<svg xmlns=\'http://www.w3.org/2000/svg\' width=\'100%\' height=\'100%\' viewBox=\'0 0 100 100\'><rect width=\'100\' height=\'100\' fill=\'%23eee\'/><text x=\'50\' y=\'50\' font-family=\'Arial\' font-size=\'10\' text-anchor=\'middle\' alignment-baseline=\'middle\'>Map Placeholder</text></svg>'">
+            </div>
+        </section>
+
+        <hr class="border-gray-200 dark:border-gray-800 my-16">
+
+        <!-- רשת המושבות (The Grid) -->
+        <section id="colonies-grid" class="scroll-mt-24 mb-24">
+            <div class="flex items-center gap-3 mb-10">
+                <i class="ph ph-books text-3xl text-blue-600 dark:text-gold"></i>
+                <h3 class="text-3xl font-bold">המושבות (ממוין כרונולוגית)</h3>
+            </div>
+            
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
+                <!-- כרטיסיות המושבות ייוצרו כאן דינמית על ידי JS לשמירה על קוד נקי, אבל נדגים אחד כ-HTML -->
+            </div>
+        </section>
+
+        <!-- ציר זמן (Timeline) -->
+        <section id="timeline" class="scroll-mt-24 mb-16 max-w-4xl mx-auto bg-white dark:bg-darkCard p-8 rounded-3xl shadow-sm border border-gray-100 dark:border-gray-800">
+            <div class="flex items-center justify-center gap-3 mb-12">
+                <i class="ph ph-hourglass-high text-3xl text-blue-600 dark:text-gold"></i>
+                <h3 class="text-3xl font-bold text-center">ציר זמן הקמת המושבות</h3>
+            </div>
+            
+            <div class="relative border-r-4 border-blue-200 dark:border-gray-700 pr-8 ml-4 md:pr-12 space-y-10" id="timeline-container">
+                <!-- ציר הזמן יאוכלס על ידי JS -->
+            </div>
+        </section>
+
+    </main>
+
+    <!-- חלון צף אודות (Modal) -->
+    <div id="aboutModal" class="fixed inset-0 z-50 hidden" aria-labelledby="modal-title" role="dialog" aria-modal="true">
+        <!-- רקע מטושטש -->
+        <div class="fixed inset-0 bg-gray-900/60 backdrop-blur-sm transition-opacity" onclick="closeModal()"></div>
+        
+        <div class="fixed inset-0 z-10 overflow-y-auto">
+            <div class="flex min-h-full items-center justify-center p-4 text-center sm:p-0">
+                <!-- תוכן המודאל -->
+                <div class="relative transform overflow-hidden rounded-3xl bg-white dark:bg-darkCard text-right shadow-2xl transition-all sm:my-8 sm:w-full sm:max-w-2xl border border-gray-200 dark:border-gray-700">
+                    <div class="absolute top-0 left-0 pt-4 pl-4">
+                        <button onclick="closeModal()" type="button" class="rounded-full bg-gray-100 dark:bg-gray-800 p-2 text-gray-400 hover:text-gray-500 dark:hover:text-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-500 touch-manipulation">
+                            <span class="sr-only">סגור</span>
+                            <i class="ph ph-x text-xl"></i>
+                        </button>
+                    </div>
+                    
+                    <div class="px-6 pb-6 pt-10 sm:px-10 sm:pb-10">
+                        <div class="sm:flex sm:items-start flex-col">
+                            <!-- תמונה בחלון הצף -->
+                            <div class="w-full mb-6 rounded-2xl overflow-hidden h-64 relative bg-gray-200 dark:bg-gray-800">
+                                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/6b/Washington_Crossing_the_Delaware_by_Emanuel_Leutze%2C_MMA-NYC%2C_1851.jpg/800px-Washington_Crossing_the_Delaware_by_Emanuel_Leutze%2C_MMA-NYC%2C_1851.jpg" alt="" class="w-full h-full object-cover">
+                            </div>
+                            
+                            <div class="mt-3 text-right w-full">
+                                <h3 class="text-2xl font-bold leading-6 text-gray-900 dark:text-white mb-4" id="modal-title">אודות הפרויקט המחקרי</h3>
+                                <div class="mt-2 space-y-4 text-gray-600 dark:text-gray-300 text-lg leading-relaxed">
+                                    <p>
+                                        ברוכים הבאים למאגר המידע המקיף על 13 המושבות הבריטיות ומושבת פליימות'. פרויקט זה נוצר מתוך אהבה להיסטוריה ולחקר השפות.
+                                    </p>
+                                    <p>
+                                        <strong>מטרת הפרויקט:</strong> להעניק מבט מעמיק שאינו מסתפק בתאריכים יבשים. כל דף מושבה באתר מציג מחקר אטימולוגי מלא, המפרק את שמות המושבות לגורמים - מתחיליות וסיומות לטיניות, דרך שמות של אישים בריטיים, ועד למונחים בשפות של השבטים הילידיים (כגון האלגונקווין והמוהיקן).
+                                    </p>
+                                    <p>
+                                        האתר נבנה תוך שימוש בטכנולוגיות הרשת המתקדמות ביותר, עבר אופטימיזציה קפדנית לחוויית קריאה על מסכי פרימיום ניידים (כגון Samsung S25 Ultra), וכולל תמיכה מלאה ונוחה במצב קריאה כהה (Dark Mode).
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="bg-gray-50 dark:bg-gray-800/50 px-4 py-4 sm:flex sm:flex-row-reverse sm:px-6 border-t border-gray-200 dark:border-gray-700">
+                        <button type="button" onclick="closeModal()" class="inline-flex w-full justify-center rounded-xl bg-blue-600 px-6 py-3 text-base font-semibold text-white shadow-sm hover:bg-blue-700 sm:ml-3 sm:w-auto touch-manipulation">הבנתי, בואו נתחיל</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- כותרת תחתונה (Footer) -->
+    <footer class="bg-white dark:bg-darkBg border-t border-gray-200 dark:border-gray-800 py-8 mt-12">
+        <div class="max-w-7xl mx-auto px-4 text-center text-gray-500 dark:text-gray-400">
+            <p>נוצר בעבור מחקר היסטורי ואטימולוגי. מותאם במיוחד למסכי Samsung S25 Ultra.</p>
+        </div>
+    </footer>
+
+    <!-- JavaScript Base Logic -->
+    <script>
+        // נתוני 14 המושבות (כולל פליימות') ליצירת הגריד וציר הזמן
+        const coloniesData = [
+            { name: "וירג'יניה", year: 1607, eng: "Virginia", icon: "plant", desc: "המושבה האנגלית הקבועה הראשונה." },
+            { name: "פליימות'", year: 1620, eng: "Plymouth", icon: "anchor", desc: "מושבת האבות העולים והמייפלאואר." },
+            { name: "מסצ'וסטס", year: 1620, eng: "Massachusetts", icon: "church", desc: "הוקמה על ידי הפוריטנים לחופש דת." },
+            { name: "ניו המפשייר", year: 1623, eng: "New Hampshire", icon: "fish", desc: "הוקמה ככפר דייגים ומרכז סחר." },
+            { name: "מרילנד", year: 1632, eng: "Maryland", icon: "cross", desc: "הוקמה כמקלט בטוח לקתולים." },
+            { name: "קונטיקט", year: 1636, eng: "Connecticut", icon: "waves", desc: "הוקמה סביב 'הנהר הארוך של הגאות'." },
+            { name: "רוד איילנד", year: 1636, eng: "Rhode Island", icon: "scales", desc: "נוסדה מתוך רעיון הפרדת דת ומדינה." },
+            { name: "דלאוור", year: 1638, eng: "Delaware", icon: "handshake", desc: "התיישבות שוודית והולנדית מוקדמת." },
+            { name: "קרוליינה הצפונית", year: 1663, eng: "North Carolina", icon: "tree", desc: "הוקמה עבור חקלאות ומשאבי טבע." },
+            { name: "קרוליינה הדרומית", year: 1663, eng: "South Carolina", icon: "sun-horizon", desc: "מרכז כלכלי של מטעים ומסחר." },
+            { name: "ניו ג'רזי", year: 1664, eng: "New Jersey", icon: "farm", desc: "הוענקה לאצילים תמורת נאמנות לכתר." },
+            { name: "ניו יורק", year: 1664, eng: "New York", icon: "buildings", desc: "נכבשה מההולנדים למטרות אסטרטגיות." },
+            { name: "פנסילבניה", year: 1681, eng: "Pennsylvania", icon: "leaf", desc: "מושבת הקווייקרים שדגלה בסובלנות." },
+            { name: "ג'ורג'יה", year: 1732, eng: "Georgia", icon: "shield-check", desc: "אזור חיץ צבאי ומקלט לאסירים לשעבר." }
+        ];
+
+        // פונקציה לייצור כרטיסיות המושבות
+        function renderColoniesGrid() {
+            const grid = document.querySelector('.grid');
+            let html = '';
+            
+            coloniesData.forEach((colony, index) => {
+                const fileName = colony.eng.toLowerCase().replace(' ', '_') + '.html';
+                
+                html += `
+                <a href="${fileName}" class="card-hover block bg-white dark:bg-darkCard rounded-3xl p-6 border border-gray-100 dark:border-gray-800 shadow-sm hover:shadow-xl hover:border-blue-300 dark:hover:border-gold/50 group">
+                    <div class="flex justify-between items-start mb-4">
+                        <div class="p-3 bg-blue-50 dark:bg-gray-800 rounded-2xl text-blue-600 dark:text-gold group-hover:bg-blue-600 group-hover:text-white dark:group-hover:bg-gold dark:group-hover:text-darkBg transition-colors">
+                            <i class="ph ph-${colony.icon} text-3xl"></i>
+                        </div>
+                        <span class="text-sm font-bold text-gray-400 dark:text-gray-500 bg-gray-100 dark:bg-gray-800/50 px-3 py-1 rounded-full">${colony.year}</span>
+                    </div>
+                    <h4 class="text-2xl font-bold text-gray-900 dark:text-white mb-1">${colony.name}</h4>
+                    <p class="text-xs text-gray-400 dark:text-gray-500 font-mono mb-3 uppercase tracking-wider">${colony.eng}</p>
+                    <p class="text-gray-600 dark:text-gray-400 text-sm leading-relaxed">${colony.desc}</p>
+                    <div class="mt-5 flex items-center text-blue-600 dark:text-gold text-sm font-semibold gap-1 opacity-80 group-hover:opacity-100 group-hover:gap-2 transition-all">
+                        <span>למחקר המלא</span>
+                        <i class="ph ph-arrow-left"></i>
+                    </div>
+                </a>
+                `;
+            });
+            grid.innerHTML = html;
+        }
+
+        // פונקציה לייצור ציר הזמן
+        function renderTimeline() {
+            const container = document.getElementById('timeline-container');
+            let html = '';
+            
+            coloniesData.forEach((colony) => {
+                const fileName = colony.eng.toLowerCase().replace(' ', '_') + '.html';
+                html += `
+                <div class="relative group">
+                    <!-- נקודת הציון על הציר -->
+                    <div class="absolute -right-[41px] md:-right-[57px] top-1.5 w-5 h-5 rounded-full bg-white dark:bg-darkBg border-4 border-blue-500 dark:border-gold group-hover:scale-125 transition-transform z-10 shadow-sm"></div>
+                    
+                    <div class="bg-gray-50 dark:bg-gray-800/50 rounded-2xl p-5 hover:bg-blue-50 dark:hover:bg-gray-800 transition-colors border border-transparent hover:border-blue-100 dark:hover:border-gray-700">
+                        <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-2 mb-2">
+                            <div class="flex items-center gap-3">
+                                <span class="text-xl md:text-2xl font-black text-blue-600 dark:text-gold w-16">${colony.year}</span>
+                                <h4 class="text-xl font-bold text-gray-900 dark:text-white">${colony.name}</h4>
+                            </div>
+                            <a href="${fileName}" class="text-sm bg-white dark:bg-darkCard px-4 py-1.5 rounded-full border border-gray-200 dark:border-gray-700 hover:bg-gray-100 dark:hover:bg-gray-700 transition-colors w-fit">קרא עוד</a>
+                        </div>
+                        <p class="text-gray-600 dark:text-gray-400 pr-0 sm:pr-16 md:pr-19">${colony.desc}</p>
+                    </div>
+                </div>
+                `;
+            });
+            container.innerHTML = html;
+        }
+
+        // ניהול מצב כהה (Dark Mode)
+        function toggleDarkMode() {
+            const htmlClasses = document.documentElement.classList;
+            if (htmlClasses.contains('dark')) {
+                htmlClasses.remove('dark');
+                localStorage.theme = 'light';
+            } else {
+                htmlClasses.add('dark');
+                localStorage.theme = 'dark';
+            }
+        }
+
+        // בדיקת העדפת משתמש בטעינה הראשונית
+        if (localStorage.theme === 'dark' || (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+            document.documentElement.classList.add('dark');
+        } else {
+            document.documentElement.classList.remove('dark');
+        }
+
+        // ניהול החלון הצף (Modal)
+        const modal = document.getElementById('aboutModal');
+        
+        function openModal() {
+            modal.classList.remove('hidden');
+            // מניעת גלילת הרקע
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeModal() {
+            modal.classList.add('hidden');
+            // החזרת גלילת הרקע
+            document.body.style.overflow = 'auto';
+        }
+
+        // הפעלת פונקציות הרינדור בטעינת הדף
+        document.addEventListener('DOMContentLoaded', () => {
+            renderColoniesGrid();
+            renderTimeline();
+        });
+    </script>
+</body>
+</html>
