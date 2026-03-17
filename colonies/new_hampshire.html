@@ -4,7 +4,6 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ניו המפשייר (1623) | המושבות האמריקאיות</title>
-    <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
         tailwind.config = {
@@ -23,26 +22,24 @@
             }
         }
     </script>
-    <!-- Phosphor Icons -->
     <script src="https://unpkg.com/@phosphor-icons/web"></script>
     <style>
         body { transition: background-color 0.3s ease, color 0.3s ease; }
         .content-section { scroll-margin-top: 100px; }
+        /* מניעת גלילה כשהחלון הצף פתוח */
+        .modal-open { overflow: hidden; }
     </style>
 </head>
 <body class="bg-gray-50 text-gray-900 dark:bg-darkBg dark:text-gray-100 font-sans antialiased selection:bg-blue-200 dark:selection:bg-blue-900">
 
-    <!-- ניווט עליון (Header) -->
     <header class="relative z-40 w-full bg-white dark:bg-darkBg border-b border-gray-200 dark:border-gray-800 shadow-sm">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex items-center justify-between h-20">
-                <!-- כפתור חזרה (מעודכן לתיקיית colonies) -->
                 <a href="../index.html" class="flex items-center gap-2 text-blue-600 dark:text-gold hover:text-blue-800 dark:hover:text-yellow-400 transition-colors touch-manipulation font-semibold bg-blue-50 dark:bg-gray-800 px-4 py-2 rounded-full">
                     <i class="ph ph-arrow-right text-xl"></i>
                     <span>חזרה לדף הבית</span>
                 </a>
                 
-                <!-- תפריט כפתורים -->
                 <div class="flex items-center gap-4">
                     <button onclick="toggleDarkMode()" class="p-3 rounded-full bg-gray-200 dark:bg-gray-800 hover:bg-gray-300 dark:hover:bg-gray-700 transition-colors touch-manipulation" aria-label="החלף מצב תצוגה">
                         <i class="ph ph-moon text-xl block dark:hidden"></i>
@@ -55,7 +52,6 @@
 
     <main class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
         
-        <!-- כותרת ראשית (Hero) -->
         <div class="mb-12 text-center md:text-right">
             <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-green-100 dark:bg-green-900/40 text-green-800 dark:text-green-300 text-sm font-semibold tracking-wide mb-4">
                 <i class="ph ph-calendar-blank"></i>
@@ -69,17 +65,19 @@
             </p>
         </div>
 
-        <!-- תמונה ראשית -->
-        <div class="w-full h-64 md:h-96 rounded-3xl overflow-hidden mb-16 shadow-2xl relative border border-gray-200 dark:border-gray-800">
-            <img src="../images/new_hampshire_hero.jpg" alt="" class="w-full h-full object-cover">
-            <div class="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/80 to-transparent p-4 text-white text-sm md:text-base text-center">
+        <div class="w-full h-64 md:h-96 rounded-3xl overflow-hidden mb-16 shadow-2xl relative border border-gray-200 dark:border-gray-800 group cursor-pointer" onclick="openImageModal('../images/new_hampshire_hero.jpg', 'נמל פורטסמות\' (Portsmouth), מרכז הסחר והדיג הראשי של ניו המפשייר לאורך נהר הפיסקאטקווה.')">
+            <img src="../images/new_hampshire_hero.jpg" alt="נמל פורטסמות'" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700">
+            <div class="absolute inset-0 bg-black/20 group-hover:bg-transparent transition-colors duration-500"></div>
+            <div class="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/90 via-black/60 to-transparent p-6 text-white text-sm md:text-base text-center">
                 נמל פורטסמות' (Portsmouth), מרכז הסחר והדיג הראשי של ניו המפשייר לאורך נהר הפיסקאטקווה.
+                <div class="mt-2 text-xs text-gray-300 flex items-center justify-center gap-1 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                    <i class="ph ph-magnifying-glass-plus text-lg"></i> לחץ להגדלה
+                </div>
             </div>
         </div>
 
         <article class="space-y-16">
             
-            <!-- 1. שנות פעילות ויעדים -->
             <section class="content-section bg-white dark:bg-darkCard p-8 rounded-3xl shadow-sm border border-gray-100 dark:border-gray-800">
                 <div class="flex items-center gap-3 mb-6">
                     <div class="p-3 bg-blue-100 dark:bg-gray-800 rounded-2xl text-blue-600 dark:text-gold">
@@ -88,15 +86,14 @@
                     <h2 class="text-3xl font-bold">1. שנות פעילות, הקמה ויעדים</h2>
                 </div>
                 <div class="text-lg text-gray-700 dark:text-gray-300 leading-relaxed space-y-4">
-                    <p><strong>שנת הקמה:</strong> ההתיישבות הראשונה (Pannaway Plantation) הוקמה ב-1623. השם "ניו המפשייר" הופיע לראשונה במסמך הזיכיון של שנת 1629.</p>
-                    <p><strong>ישות מקימה:</strong> "מועצת ניו אינגלנד" (Council for New England) העניקה זיכיון לשטח הממוקם בין נהר המרימאק לנהר הפיסקאטקווה לשני יזמים בריטיים: סר פרדיננדו גורג'ס וקפטן ג'ון מייסון.</p>
+                    <p><strong>שנת הקמה:</strong> ההתיישבות הראשונה הוקמה ב-1623. השם "ניו המפשייר" הופיע לראשונה במסמך הזיכיון של שנת 1629.</p>
+                    <p><strong>ישות מקימה:</strong> "מועצת ניו אינגלנד" העניקה זיכיון לשטח הממוקם בין נהר המרימאק לנהר הפיסקאטקווה לשני יזמים בריטיים: סר פרדיננדו גורג'ס וקפטן ג'ון מייסון.</p>
                     <p><strong>היעדים המקוריים:</strong> 
                         בניגוד לרוב מושבות ניו אינגלנד, ניו המפשייר <strong>לא</strong> הוקמה מתוך רדיפה דתית או אידאולוגיה אוטופית. היא הוקמה מסיבות <strong>מסחריות טהורות</strong>. המטרה הייתה להקים כפרים רווחיים שיפיקו הון מתעשיית הדיג העשירה של צפון האוקיינוס האטלנטי, ומסחר בפרוות ובסחר עצים מול האינדיאנים.
                     </p>
                 </div>
             </section>
 
-            <!-- 2. דמויות מפתח -->
             <section class="content-section bg-white dark:bg-darkCard p-8 rounded-3xl shadow-sm border border-gray-100 dark:border-gray-800 border-r-4 border-r-blue-500 dark:border-r-gold">
                 <div class="flex items-center gap-3 mb-6">
                     <div class="p-3 bg-blue-100 dark:bg-gray-800 rounded-2xl text-blue-600 dark:text-gold">
@@ -106,22 +103,24 @@
                 </div>
                 
                 <div class="flex flex-col md:flex-row gap-8 items-start">
-                    <div class="md:w-1/3 shrink-0 w-full">
-                        <img src="../images/john_mason_portrait.jpg" alt="" class="w-full rounded-2xl shadow-md border border-gray-200 dark:border-gray-700 object-cover">
-                        <p class="text-sm text-gray-500 text-center mt-2">קפטן ג'ון מייסון, מייסד המושבה שמעולם לא זכה לבקר בה.</p>
+                    <div class="md:w-1/3 shrink-0 w-full group cursor-pointer relative rounded-2xl overflow-hidden shadow-md border border-gray-200 dark:border-gray-700" onclick="openImageModal('../images/john_mason_portrait.jpg', 'קפטן ג'ון מייסון, מייסד המושבה שמעולם לא זכה לבקר בה.')">
+                        <img src="../images/john_mason_portrait.jpg" alt="דיוקן קפטן ג'ון מייסון" class="w-full object-cover group-hover:scale-105 transition-transform duration-500">
+                        <div class="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
+                            <i class="ph ph-magnifying-glass-plus text-4xl text-white"></i>
+                        </div>
+                        <div class="absolute bottom-0 left-0 right-0 bg-black/70 p-2 text-xs text-white text-center">קפטן ג'ון מייסון</div>
                     </div>
                     
                     <div class="md:w-2/3 text-lg text-gray-700 dark:text-gray-300 leading-relaxed space-y-6">
                         <div>
                             <h3 class="text-2xl font-bold text-blue-800 dark:text-blue-300 mb-2">קפטן ג'ון מייסון (John Mason) (1586–1635)</h3>
                             <p><strong>רקע:</strong> מלח, מגלה ארצות ויזם אנגלי. לפני שקיבל את הזיכיון לניו המפשייר, הוא שימש כמושל החלקה הבריטית בניופאונדלנד (קנדה), שם למד את הפוטנציאל הכלכלי העצום של חופי צפון אמריקה.</p>
-                            <p class="mt-4"><strong>הישגים ופרדוקס אישי:</strong> מייסון חילק את הזיכיון של ניו אינגלנד עם שותפו סר פרדיננדו גורג'ס. גורג'ס לקח את החצי המזרחי (שהפך למיין), ומייסון לקח את החצי המערבי (ניו המפשייר). מייסון השקיע הון עצום מכיסו הפרטי בשליחת מתיישבים, ספינות, וציוד דיג למושבה החדשה. למרבה האירוניה והטרגדיה, <strong>הוא מת ב-1635 באנגליה מבלי שכף רגלו דרכה אי פעם באדמת ניו המפשייר</strong>. מותו המוקדם הותיר את המושבה ללא הנהגה ברורה, מה שפתח את הדלת להשתלטות של מסצ'וסטס.</p>
+                            <p class="mt-4"><strong>הישגים ופרדוקס אישי:</strong> מייסון חילק את הזיכיון של ניו אינגלנד עם שותפו סר פרדיננדו גורג'ס. גורג'ס לקח את החצי המזרחי (מיין), ומייסון לקח את החצי המערבי (ניו המפשייר). מייסון השקיע הון עצום מכיסו הפרטי בשליחת מתיישבים וציוד. למרבה האירוניה, <strong>הוא מת ב-1635 באנגליה מבלי שכף רגלו דרכה אי פעם באדמת ניו המפשייר</strong>. מותו המוקדם הותיר את המושבה ללא הנהגה, מה שפתח את הדלת להשתלטות מסצ'וסטס.</p>
                         </div>
                     </div>
                 </div>
             </section>
 
-            <!-- 3. אידאולוגיה וסיבת ההקמה -->
             <section class="content-section bg-white dark:bg-darkCard p-8 rounded-3xl shadow-sm border border-gray-100 dark:border-gray-800">
                 <div class="flex items-center gap-3 mb-6">
                     <div class="p-3 bg-blue-100 dark:bg-gray-800 rounded-2xl text-blue-600 dark:text-gold">
@@ -134,13 +133,12 @@
                         ניו המפשייר הייתה החריגה בנוף האידאולוגי הנוקשה של "ניו אינגלנד".
                     </p>
                     <ul class="list-disc list-inside space-y-4 ml-4">
-                        <li><strong>דת שנייה לפרנסה:</strong> המתיישבים הראשונים היו בעיקר אנגליקנים (חברי כנסיית אנגליה הממוסדת) או אנשים שהדת פשוט עניינה אותם פחות מפרנסה. הם באו "לתפוס דגים ולחטוב עצים", לא לנהל ויכוחים תיאולוגיים.</li>
-                        <li><strong>חוסר משמעת:</strong> בניגוד לשכניהם מדרום (במסצ'וסטס), לתושבי ניו המפשייר הייתה אידאולוגיה של עצמאות גסה. הם סירבו להכפיף את זכות ההצבעה שלהם לחברות בכנסייה מסוימת, וניהלו את עיירותיהם (כמו פורטסמות' ודובר) כמרכזים כלכליים פרגמטיים שבהם מסחר קדם למוסר.</li>
+                        <li><strong>דת שנייה לפרנסה:</strong> המתיישבים הראשונים היו בעיקר אנגליקנים או אנשים שהדת עניינה אותם פחות מפרנסה. הם באו "לתפוס דגים ולחטוב עצים", לא לנהל ויכוחים תיאולוגיים.</li>
+                        <li><strong>חוסר משמעת:</strong> בניגוד לשכניהם במסצ'וסטס, לתושבי ניו המפשייר הייתה אידאולוגיה של עצמאות גסה. הם סירבו להכפיף את זכות ההצבעה שלהם לחברות בכנסייה, וניהלו את עיירותיהם כמרכזים פרגמטיים.</li>
                     </ul>
                 </div>
             </section>
 
-            <!-- 4. גיאוגרפיה, הידרולוגיה ובחירת המיקום -->
             <section class="content-section bg-white dark:bg-darkCard p-8 rounded-3xl shadow-sm border border-gray-100 dark:border-gray-800">
                 <div class="flex items-center gap-3 mb-6">
                     <div class="p-3 bg-blue-100 dark:bg-gray-800 rounded-2xl text-blue-600 dark:text-gold">
@@ -150,15 +148,14 @@
                 </div>
                 
                 <div class="text-lg text-gray-700 dark:text-gray-300 leading-relaxed space-y-4">
-                    <p>הגיאוגרפיה של ניו המפשייר התאפיינה בחוף קצר אך אסטרטגי, ועורף הררי (ההרים הלבנים - White Mountains) מכוסה יערות עד.</p>
+                    <p>הגיאוגרפיה של ניו המפשייר התאפיינה בחוף קצר אך אסטרטגי, ועורף הררי מכוסה יערות עד.</p>
                     <ul class="list-disc list-inside space-y-4 ml-4">
-                        <li><strong>נהר הפיסקאטקווה (Piscataqua River):</strong> זהו הגבול הגיאוגרפי וההידרולוגי המפריד כיום בין ניו המפשייר למיין. הנהר מהיר, עמוק, ויש לו זרמי גאות ושפל (Tidal flow) חזקים מאוד. זרמים אלו מנעו מהנמל של פורטסמות' לקפוא לחלוטין גם בחורפים הקרים ביותר, מה שהפך אותו למיקום מושלם למספנות ולנמל מסחרי שפועל לאורך כל השנה.</li>
-                        <li><strong>אדמה סלעית:</strong> האדמה בניו המפשייר הייתה מסולעת ודקה בשל קרחונים קדומים, מה שמנע פיתוח של חקלאות רחבת היקף והכריח את המתיישבים לחפש רווחים במשאבים טבעיים אחרים.</li>
+                        <li><strong>נהר הפיסקאטקווה (Piscataqua River):</strong> נהר מהיר, עמוק, בעל זרמי גאות ושפל חזקים מאוד. זרמים אלו מנעו מנמל פורטסמות' לקפוא לחלוטין גם בחורפים הקרים, מה שהפך אותו למיקום מושלם למספנות הפועלות לאורך כל השנה.</li>
+                        <li><strong>אדמה סלעית:</strong> האדמה הייתה מסולעת ודקה בשל קרחונים קדומים, מה שמנע פיתוח של חקלאות רחבת היקף והכריח את המתיישבים לחפש רווחים במשאבים טבעיים אחרים.</li>
                     </ul>
                 </div>
             </section>
 
-            <!-- 5. הסחר והכלכלה -->
             <section class="content-section bg-white dark:bg-darkCard p-8 rounded-3xl shadow-sm border border-gray-100 dark:border-gray-800 border-r-4 border-r-green-500 dark:border-r-emerald-400">
                 <div class="flex items-center gap-3 mb-6">
                     <div class="p-3 bg-green-100 dark:bg-gray-800 rounded-2xl text-green-700 dark:text-emerald-400">
@@ -168,22 +165,24 @@
                 </div>
                 
                 <div class="flex flex-col md:flex-row-reverse gap-8 items-start">
-                    <div class="md:w-1/3 shrink-0 w-full">
-                        <img src="../images/broad_arrow_pine.jpg" alt="" class="w-full rounded-2xl shadow-md border border-gray-200 dark:border-gray-700 object-cover">
-                        <p class="text-sm text-gray-500 text-center mt-2">סימון "החץ הרחב" של המלך על עצי האורן הלבן.</p>
+                    <div class="md:w-1/3 shrink-0 w-full group cursor-pointer relative rounded-2xl overflow-hidden shadow-md border border-gray-200 dark:border-gray-700" onclick="openImageModal('../images/broad_arrow_pine.jpg', 'סימון החץ הרחב (Broad Arrow) של המלך על עצי האורן הלבן ביערות ניו המפשייר.')">
+                        <img src="../images/broad_arrow_pine.jpg" alt="סימון החץ הרחב" class="w-full object-cover group-hover:scale-105 transition-transform duration-500">
+                        <div class="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
+                            <i class="ph ph-magnifying-glass-plus text-4xl text-white"></i>
+                        </div>
+                        <div class="absolute bottom-0 left-0 right-0 bg-black/70 p-2 text-xs text-white text-center">עצי אורן הלבן</div>
                     </div>
                     
                     <div class="md:w-2/3 text-lg text-gray-700 dark:text-gray-300 leading-relaxed space-y-4">
                         <p>כלכלת ניו המפשייר התבססה על ניצול משאבי הטבע של הים והיער:</p>
                         <ul class="list-disc list-inside space-y-3 ml-4">
-                            <li><strong>תעשיית הדיג:</strong> המנוע הכלכלי הראשון. המתיישבים דגו כמויות אדירות של דגי בקלה (Cod), המליחו אותם, וייצאו אותם לאירופה ולאיי הודו המערבית כ"מזון זול" לעבדים במטעי הסוכר.</li>
-                            <li><strong>עצי האורן וסמל "החץ הרחב" (The Broad Arrow):</strong> הפוטנציאל הגדול ביותר שכב ביערות. עצי האורן הלבן המזרחי (Eastern White Pine) הענקיים והישרים היו המשאב המבוקש ביותר בעולם לבניית <strong>תרנים (Masts) לספינות</strong>. הצי המלכותי הבריטי היה תלוי בהם. הכתר חוקק חוקים ששמרו את כל העצים שקוטרם מעל 24 אינץ' כרכוש המלך, ופקחים סימנו אותם בגרזן בצורת "חץ רחב". מתיישבי ניו המפשייר, שרצו לכרות את העצים לרווחתם, התנגדו עמוקות לחוקים אלו והבריחו עצים, מה שזרע את זרעי המרד הרבה לפני מהפכת העצמאות.</li>
+                            <li><strong>תעשיית הדיג:</strong> המנוע הכלכלי הראשון. ייצוא דגי בקלה (Cod) מומלחים לאירופה ולאיי הודו המערבית.</li>
+                            <li><strong>עצי האורן וסמל "החץ הרחב" (Broad Arrow):</strong> עצי האורן הלבן המזרחי היו המשאב המבוקש ביותר בעולם לבניית <strong>תרנים (Masts) לספינות</strong>. הצי המלכותי הבריטי היה תלוי בהם לחלוטין. הכתר חוקק חוקים ששמרו את כל העצים הגדולים כרכוש המלך, ופקחים סימנו אותם בגרזן בצורת "חץ רחב". מתיישבי ניו המפשייר, שרצו לכרות את העצים לרווחתם, מרדו בחוקים אלו והבריחו עצים.</li>
                         </ul>
                     </div>
                 </div>
             </section>
 
-            <!-- 6. הדמוגרפיה והחברה -->
             <section class="content-section bg-white dark:bg-darkCard p-8 rounded-3xl shadow-sm border border-gray-100 dark:border-gray-800 border-r-4 border-r-green-500 dark:border-r-emerald-400">
                 <div class="flex items-center gap-3 mb-6">
                     <div class="p-3 bg-green-100 dark:bg-gray-800 rounded-2xl text-green-700 dark:text-emerald-400">
@@ -196,13 +195,12 @@
                         ניו המפשייר הייתה המושבה הקטנה והפחות מאוכלסת מבין מושבות ניו אינגלנד לאורך כל המאה ה-17:
                     </p>
                     <ul class="list-disc list-inside space-y-3 ml-4">
-                        <li><strong>אוכלוסיית גברים עובדים:</strong> בשנותיה הראשונות, האוכלוסייה הורכבה בעיקר מדייגים, חוטבי עצים וסוחרי פרוות. חברה של גברים קשוחים שחיו בעיירות ספר, בניגוד בולט למשפחות הגרעיניות השלמות שהיגרו למסצ'וסטס מסיבות דתיות.</li>
-                        <li><strong>צמיחה איטית:</strong> ההתקפות הבלתי פוסקות מצד שבטי האינדיאנים שלחמו לצד הצרפתים (כחלק ממלחמות צרפת והאינדיאנים לאורך הגבול הצפוני), מנעו מהמושבה להתפשט הרחק מקו החוף עד למאה ה-18.</li>
+                        <li><strong>אוכלוסיית גברים עובדים:</strong> החברה הורכבה בעיקר מדייגים, חוטבי עצים וסוחרי פרוות – גברים קשוחים שחיו בעיירות ספר, בניגוד בולט למשפחות הפוריטניות של מסצ'וסטס.</li>
+                        <li><strong>צמיחה איטית:</strong> ההתקפות הבלתי פוסקות מצד שבטי האינדיאנים שלחמו לצד הצרפתים מנעו מהמושבה להתפשט הרחק מקו החוף עד למאה ה-18.</li>
                     </ul>
                 </div>
             </section>
 
-            <!-- 7. מאבקי השליטה -->
             <section class="content-section bg-white dark:bg-darkCard p-8 rounded-3xl shadow-sm border border-gray-100 dark:border-gray-800 border-r-4 border-r-red-500 dark:border-r-red-400">
                 <div class="flex items-center gap-3 mb-6">
                     <div class="p-3 bg-red-100 dark:bg-gray-800 rounded-2xl text-red-600 dark:text-red-400">
@@ -218,18 +216,17 @@
                             <i class="ph ph-crown"></i> מסיפוח לעצמאות כמושבת כתר
                         </h3>
                         <ul class="list-none space-y-3 text-lg">
-                            <li><strong>מועדי ההשתלטות:</strong> סופחה למסצ'וסטס ב-1641. הופרדה כמושבת כתר עצמאית ב-<strong>1679</strong>. סופחה שוב זמנית, ולבסוף הפכה עצמאית לחלוטין ב-<strong>1691</strong>.</li>
-                            <li><strong>אישים בולטים:</strong> המלך <strong>צ'ארלס השני</strong> (King Charles II), ורוברט טופטון מייסון (נכדו של המייסד, שתבע את הקרקע בבית המשפט).</li>
+                            <li><strong>מועדי ההשתלטות:</strong> סופחה למסצ'וסטס ב-1641. הופרדה כמושבת כתר עצמאית ב-<strong>1679</strong>. לבסוף הפכה עצמאית לחלוטין ב-<strong>1691</strong>.</li>
+                            <li><strong>אישים בולטים:</strong> המלך <strong>צ'ארלס השני</strong>, ורוברט טופטון מייסון (נכדו של המייסד, שתבע את הקרקע בבית המשפט באנגליה).</li>
                             <li><strong>סיבת ההשתלטות (והשחרור):</strong> 
-                                לאחר מותו של המייסד ג'ון מייסון (1635), ניו המפשייר נותרה ללא הנהגה משפטית. <strong>מסצ'וסטס ניצלה את הוואקום</strong>, פירשה מחדש את הגבולות, וב-1641 סיפחה את היישובים לתוכה, תוך ניסיון לכפות את המודל הפוריטני על הדייגים הקשוחים.
-                                המהפך הגיע בשנות ה-70 של המאה ה-17. נכדו של המייסד תבע את זכויותיו באנגליה. במקביל, המלך צ'ארלס השני זעם על מסצ'וסטס הסוררת, ובעיקר - <strong>רצה לשלוט ישירות בסחר בתרני העצים</strong> של ניו המפשייר לטובת הצי המלכותי, מבלי שמסצ'וסטס תתערב. לכן, בשנת 1679, חתך המלך את המושבה מידיה של מסצ'וסטס והפך אותה למושבת כתר אנגלית עצמאית (Royal Province).
+                                לאחר מותו של המייסד ב-1635, <strong>מסצ'וסטס ניצלה את הוואקום המנהיגותי</strong>, פירשה מחדש את הגבולות, וב-1641 סיפחה את היישובים לתוכה. 
+                                המהפך הגיע בשנות ה-70 של המאה ה-17. נכדו של המייסד תבע את זכויותיו באנגליה. במקביל, המלך צ'ארלס השני זעם על מסצ'וסטס הסוררת, ובעיקר - <strong>רצה לשלוט ישירות בסחר בתרני העצים</strong> לטובת הצי המלכותי שלו. לכן, בשנת 1679, חתך המלך את המושבה מידיה של מסצ'וסטס והפך אותה למושבת כתר אנגלית עצמאית (Royal Province).
                             </li>
                         </ul>
                     </div>
                 </div>
             </section>
 
-            <!-- 8. מחקר אטימולוגי מפורט - מעוצב מחדש כטקסט -->
             <section class="content-section bg-white dark:bg-darkCard p-8 rounded-3xl shadow-sm border border-gray-100 dark:border-gray-800">
                 <div class="flex items-center gap-3 mb-6">
                     <div class="p-3 bg-blue-100 dark:bg-gray-800 rounded-2xl text-blue-600 dark:text-gold">
@@ -243,7 +240,6 @@
                 </div>
 
                 <div class="space-y-6 mt-6">
-                    <!-- חלק 1 -->
                     <div class="p-6 bg-blue-50/50 dark:bg-gray-800/30 rounded-2xl border-r-4 border-blue-500 dark:border-gold shadow-sm hover:bg-blue-50 dark:hover:bg-gray-800 transition-colors">
                         <div class="flex flex-col sm:flex-row sm:items-center justify-between mb-3 gap-2">
                             <h3 class="text-2xl font-mono font-bold text-gray-900 dark:text-white">
@@ -257,11 +253,10 @@
                             המקור למילה הוא <em>Hamtun</em> באנגלית עתיקה, והוא מתחלק לשני שורשים:<br>
                             1. <strong>Ham</strong> - משמעותו אחוזה, בית או כפר (זהו המקור למילה המודרנית <em>Home</em>).<br>
                             2. <strong>Tun</strong> - משמעותו מתחם מגודר או עיירה (זהו המקור למילה המודרנית <em>Town</em>).<br>
-                            הצירוף ההיסטורי הזה מתייחס לעיר ולנמל החשוב "סאות'המפטון" (Southampton) שבאנגליה.
+                            הצירוף מתייחס לעיר ולנמל החשוב "סאות'המפטון" (Southampton) שבאנגליה.
                         </p>
                     </div>
 
-                    <!-- חלק 2 -->
                     <div class="p-6 bg-blue-50/50 dark:bg-gray-800/30 rounded-2xl border-r-4 border-blue-500 dark:border-gold shadow-sm hover:bg-blue-50 dark:hover:bg-gray-800 transition-colors">
                         <div class="flex flex-col sm:flex-row sm:items-center justify-between mb-3 gap-2">
                             <h3 class="text-2xl font-mono font-bold text-gray-900 dark:text-white">
@@ -276,7 +271,6 @@
                         </p>
                     </div>
 
-                    <!-- חלק 3 -->
                     <div class="p-6 bg-blue-100/50 dark:bg-gray-800/80 rounded-2xl border-r-4 border-blue-700 dark:border-yellow-400 shadow-md">
                         <div class="flex items-center gap-3 mb-3">
                             <i class="ph ph-puzzle-piece text-3xl text-blue-700 dark:text-yellow-400"></i>
@@ -286,7 +280,7 @@
                         </div>
                         <p class="text-lg text-gray-800 dark:text-gray-200 leading-relaxed font-medium">
                             הלחם השם המלא שניתן בזיכיון משנת 1629. משמעותו היא: <strong>"מחוז המפשייר החדש"</strong>.<br><br>
-                            קפטן ג'ון מייסון בחר את השם עבור הזיכיון שלו באמריקה כאות כבוד למחוז מולדתו ולמקום מגוריו – מחוז המפשייר (Hampshire) הממוקם בחוף הדרומי של אנגליה. במחוז זה ממוקמת עיר הנמל המפורסמת <strong>פורטסמות' (Portsmouth)</strong> – וזו הסיבה שהעיר המרכזית בניו המפשייר האמריקאית נקראה אף היא בדיוק באותו השם על ידי המייסד.
+                            קפטן ג'ון מייסון בחר את השם עבור הזיכיון שלו באמריקה כאות כבוד למחוז מולדתו ולמקום מגוריו – מחוז המפשייר (Hampshire) באנגליה. במחוז זה ממוקמת עיר הנמל המפורסמת <strong>פורטסמות' (Portsmouth)</strong> – וזו הסיבה שהעיר המרכזית בניו המפשייר האמריקאית נקראה אף היא באותו השם.
                         </p>
                     </div>
                 </div>
@@ -296,7 +290,19 @@
 
     </main>
 
-    <!-- כותרת תחתונה (Footer) -->
+    <div id="imageModal" class="fixed inset-0 z-[100] hidden bg-black/90 backdrop-blur-md flex items-center justify-center p-4 touch-manipulation opacity-0 transition-opacity duration-300" onclick="closeImageModal()">
+        <button class="absolute top-4 right-4 text-white/70 hover:text-white p-3 bg-black/50 hover:bg-black/80 rounded-full transition-colors duration-200 z-10" onclick="closeImageModal()">
+            <i class="ph ph-x text-2xl"></i>
+        </button>
+        
+        <div class="relative max-w-5xl w-full h-full flex flex-col items-center justify-center">
+            <img id="modalImage" src="" alt="תמונה מוגדלת" class="max-w-full max-h-[80vh] object-contain rounded-xl shadow-2xl scale-95 transition-transform duration-300" onclick="event.stopPropagation()">
+            <div class="mt-6 p-4 bg-darkCard/80 backdrop-blur-sm rounded-xl border border-gray-700 text-white text-center shadow-lg max-w-3xl" onclick="event.stopPropagation()">
+                <p id="modalCaption" class="text-lg leading-relaxed"></p>
+            </div>
+        </div>
+    </div>
+
     <footer class="bg-white dark:bg-darkBg border-t border-gray-200 dark:border-gray-800 py-8 mt-12">
         <div class="max-w-7xl mx-auto px-4 text-center text-gray-500 dark:text-gray-400">
             <p class="font-bold text-gray-700 dark:text-gray-300">נבנה על ידי ג'מיני ורם בעבור מחקר היסטורי ואטימולוגי.</p>
@@ -304,8 +310,8 @@
         </div>
     </footer>
 
-    <!-- JavaScript Base Logic -->
     <script>
+        // ניהול מצב כהה
         function toggleDarkMode() {
             const htmlClasses = document.documentElement.classList;
             if (htmlClasses.contains('dark')) {
@@ -322,6 +328,54 @@
         } else {
             document.documentElement.classList.remove('dark');
         }
+
+        // פונקציות חלון צף להגדלת תמונות
+        function openImageModal(src, caption) {
+            const modal = document.getElementById('imageModal');
+            const modalImg = document.getElementById('modalImage');
+            const modalCap = document.getElementById('modalCaption');
+            
+            // עדכון מקור התמונה והטקסט
+            modalImg.src = src;
+            modalCap.textContent = caption;
+            
+            // הצגת המודאל
+            modal.classList.remove('hidden');
+            document.body.classList.add('modal-open'); // חסימת גלילה
+            
+            // טריגר לאנימציה
+            setTimeout(() => {
+                modal.classList.remove('opacity-0');
+                modalImg.classList.remove('scale-95');
+                modalImg.classList.add('scale-100');
+            }, 10);
+        }
+
+        function closeImageModal() {
+            const modal = document.getElementById('imageModal');
+            const modalImg = document.getElementById('modalImage');
+            
+            // התחלת אנימציית סגירה
+            modal.classList.add('opacity-0');
+            modalImg.classList.remove('scale-100');
+            modalImg.classList.add('scale-95');
+            
+            // הסתרה מלאה אחרי שהאנימציה מסתיימת
+            setTimeout(() => {
+                modal.classList.add('hidden');
+                document.body.classList.remove('modal-open'); // שחרור גלילה
+            }, 300);
+        }
+        
+        // סגירת החלון בלחיצה על מקש ESC
+        document.addEventListener('keydown', function(event) {
+            if (event.key === "Escape") {
+                const modal = document.getElementById('imageModal');
+                if (!modal.classList.contains('hidden')) {
+                    closeImageModal();
+                }
+            }
+        });
     </script>
 </body>
 </html>
