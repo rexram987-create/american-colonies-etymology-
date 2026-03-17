@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ניו המפשייר (1623) | המושבות האמריקאיות</title>
+    <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
         tailwind.config = {
@@ -22,6 +23,7 @@
             }
         }
     </script>
+    <!-- Phosphor Icons -->
     <script src="https://unpkg.com/@phosphor-icons/web"></script>
     <style>
         body { transition: background-color 0.3s ease, color 0.3s ease; }
@@ -32,14 +34,17 @@
 </head>
 <body class="bg-gray-50 text-gray-900 dark:bg-darkBg dark:text-gray-100 font-sans antialiased selection:bg-blue-200 dark:selection:bg-blue-900">
 
+    <!-- ניווט עליון (Header) -->
     <header class="relative z-40 w-full bg-white dark:bg-darkBg border-b border-gray-200 dark:border-gray-800 shadow-sm">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex items-center justify-between h-20">
+                <!-- כפתור חזרה (מעודכן לתיקיית colonies) -->
                 <a href="../index.html" class="flex items-center gap-2 text-blue-600 dark:text-gold hover:text-blue-800 dark:hover:text-yellow-400 transition-colors touch-manipulation font-semibold bg-blue-50 dark:bg-gray-800 px-4 py-2 rounded-full">
                     <i class="ph ph-arrow-right text-xl"></i>
                     <span>חזרה לדף הבית</span>
                 </a>
                 
+                <!-- תפריט כפתורים -->
                 <div class="flex items-center gap-4">
                     <button onclick="toggleDarkMode()" class="p-3 rounded-full bg-gray-200 dark:bg-gray-800 hover:bg-gray-300 dark:hover:bg-gray-700 transition-colors touch-manipulation" aria-label="החלף מצב תצוגה">
                         <i class="ph ph-moon text-xl block dark:hidden"></i>
@@ -52,6 +57,7 @@
 
     <main class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
         
+        <!-- כותרת ראשית (Hero) -->
         <div class="mb-12 text-center md:text-right">
             <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-green-100 dark:bg-green-900/40 text-green-800 dark:text-green-300 text-sm font-semibold tracking-wide mb-4">
                 <i class="ph ph-calendar-blank"></i>
@@ -65,7 +71,8 @@
             </p>
         </div>
 
-        <div class="w-full h-64 md:h-96 rounded-3xl overflow-hidden mb-16 shadow-2xl relative border border-gray-200 dark:border-gray-800 group cursor-pointer" onclick="openImageModal('../images/new_hampshire_hero.jpg', 'נמל פורטסמות\' (Portsmouth), מרכז הסחר והדיג הראשי של ניו המפשייר לאורך נהר הפיסקאטקווה.')">
+        <!-- תמונה ראשית (עם יכולת הגדלה ותיקון גרש) -->
+        <div class="w-full h-64 md:h-96 rounded-3xl overflow-hidden mb-16 shadow-2xl relative border border-gray-200 dark:border-gray-800 group cursor-pointer" onclick="openImageModal('../images/new_hampshire_hero.jpg', 'נמל פורטסמות&#39; (Portsmouth), מרכז הסחר והדיג הראשי של ניו המפשייר לאורך נהר הפיסקאטקווה.')">
             <img src="../images/new_hampshire_hero.jpg" alt="נמל פורטסמות'" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700">
             <div class="absolute inset-0 bg-black/20 group-hover:bg-transparent transition-colors duration-500"></div>
             <div class="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/90 via-black/60 to-transparent p-6 text-white text-sm md:text-base text-center">
@@ -78,6 +85,7 @@
 
         <article class="space-y-16">
             
+            <!-- 1. שנות פעילות ויעדים -->
             <section class="content-section bg-white dark:bg-darkCard p-8 rounded-3xl shadow-sm border border-gray-100 dark:border-gray-800">
                 <div class="flex items-center gap-3 mb-6">
                     <div class="p-3 bg-blue-100 dark:bg-gray-800 rounded-2xl text-blue-600 dark:text-gold">
@@ -94,6 +102,7 @@
                 </div>
             </section>
 
+            <!-- 2. דמויות מפתח -->
             <section class="content-section bg-white dark:bg-darkCard p-8 rounded-3xl shadow-sm border border-gray-100 dark:border-gray-800 border-r-4 border-r-blue-500 dark:border-r-gold">
                 <div class="flex items-center gap-3 mb-6">
                     <div class="p-3 bg-blue-100 dark:bg-gray-800 rounded-2xl text-blue-600 dark:text-gold">
@@ -103,7 +112,8 @@
                 </div>
                 
                 <div class="flex flex-col md:flex-row gap-8 items-start">
-                    <div class="md:w-1/3 shrink-0 w-full group cursor-pointer relative rounded-2xl overflow-hidden shadow-md border border-gray-200 dark:border-gray-700" onclick="openImageModal('../images/john_mason_portrait.jpg', 'קפטן ג'ון מייסון, מייסד המושבה שמעולם לא זכה לבקר בה.')">
+                    <!-- תמונה להגדלה (עם תיקון גרש בקוד) -->
+                    <div class="md:w-1/3 shrink-0 w-full group cursor-pointer relative rounded-2xl overflow-hidden shadow-md border border-gray-200 dark:border-gray-700" onclick="openImageModal('../images/john_mason_portrait.jpg', 'קפטן ג&#39;ון מייסון, מייסד המושבה שמעולם לא זכה לבקר בה.')">
                         <img src="../images/john_mason_portrait.jpg" alt="דיוקן קפטן ג'ון מייסון" class="w-full object-cover group-hover:scale-105 transition-transform duration-500">
                         <div class="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
                             <i class="ph ph-magnifying-glass-plus text-4xl text-white"></i>
@@ -121,6 +131,7 @@
                 </div>
             </section>
 
+            <!-- 3. אידאולוגיה וסיבת ההקמה -->
             <section class="content-section bg-white dark:bg-darkCard p-8 rounded-3xl shadow-sm border border-gray-100 dark:border-gray-800">
                 <div class="flex items-center gap-3 mb-6">
                     <div class="p-3 bg-blue-100 dark:bg-gray-800 rounded-2xl text-blue-600 dark:text-gold">
@@ -139,6 +150,7 @@
                 </div>
             </section>
 
+            <!-- 4. גיאוגרפיה, הידרולוגיה ובחירת המיקום -->
             <section class="content-section bg-white dark:bg-darkCard p-8 rounded-3xl shadow-sm border border-gray-100 dark:border-gray-800">
                 <div class="flex items-center gap-3 mb-6">
                     <div class="p-3 bg-blue-100 dark:bg-gray-800 rounded-2xl text-blue-600 dark:text-gold">
@@ -156,6 +168,7 @@
                 </div>
             </section>
 
+            <!-- 5. הסחר והכלכלה -->
             <section class="content-section bg-white dark:bg-darkCard p-8 rounded-3xl shadow-sm border border-gray-100 dark:border-gray-800 border-r-4 border-r-green-500 dark:border-r-emerald-400">
                 <div class="flex items-center gap-3 mb-6">
                     <div class="p-3 bg-green-100 dark:bg-gray-800 rounded-2xl text-green-700 dark:text-emerald-400">
@@ -165,6 +178,7 @@
                 </div>
                 
                 <div class="flex flex-col md:flex-row-reverse gap-8 items-start">
+                    <!-- תמונה להגדלה -->
                     <div class="md:w-1/3 shrink-0 w-full group cursor-pointer relative rounded-2xl overflow-hidden shadow-md border border-gray-200 dark:border-gray-700" onclick="openImageModal('../images/broad_arrow_pine.jpg', 'סימון החץ הרחב (Broad Arrow) של המלך על עצי האורן הלבן ביערות ניו המפשייר.')">
                         <img src="../images/broad_arrow_pine.jpg" alt="סימון החץ הרחב" class="w-full object-cover group-hover:scale-105 transition-transform duration-500">
                         <div class="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
@@ -183,6 +197,7 @@
                 </div>
             </section>
 
+            <!-- 6. הדמוגרפיה והחברה -->
             <section class="content-section bg-white dark:bg-darkCard p-8 rounded-3xl shadow-sm border border-gray-100 dark:border-gray-800 border-r-4 border-r-green-500 dark:border-r-emerald-400">
                 <div class="flex items-center gap-3 mb-6">
                     <div class="p-3 bg-green-100 dark:bg-gray-800 rounded-2xl text-green-700 dark:text-emerald-400">
@@ -201,6 +216,7 @@
                 </div>
             </section>
 
+            <!-- 7. מאבקי השליטה -->
             <section class="content-section bg-white dark:bg-darkCard p-8 rounded-3xl shadow-sm border border-gray-100 dark:border-gray-800 border-r-4 border-r-red-500 dark:border-r-red-400">
                 <div class="flex items-center gap-3 mb-6">
                     <div class="p-3 bg-red-100 dark:bg-gray-800 rounded-2xl text-red-600 dark:text-red-400">
@@ -227,6 +243,7 @@
                 </div>
             </section>
 
+            <!-- 8. מחקר אטימולוגי מפורט -->
             <section class="content-section bg-white dark:bg-darkCard p-8 rounded-3xl shadow-sm border border-gray-100 dark:border-gray-800">
                 <div class="flex items-center gap-3 mb-6">
                     <div class="p-3 bg-blue-100 dark:bg-gray-800 rounded-2xl text-blue-600 dark:text-gold">
@@ -240,6 +257,7 @@
                 </div>
 
                 <div class="space-y-6 mt-6">
+                    <!-- חלק 1 -->
                     <div class="p-6 bg-blue-50/50 dark:bg-gray-800/30 rounded-2xl border-r-4 border-blue-500 dark:border-gold shadow-sm hover:bg-blue-50 dark:hover:bg-gray-800 transition-colors">
                         <div class="flex flex-col sm:flex-row sm:items-center justify-between mb-3 gap-2">
                             <h3 class="text-2xl font-mono font-bold text-gray-900 dark:text-white">
@@ -257,6 +275,7 @@
                         </p>
                     </div>
 
+                    <!-- חלק 2 -->
                     <div class="p-6 bg-blue-50/50 dark:bg-gray-800/30 rounded-2xl border-r-4 border-blue-500 dark:border-gold shadow-sm hover:bg-blue-50 dark:hover:bg-gray-800 transition-colors">
                         <div class="flex flex-col sm:flex-row sm:items-center justify-between mb-3 gap-2">
                             <h3 class="text-2xl font-mono font-bold text-gray-900 dark:text-white">
@@ -271,6 +290,7 @@
                         </p>
                     </div>
 
+                    <!-- חלק 3 -->
                     <div class="p-6 bg-blue-100/50 dark:bg-gray-800/80 rounded-2xl border-r-4 border-blue-700 dark:border-yellow-400 shadow-md">
                         <div class="flex items-center gap-3 mb-3">
                             <i class="ph ph-puzzle-piece text-3xl text-blue-700 dark:text-yellow-400"></i>
@@ -290,19 +310,24 @@
 
     </main>
 
+    <!-- חלון צף (Modal) להגדלת תמונות -->
     <div id="imageModal" class="fixed inset-0 z-[100] hidden bg-black/90 backdrop-blur-md flex items-center justify-center p-4 touch-manipulation opacity-0 transition-opacity duration-300" onclick="closeImageModal()">
+        <!-- כפתור סגירה -->
         <button class="absolute top-4 right-4 text-white/70 hover:text-white p-3 bg-black/50 hover:bg-black/80 rounded-full transition-colors duration-200 z-10" onclick="closeImageModal()">
             <i class="ph ph-x text-2xl"></i>
         </button>
         
+        <!-- התמונה המוגדלת -->
         <div class="relative max-w-5xl w-full h-full flex flex-col items-center justify-center">
             <img id="modalImage" src="" alt="תמונה מוגדלת" class="max-w-full max-h-[80vh] object-contain rounded-xl shadow-2xl scale-95 transition-transform duration-300" onclick="event.stopPropagation()">
+            <!-- כיתוב התמונה -->
             <div class="mt-6 p-4 bg-darkCard/80 backdrop-blur-sm rounded-xl border border-gray-700 text-white text-center shadow-lg max-w-3xl" onclick="event.stopPropagation()">
                 <p id="modalCaption" class="text-lg leading-relaxed"></p>
             </div>
         </div>
     </div>
 
+    <!-- כותרת תחתונה (Footer) -->
     <footer class="bg-white dark:bg-darkBg border-t border-gray-200 dark:border-gray-800 py-8 mt-12">
         <div class="max-w-7xl mx-auto px-4 text-center text-gray-500 dark:text-gray-400">
             <p class="font-bold text-gray-700 dark:text-gray-300">נבנה על ידי ג'מיני ורם בעבור מחקר היסטורי ואטימולוגי.</p>
@@ -310,8 +335,8 @@
         </div>
     </footer>
 
+    <!-- JavaScript Base Logic -->
     <script>
-        // ניהול מצב כהה
         function toggleDarkMode() {
             const htmlClasses = document.documentElement.classList;
             if (htmlClasses.contains('dark')) {
@@ -335,15 +360,12 @@
             const modalImg = document.getElementById('modalImage');
             const modalCap = document.getElementById('modalCaption');
             
-            // עדכון מקור התמונה והטקסט
             modalImg.src = src;
             modalCap.textContent = caption;
             
-            // הצגת המודאל
             modal.classList.remove('hidden');
-            document.body.classList.add('modal-open'); // חסימת גלילה
+            document.body.classList.add('modal-open');
             
-            // טריגר לאנימציה
             setTimeout(() => {
                 modal.classList.remove('opacity-0');
                 modalImg.classList.remove('scale-95');
@@ -355,19 +377,16 @@
             const modal = document.getElementById('imageModal');
             const modalImg = document.getElementById('modalImage');
             
-            // התחלת אנימציית סגירה
             modal.classList.add('opacity-0');
             modalImg.classList.remove('scale-100');
             modalImg.classList.add('scale-95');
             
-            // הסתרה מלאה אחרי שהאנימציה מסתיימת
             setTimeout(() => {
                 modal.classList.add('hidden');
-                document.body.classList.remove('modal-open'); // שחרור גלילה
+                document.body.classList.remove('modal-open');
             }, 300);
         }
         
-        // סגירת החלון בלחיצה על מקש ESC
         document.addEventListener('keydown', function(event) {
             if (event.key === "Escape") {
                 const modal = document.getElementById('imageModal');
