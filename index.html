@@ -103,7 +103,7 @@
             </div>
             
             <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
-                <!-- כרטיסיות המושבות ייוצרו כאן דינמית על ידי JS לשמירה על קוד נקי, אבל נדגים אחד כ-HTML -->
+                <!-- כרטיסיות המושבות ייוצרו כאן דינמית על ידי JS לשמירה על קוד נקי -->
             </div>
         </section>
 
@@ -171,7 +171,8 @@
     <!-- כותרת תחתונה (Footer) -->
     <footer class="bg-white dark:bg-darkBg border-t border-gray-200 dark:border-gray-800 py-8 mt-12">
         <div class="max-w-7xl mx-auto px-4 text-center text-gray-500 dark:text-gray-400">
-            <p>נוצר בעבור מחקר היסטורי ואטימולוגי. מותאם במיוחד למסכי Samsung S25 Ultra.</p>
+            <p class="font-bold text-gray-700 dark:text-gray-300">נבנה על ידי ג'מיני ורם בעבור מחקר היסטורי ואטימולוגי.</p>
+            <p class="text-sm mt-2">מותאם אישית לקריאה נוחה על מסכי פרימיום (Samsung S25 Ultra).</p>
         </div>
     </footer>
 
@@ -203,8 +204,9 @@
             coloniesData.forEach((colony, index) => {
                 const fileName = colony.eng.toLowerCase().replace(' ', '_') + '.html';
                 
+                // הוספנו את התיקייה colonies/ לכתובת
                 html += `
-                <a href="${fileName}" class="card-hover block bg-white dark:bg-darkCard rounded-3xl p-6 border border-gray-100 dark:border-gray-800 shadow-sm hover:shadow-xl hover:border-blue-300 dark:hover:border-gold/50 group">
+                <a href="colonies/${fileName}" class="card-hover block bg-white dark:bg-darkCard rounded-3xl p-6 border border-gray-100 dark:border-gray-800 shadow-sm hover:shadow-xl hover:border-blue-300 dark:hover:border-gold/50 group">
                     <div class="flex justify-between items-start mb-4">
                         <div class="p-3 bg-blue-50 dark:bg-gray-800 rounded-2xl text-blue-600 dark:text-gold group-hover:bg-blue-600 group-hover:text-white dark:group-hover:bg-gold dark:group-hover:text-darkBg transition-colors">
                             <i class="ph ph-${colony.icon} text-3xl"></i>
@@ -231,6 +233,8 @@
             
             coloniesData.forEach((colony) => {
                 const fileName = colony.eng.toLowerCase().replace(' ', '_') + '.html';
+                
+                // הוספנו את התיקייה colonies/ לכתובת
                 html += `
                 <div class="relative group">
                     <!-- נקודת הציון על הציר -->
@@ -242,7 +246,7 @@
                                 <span class="text-xl md:text-2xl font-black text-blue-600 dark:text-gold w-16">${colony.year}</span>
                                 <h4 class="text-xl font-bold text-gray-900 dark:text-white">${colony.name}</h4>
                             </div>
-                            <a href="${fileName}" class="text-sm bg-white dark:bg-darkCard px-4 py-1.5 rounded-full border border-gray-200 dark:border-gray-700 hover:bg-gray-100 dark:hover:bg-gray-700 transition-colors w-fit">קרא עוד</a>
+                            <a href="colonies/${fileName}" class="text-sm bg-white dark:bg-darkCard px-4 py-1.5 rounded-full border border-gray-200 dark:border-gray-700 hover:bg-gray-100 dark:hover:bg-gray-700 transition-colors w-fit">קרא עוד</a>
                         </div>
                         <p class="text-gray-600 dark:text-gray-400 pr-0 sm:pr-16 md:pr-19">${colony.desc}</p>
                     </div>
