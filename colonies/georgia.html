@@ -28,6 +28,8 @@
     <style>
         body { transition: background-color 0.3s ease, color 0.3s ease; }
         .content-section { scroll-margin-top: 100px; }
+        /* מניעת גלילה כשהחלון הצף פתוח */
+        .modal-open { overflow: hidden; }
     </style>
 </head>
 <body class="bg-gray-50 text-gray-900 dark:bg-darkBg dark:text-gray-100 font-sans antialiased selection:bg-blue-200 dark:selection:bg-blue-900">
@@ -69,11 +71,15 @@
             </p>
         </div>
 
-        <!-- תמונה ראשית -->
-        <div class="w-full h-64 md:h-96 rounded-3xl overflow-hidden mb-16 shadow-2xl relative border border-gray-200 dark:border-gray-800">
-            <img src="../images/georgia_hero.jpg" alt="" class="w-full h-full object-cover">
-            <div class="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/80 to-transparent p-4 text-white text-sm md:text-base text-center">
+        <!-- תמונה ראשית (עם יכולת הגדלה) -->
+        <div class="w-full h-64 md:h-96 rounded-3xl overflow-hidden mb-16 shadow-2xl relative border border-gray-200 dark:border-gray-800 group cursor-pointer" onclick="openImageModal('../images/georgia_hero.jpg', 'ג\'יימס אוגלתורפ פוגש את צ\'יף טומוצ\'יצ\'י משבט הימאקראו בטקס חתימת הברית שאיפשר את הקמת העיר סוואנה (1733).')">
+            <img src="../images/georgia_hero.jpg" alt="ג'יימס אוגלתורפ פוגש ילידים" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700">
+            <div class="absolute inset-0 bg-black/20 group-hover:bg-transparent transition-colors duration-500"></div>
+            <div class="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/90 via-black/60 to-transparent p-6 text-white text-sm md:text-base text-center">
                 ג'יימס אוגלתורפ פוגש את צ'יף טומוצ'יצ'י משבט הימאקראו בטקס חתימת הברית שאיפשר את הקמת העיר סוואנה (1733).
+                <div class="mt-2 text-xs text-gray-300 flex items-center justify-center gap-1 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                    <i class="ph ph-magnifying-glass-plus text-lg"></i> לחץ להגדלה
+                </div>
             </div>
         </div>
 
@@ -109,17 +115,21 @@
                 </div>
                 
                 <div class="flex flex-col md:flex-row gap-8 items-start">
-                    <div class="md:w-1/3 shrink-0 w-full">
-                        <img src="../images/oglethorpe_portrait.jpg" alt="" class="w-full rounded-2xl shadow-md border border-gray-200 dark:border-gray-700 object-cover">
-                        <p class="text-sm text-gray-500 text-center mt-2">דיוקנו של הגנרל ג'יימס אוגלתורפ.</p>
+                    <!-- תמונה להגדלה -->
+                    <div class="md:w-1/3 shrink-0 w-full group cursor-pointer relative rounded-2xl overflow-hidden shadow-md border border-gray-200 dark:border-gray-700" onclick="openImageModal('../images/oglethorpe_portrait.jpg', 'דיוקנו של הגנרל ג\'יימס אוגלתורפ.')">
+                        <img src="../images/oglethorpe_portrait.jpg" alt="דיוקן ג'יימס אוגלתורפ" class="w-full object-cover group-hover:scale-105 transition-transform duration-500">
+                        <div class="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
+                            <i class="ph ph-magnifying-glass-plus text-4xl text-white"></i>
+                        </div>
+                        <div class="absolute bottom-0 left-0 right-0 bg-black/70 p-2 text-xs text-white text-center">ג'יימס אוגלתורפ</div>
                     </div>
                     
                     <div class="md:w-2/3 text-lg text-gray-700 dark:text-gray-300 leading-relaxed space-y-6">
                         <div>
                             <h3 class="text-2xl font-bold text-blue-800 dark:text-blue-300 mb-2">ג'יימס אוגלתורפ (James Oglethorpe) (1696–1785)</h3>
                             <p><strong>ילדות ורקע:</strong> נולד למשפחה אריסטוקרטית ובעלת השפעה בלונדון. הוא פנה לקריירה צבאית, לחם בהצטיינות באירופה כנגד העות'מאנים, ולאחר מכן נבחר לחבר בפרלמנט הבריטי.</p>
-                            <p class="mt-4"><strong>המשבר שהוביל לחזון:</strong> נקודת המפנה בחייו הייתה מותו הטרגי של חברו הטוב, רוברט קסטל. קסטל נכלא ב"כלא החייבים" (Debtors' prison) בלונדון בגין חוב קטן, ומשום שלא יכול היה לשחד את הסוהרים, הוא הושלך לתא נגוע באבעבועות שחורות, חלה ומת. אוגלתורפ הזדעזע מהמערכת המושחתת, הקים ועדת חקירה פרלמנטרית, והגה את רעיון מושבת המקלט "ג'ורג'יה" כפתרון מערכתי לעוני.</p>
-                            <p class="mt-4"><strong>הישגים:</strong> אוגלתורפ היה הנאמן היחיד שבאמת חצה את האוקיינוס וחי עם המתיישבים בראשית הדרך. הוא ייסד את העיר סוואנה, קשר יחסי ידידות וסחר עמוקים עם צ'יף טומוצ'יצ'י, ופיקד אישית על הכוחות שהדפו פלישה ספרדית גדולה מפלורידה בקרב "הביצה המדממת" (Battle of Bloody Marsh) ב-1742, ובכך הבטיח את קיום המושבות הבריטיות בדרום.</p>
+                            <p class="mt-4"><strong>המשבר שהוביל לחזון:</strong> נקודת המפנה בחייו הייתה מותו הטרגי של חברו הטוב, רוברט קסטל. קסטל נכלא ב"כלא החייבים" בלונדון בגין חוב קטן, הושלך לתא נגוע באבעבועות שחורות, חלה ומת. אוגלתורפ הזדעזע מהמערכת המושחתת והגה את רעיון מושבת המקלט "ג'ורג'יה" כפתרון מערכתי לעוני.</p>
+                            <p class="mt-4"><strong>הישגים:</strong> אוגלתורפ ייסד את העיר סוואנה, קשר יחסי ידידות וסחר עמוקים עם צ'יף טומוצ'יצ'י, ופיקד אישית על הכוחות שהדפו פלישה ספרדית גדולה מפלורידה בקרב "הביצה המדממת" (Battle of Bloody Marsh) ב-1742.</p>
                         </div>
                     </div>
                 </div>
@@ -156,16 +166,20 @@
                 </div>
                 
                 <div class="flex flex-col md:flex-row-reverse gap-8 items-start">
-                    <div class="md:w-1/3 shrink-0 w-full">
-                        <img src="../images/savannah_map.jpg" alt="" class="w-full rounded-2xl shadow-md border border-gray-200 dark:border-gray-700 object-cover">
-                        <p class="text-sm text-gray-500 text-center mt-2">מפת סוואנה המקורית (1734), מדגימה את תכנון רשת הרחובות הייחודי.</p>
+                    <!-- תמונה להגדלה -->
+                    <div class="md:w-1/3 shrink-0 w-full group cursor-pointer relative rounded-2xl overflow-hidden shadow-md border border-gray-200 dark:border-gray-700" onclick="openImageModal('../images/savannah_map.jpg', 'מפת סוואנה המקורית (1734), מדגימה את תכנון רשת הרחובות הייחודי והכיכרות המרווחות.')">
+                        <img src="../images/savannah_map.jpg" alt="מפת סוואנה משנת 1734" class="w-full object-cover group-hover:scale-105 transition-transform duration-500">
+                        <div class="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
+                            <i class="ph ph-magnifying-glass-plus text-4xl text-white"></i>
+                        </div>
+                        <div class="absolute bottom-0 left-0 right-0 bg-black/70 p-2 text-xs text-white text-center">מפת סוואנה 1734</div>
                     </div>
                     
                     <div class="md:w-2/3 text-lg text-gray-700 dark:text-gray-300 leading-relaxed space-y-4">
                         <p>אוגלתורפ בחר את מיקום ההתיישבות הראשונה בקפידה רבה מתוך שיקולים צבאיים והידרולוגיים:</p>
                         <ul class="list-disc list-inside space-y-4 ml-4">
                             <li><strong>נהר הסוואנה (Savannah River):</strong> הנהר שהיווה את הגבול בין קרוליינה הדרומית לג'ורג'יה. אוגלתורפ הפליג כ-24 קילומטרים במעלה הנהר מהאוקיינוס כדי להיות מוגן מפני סופות והתקפות פתע מהים.</li>
-                            <li><strong>מצוק יאמאקראו (Yamacraw Bluff):</strong> הוא בחר להקים את סוואנה (Savannah) על מצוק גבוה ושטוח שהשקיף על הנהר. בחירה טופוגרפית זו הייתה קריטית כפליים: ראשית, היא הגנה על העיר מפני ההצפות התכופות של הביצות. שנית, הגובה איפשר לתותחי העיר לשלוט באופן מוחלט על תנועת הספינות בנהר, מגן אולטימטיבי נגד צי הפלישה הספרדי.</li>
+                            <li><strong>מצוק יאמאקראו (Yamacraw Bluff):</strong> הוא בחר להקים את סוואנה (Savannah) על מצוק גבוה ושטוח שהשקיף על הנהר. הבחירה הגנה על העיר מפני ההצפות התכופות של הביצות, והגובה איפשר לתותחי העיר לשלוט באופן מוחלט על תנועת הספינות בנהר.</li>
                         </ul>
                     </div>
                 </div>
@@ -184,8 +198,8 @@
                         הכלכלה של ג'ורג'יה התחילה כניסוי מדעי כושל והסתיימה כהעתק של שכנתה הקפיטליסטית:
                     </p>
                     <ul class="list-disc list-inside space-y-3 ml-4">
-                        <li><strong>אשליית המשי (Silk):</strong> הנאמנים בלונדון הסתכלו על המפה וראו שג'ורג'יה נמצאת באותו קו רוחב כמו סין ואגן הים התיכון. הם הניחו (בטעות גמורה) שהאקלים יתאים. הם חייבו כל מתיישב לשתול עצי תות (Mulberry) כדי לגדל תולעי משי. המיזם היה כישלון קולוסאלי; עצי התות לא התאקלמו, ותולעי המשי מתו מהחום והלחות.</li>
-                        <li><strong>התפנית הכלכלית:</strong> כשהניסוי המוסרי והכלכלי קרס בסביבות 1750, ג'ורג'יה אימצה את המודל של דרום קרוליינה. הם עברו לגידול אינטנסיבי של אורז ואינדיגו בביצות החוף, מה שהוביל להכנסת העבדות ולעלייה דרמטית בעושר של בעלי המטעים המקומיים.</li>
+                        <li><strong>אשליית המשי (Silk):</strong> הנאמנים בלונדון חייבו כל מתיישב לשתול עצי תות (Mulberry) כדי לגדל תולעי משי. המיזם היה כישלון קולוסאלי; עצי התות לא התאקלמו, ותולעי המשי מתו מהחום והלחות.</li>
+                        <li><strong>התפנית הכלכלית:</strong> כשהניסוי המוסרי והכלכלי קרס בסביבות 1750, ג'ורג'יה אימצה את המודל של דרום קרוליינה. הם עברו לגידול אינטנסיבי של אורז ואינדיגו בביצות החוף, מה שהוביל להכנסת העבדות ולעלייה דרמטית בעושר.</li>
                     </ul>
                 </div>
             </section>
@@ -200,12 +214,12 @@
                 </div>
                 <div class="text-lg text-gray-700 dark:text-gray-300 leading-relaxed space-y-4">
                     <p>
-                        כדי להחזיק את קו ההגנה, אוגלתורפ לא יכול היה להסתמך רק על "העניים הראויים". הוא אסף פסיפס דמוגרפי מרתק של אנשים קשוחים ונרדפים:
+                        כדי להחזיק את קו ההגנה, אוגלתורפ אסף פסיפס דמוגרפי מרתק של אנשים קשוחים ונרדפים:
                     </p>
                     <ul class="list-disc list-inside space-y-3 ml-4">
-                        <li><strong>אנשי ההיילנדס הסקוטים (Scottish Highlanders):</strong> אוגלתורפ גייס לוחמים סקוטים עזים והעניק להם אדמות בגבול הדרומי. הם היו חוט השדרה הצבאי שמנע מהספרדים לפלוש צפונה, והמתנגדים החריפים ביותר להכנסת עבדות.</li>
-                        <li><strong>הזלצבורגרים (Salzburgers):</strong> פליטים פרוטסטנטים שגורשו מאוסטריה. הם הקימו את העיירה "אבנעזר" והיו החקלאים החרוצים והמוצלחים ביותר במושבה.</li>
-                        <li><strong>הגעת היהודים:</strong> ביולי 1733, הגיעה לסוואנה ספינה עם 42 יהודים ספרדים ממוצא פורטוגלי. הנאמנים בלונדון דרשו לגרשם, אך אוגלתורפ סירב. בקרב העולים היה הרופא ד"ר סמואל נונייז, שהציל את המושבה ממגפת קדחת צהובה. אוגלתורפ העניק ליהודים אדמות, מה שיצר את קהילת "מיקווה ישראל" ההיסטורית.</li>
+                        <li><strong>אנשי ההיילנדס הסקוטים (Scottish Highlanders):</strong> לוחמים עזים שהגנו על הגבול הדרומי. הם היו חוט השדרה הצבאי והמתנגדים החריפים ביותר להכנסת עבדות.</li>
+                        <li><strong>הזלצבורגרים (Salzburgers):</strong> פליטים פרוטסטנטים מאוסטריה. הקימו את העיירה "אבנעזר" והיו החקלאים החרוצים והמוצלחים ביותר במושבה.</li>
+                        <li><strong>הגעת היהודים:</strong> ביולי 1733, הגיעה ספינה עם 42 יהודים ספרדים. הנאמנים בלונדון דרשו לגרשם, אך אוגלתורפ סירב. בקרב העולים היה הרופא ד"ר סמואל נונייז, שהציל את המושבה ממגפת קדחת צהובה. אוגלתורפ העניק ליהודים אדמות, מה שיצר את קהילת "מיקווה ישראל" ההיסטורית.</li>
                     </ul>
                 </div>
             </section>
@@ -229,7 +243,7 @@
                             <li><strong>מועד:</strong> 1752 (שנה לפני תפוגת הזיכיון הרשמית).</li>
                             <li><strong>אישים בולטים:</strong> המלך <strong>ג'ורג' השני</strong>, וקבוצת אזרחים קולנית שכונתה <strong>"המתלוננים" (The Malcontents)</strong>.</li>
                             <li><strong>סיבת ההשתלטות/הוויתור:</strong> 
-                                הניסוי של אוגלתורפ כשל מבחינה כלכלית. תושבי ג'ורג'יה הסתכלו מעבר לנהר אל דרום קרוליינה וראו את העושר האגדי של בעלי המטעים שם. קבוצת "המתלוננים" הפציצה את לונדון במכתבים ודרישות לבטל את החוקים. הם טענו שאי אפשר לשרוד באקלים הקשה ללא כוח עבודה זול של עבדים.
+                                הניסוי של אוגלתורפ כשל מבחינה כלכלית. תושבי ג'ורג'יה הסתכלו מעבר לנהר אל דרום קרוליינה וראו את העושר האגדי של בעלי המטעים שם. קבוצת "המתלוננים" הפציצה את לונדון בדרישות לבטל את החוקים, בטענה שאי אפשר לשרוד באקלים הקשה ללא כוח עבודה זול של עבדים.
                                 ב-1750, הנאמנים נכנעו והתירו עבדות. ב-1752, מבינים שהחזון הפילנתרופי נכשל, <strong>הנאמנים החזירו את הזיכיון למלך</strong>. ג'ורג'יה הפכה למושבת כתר רגילה וייבאה אלפי עבדים בדומה לשכנותיה.
                             </li>
                         </ul>
@@ -262,7 +276,7 @@
                             </span>
                         </div>
                         <p class="text-lg text-gray-700 dark:text-gray-300 leading-relaxed">
-                            המילה היוונית המקורית (<em>Georgos</em> - Γεωργός) מורכבת משתי מילים: <strong>Ge</strong> (אדמה) ו-<strong>Ergon</strong> (עבודה). המשמעות הישירה היא <strong>"עובד אדמה" או "חקלאי"</strong>. השם התפשט באירופה בעקבות הפופולריות של "ג'ורג' הקדוש" (קוטל הדרקון), שהפך לפטרון של אנגליה. בהקשר ההיסטורי של המושבה, השם מתייחס כמובן ישירות למלך אנגליה באותה תקופה, <strong>ג'ורג' השני (King George II)</strong>.
+                            המילה היוונית המקורית (<em>Georgos</em> - Γεωργός) מורכבת משתי מילים: <strong>Ge</strong> (אדמה) ו-<strong>Ergon</strong> (עבודה). המשמעות הישירה היא <strong>"עובד אדמה" או "חקלאי"</strong>. בהקשר ההיסטורי של המושבה, השם מתייחס כמובן ישירות למלך אנגליה באותה תקופה, <strong>ג'ורג' השני (King George II)</strong>.
                         </p>
                     </div>
 
@@ -277,7 +291,7 @@
                             </span>
                         </div>
                         <p class="text-lg text-gray-700 dark:text-gray-300 leading-relaxed">
-                            זוהי סיומת קלאסית המשמשת באופן נרחב במשפט ובגיאוגרפיה של האימפריה הרומית והבריטית לציון טריטוריה או <strong>"הארץ של-"</strong> (כמו בשמות: Virginia, Pennsylvania, Britannia).
+                            זוהי סיומת קלאסית המשמשת באופן נרחב במשפט ובגיאוגרפיה של האימפריה הרומית והבריטית לציון טריטוריה או <strong>"הארץ של-"</strong>.
                         </p>
                     </div>
 
@@ -290,8 +304,8 @@
                             </h3>
                         </div>
                         <p class="text-lg text-gray-800 dark:text-gray-200 leading-relaxed font-medium">
-                            הלחם השם המלא נוצר ב-1732. הפירוש המילולי הפשוט הוא <strong>"הארץ של המלך ג'ורג'"</strong>, כיוון שאוגלתורפ והנאמנים רצו להחמיף למלך שאישר את הזיכיון שלהם.<br><br>
-                            עם זאת, מבחינה בלשנית עמוקה, המשמעות היא <strong>"ארץ החקלאים"</strong>. למרבה האירוניה (והיופי הלשוני), משמעות זו התאימה באופן מושלם לחזון האוטופי והפילנתרופי המקורי של אוגלתורפ – הוא רצה לבנות חברה של חקלאים עצמאיים ושווים, העובדים את אדמתם במו ידיהם בחריצות, ללא עזרת עבדים מנוצלים.
+                            הלחם השם המלא נוצר ב-1732. הפירוש המילולי הפשוט הוא <strong>"הארץ של המלך ג'ורג'"</strong>.<br><br>
+                            עם זאת, מבחינה בלשנית עמוקה, המשמעות היא <strong>"ארץ החקלאים"</strong>. למרבה האירוניה, משמעות זו התאימה באופן מושלם לחזון האוטופי המקורי של אוגלתורפ – הוא רצה לבנות חברה של חקלאים עצמאיים ושווים, העובדים את אדמתם במו ידיהם ללא עזרת עבדים.
                         </p>
                     </div>
                 </div>
@@ -300,6 +314,23 @@
         </article>
 
     </main>
+
+    <!-- חלון צף (Modal) להגדלת תמונות -->
+    <div id="imageModal" class="fixed inset-0 z-[100] hidden bg-black/90 backdrop-blur-md flex items-center justify-center p-4 touch-manipulation opacity-0 transition-opacity duration-300" onclick="closeImageModal()">
+        <!-- כפתור סגירה -->
+        <button class="absolute top-4 right-4 text-white/70 hover:text-white p-3 bg-black/50 hover:bg-black/80 rounded-full transition-colors duration-200 z-10" onclick="closeImageModal()">
+            <i class="ph ph-x text-2xl"></i>
+        </button>
+        
+        <!-- התמונה המוגדלת -->
+        <div class="relative max-w-5xl w-full h-full flex flex-col items-center justify-center">
+            <img id="modalImage" src="" alt="תמונה מוגדלת" class="max-w-full max-h-[80vh] object-contain rounded-xl shadow-2xl scale-95 transition-transform duration-300" onclick="event.stopPropagation()">
+            <!-- כיתוב התמונה -->
+            <div class="mt-6 p-4 bg-darkCard/80 backdrop-blur-sm rounded-xl border border-gray-700 text-white text-center shadow-lg max-w-3xl" onclick="event.stopPropagation()">
+                <p id="modalCaption" class="text-lg leading-relaxed"></p>
+            </div>
+        </div>
+    </div>
 
     <!-- כותרת תחתונה (Footer) -->
     <footer class="bg-white dark:bg-darkBg border-t border-gray-200 dark:border-gray-800 py-8 mt-12">
@@ -327,6 +358,50 @@
         } else {
             document.documentElement.classList.remove('dark');
         }
+
+        // פונקציות חלון צף להגדלת תמונות
+        function openImageModal(src, caption) {
+            const modal = document.getElementById('imageModal');
+            const modalImg = document.getElementById('modalImage');
+            const modalCap = document.getElementById('modalCaption');
+            
+            modalImg.src = src;
+            modalCap.textContent = caption;
+            
+            modal.classList.remove('hidden');
+            document.body.classList.add('modal-open');
+            
+            setTimeout(() => {
+                modal.classList.remove('opacity-0');
+                modalImg.classList.remove('scale-95');
+                modalImg.classList.add('scale-100');
+            }, 10);
+        }
+
+        function closeImageModal() {
+            const modal = document.getElementById('imageModal');
+            const modalImg = document.getElementById('modalImage');
+            
+            modal.classList.add('opacity-0');
+            modalImg.classList.remove('scale-100');
+            modalImg.classList.add('scale-95');
+            
+            setTimeout(() => {
+                modal.classList.add('hidden');
+                document.body.classList.remove('modal-open');
+            }, 300);
+        }
+        
+        document.addEventListener('keydown', function(event) {
+            if (event.key === "Escape") {
+                const modal = document.getElementById('imageModal');
+                if (!modal.classList.contains('hidden')) {
+                    closeImageModal();
+                }
+            }
+        });
     </script>
 </body>
 </html>
+
+
