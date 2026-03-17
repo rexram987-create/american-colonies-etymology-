@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ניו המפשייר (1623) | המושבות האמריקאיות</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        darkBg: '#0f172a',
+                        darkCard: '#1e293b',
+                        gold: '#fbbf24',
+                    },
+                    fontFamily: {
+                        sans: ['system-ui', '-apple-system', 'Segoe UI', 'Roboto', 'Helvetica', 'Arial', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    <!-- Phosphor Icons -->
+    <script src="https://unpkg.com/@phosphor-icons/web"></script>
+    <style>
+        body { transition: background-color 0.3s ease, color 0.3s ease; }
+        .content-section { scroll-margin-top: 100px; }
+    </style>
+</head>
+<body class="bg-gray-50 text-gray-900 dark:bg-darkBg dark:text-gray-100 font-sans antialiased selection:bg-blue-200 dark:selection:bg-blue-900">
+
+    <!-- ניווט עליון (Header) -->
+    <header class="relative z-40 w-full bg-white dark:bg-darkBg border-b border-gray-200 dark:border-gray-800 shadow-sm">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between h-20">
+                <!-- כפתור חזרה (מעודכן לתיקיית colonies) -->
+                <a href="../index.html" class="flex items-center gap-2 text-blue-600 dark:text-gold hover:text-blue-800 dark:hover:text-yellow-400 transition-colors touch-manipulation font-semibold bg-blue-50 dark:bg-gray-800 px-4 py-2 rounded-full">
+                    <i class="ph ph-arrow-right text-xl"></i>
+                    <span>חזרה לדף הבית</span>
+                </a>
+                
+                <!-- תפריט כפתורים -->
+                <div class="flex items-center gap-4">
+                    <button onclick="toggleDarkMode()" class="p-3 rounded-full bg-gray-200 dark:bg-gray-800 hover:bg-gray-300 dark:hover:bg-gray-700 transition-colors touch-manipulation" aria-label="החלף מצב תצוגה">
+                        <i class="ph ph-moon text-xl block dark:hidden"></i>
+                        <i class="ph ph-sun text-xl hidden dark:block text-gold"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <main class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+        
+        <!-- כותרת ראשית (Hero) -->
+        <div class="mb-12 text-center md:text-right">
+            <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-green-100 dark:bg-green-900/40 text-green-800 dark:text-green-300 text-sm font-semibold tracking-wide mb-4">
+                <i class="ph ph-calendar-blank"></i>
+                שנת הקמה: 1623 (כפר דייגים) / 1629 (זיכיון)
+            </div>
+            <h1 class="text-4xl md:text-5xl lg:text-6xl font-extrabold leading-tight text-gray-900 dark:text-white mb-6">
+                מושבת ניו המפשייר
+            </h1>
+            <p class="text-xl text-gray-600 dark:text-gray-300 leading-relaxed">
+                ארץ הדייגים, חוטבי העצים והעצמאות הקשוחה. מושבת ספר שנוסדה למטרות רווח מסחרי טהור, נבלעה על ידי השכנה התאוקרטית מסצ'וסטס, ונאבקה במשך חצי מאה כדי להחזיר לעצמה את ריבונותה כמושבה נפרדת.
+            </p>
+        </div>
+
+        <!-- תמונה ראשית -->
+        <div class="w-full h-64 md:h-96 rounded-3xl overflow-hidden mb-16 shadow-2xl relative border border-gray-200 dark:border-gray-800">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/6d/Portsmouth_New_Hampshire.jpg/1200px-Portsmouth_New_Hampshire.jpg" alt="" class="w-full h-full object-cover">
+            <div class="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/80 to-transparent p-4 text-white text-sm md:text-base text-center">
+                נמל פורטסמות' (Portsmouth), מרכז הסחר והדיג הראשי של ניו המפשייר לאורך נהר הפיסקאטקווה.
+            </div>
+        </div>
+
+        <article class="space-y-16">
+            
+            <!-- 1. שנות פעילות ויעדים -->
+            <section class="content-section bg-white dark:bg-darkCard p-8 rounded-3xl shadow-sm border border-gray-100 dark:border-gray-800">
+                <div class="flex items-center gap-3 mb-6">
+                    <div class="p-3 bg-blue-100 dark:bg-gray-800 rounded-2xl text-blue-600 dark:text-gold">
+                        <i class="ph ph-target text-3xl"></i>
+                    </div>
+                    <h2 class="text-3xl font-bold">1. שנות פעילות, הקמה ויעדים</h2>
+                </div>
+                <div class="text-lg text-gray-700 dark:text-gray-300 leading-relaxed space-y-4">
+                    <p><strong>שנת הקמה:</strong> ההתיישבות הראשונה (Pannaway Plantation) הוקמה ב-1623. השם "ניו המפשייר" הופיע לראשונה במסמך הזיכיון של שנת 1629.</p>
+                    <p><strong>ישות מקימה:</strong> "מועצת ניו אינגלנד" (Council for New England) העניקה זיכיון לשטח הממוקם בין נהר המרימאק לנהר הפיסקאטקווה לשני יזמים בריטיים: סר פרדיננדו גורג'ס וקפטן ג'ון מייסון.</p>
+                    <p><strong>היעדים המקוריים:</strong> 
+                        בניגוד לרוב מושבות ניו אינגלנד, ניו המפשייר **לא** הוקמה מתוך רדיפה דתית או אידאולוגיה אוטופית. היא הוקמה מסיבות **מסחריות טהורות**. המטרה הייתה להקים כפרים רווחיים שיפיקו הון מתעשיית הדיג העשירה של צפון האוקיינוס האטלנטי, ומסחר בפרוות ובסחר עצים מול האינדיאנים.
+                    </p>
+                </div>
+            </section>
+
+            <!-- 2. דמויות מפתח -->
+            <section class="content-section bg-white dark:bg-darkCard p-8 rounded-3xl shadow-sm border border-gray-100 dark:border-gray-800 border-r-4 border-r-blue-500 dark:border-r-gold">
+                <div class="flex items-center gap-3 mb-6">
+                    <div class="p-3 bg-blue-100 dark:bg-gray-800 rounded-2xl text-blue-600 dark:text-gold">
+                        <i class="ph ph-user text-3xl"></i>
+                    </div>
+                    <h2 class="text-3xl font-bold">2. רקע המייסד: קפטן ג'ון מייסון</h2>
+                </div>
+                
+                <div class="text-lg text-gray-700 dark:text-gray-300 leading-relaxed space-y-6">
+                    <div>
+                        <h3 class="text-2xl font-bold text-blue-800 dark:text-blue-300 mb-2">קפטן ג'ון מייסון (John Mason) (1586–1635)</h3>
+                        <p><strong>רקע:</strong> מלח, מגלה ארצות ויזם אנגלי. לפני שקיבל את הזיכיון לניו המפשייר, הוא שימש כמושל החלקה הבריטית בניופאונדלנד (קנדה), שם למד את הפוטנציאל הכלכלי העצום של חופי צפון אמריקה.</p>
+                        <p><strong>הישגים ופרדוקס אישי:</strong> מייסון חילק את הזיכיון של ניו אינגלנד עם שותפו סר פרדיננדו גורג'ס. גורג'ס לקח את החצי המזרחי (שהפך למיין), ומייסון לקח את החצי המערבי (ניו המפשייר). מייסון השקיע הון עצום מכיסו הפרטי בשליחת מתיישבים, ספינות, וציוד דיג למושבה החדשה. למרבה האירוניה והטרגדיה, **הוא מת ב-1635 באנגליה מבלי שכף רגלו דרכה אי פעם באדמת ניו המפשייר**. מותו המוקדם הותיר את המושבה ללא הנהגה ברורה, מה שפתח את הדלת להשתלטות של מסצ'וסטס.</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- 3. אידאולוגיה וסיבת ההקמה -->
+            <section class="content-section bg-white dark:bg-darkCard p-8 rounded-3xl shadow-sm border border-gray-100 dark:border-gray-800">
+                <div class="flex items-center gap-3 mb-6">
+                    <div class="p-3 bg-blue-100 dark:bg-gray-800 rounded-2xl text-blue-600 dark:text-gold">
+                        <i class="ph ph-scales text-3xl"></i>
+                    </div>
+                    <h2 class="text-3xl font-bold">3. אידאולוגיה: פרגמטיזם אנטי-פוריטני</h2>
+                </div>
+                <div class="text-lg text-gray-700 dark:text-gray-300 leading-relaxed space-y-4">
+                    <p>
+                        ניו המפשייר הייתה החריגה בנוף האידאולוגי הנוקשה של "ניו אינגלנד".
+                    </p>
+                    <ul class="list-disc list-inside space-y-4 ml-4">
+                        <li><strong>דת שנייה לפרנסה:</strong> המתיישבים הראשונים היו בעיקר אנגליקנים (חברי כנסיית אנגליה הממוסדת) או אנשים שהדת פשוט עניינה אותם פחות מפרנסה. הם באו "לתפוס דגים ולחטוב עצים", לא לנהל ויכוחים תיאולוגיים.</li>
+                        <li><strong>חוסר משמעת:</strong> בניגוד לשכניהם מדרום (במסצ'וסטס), לתושבי ניו המפשייר הייתה אידאולוגיה של עצמאות גסה. הם סירבו להכפיף את זכות ההצבעה שלהם לחברות בכנסייה מסוימת, וניהלו את עיירותיהם (כמו פורטסמות' ודובר) כמרכזים כלכליים פרגמטיים שבהם מסחר קדם למוסר.</li>
+                    </ul>
+                </div>
+            </section>
+
+            <!-- 4. גיאוגרפיה, הידרולוגיה ובחירת המיקום -->
+            <section class="content-section bg-white dark:bg-darkCard p-8 rounded-3xl shadow-sm border border-gray-100 dark:border-gray-800">
+                <div class="flex items-center gap-3 mb-6">
+                    <div class="p-3 bg-blue-100 dark:bg-gray-800 rounded-2xl text-blue-600 dark:text-gold">
+                        <i class="ph ph-map-pin text-3xl"></i>
+                    </div>
+                    <h2 class="text-3xl font-bold">4. גיאוגרפיה והידרולוגיה: נהר הפיסקאטקווה</h2>
+                </div>
+                
+                <div class="text-lg text-gray-700 dark:text-gray-300 leading-relaxed space-y-4">
+                    <p>הגיאוגרפיה של ניו המפשייר התאפיינה בחוף קצר אך אסטרטגי, ועורף הררי (ההרים הלבנים - White Mountains) מכוסה יערות עד.</p>
+                    <ul class="list-disc list-inside space-y-4 ml-4">
+                        <li><strong>נהר הפיסקאטקווה (Piscataqua River):</strong> זהו הגבול הגיאוגרפי וההידרולוגי המפריד כיום בין ניו המפשייר למיין. הנהר מהיר, עמוק, ויש לו זרמי גאות ושפל (Tidal flow) חזקים מאוד. זרמים אלו מנעו מהנמל של פורטסמות' לקפוא לחלוטין גם בחורפים הקרים ביותר, מה שהפך אותו למיקום מושלם למספנות ולנמל מסחרי שפועל לאורך כל השנה.</li>
+                        <li><strong>אדמה סלעית:</strong> האדמה בניו המפשייר הייתה מסולעת ודקה בשל קרחונים קדומים, מה שמנע פיתוח של חקלאות רחבת היקף והכריח את המתיישבים לחפש רווחים במשאבים טבעיים אחרים.</li>
+                    </ul>
+                </div>
+            </section>
+
+            <!-- 5. הסחר והכלכלה -->
+            <section class="content-section bg-white dark:bg-darkCard p-8 rounded-3xl shadow-sm border border-gray-100 dark:border-gray-800 border-r-4 border-r-green-500 dark:border-r-emerald-400">
+                <div class="flex items-center gap-3 mb-6">
+                    <div class="p-3 bg-green-100 dark:bg-gray-800 rounded-2xl text-green-700 dark:text-emerald-400">
+                        <i class="ph ph-coins text-3xl"></i>
+                    </div>
+                    <h2 class="text-3xl font-bold">5. כלכלה: דגים, ותרנים לצי המלכותי</h2>
+                </div>
+                <div class="text-lg text-gray-700 dark:text-gray-300 leading-relaxed space-y-4">
+                    <p>
+                        כלכלת ניו המפשייר התבססה על ניצול משאבי הטבע של הים והיער:
+                    </p>
+                    <ul class="list-disc list-inside space-y-3 ml-4">
+                        <li><strong>תעשיית הדיג:</strong> המנוע הכלכלי הראשון. המתיישבים דגו כמויות אדירות של דגי בקלה (Cod), המליחו אותם, וייצאו אותם לאירופה ולאיי הודו המערבית כ"מזון זול" לעבדים במטעי הסוכר.</li>
+                        <li><strong>עצי האורן וסמל "החץ הרחב" (The Broad Arrow):</strong> הפוטנציאל הגדול ביותר של המושבה שכב ביערות שלה. עצי האורן הלבן המזרחי (Eastern White Pine) הענקיים והישרים היו המשאב המבוקש ביותר בעולם לבניית <strong>תרנים (Masts) לספינות</strong>. הצי המלכותי הבריטי היה תלוי לחלוטין בעצים הללו. הכתר האנגלי חוקק חוקים ששמרו את כל העצים הגבוהים מ-24 אינץ' בקוטרם כרכוש המלך. פקחים בריטיים סימנו את העצים הללו ביער בגרזן עם צורת "חץ רחב". מתיישבי ניו המפשייר, שרצו לכרות את העצים לרווחתם האישית (עצים לניסור, קורות, רעפים), התנגדו עמוקות לחוקים אלו והבריחו עצים, מה שזרע את זרעי המרד הרבה לפני מהפכת העצמאות.</li>
+                    </ul>
+                </div>
+            </section>
+
+            <!-- 6. הדמוגרפיה והחברה -->
+            <section class="content-section bg-white dark:bg-darkCard p-8 rounded-3xl shadow-sm border border-gray-100 dark:border-gray-800 border-r-4 border-r-green-500 dark:border-r-emerald-400">
+                <div class="flex items-center gap-3 mb-6">
+                    <div class="p-3 bg-green-100 dark:bg-gray-800 rounded-2xl text-green-700 dark:text-emerald-400">
+                        <i class="ph ph-users-three text-3xl"></i>
+                    </div>
+                    <h2 class="text-3xl font-bold">6. דמוגרפיה: המושבה הדלילה</h2>
+                </div>
+                <div class="text-lg text-gray-700 dark:text-gray-300 leading-relaxed space-y-4">
+                    <p>
+                        ניו המפשייר הייתה המושבה הקטנה והפחות מאוכלסת מבין מושבות ניו אינגלנד לאורך כל המאה ה-17:
+                    </p>
+                    <ul class="list-disc list-inside space-y-3 ml-4">
+                        <li><strong>אוכלוסיית גברים עובדים:</strong> בשנותיה הראשונות, האוכלוסייה הורכבה בעיקר מדייגים, חוטבי עצים וסוחרי פרוות. חברה של גברים קשוחים שחיו בעיירות ספר, בניגוד בולט למשפחות הגרעיניות השלמות שהיגרו למסצ'וסטס מסיבות דתיות.</li>
+                        <li><strong>צמיחה איטית:</strong> ההתקפות הבלתי פוסקות מצד שבטי האינדיאנים שלחמו לצד הצרפתים (כחלק ממלחמות צרפת והאינדיאנים לאורך הגבול הצפוני), מנעו מהמושבה להתפשט הרחק מקו החוף עד למאה ה-18.</li>
+                    </ul>
+                </div>
+            </section>
+
+            <!-- 7. מאבקי השליטה (החוק הנדרש) -->
+            <section class="content-section bg-white dark:bg-darkCard p-8 rounded-3xl shadow-sm border border-gray-100 dark:border-gray-800 border-r-4 border-r-red-500 dark:border-r-red-400">
+                <div class="flex items-center gap-3 mb-6">
+                    <div class="p-3 bg-red-100 dark:bg-gray-800 rounded-2xl text-red-600 dark:text-red-400">
+                        <i class="ph ph-swords text-3xl"></i>
+                    </div>
+                    <h2 class="text-3xl font-bold">7. מאבקי השליטה: הבלעה על ידי מסצ'וסטס והשחרור</h2>
+                </div>
+                <div class="text-lg text-gray-700 dark:text-gray-300 leading-relaxed space-y-6">
+                    <p>היסטוריית השליטה של ניו המפשייר היא מאבק מתמיד כנגד האימפריאליזם הדתי של שכנתה מדרום:</p>
+                    
+                    <div class="bg-gray-50 dark:bg-gray-800/30 p-6 rounded-2xl border border-gray-200 dark:border-gray-700">
+                        <h3 class="text-2xl font-bold text-red-800 dark:text-red-400 mb-3 flex items-center gap-2">
+                            <i class="ph ph-crown"></i> מסיפוח לעצמאות כמושבת כתר
+                        </h3>
+                        <ul class="list-none space-y-3 text-lg">
+                            <li><strong>מועדי ההשתלטות:</strong> סופחה למסצ'וסטס ב-1641. הופרדה כמושבת כתר עצמאית ב-<strong>1679</strong>. סופחה שוב (תחת דומיניון ניו אינגלנד), ולבסוף הפכה עצמאית לחלוטין ב-<strong>1691</strong>.</li>
+                            <li><strong>אישים בולטים:</strong> המלך <strong>צ'ארלס השני</strong> (King Charles II), ורוברט טופטון מייסון (נכדו של המייסד, שתבע את הקרקע).</li>
+                            <li><strong>סיבת ההשתלטות (והשחרור):</strong> 
+                                לאחר מותו של המייסד ג'ון מייסון (1635), ניו המפשייר נותרה ללא הנהגה משפטית או הגנה צבאית. <strong>מסצ'וסטס ניצלה את הוואקום</strong>, פירשה מחדש את גבולות הזיכיון שלה, ובשנת 1641 סיפחה בפועל את יישובי ניו המפשייר לתוכה, תוך ניסיון לכפות עליהם את המודל הפוריטני.
+                                המהפך התרחש בשנות ה-70 של המאה ה-17. נכדו של המייסד תבע את זכויותיו בבתי המשפט באנגליה. במקביל, המלך צ'ארלס השני כעס מאוד על מסצ'וסטס, שסירבה לציית לחוקי הסחר, והכי חשוב - <strong>המלך רצה לשלוט ישירות בסחר בתרני העצים</strong> של ניו המפשייר עבור הצי המלכותי שלו מבלי שמסצ'וסטס תתערב. לכן, בשנת 1679, המלך חתך את המושבה מידיה של מסצ'וסטס, ביטל את סמכותם, והפך את ניו המפשייר למושבת כתר אנגלית עצמאית (Royal Province).
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </section>
+
+            <!-- 8. מחקר אטימולוגי מפורט -->
+            <section class="content-section bg-white dark:bg-darkCard p-8 rounded-3xl shadow-sm border border-gray-100 dark:border-gray-800">
+                <div class="flex items-center gap-3 mb-6">
+                    <div class="p-3 bg-blue-100 dark:bg-gray-800 rounded-2xl text-blue-600 dark:text-gold">
+                        <i class="ph ph-text-aa text-3xl"></i>
+                    </div>
+                    <h2 class="text-3xl font-bold">8. מחקר אטימולוגי: Hampshire ומקורות המילה</h2>
+                </div>
+                
+                <div class="overflow-x-auto mt-6">
+                    <table class="w-full text-right border-collapse">
+                        <thead>
+                            <tr class="bg-blue-50 dark:bg-gray-800 text-blue-900 dark:text-gold border-b-2 border-blue-200 dark:border-gray-700">
+                                <th class="p-4 font-bold rounded-tr-xl">מרכיב בשם</th>
+                                <th class="p-4 font-bold">מקור לשוני ותקופה</th>
+                                <th class="p-4 font-bold rounded-tl-xl">משמעות והקשר היסטורי</th>
+                            </tr>
+                        </thead>
+                        <tbody class="text-gray-700 dark:text-gray-300">
+                            <tr class="border-b border-gray-100 dark:border-gray-800 hover:bg-gray-50 dark:hover:bg-gray-800/50 transition-colors">
+                                <td class="p-4 font-mono font-bold text-xl">Hamp-</td>
+                                <td class="p-4">אנגלית עתיקה: <em>Hamtun</em></td>
+                                <td class="p-4">
+                                    המרכיב מתחלק לשניים:<br> 1. <em>Ham</em> - אחוזה, בית או כפר (מכאן המילה Home). <br> 2. <em>Tun</em> - מתחם מגודר, עיירה (מכאן המילה Town). יחד, המקור מתייחס לעיירה "סאות'המפטון" (Southampton) באנגליה.
+                                </td>
+                            </tr>
+                            <tr class="border-b border-gray-100 dark:border-gray-800 hover:bg-gray-50 dark:hover:bg-gray-800/50 transition-colors">
+                                <td class="p-4 font-mono font-bold text-xl">-shire</td>
+                                <td class="p-4">אנגלית עתיקה: <em>Scir</em></td>
+                                <td class="p-4">
+                                    משמעותו "מחוז" (County), נחלה או אזור שליטה של פקיד רשמי (שריף - Shire-reeve).
+                                </td>
+                            </tr>
+                            <tr class="bg-blue-50/50 dark:bg-gray-800/30">
+                                <td class="p-4 font-bold text-blue-800 dark:text-blue-300">New Hampshire</td>
+                                <td class="p-4 text-lg font-semibold text-gray-900 dark:text-white">הלחם אנגלי (1629)</td>
+                                <td class="p-4 text-lg font-semibold text-gray-900 dark:text-white">
+                                    <strong>"מחוז המפשייר החדש"</strong>. קפטן ג'ון מייסון בחר את השם עבור הזיכיון שלו כאות כבוד למחוז מולדתו ולמקום מגוריו – מחוז המפשייר (Hampshire) הממוקם בחוף הדרומי של אנגליה. במחוז זה ממוקמת העיר והנמל המפורסם "פורטסמות'" (Portsmouth) – וזו הסיבה שהעיר המרכזית בניו המפשייר האמריקאית נקראה אף היא באותו השם.
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </section>
+
+        </article>
+
+    </main>
+
+    <!-- כותרת תחתונה (Footer) -->
+    <footer class="bg-white dark:bg-darkBg border-t border-gray-200 dark:border-gray-800 py-8 mt-12">
+        <div class="max-w-7xl mx-auto px-4 text-center text-gray-500 dark:text-gray-400">
+            <p class="font-bold text-gray-700 dark:text-gray-300">נבנה על ידי ג'מיני ורם בעבור מחקר היסטורי ואטימולוגי.</p>
+            <p class="text-sm mt-2">מותאם אישית לקריאה נוחה על מסכי פרימיום (Samsung S25 Ultra).</p>
+        </div>
+    </footer>
+
+    <!-- JavaScript Base Logic -->
+    <script>
+        function toggleDarkMode() {
+            const htmlClasses = document.documentElement.classList;
+            if (htmlClasses.contains('dark')) {
+                htmlClasses.remove('dark');
+                localStorage.theme = 'light';
+            } else {
+                htmlClasses.add('dark');
+                localStorage.theme = 'dark';
+            }
+        }
+
+        if (localStorage.theme === 'dark' || (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+            document.documentElement.classList.add('dark');
+        } else {
+            document.documentElement.classList.remove('dark');
+        }
+    </script>
+</body>
+</html>
