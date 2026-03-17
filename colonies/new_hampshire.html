@@ -71,8 +71,11 @@
             </p>
         </div>
 
-        <!-- תמונה ראשית (עם יכולת הגדלה ותיקון גרש) -->
-        <div class="w-full h-64 md:h-96 rounded-3xl overflow-hidden mb-16 shadow-2xl relative border border-gray-200 dark:border-gray-800 group cursor-pointer" onclick="openImageModal('../images/new_hampshire_hero.jpg', 'נמל פורטסמות&#39; (Portsmouth), מרכז הסחר והדיג הראשי של ניו המפשייר לאורך נהר הפיסקאטקווה.')">
+        <!-- תמונה ראשית 1 (משתמשת במנגנון Data-Attributes החדש והבטוח) -->
+        <div class="w-full h-64 md:h-96 rounded-3xl overflow-hidden mb-16 shadow-2xl relative border border-gray-200 dark:border-gray-800 group cursor-pointer" 
+             onclick="openImageModal(this)" 
+             data-image="../images/new_hampshire_hero.jpg" 
+             data-caption="נמל פורטסמות' (Portsmouth), מרכז הסחר והדיג הראשי של ניו המפשייר לאורך נהר הפיסקאטקווה.">
             <img src="../images/new_hampshire_hero.jpg" alt="נמל פורטסמות'" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700">
             <div class="absolute inset-0 bg-black/20 group-hover:bg-transparent transition-colors duration-500"></div>
             <div class="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/90 via-black/60 to-transparent p-6 text-white text-sm md:text-base text-center">
@@ -112,8 +115,11 @@
                 </div>
                 
                 <div class="flex flex-col md:flex-row gap-8 items-start">
-                    <!-- תמונה להגדלה (עם תיקון גרש בקוד) -->
-                    <div class="md:w-1/3 shrink-0 w-full group cursor-pointer relative rounded-2xl overflow-hidden shadow-md border border-gray-200 dark:border-gray-700" onclick="openImageModal('../images/john_mason_portrait.jpg', 'קפטן ג&#39;ון מייסון, מייסד המושבה שמעולם לא זכה לבקר בה.')">
+                    <!-- תמונה 2 (מנגנון שאיבת נתונים בטוח) -->
+                    <div class="md:w-1/3 shrink-0 w-full group cursor-pointer relative rounded-2xl overflow-hidden shadow-md border border-gray-200 dark:border-gray-700" 
+                         onclick="openImageModal(this)" 
+                         data-image="../images/john_mason_portrait.jpg" 
+                         data-caption="קפטן ג'ון מייסון, מייסד המושבה שמעולם לא זכה לבקר בה.">
                         <img src="../images/john_mason_portrait.jpg" alt="דיוקן קפטן ג'ון מייסון" class="w-full object-cover group-hover:scale-105 transition-transform duration-500">
                         <div class="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
                             <i class="ph ph-magnifying-glass-plus text-4xl text-white"></i>
@@ -178,8 +184,11 @@
                 </div>
                 
                 <div class="flex flex-col md:flex-row-reverse gap-8 items-start">
-                    <!-- תמונה להגדלה -->
-                    <div class="md:w-1/3 shrink-0 w-full group cursor-pointer relative rounded-2xl overflow-hidden shadow-md border border-gray-200 dark:border-gray-700" onclick="openImageModal('../images/broad_arrow_pine.jpg', 'סימון החץ הרחב (Broad Arrow) של המלך על עצי האורן הלבן ביערות ניו המפשייר.')">
+                    <!-- תמונה 3 -->
+                    <div class="md:w-1/3 shrink-0 w-full group cursor-pointer relative rounded-2xl overflow-hidden shadow-md border border-gray-200 dark:border-gray-700" 
+                         onclick="openImageModal(this)" 
+                         data-image="../images/broad_arrow_pine.jpg" 
+                         data-caption="סימון החץ הרחב (Broad Arrow) של המלך על עצי האורן הלבן ביערות ניו המפשייר.">
                         <img src="../images/broad_arrow_pine.jpg" alt="סימון החץ הרחב" class="w-full object-cover group-hover:scale-105 transition-transform duration-500">
                         <div class="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
                             <i class="ph ph-magnifying-glass-plus text-4xl text-white"></i>
@@ -335,7 +344,7 @@
         </div>
     </footer>
 
-    <!-- JavaScript Base Logic -->
+    <!-- JavaScript Base Logic (מעודכן ל-Data Attributes) -->
     <script>
         function toggleDarkMode() {
             const htmlClasses = document.documentElement.classList;
@@ -354,8 +363,11 @@
             document.documentElement.classList.remove('dark');
         }
 
-        // פונקציות חלון צף להגדלת תמונות
-        function openImageModal(src, caption) {
+        // פונקציות חלון צף להגדלת תמונות בעזרת Data Attributes
+        function openImageModal(element) {
+            const src = element.getAttribute('data-image');
+            const caption = element.getAttribute('data-caption');
+            
             const modal = document.getElementById('imageModal');
             const modalImg = document.getElementById('modalImage');
             const modalCap = document.getElementById('modalCaption');
