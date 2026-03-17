@@ -1,0 +1,324 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>דלאוור (1638) | המושבות האמריקאיות</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        darkBg: '#0f172a',
+                        darkCard: '#1e293b',
+                        gold: '#fbbf24',
+                    },
+                    fontFamily: {
+                        sans: ['system-ui', '-apple-system', 'Segoe UI', 'Roboto', 'Helvetica', 'Arial', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    <!-- Phosphor Icons -->
+    <script src="https://unpkg.com/@phosphor-icons/web"></script>
+    <style>
+        body { transition: background-color 0.3s ease, color 0.3s ease; }
+        .content-section { scroll-margin-top: 100px; }
+    </style>
+</head>
+<body class="bg-gray-50 text-gray-900 dark:bg-darkBg dark:text-gray-100 font-sans antialiased selection:bg-blue-200 dark:selection:bg-blue-900">
+
+    <!-- ניווט עליון (Header) -->
+    <header class="relative z-40 w-full bg-white dark:bg-darkBg border-b border-gray-200 dark:border-gray-800 shadow-sm">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between h-20">
+                <!-- כפתור חזרה -->
+                <a href="index.html" class="flex items-center gap-2 text-blue-600 dark:text-gold hover:text-blue-800 dark:hover:text-yellow-400 transition-colors touch-manipulation font-semibold bg-blue-50 dark:bg-gray-800 px-4 py-2 rounded-full">
+                    <i class="ph ph-arrow-right text-xl"></i>
+                    <span>חזרה לדף הבית</span>
+                </a>
+                
+                <!-- תפריט כפתורים -->
+                <div class="flex items-center gap-4">
+                    <button onclick="toggleDarkMode()" class="p-3 rounded-full bg-gray-200 dark:bg-gray-800 hover:bg-gray-300 dark:hover:bg-gray-700 transition-colors touch-manipulation" aria-label="החלף מצב תצוגה">
+                        <i class="ph ph-moon text-xl block dark:hidden"></i>
+                        <i class="ph ph-sun text-xl hidden dark:block text-gold"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <main class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+        
+        <!-- כותרת ראשית (Hero) -->
+        <div class="mb-12 text-center md:text-right">
+            <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-green-100 dark:bg-green-900/40 text-green-800 dark:text-green-300 text-sm font-semibold tracking-wide mb-4">
+                <i class="ph ph-calendar-blank"></i>
+                שנת הקמה: 1638 (כשוודיה החדשה)
+            </div>
+            <h1 class="text-4xl md:text-5xl lg:text-6xl font-extrabold leading-tight text-gray-900 dark:text-white mb-6">
+                מושבת דלאוור
+            </h1>
+            <p class="text-xl text-gray-600 dark:text-gray-300 leading-relaxed">
+                שדה הקרב של המעצמות האירופיות. המושבה שעברה ידיים בין שוודיה, הולנד ואנגליה. סיפור על מסחר בפרוות, תככים אימפריאליים, והמקום שבו נבנתה "בקתת העץ" (Log Cabin) הראשונה באמריקה.
+            </p>
+        </div>
+
+        <!-- תמונה ראשית -->
+        <div class="w-full h-64 md:h-96 rounded-3xl overflow-hidden mb-16 shadow-2xl relative border border-gray-200 dark:border-gray-800">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/8/87/Fort_Christina.jpg/1200px-Fort_Christina.jpg" alt="" class="w-full h-full object-cover">
+            <div class="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/80 to-transparent p-4 text-white text-sm md:text-base text-center">
+                מבצר כריסטינה (Fort Christina), ההתיישבות השוודית הראשונה בדלאוור (1638), לימים העיר וילמינגטון.
+            </div>
+        </div>
+
+        <article class="space-y-16">
+            
+            <!-- 1. שנות פעילות ויעדים -->
+            <section class="content-section bg-white dark:bg-darkCard p-8 rounded-3xl shadow-sm border border-gray-100 dark:border-gray-800">
+                <div class="flex items-center gap-3 mb-6">
+                    <div class="p-3 bg-blue-100 dark:bg-gray-800 rounded-2xl text-blue-600 dark:text-gold">
+                        <i class="ph ph-target text-3xl"></i>
+                    </div>
+                    <h2 class="text-3xl font-bold">1. שנות פעילות, הקמה ויעדים</h2>
+                </div>
+                <div class="text-lg text-gray-700 dark:text-gray-300 leading-relaxed space-y-4">
+                    <p><strong>שנת הקמה:</strong> מרץ 1638. זוהי המושבה היחידה מבין ה-13 שלא הוקמה במקור על ידי האנגלים.</p>
+                    <p><strong>ישות מקימה (מקורית):</strong> "החברה השוודית הדרומית" (Swedish South Company). בתקופה זו, האימפריה השוודית הייתה בשיא כוחה תחת הנהגתו של המלך גוסטב אדולפוס (שנהרג במלחמת 30 השנים), והיא חיפשה דריסת רגל בעולם החדש.</p>
+                    <p><strong>היעדים המקוריים:</strong> 
+                        היעד היה מסחרי ואסטרטגי לחלוטין. השוודים רצו לשבור את המונופול של האנגלים וההולנדים על סחר הפרוות הרווחי (בעיקר פרוות בונה) בצפון אמריקה, ולייבא טבק. המושבה תוכננה להיות תחנת סחר מבוצרת במעלה נהר הדלאוור, במיקום שיאפשר גישה ישירה לשבטי האינדיאנים של פנים היבשת.
+                    </p>
+                </div>
+            </section>
+
+            <!-- 2. דמויות מפתח: פטר מינואי ויוהאן פרינץ -->
+            <section class="content-section bg-white dark:bg-darkCard p-8 rounded-3xl shadow-sm border border-gray-100 dark:border-gray-800 border-r-4 border-r-blue-500 dark:border-r-gold">
+                <div class="flex items-center gap-3 mb-6">
+                    <div class="p-3 bg-blue-100 dark:bg-gray-800 rounded-2xl text-blue-600 dark:text-gold">
+                        <i class="ph ph-users text-3xl"></i>
+                    </div>
+                    <h2 class="text-3xl font-bold">2. רקע המייסדים: המרגלים והמושלים</h2>
+                </div>
+                
+                <div class="text-lg text-gray-700 dark:text-gray-300 leading-relaxed space-y-6">
+                    <!-- פטר מינואי -->
+                    <div>
+                        <h3 class="text-2xl font-bold text-blue-800 dark:text-blue-300 mb-2">פטר מינואי (Peter Minuit) (1580–1638)</h3>
+                        <p><strong>ילדות ורקע:</strong> נולד בגרמניה למשפחה הולנדית-וואלונית (פרוטסטנטים דוברי צרפתית). הוא היה סוחר ממולח ויורד ים שעבד עבור חברת הודו המערבית ההולנדית. הוא התפרסם בהיסטוריה כמי שקנה את האי מנהטן מהאינדיאנים תמורת סחורות בשווי 24 דולר, ושימש כמושל הראשון של "הולנד החדשה" (ניו יורק).</p>
+                        <p><strong>הבגידה והקמת דלאוור:</strong> לאחר שפוטר על ידי ההולנדים, מינואי המתוסכל "ערק" והציע את שירותיו וסודותיו לממלכת שוודיה. הוא ידע בדיוק היכן ההולנדים חלשים. ב-1638, הוא הוביל שתי ספינות שוודיות (ה"קאלמר ניקל" וה"פוגל גריפ") אל נהר הדלאוור, רכש אדמה משבט הלנאפה, והקים את <strong>מבצר כריסטינה</strong> (Fort Christina - כיום העיר וילמינגטון), ההתיישבות הקבועה הראשונה בדלאוור. הוא נהרג בסערה בים הקריבי חודשים ספורים לאחר מכן.</p>
+                    </div>
+
+                    <hr class="border-gray-200 dark:border-gray-700">
+
+                    <!-- יוהאן פרינץ -->
+                    <div>
+                        <h3 class="text-2xl font-bold text-blue-800 dark:text-blue-300 mb-2">יוהאן פרינץ (Johan Printz) (1592–1663)</h3>
+                        <p><strong>המושל הגדול מכולם:</strong> פרינץ נשלח ב-1643 להיות המושל של "שוודיה החדשה". הוא היה איש צבא שוודי לשעבר, ענק פיזית (שקל מעל 180 ק"ג), שהאינדיאנים המקומיים כינו ביראה "הבטן הגדולה" (Big Tub). </p>
+                        <p><strong>הישגים:</strong> פרינץ שלט במושבה ביד רמה במשך 10 שנים. הוא בנה מבצרים חדשים לאורך הנהר כדי לחסום ספינות הולנדיות, שמר על יחסי מסחר מצוינים עם שבט הסוסקוואהאנוק, והביא את "שוודיה החדשה" לשיא התפשטותה הגיאוגרפית. אולם, אופיו הרודני גרם למתיישביו למרוד בו, והוא נאלץ לחזור לשוודיה ב-1653.</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- 3. אידאולוגיה וסיבת ההקמה -->
+            <section class="content-section bg-white dark:bg-darkCard p-8 rounded-3xl shadow-sm border border-gray-100 dark:border-gray-800">
+                <div class="flex items-center gap-3 mb-6">
+                    <div class="p-3 bg-blue-100 dark:bg-gray-800 rounded-2xl text-blue-600 dark:text-gold">
+                        <i class="ph ph-scales text-3xl"></i>
+                    </div>
+                    <h2 class="text-3xl font-bold">3. אידאולוגיה: מסחר, לא דת</h2>
+                </div>
+                <div class="text-lg text-gray-700 dark:text-gray-300 leading-relaxed space-y-4">
+                    <p>
+                        בניגוד למושבות ניו אינגלנד (מסצ'וסטס, רוד איילנד) שהוקמו מתוך להט דתי עמוק, בדלאוור האידאולוגיה הדתית הייתה שולית.
+                    </p>
+                    <ul class="list-disc list-inside space-y-4 ml-4">
+                        <li><strong>פרגמטיזם כלכלי:</strong> המניע המרכזי היה אימפריאלי ומסחרי. השוודים הביאו איתם את הזרם הלותרני (Lutheranism), בנו את הכנסיות הלותרניות הראשונות באמריקה (כמו כנסיית "הטריניטי הקדוש"), אך הם לא רדפו אף אחד. ההולנדים והאנגלים שהגיעו אחריהם חלקו את אותו פרגמטיזם: כל עוד אתה סוחר הוגן ומשלם מיסים, איש לא התערב באמונתך.</li>
+                        <li><strong>שלווה עם הילידים:</strong> האידאולוגיה השוודית (שנקבעה בהוראות המלך) אסרה על נישול אינדיאנים בכוח. הם האמינו שסחר הוגן יניב יותר פרוות מאשר מלחמות, ולכן דלאוור נהנתה מעשורים של שלום יחסי עם שבטי הלנאפה המקומיים, בניגוד לטבחים של וירג'יניה וקונטיקט.</li>
+                    </ul>
+                </div>
+            </section>
+
+            <!-- 4. גיאוגרפיה, הידרולוגיה ובחירת המיקום -->
+            <section class="content-section bg-white dark:bg-darkCard p-8 rounded-3xl shadow-sm border border-gray-100 dark:border-gray-800">
+                <div class="flex items-center gap-3 mb-6">
+                    <div class="p-3 bg-blue-100 dark:bg-gray-800 rounded-2xl text-blue-600 dark:text-gold">
+                        <i class="ph ph-map-pin text-3xl"></i>
+                    </div>
+                    <h2 class="text-3xl font-bold">4. גיאוגרפיה ובחירת המיקום: עמק נהר דלאוור</h2>
+                </div>
+                
+                <div class="text-lg text-gray-700 dark:text-gray-300 leading-relaxed space-y-4">
+                    <p><strong>מידע הידרולוגי:</strong> מערכת הנהר והמפרץ (Delaware Bay and River) מפרידה בין ניו ג'רזי של ימינו למדינת דלאוור. מדובר באסטואר (Estuary) עצום ועמוק המספק נתיב מים ישיר ובטוח אל לב היבשת. הנהר הושפע מגאות ושפל עד לעיר פילדלפיה של ימינו.</p>
+                    <p><strong>בחירת המיקום (עקיפת ההולנדים):</strong> פטר מינואי בחר להקים את <strong>מבצר כריסטינה</strong> בנקודת המפגש של נהר ברנדיוויין ונהר כריסטינה (שנשפכים לדלאוור). בחירה זו הייתה גאונית:
+                    היא העניקה לשוודים נמל מים עמוקים לספינות הצי, אך יותר מכך – היא חסכה לאינדיאנים משבט הסוסקוואהאנוק ("המינקוואס") את הצורך לחתור צפונה כדי לסחור עם ההולנדים בניו יורק. השוודים פשוט התיישבו ב"מורד הזרם" ו"חתכו" את שרשרת האספקה ההולנדית, מה שהכניס להם הון עתק מפרוות בונה בשנים הראשונות.</p>
+                </div>
+            </section>
+
+            <!-- 5. הסחר והכלכלה -->
+            <section class="content-section bg-white dark:bg-darkCard p-8 rounded-3xl shadow-sm border border-gray-100 dark:border-gray-800 border-r-4 border-r-green-500 dark:border-r-emerald-400">
+                <div class="flex items-center gap-3 mb-6">
+                    <div class="p-3 bg-green-100 dark:bg-gray-800 rounded-2xl text-green-700 dark:text-emerald-400">
+                        <i class="ph ph-coins text-3xl"></i>
+                    </div>
+                    <h2 class="text-3xl font-bold">5. כלכלה והמצאת "בקתת העץ"</h2>
+                </div>
+                <div class="text-lg text-gray-700 dark:text-gray-300 leading-relaxed space-y-4">
+                    <p>
+                        כלכלת דלאוור שילבה סחר אינטנסיבי עם חדשנות טכנולוגית שהפכה לסמל אמריקאי:
+                    </p>
+                    <ul class="list-disc list-inside space-y-3 ml-4">
+                        <li><strong>סחר הפרוות והטבק:</strong> הכלכלה נשענה לחלוטין על ייצוא עורות בונה. כאשר המסחר ירד עקב ציד יתר, השוודים, ולאחר מכן האנגלים, עברו לגידול טבק לאורך גדות הנהר הפוריות, בדומה לוירג'יניה ומרילנד, אם כי בקנה מידה קטן יותר.</li>
+                        <li><strong>המצאת "בקתת העץ" (The Log Cabin):</strong> התרומה הכלכלית-תרבותית הגדולה ביותר של השוודים והפינים (שהיו חלק מהאימפריה השוודית) למורשת האמריקאית. באנגליה נהגו לבנות בתי מסגרת עץ מורכבים. הפינים והשוודים, שהגיעו מאזורים קרים ומיוערים באירופה, הביאו לדלאוור את טכניקת הבנייה של ה"לוג קבין" - גזעי עצים שלמים המונחים זה על זה עם חריצים בקצוות (Notches). טכניקה זו דרשה מעט כלים (רק גרזן), הייתה מהירה לבנייה, עמידה להפליא בפני הקור האמריקאי, והפכה למודל המגורים המוכר ביותר של חלוצי המערב הפרוע.</li>
+                    </ul>
+                </div>
+            </section>
+
+            <!-- 6. הדמוגרפיה והחברה -->
+            <section class="content-section bg-white dark:bg-darkCard p-8 rounded-3xl shadow-sm border border-gray-100 dark:border-gray-800 border-r-4 border-r-green-500 dark:border-r-emerald-400">
+                <div class="flex items-center gap-3 mb-6">
+                    <div class="p-3 bg-green-100 dark:bg-gray-800 rounded-2xl text-green-700 dark:text-emerald-400">
+                        <i class="ph ph-users-three text-3xl"></i>
+                    </div>
+                    <h2 class="text-3xl font-bold">6. דמוגרפיה: כור ההיתוך הראשון</h2>
+                </div>
+                <div class="text-lg text-gray-700 dark:text-gray-300 leading-relaxed space-y-4">
+                    <p>
+                        הדמוגרפיה של דלאוור הייתה מזערית מבחינה מספרית, אך המגוונת ביותר באמריקה של המאה ה-17:
+                    </p>
+                    <ul class="list-disc list-inside space-y-3 ml-4">
+                        <li><strong>אוכלוסייה מעורבת:</strong> מכיוון שהמושבה החליפה ידיים כל כך הרבה פעמים, אוכלוסייתה הורכבה מפסיפס: שוודים, פינים (שהובילו את החקלאות ובניית הבקתות), הולנדים, אנגלים ואף מספר עבדים מאפריקה. </li>
+                        <li><strong>מיעוט קבוע:</strong> לאורך כל התקופה, דלאוור נותרה המושבה הדלילה ביותר מבחינת אוכלוסייה (פחות מ-1,000 תושבים אירופאים בעשורים הראשונים). השלטון השוודי התקשה לשכנע אזרחים להגר לאמריקה, ולעיתים נאלץ לשלוח חיילים שערקו או עבריינים קלים כדי לאכלס את המבצרים.</li>
+                    </ul>
+                </div>
+            </section>
+
+            <!-- 7. מאבקי השליטה (הדרישה החדשה) -->
+            <section class="content-section bg-white dark:bg-darkCard p-8 rounded-3xl shadow-sm border border-gray-100 dark:border-gray-800 border-r-4 border-r-red-500 dark:border-r-red-400">
+                <div class="flex items-center gap-3 mb-6">
+                    <div class="p-3 bg-red-100 dark:bg-gray-800 rounded-2xl text-red-600 dark:text-red-400">
+                        <i class="ph ph-swords text-3xl"></i>
+                    </div>
+                    <h2 class="text-3xl font-bold">7. מאבקי השליטה: שוודים, הולנדים ואנגלים</h2>
+                </div>
+                <div class="text-lg text-gray-700 dark:text-gray-300 leading-relaxed space-y-6">
+                    <p>דלאוור הייתה חלקת האדמה הנחשקת ביותר بחוף המזרחי, ועברה מיד ליד במאבקים אימפריאליים, כפי שיפורט להלן:</p>
+                    
+                    <!-- ההשתלטות ההולנדית -->
+                    <div class="bg-gray-50 dark:bg-gray-800/30 p-6 rounded-2xl border border-gray-200 dark:border-gray-700">
+                        <h3 class="text-2xl font-bold text-red-800 dark:text-red-400 mb-3 flex items-center gap-2">
+                            <i class="ph ph-flag-banner"></i> א. ההשתלטות ההולנדית (1655)
+                        </h3>
+                        <ul class="list-none space-y-2">
+                            <li><strong>מועד:</strong> אוגוסט 1655.</li>
+                            <li><strong>אישים בולטים:</strong> <strong>פטר סטויווסאנט (Peter Stuyvesant)</strong> - המושל הכללי הקשוח ובעל רגל העץ של מושבת "הולנד החדשה" (ניו יורק).</li>
+                            <li><strong>סיבת ההשתלטות:</strong> ההולנדים ראו בעמק הדלאוור שטח הולנדי חוקי (בעקבות מסעות הנרי הדסון). כשהשוודים החצופים כבשו עמדת מסחר הולנדית (מבצר קסימיר), סטויווסאנט רתח מזעם. המטרה הייתה <strong>חיסול התחרות על סחר הפרוות</strong>. סטויווסאנט הגיע עם צי אדיר של 7 ספינות חמושות וכ-300 חיילים. מול כוח שוודי זעיר של כ-30 חיילים בלבד במבצר כריסטינה, השוודים נכנעו ללא שפיכות דמים. "שוודיה החדשה" נמחקה מהמפה ושולבה לתוך "הולנד החדשה".</li>
+                        </ul>
+                    </div>
+
+                    <!-- ההשתלטות האנגלית -->
+                    <div class="bg-gray-50 dark:bg-gray-800/30 p-6 rounded-2xl border border-gray-200 dark:border-gray-700 mt-4">
+                        <h3 class="text-2xl font-bold text-red-800 dark:text-red-400 mb-3 flex items-center gap-2">
+                            <i class="ph ph-flag"></i> ב. ההשתלטות האנגלית (1664)
+                        </h3>
+                        <ul class="list-none space-y-2">
+                            <li><strong>מועד:</strong> אוקטובר 1664 (מיד לאחר כיבוש ניו יורק מההולנדים).</li>
+                            <li><strong>אישים בולטים:</strong> <strong>סר רוברט קאר (Sir Robert Carr)</strong>, מפקד צבאי שנשלח על ידי ג'יימס, דוכס יורק (אחיו של מלך אנגליה).</li>
+                            <li><strong>סיבת ההשתלטות:</strong> אנגליה רצתה ליצור אימפריה <strong>רציפה וחסרת הפרעות</strong> ממיין בצפון ועד קרוליינה בדרום. ההולנדים ישבו בדיוק באמצע (כמו טריז) ושלטו על נמלי המסחר הטובים ביותר. כחלק מהמלחמה האנגלו-הולנדית, צי אנגלי כבש את כל הנחלות ההולנדיות באמריקה. בעוד שניו יורק נכנעה בשלום, בדלאוור הקצין ההולנדי סירב. סר רוברט קאר תקף את המבצר, הרג שלושה הולנדים, ואיפשר לחייליו לשדוד את היישוב. כך עברה דלאוור לשליטה אנגלית סופית (ולאחר מכן הועברה לידיו של ויליאם פן מפנסילבניה ב-1682).</li>
+                        </ul>
+                    </div>
+                </div>
+            </section>
+
+            <!-- 8. מחקר אטימולוגי מפורט של דלאוור ושינויי השמות -->
+            <section class="content-section bg-white dark:bg-darkCard p-8 rounded-3xl shadow-sm border border-gray-100 dark:border-gray-800">
+                <div class="flex items-center gap-3 mb-6">
+                    <div class="p-3 bg-blue-100 dark:bg-gray-800 rounded-2xl text-blue-600 dark:text-gold">
+                        <i class="ph ph-text-aa text-3xl"></i>
+                    </div>
+                    <h2 class="text-3xl font-bold">8. מחקר אטימולוגי: מ"שוודיה החדשה" ל-Delaware</h2>
+                </div>
+                
+                <div class="overflow-x-auto mt-6">
+                    <table class="w-full text-right border-collapse">
+                        <thead>
+                            <tr class="bg-blue-50 dark:bg-gray-800 text-blue-900 dark:text-gold border-b-2 border-blue-200 dark:border-gray-700">
+                                <th class="p-4 font-bold rounded-tr-xl">שם היסטורי / מרכיב</th>
+                                <th class="p-4 font-bold">מקור ותקופה</th>
+                                <th class="p-4 font-bold rounded-tl-xl">משמעות וסיבת השינוי האטימולוגי</th>
+                            </tr>
+                        </thead>
+                        <tbody class="text-gray-700 dark:text-gray-300">
+                            <tr class="border-b border-gray-100 dark:border-gray-800 hover:bg-gray-50 dark:hover:bg-gray-800/50 transition-colors">
+                                <td class="p-4 font-mono font-bold text-xl">Lenapewihittuck</td>
+                                <td class="p-4">שפת הלנאפה (הילידים המקוריים)</td>
+                                <td class="p-4">
+                                    השם הילידי של הנהר. משמעותו <strong>"הנהר המהיר של הלנאפה"</strong>. 
+                                </td>
+                            </tr>
+                            <tr class="border-b border-gray-100 dark:border-gray-800 hover:bg-gray-50 dark:hover:bg-gray-800/50 transition-colors">
+                                <td class="p-4 font-mono font-bold text-xl">Nya Sverige / <br>Fort Christina</td>
+                                <td class="p-4">שוודית (התקופה השוודית: 1638-1655)</td>
+                                <td class="p-4">
+                                    "שוודיה החדשה". המבצר המרכזי נקרא על שמה של <strong>כריסטינה, מלכת שוודיה</strong> (הילדה-המלכה שירשה את הכתר מאביה שנהרג). 
+                                </td>
+                            </tr>
+                            <tr class="border-b border-gray-100 dark:border-gray-800 hover:bg-gray-50 dark:hover:bg-gray-800/50 transition-colors">
+                                <td class="p-4 font-mono font-bold text-xl">Fort Altena</td>
+                                <td class="p-4">הולנדית (התקופה ההולנדית: 1655-1664)</td>
+                                <td class="p-4">
+                                    <strong>סיבת השינוי האטימולוגי:</strong> לאחר שההולנדים כבשו את המושבה, פטר סטויווסאנט רצה למחוק את המורשת המלכותית השוודית. הוא שינה את שם מבצר כריסטינה ל"אלטנה" (על שם עיירה ליד המבורג, כסמל לגבול החדש של ההולנדים). 
+                                </td>
+                            </tr>
+                            <tr class="bg-blue-50/50 dark:bg-gray-800/30">
+                                <td class="p-4 font-bold text-blue-800 dark:text-blue-300">השם הסופי:<br><span class="font-mono text-2xl">Delaware</span></td>
+                                <td class="p-4 text-lg font-semibold text-gray-900 dark:text-white">אנגלית / נורמנית (התקופה האנגלית: 1664 ואילך)</td>
+                                <td class="p-4 text-lg font-semibold text-gray-900 dark:text-white">
+                                    לאחר הכיבוש האנגלי, בוטלו כל השמות ההולנדיים והשוודיים. האזור והנהר נקראו על שם <strong>תומאס ווסט, הברון השלישי של "דה לה וור" (Baron De La Warr)</strong>, שהיה המושל של וירג'יניה ב-1610 (ואשר קפטן סמואל ארגול קרא למפרץ על שמו כאות כבוד).<br><br>
+                                    <strong>פירוק אטימולוגי של תואר האצולה De La Warr:</strong><br>
+                                    * <strong>De (מ-)</strong> + <strong>La (ה-)</strong> - קידומות מהשפה הצרפתית-נורמנית העתיקה של אצולת אנגליה.<br>
+                                    * <strong>Warr</strong> - נובע מהמילה <em>werre</em> (מלחמה / סכסוך), או מתייחס לכפר צרפתי בנורמנדי בשם La Guerre. משמעות התואר היא <strong>"איש המלחמה"</strong> או "יוצא העיר המבוצרת". במרוצת השנים, האותיות חוברו למילה האנגלית האחת Delaware.
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </section>
+
+        </article>
+
+    </main>
+
+    <!-- כותרת תחתונה (Footer) -->
+    <footer class="bg-white dark:bg-darkBg border-t border-gray-200 dark:border-gray-800 py-8 mt-12">
+        <div class="max-w-7xl mx-auto px-4 text-center text-gray-500 dark:text-gray-400">
+            <p class="font-bold text-gray-700 dark:text-gray-300">נבנה על ידי ג'מיני ורם בעבור מחקר היסטורי ואטימולוגי.</p>
+            <p class="text-sm mt-2">מותאם אישית לקריאה נוחה על מסכי פרימיום (Samsung S25 Ultra).</p>
+        </div>
+    </footer>
+
+    <!-- JavaScript Base Logic -->
+    <script>
+        function toggleDarkMode() {
+            const htmlClasses = document.documentElement.classList;
+            if (htmlClasses.contains('dark')) {
+                htmlClasses.remove('dark');
+                localStorage.theme = 'light';
+            } else {
+                htmlClasses.add('dark');
+                localStorage.theme = 'dark';
+            }
+        }
+
+        if (localStorage.theme === 'dark' || (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+            document.documentElement.classList.add('dark');
+        } else {
+            document.documentElement.classList.remove('dark');
+        }
+    </script>
+</body>
+</html>
