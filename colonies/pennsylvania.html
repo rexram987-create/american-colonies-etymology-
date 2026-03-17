@@ -1,0 +1,310 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>פנסילבניה (1681) | המושבות האמריקאיות</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        darkBg: '#0f172a',
+                        darkCard: '#1e293b',
+                        gold: '#fbbf24',
+                    },
+                    fontFamily: {
+                        sans: ['system-ui', '-apple-system', 'Segoe UI', 'Roboto', 'Helvetica', 'Arial', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    <!-- Phosphor Icons -->
+    <script src="https://unpkg.com/@phosphor-icons/web"></script>
+    <style>
+        body { transition: background-color 0.3s ease, color 0.3s ease; }
+        .content-section { scroll-margin-top: 100px; }
+    </style>
+</head>
+<body class="bg-gray-50 text-gray-900 dark:bg-darkBg dark:text-gray-100 font-sans antialiased selection:bg-blue-200 dark:selection:bg-blue-900">
+
+    <!-- ניווט עליון (Header) -->
+    <header class="relative z-40 w-full bg-white dark:bg-darkBg border-b border-gray-200 dark:border-gray-800 shadow-sm">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between h-20">
+                <!-- כפתור חזרה (מעודכן לתיקיית colonies) -->
+                <a href="../index.html" class="flex items-center gap-2 text-blue-600 dark:text-gold hover:text-blue-800 dark:hover:text-yellow-400 transition-colors touch-manipulation font-semibold bg-blue-50 dark:bg-gray-800 px-4 py-2 rounded-full">
+                    <i class="ph ph-arrow-right text-xl"></i>
+                    <span>חזרה לדף הבית</span>
+                </a>
+                
+                <!-- תפריט כפתורים -->
+                <div class="flex items-center gap-4">
+                    <button onclick="toggleDarkMode()" class="p-3 rounded-full bg-gray-200 dark:bg-gray-800 hover:bg-gray-300 dark:hover:bg-gray-700 transition-colors touch-manipulation" aria-label="החלף מצב תצוגה">
+                        <i class="ph ph-moon text-xl block dark:hidden"></i>
+                        <i class="ph ph-sun text-xl hidden dark:block text-gold"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <main class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+        
+        <!-- כותרת ראשית (Hero) -->
+        <div class="mb-12 text-center md:text-right">
+            <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-green-100 dark:bg-green-900/40 text-green-800 dark:text-green-300 text-sm font-semibold tracking-wide mb-4">
+                <i class="ph ph-calendar-blank"></i>
+                שנת הקמה: 1681
+            </div>
+            <h1 class="text-4xl md:text-5xl lg:text-6xl font-extrabold leading-tight text-gray-900 dark:text-white mb-6">
+                מושבת פנסילבניה
+            </h1>
+            <p class="text-xl text-gray-600 dark:text-gray-300 leading-relaxed">
+                "הניסוי הקדוש" של אמריקה. מושבה שנולדה מתוך חוב מלכותי והפכה למקלט של שלום, שוויון וסובלנות. המקום שבו תוכננה "עיר אהבת האחים" והודגמה לראשונה חברה פלורליסטית מתפקדת ומשגשגת.
+            </p>
+        </div>
+
+        <!-- תמונה ראשית -->
+        <div class="w-full h-64 md:h-96 rounded-3xl overflow-hidden mb-16 shadow-2xl relative border border-gray-200 dark:border-gray-800">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/ca/Penn%27s_Treaty_with_the_Indians_by_Benjamin_West.jpg/1200px-Penn%27s_Treaty_with_the_Indians_by_Benjamin_West.jpg" alt="" class="w-full h-full object-cover">
+            <div class="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/80 to-transparent p-4 text-white text-sm md:text-base text-center">
+                ויליאם פן חותם על ברית שלום וסחר הוגן עם שבט הלנאפה (ציור מפורסם של בנג'מין ווסט). זו הייתה הברית היחידה באמריקה שמעולם לא הופרה על ידי המייסד.
+            </div>
+        </div>
+
+        <article class="space-y-16">
+            
+            <!-- 1. שנות פעילות ויעדים -->
+            <section class="content-section bg-white dark:bg-darkCard p-8 rounded-3xl shadow-sm border border-gray-100 dark:border-gray-800">
+                <div class="flex items-center gap-3 mb-6">
+                    <div class="p-3 bg-blue-100 dark:bg-gray-800 rounded-2xl text-blue-600 dark:text-gold">
+                        <i class="ph ph-target text-3xl"></i>
+                    </div>
+                    <h2 class="text-3xl font-bold">1. שנות פעילות, הקמה ויעדים</h2>
+                </div>
+                <div class="text-lg text-gray-700 dark:text-gray-300 leading-relaxed space-y-4">
+                    <p><strong>שנת הקמה:</strong> הזיכיון המלכותי נחתם ב-4 במרץ 1681.</p>
+                    <p><strong>ישות מקימה:</strong> מושבה קניינית (Proprietary colony). פנסילבניה הוענקה בשלמותה לאדם אחד בלבד - ויליאם פן. המלך צ'ארלס השני העניק לו את השטח העצום (בגודל של אנגליה כולה) כדי למחוק חוב כספי עצום (16,000 ליש"ט) שהמלוכה הייתה חייבת לאביו המנוח של פן, האדמירל סר ויליאם פן.</p>
+                    <p><strong>היעדים המקוריים:</strong> 
+                        המטרה של המלך הייתה להיפטר מחוב ולהרחיק את הקווייקרים ה"מעצבנים" מאנגליה. אולם, היעד של ויליאם פן היה הקמת <strong>"ניסוי קדוש" (The Holy Experiment)</strong>: חברה אוטופית שבה יוכלו הקווייקרים וכל הנרדפים בעולם לחיות בחופש דת מוחלט, בשלום עם הילידים, ועדיין לשגשג כלכלית (פן היה גם איש עסקים ממולח ששיווק את אדמותיו ברחבי אירופה).
+                    </p>
+                </div>
+            </section>
+
+            <!-- 2. דמויות מפתח -->
+            <section class="content-section bg-white dark:bg-darkCard p-8 rounded-3xl shadow-sm border border-gray-100 dark:border-gray-800 border-r-4 border-r-blue-500 dark:border-r-gold">
+                <div class="flex items-center gap-3 mb-6">
+                    <div class="p-3 bg-blue-100 dark:bg-gray-800 rounded-2xl text-blue-600 dark:text-gold">
+                        <i class="ph ph-user text-3xl"></i>
+                    </div>
+                    <h2 class="text-3xl font-bold">2. רקע המייסד: ויליאם פן</h2>
+                </div>
+                
+                <div class="text-lg text-gray-700 dark:text-gray-300 leading-relaxed space-y-6">
+                    <div>
+                        <h3 class="text-2xl font-bold text-blue-800 dark:text-blue-300 mb-2">ויליאם פן (William Penn) (1644–1718)</h3>
+                        <p><strong>ילדות ורקע:</strong> נולד בלונדון למשפחת אצולה עשירה ומקושרת. אביו היה אדמירל מהולל בצי הבריטי שניצח בקרבות רבים. ויליאם הצעיר קיבל את החינוך הטוב ביותר, אך בהיותו סטודנט באוקספורד נחשף להטפות של תנועה נוצרית רדיקלית וחדשה - אגודת הידידים (הקווייקרים).</p>
+                        <p><strong>משבר אמוני ומרד:</strong> בגיל 22, למורת רוחו העצומה של אביו, פן המיר את דתו והפך לקווייקר אדוק. הוא גורש מהאוניברסיטה, נזרק מביתו על ידי אביו, וישב בכלא הבריטי (במצודת לונדון) מספר פעמים בגין "כפירה" והפצת עלונים אנטי-ממסדיים. בכלא הוא כתב את חיבוריו התיאולוגיים המפורסמים ביותר הדורשים חופש מצפון.</p>
+                        <p><strong>הישגים:</strong> 
+                            פן הקים את פנסילבניה על בסיס צדק. הוא התעקש לרכוש את האדמות מהאינדיאנים בתשלום הוגן (למרות שהמלך כבר נתן לו אותן), חוקק את "מסגרת הממשל" (Frame of Government) שהבטיחה זכויות דמוקרטיות ומשפט מושבעים, ותכנן באופן אישי את רחובותיה של פילדלפיה. הוא עזב את אמריקה ב-1701 וחזר לאנגליה, שם הסתבך בחובות ומת חסר כל, אך מורשתו הדמוקרטית עיצבה את חוקת ארה"ב מאה שנים מאוחר יותר.
+                        </p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- 3. אידאולוגיה וסיבת ההקמה -->
+            <section class="content-section bg-white dark:bg-darkCard p-8 rounded-3xl shadow-sm border border-gray-100 dark:border-gray-800">
+                <div class="flex items-center gap-3 mb-6">
+                    <div class="p-3 bg-blue-100 dark:bg-gray-800 rounded-2xl text-blue-600 dark:text-gold">
+                        <i class="ph ph-scales text-3xl"></i>
+                    </div>
+                    <h2 class="text-3xl font-bold">3. אידאולוגיה: קווייקריזם ו"הניסוי הקדוש"</h2>
+                </div>
+                <div class="text-lg text-gray-700 dark:text-gray-300 leading-relaxed space-y-4">
+                    <p>פנסילבניה הייתה ההתגשמות הפוליטית של האידאולוגיה הקווייקרית, שהייתה רדיקלית לחלוטין לזמנה:</p>
+                    <ul class="list-disc list-inside space-y-4 ml-4">
+                        <li><strong>שוויון ו"האור הפנימי":</strong> הקווייקרים האמינו שלכל בן אנוש יש "אור פנימי" אלוהי, ולכן כולם שווים – גברים ונשים, עשירים ועניים, לבנים ואינדיאנים. הם סירבו להסיר את כובעיהם בפני אצילים, מה שקומם עליהם את רשויות החוק באנגליה ובמסצ'וסטס. בפנסילבניה, שוויון זה תורגם ליחסים הוגנים עם שבטי הלנאפה (תחת הצ'יף טאמננד).</li>
+                        <li><strong>פציפיזם:</strong> הקווייקרים התנגדו לכל סוג של אלימות או מלחמה. פנסילבניה הייתה המושבה היחידה שלא החזיקה מיליציה צבאית ממוסדת בעשורים הראשונים להקמתה, והסתמכה לחלוטין על דיפלומטיה להגנתה.</li>
+                        <li><strong>חופש דת אמיתי:</strong> בניגוד לסובלנות המסחרית של ניו יורק, פנסילבניה אימצה חופש דת כעיקרון קדוש. כל אדם שהאמין באל אחד יכול היה לחיות בה ללא רדיפה, מה שהפך אותה לאבן שואבת לכתות נוצריות מכל רחבי אירופה ולקהילה יהודית משגשגת בפילדלפיה.</li>
+                    </ul>
+                </div>
+            </section>
+
+            <!-- 4. גיאוגרפיה, הידרולוגיה ובחירת המיקום -->
+            <section class="content-section bg-white dark:bg-darkCard p-8 rounded-3xl shadow-sm border border-gray-100 dark:border-gray-800">
+                <div class="flex items-center gap-3 mb-6">
+                    <div class="p-3 bg-blue-100 dark:bg-gray-800 rounded-2xl text-blue-600 dark:text-gold">
+                        <i class="ph ph-map-pin text-3xl"></i>
+                    </div>
+                    <h2 class="text-3xl font-bold">4. גיאוגרפיה ותכנון ערים: פילדלפיה</h2>
+                </div>
+                
+                <div class="text-lg text-gray-700 dark:text-gray-300 leading-relaxed space-y-4">
+                    <p>הגיאוגרפיה של פנסילבניה שילבה גישה אוקיינית עם עורף יבשתי פורה ועצום:</p>
+                    <ul class="list-disc list-inside space-y-4 ml-4">
+                        <li><strong>הידרולוגיה - נהר הדלאוור והשווילקיל:</strong> העיר פילדלפיה הוקמה במיקום אסטרטגי מושלם: נקודת המפגש של נהר הדלאוור הרחב (המאפשר עגינת ספינות אוקיינוס) ונהר שווילקיל (Schuylkill River) החודר אל היבשת. נתיב זה איפשר העברת תוצרת חקלאית מפנים הארץ היישר לנמל.</li>
+                        <li><strong>תכנון "עיר הגריד":</strong> ויליאם פן היה טראומטי מהשריפה הגדולה של לונדון (1666) ומהמגפות שהשתוללו בסמטאות הצפופות שלה. לכן, הוא תכנן את פילדלפיה כ<strong>עיר רשת (Grid system)</strong> – הראשונה באמריקה – עם רחובות ישרים ורחבים, כיכרות ציבוריות מרווחות, וחלקות אדמה גדולות שנועדו לאפשר לכל בית לטפח גינה. הוא קרא לזה תוכנית "העיר הירוקה" (Greene Country Towne).</li>
+                    </ul>
+                </div>
+            </section>
+
+            <!-- 5. הסחר והכלכלה -->
+            <section class="content-section bg-white dark:bg-darkCard p-8 rounded-3xl shadow-sm border border-gray-100 dark:border-gray-800 border-r-4 border-r-green-500 dark:border-r-emerald-400">
+                <div class="flex items-center gap-3 mb-6">
+                    <div class="p-3 bg-green-100 dark:bg-gray-800 rounded-2xl text-green-700 dark:text-emerald-400">
+                        <i class="ph ph-coins text-3xl"></i>
+                    </div>
+                    <h2 class="text-3xl font-bold">5. כלכלה: סל הלחם ומעצמת סחר</h2>
+                </div>
+                <div class="text-lg text-gray-700 dark:text-gray-300 leading-relaxed space-y-4">
+                    <p>
+                        ההצלחה הכלכלית של פנסילבניה הייתה המהירה ביותר מכל המושבות, בזכות השילוב של אדמה טובה, שלום עם הילידים (שחסך הוצאות צבאיות) והגירה של אנשי עבודה מיומנים:
+                    </p>
+                    <ul class="list-disc list-inside space-y-3 ml-4">
+                        <li><strong>מושבת סל הלחם (Breadbasket):</strong> העורף החקלאי העצום של פנסילבניה, שעובד על ידי חקלאים גרמנים חרוצים, הפיק כמויות אדירות של חיטה, שעורה, תירס ושיפון. הקמח של פנסילבניה יוצא לכל רחבי העולם והאכיל את מושבות הדרום והקריביים.</li>
+                        <li><strong>הזינוק של פילדלפיה:</strong> פילדלפיה הפכה לנמל הפעיל והעשיר ביותר באמריקה. היא התפתחה במהירות כמרכז של מסחר חופשי, בנקאות, דפוס ותעשייה זעירה. עד אמצע המאה ה-18, פילדלפיה עקפה את בוסטון והפכה לעיר הגדולה ביותר באמריקה הבריטית (והשנייה בגודלה באימפריה הבריטית כולה, אחרי לונדון).</li>
+                    </ul>
+                </div>
+            </section>
+
+            <!-- 6. הדמוגרפיה והחברה -->
+            <section class="content-section bg-white dark:bg-darkCard p-8 rounded-3xl shadow-sm border border-gray-100 dark:border-gray-800 border-r-4 border-r-green-500 dark:border-r-emerald-400">
+                <div class="flex items-center gap-3 mb-6">
+                    <div class="p-3 bg-green-100 dark:bg-gray-800 rounded-2xl text-green-700 dark:text-emerald-400">
+                        <i class="ph ph-users-three text-3xl"></i>
+                    </div>
+                    <h2 class="text-3xl font-bold">6. דמוגרפיה: פסיפס אנושי והתנגדות לעבדות</h2>
+                </div>
+                <div class="text-lg text-gray-700 dark:text-gray-300 leading-relaxed space-y-4">
+                    <p>
+                        השיווק האגרסיבי של פן ברחבי אירופה הפך את פנסילבניה למרכז הדמוגרפי המגוון ביותר:
+                    </p>
+                    <ul class="list-disc list-inside space-y-3 ml-4">
+                        <li><strong>ההגירה הגרמנית והסקוטית-אירית:</strong> לצד הקווייקרים האנגלים, פנסילבניה קלטה רבבות מהגרים דוברי גרמנית מכתות פציפיסטיות (אמיש, מנוניטים) שברחו ממלחמות באירופה (הם נודעו בטעות כ-<strong>"Pennsylvania Dutch"</strong> בגלל עיוות המילה הגרמנית Deutsch). בנוסף, הגיעו גלי הגירה עצומים של סקוטים-אירים (Scots-Irish) שיישבו את אזורי הספר ההרריים והיו קשוחים ופחות פציפיסטיים.</li>
+                        <li><strong>התנגדות ראשונית לעבדות:</strong> למרות שחלק מהמתיישבים (אפילו ויליאם פן לתקופה מסוימת) החזיקו עבדים אפריקאים ככוח עזר בחוות ובנמל, פנסילבניה הייתה המקום הראשון באמריקה שבו קמה התנגדות מוסרית ממוסדת לכך. ב-<strong>1688</strong>, קבוצת קווייקרים ומנוניטים בעיירה ג'רמנטאון (Germantown) כתבו את העצומה הרשמית הראשונה באמריקה נגד העבדות, בטענה שהיא נוגדת את ה"אור הפנימי" ואת זכויות האדם.</li>
+                    </ul>
+                </div>
+            </section>
+
+            <!-- 7. מאבקי השליטה (חוק חדש: השתלטות) -->
+            <section class="content-section bg-white dark:bg-darkCard p-8 rounded-3xl shadow-sm border border-gray-100 dark:border-gray-800 border-r-4 border-r-red-500 dark:border-r-red-400">
+                <div class="flex items-center gap-3 mb-6">
+                    <div class="p-3 bg-red-100 dark:bg-gray-800 rounded-2xl text-red-600 dark:text-red-400">
+                        <i class="ph ph-swords text-3xl"></i>
+                    </div>
+                    <h2 class="text-3xl font-bold">7. מאבקי השליטה: מעצר, הפקעה ומלחמות גבול</h2>
+                </div>
+                <div class="text-lg text-gray-700 dark:text-gray-300 leading-relaxed space-y-6">
+                    <p>פנסילבניה לא הייתה חסינה ממשברים אימפריאליים, וחוותה שתי טלטלות שליטה דרמטיות:</p>
+                    
+                    <!-- ההשתלטות הזמנית של הכתר -->
+                    <div class="bg-gray-50 dark:bg-gray-800/30 p-6 rounded-2xl border border-gray-200 dark:border-gray-700">
+                        <h3 class="text-2xl font-bold text-red-800 dark:text-red-400 mb-3 flex items-center gap-2">
+                            <i class="ph ph-crown"></i> א. הפקעת המושבה על ידי הכתר (1692–1694)
+                        </h3>
+                        <ul class="list-none space-y-3 text-lg">
+                            <li><strong>מועד:</strong> 1692 עד 1694.</li>
+                            <li><strong>אישים בולטים:</strong> המלך ויליאם השלישי והמלכה מרי (שתפסו את השלטון ב"מהפכה המהוללת"), וויליאם פן (שנעצר).</li>
+                            <li><strong>סיבת ההשתלטות:</strong> ויליאם פן היה חבר קרוב של המלך הקתולי המודח, ג'יימס השני (שנתן לו את הזיכיון המקורי). כאשר המלכים החדשים (הפרוטסטנטים) עלו לשלטון, הם חשדו שפן בוגד בהם וזומם להחזיר את ג'יימס לכס המלוכה. פן נעצר ונכלא באנגליה, <strong>הזיכיון שלו בוטל</strong>, ופנסילבניה הועברה לשליטתו של בנימין פלצ'ר, מושל ניו יורק מטעם הכתר. לאחר שנתיים, כשהוכח שפן חף מפשע ואינו בוגד, המושבה הוחזרה לבעלותו המלאה ב-1694.</li>
+                        </ul>
+                    </div>
+
+                    <!-- מאבק הגבולות עם מרילנד -->
+                    <div class="bg-gray-50 dark:bg-gray-800/30 p-6 rounded-2xl border border-gray-200 dark:border-gray-700 mt-4">
+                        <h3 class="text-2xl font-bold text-red-800 dark:text-red-400 mb-3 flex items-center gap-2">
+                            <i class="ph ph-flag-banner"></i> ב. מאבק הגבולות וקו מייסון-דיקסון
+                        </h3>
+                        <ul class="list-none space-y-3 text-lg">
+                            <li><strong>מהות המאבק (מלחמת קרסאפ):</strong> הזיכיון של פנסילבניה חפף בטעות גיאוגרפית לחלק מהזיכיון של מרילנד השכנה (שנשלטה על ידי משפחת קלברט הקתולית). הסכסוך החמיר בשנות ה-30 של המאה ה-18 כאשר מתיישבים משתי המושבות החלו להילחם פיזית על אדמות, לשרוף חוות ולגבות מיסים כפולים (אירועים שכונו "Cresap's War").</li>
+                            <li><strong>הפתרון:</strong> כדי למנוע מלחמה כוללת, שתי המשפחות (פן וקלברט) שכרו את שירותיהם של שני מודדים בריטים, צ'ארלס מייסון וג'רמיה דיקסון. בין השנים 1763 ל-1767, הם סימנו את הגבול המדויק. גבול זה נודע לעד כ-<strong>"קו מייסון-דיקסון" (Mason-Dixon Line)</strong>, שלימים הפך לקו ההפרדה התרבותי והחוקי בין ה"צפון" (החופשי מעבדות) ל"דרום" (מטעי העבדים) בארצות הברית.</li>
+                        </ul>
+                    </div>
+                </div>
+            </section>
+
+            <!-- 8. מחקר אטימולוגי מפורט -->
+            <section class="content-section bg-white dark:bg-darkCard p-8 rounded-3xl shadow-sm border border-gray-100 dark:border-gray-800">
+                <div class="flex items-center gap-3 mb-6">
+                    <div class="p-3 bg-blue-100 dark:bg-gray-800 rounded-2xl text-blue-600 dark:text-gold">
+                        <i class="ph ph-text-aa text-3xl"></i>
+                    </div>
+                    <h2 class="text-3xl font-bold">8. מחקר אטימולוגי: Penn's Woods ועיר אהבת האחים</h2>
+                </div>
+                
+                <div class="overflow-x-auto mt-6">
+                    <table class="w-full text-right border-collapse">
+                        <thead>
+                            <tr class="bg-blue-50 dark:bg-gray-800 text-blue-900 dark:text-gold border-b-2 border-blue-200 dark:border-gray-700">
+                                <th class="p-4 font-bold rounded-tr-xl">מרכיב בשם</th>
+                                <th class="p-4 font-bold">מקור לשוני</th>
+                                <th class="p-4 font-bold rounded-tl-xl">משמעות והקשר היסטורי</th>
+                            </tr>
+                        </thead>
+                        <tbody class="text-gray-700 dark:text-gray-300">
+                            <tr class="border-b border-gray-100 dark:border-gray-800 hover:bg-gray-50 dark:hover:bg-gray-800/50 transition-colors">
+                                <td class="p-4 font-mono font-bold text-xl">Penn</td>
+                                <td class="p-4">קלטית עתיקה / וולשית: <em>Pen</em></td>
+                                <td class="p-4">
+                                    המשמעות הקלטית היא "ראש", "פסגה" או "גבעה". בהקשר המושבה, זהו כמובן שם המשפחה של פן. <strong>אנקדוטה מרתקת:</strong> ויליאם פן עצמו הציע לקרוא למקום רק "ניו ויילס" או "סילבניה". המלך צ'ארלס התעקש על "פנסילבניה" לכבוד האדמירל פן (אביו). ויליאם פן, הקווייקר הצנוע שסלד מיהירות, פחד שיחשבו שהוא קורא למושבה על שמו שלו. הוא למעשה <strong>ניסה לשחד ב-20 גינאה את מזכיר המלך</strong> כדי שימחק את השם "פן" מהמסמכים, אך נכשל.
+                                </td>
+                            </tr>
+                            <tr class="border-b border-gray-100 dark:border-gray-800 hover:bg-gray-50 dark:hover:bg-gray-800/50 transition-colors">
+                                <td class="p-4 font-mono font-bold text-xl">-sylvania</td>
+                                <td class="p-4">לטינית: <em>Silva</em></td>
+                                <td class="p-4">
+                                    "יער" או "חורש". הלחם השם המלא הוא: <strong>"היערות של פן" (Penn's Woods)</strong>.
+                                </td>
+                            </tr>
+                            <tr class="bg-blue-50/50 dark:bg-gray-800/30">
+                                <td class="p-4 font-bold text-blue-800 dark:text-blue-300">Philadelphia<br><span class="text-sm text-gray-500">(פילדלפיה)</span></td>
+                                <td class="p-4 text-lg font-semibold text-gray-900 dark:text-white">יוונית עתיקה</td>
+                                <td class="p-4 text-lg font-semibold text-gray-900 dark:text-white">
+                                    ויליאם פן נתן לעיר הבירה שלו את השם בעצמו. מורכב משתי מילים ביוונית:<br>
+                                    1. <strong>Philos (פילוס):</strong> אהבה עמוקה / חברות (כמו בפילוסופיה - אהבת החוכמה).<br>
+                                    2. <strong>Adelphos (אדלפוס):</strong> אח.<br>
+                                    המשמעות המלאה: <strong>"עיר אהבת האחים" (The City of Brotherly Love)</strong>, המשקפת לחלוטין את האידאולוגיה הקווייקרית של שלום ואחווה אוניברסלית שייעד לעירו.
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </section>
+
+        </article>
+
+    </main>
+
+    <!-- כותרת תחתונה (Footer) -->
+    <footer class="bg-white dark:bg-darkBg border-t border-gray-200 dark:border-gray-800 py-8 mt-12">
+        <div class="max-w-7xl mx-auto px-4 text-center text-gray-500 dark:text-gray-400">
+            <p class="font-bold text-gray-700 dark:text-gray-300">נבנה על ידי ג'מיני ורם בעבור מחקר היסטורי ואטימולוגי.</p>
+            <p class="text-sm mt-2">מותאם אישית לקריאה נוחה על מסכי פרימיום (Samsung S25 Ultra).</p>
+        </div>
+    </footer>
+
+    <!-- JavaScript Base Logic -->
+    <script>
+        function toggleDarkMode() {
+            const htmlClasses = document.documentElement.classList;
+            if (htmlClasses.contains('dark')) {
+                htmlClasses.remove('dark');
+                localStorage.theme = 'light';
+            } else {
+                htmlClasses.add('dark');
+                localStorage.theme = 'dark';
+            }
+        }
+
+        if (localStorage.theme === 'dark' || (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+            document.documentElement.classList.add('dark');
+        } else {
+            document.documentElement.classList.remove('dark');
+        }
+    </script>
+</body>
+</html>
