@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>קרוליינה הצפונית (1663) | המושבות האמריקאיות</title>
+    <title>קרוליינה הצפונית (1653) | המושבות האמריקאיות</title>
     <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
@@ -28,6 +28,7 @@
     <style>
         body { transition: background-color 0.3s ease, color 0.3s ease; }
         .content-section { scroll-margin-top: 100px; }
+        .modal-open { overflow: hidden; }
     </style>
 </head>
 <body class="bg-gray-50 text-gray-900 dark:bg-darkBg dark:text-gray-100 font-sans antialiased selection:bg-blue-200 dark:selection:bg-blue-900">
@@ -36,8 +37,8 @@
     <header class="relative z-40 w-full bg-white dark:bg-darkBg border-b border-gray-200 dark:border-gray-800 shadow-sm">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex items-center justify-between h-20">
-                <!-- כפתור חזרה -->
-                <a href="index.html" class="flex items-center gap-2 text-blue-600 dark:text-gold hover:text-blue-800 dark:hover:text-yellow-400 transition-colors touch-manipulation font-semibold bg-blue-50 dark:bg-gray-800 px-4 py-2 rounded-full">
+                <!-- כפתור חזרה (מעודכן) -->
+                <a href="../index.html" class="flex items-center gap-2 text-blue-600 dark:text-gold hover:text-blue-800 dark:hover:text-yellow-400 transition-colors touch-manipulation font-semibold bg-blue-50 dark:bg-gray-800 px-4 py-2 rounded-full">
                     <i class="ph ph-arrow-right text-xl"></i>
                     <span>חזרה לדף הבית</span>
                 </a>
@@ -55,25 +56,32 @@
 
     <main class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
         
-        <!-- כותרת ראשית (Hero) -->
+        <!-- כותרת ראשית -->
         <div class="mb-12 text-center md:text-right">
             <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-green-100 dark:bg-green-900/40 text-green-800 dark:text-green-300 text-sm font-semibold tracking-wide mb-4">
                 <i class="ph ph-calendar-blank"></i>
-                שנת הקמה: 1663 (זיכיון קרוליינה)
+                שנת הקמה: 1653 (ראשית) / 1712 (פיצול רשמי)
             </div>
             <h1 class="text-4xl md:text-5xl lg:text-6xl font-extrabold leading-tight text-gray-900 dark:text-white mb-6">
                 מושבת קרוליינה הצפונית
             </h1>
             <p class="text-xl text-gray-600 dark:text-gray-300 leading-relaxed">
-                ארץ הניגודים, החקלאים העצמאיים והפיראטים. מושבה שהוקמה עבור 8 אצילים לונדוניים שחלמו על חברה פיאודלית-אריסטוקרטית, אך הפכה למקלט פראי ובלתי ממושמע עבור פליטים עניים מוירג'יניה, כתות נרדפות ושודדי ים נודעים לשמצה.
+                ארץ העצמאיים, החקלאים העניים ושודדי הים. מושבת ספר שנדחקה בין אצולת וירג'יניה מצפון למטעי הענק של קרוליינה הדרומית, פיתחה אופי מרדני, אנטי-סמכותי, וכלכלה המבוססת על יערות האורן האינסופיים שלה.
             </p>
         </div>
 
-        <!-- תמונה ראשית -->
-        <div class="w-full h-64 md:h-96 rounded-3xl overflow-hidden mb-16 shadow-2xl relative border border-gray-200 dark:border-gray-800">
-            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/c9/John_Locke.jpg/800px-John_Locke.jpg" alt="" class="w-full h-full object-cover">
-            <div class="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/80 to-transparent p-4 text-white text-sm md:text-base text-center">
-                הפילוסוף ג'ון לוק (John Locke), שותף בניסוח "החוקה היסודית של קרוליינה" שניסתה לכפות סדר אריסטוקרטי.
+        <!-- תמונה ראשית 1 -->
+        <div class="w-full h-64 md:h-96 rounded-3xl overflow-hidden mb-16 shadow-2xl relative border border-gray-200 dark:border-gray-800 group cursor-pointer" 
+             onclick="openImageModal(this)" 
+             data-image="../images/north_carolina_hero.jpg" 
+             data-caption="החקלאים העצמאיים הראשונים מתיישבים באזור מפרץ אלבמארל (Albemarle Sound) סביב שנת 1653, מבודדים משאר המושבות.">
+            <img src="../images/north_carolina_hero.jpg" alt="התיישבות ראשונה בקרוליינה הצפונית" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700">
+            <div class="absolute inset-0 bg-black/20 group-hover:bg-transparent transition-colors duration-500"></div>
+            <div class="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/90 via-black/60 to-transparent p-6 text-white text-sm md:text-base text-center">
+                מתיישבים ראשונים מקימים בקתות באזור מפרץ אלבמארל, אמצע המאה ה-17.
+                <div class="mt-2 text-xs text-gray-300 flex items-center justify-center gap-1 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                    <i class="ph ph-magnifying-glass-plus text-lg"></i> לחץ להגדלה
+                </div>
             </div>
         </div>
 
@@ -88,10 +96,10 @@
                     <h2 class="text-3xl font-bold">1. שנות פעילות, הקמה ויעדים</h2>
                 </div>
                 <div class="text-lg text-gray-700 dark:text-gray-300 leading-relaxed space-y-4">
-                    <p><strong>שנת הקמה:</strong> הזיכיון הרשמי הוענק ב-24 במרץ 1663. אולם, מתיישבים עניים מוירג'יניה כבר החלו להגר דרומה ולהתיישב באזור מפרץ אלבמארל (Albemarle) עוד בשנות ה-50 של המאה ال-17.</p>
-                    <p><strong>ישות מקימה (Proprietors):</strong> המלך צ'ארלס השני העניק את הקרקע ל-<strong>8 בעלים נאמנים ("Lords Proprietors")</strong>. אצילים אלו עזרו למלך לחזור לכס השלטון באנגליה לאחר מלחמת האזרחים, והזיכיון היה התגמול (הפוליטי והכלכלי) שלהם.</p>
+                    <p><strong>שנת הקמה:</strong> ההתיישבות הקבועה הראשונה החלה ב-1653 על ידי פליטים מווירג'יניה. ב-1663 נכללה בזיכיון ה"לורדים הבעלים". ב-1712 פוצלה רשמית למושבה נפרדת (North Carolina).</p>
+                    <p><strong>ישות מקימה:</strong> טכנית הוקמה על ידי "הלורדים הבעלים" (Lords Proprietors), קבוצת אצילים אנגלים שקיבלו את האדמה מהמלך צ'ארלס השני. בפועל, היא הוקמה מלמטה למעלה על ידי אנשים פשוטים שחיפשו אדמה שולית וזולה הרחק מעיני הממשל.</p>
                     <p><strong>היעדים המקוריים:</strong> 
-                        המטרה הייתה כפולה. גיאופוליטית: המלך רצה לחסום את ההתפשטות הספרדית מפלורידה צפונה. כלכלית: האצילים קיוו להקים מטעי ענק של משי, יין, ושמן זית, תוך גביית מיסי רכוש גבוהים (Quitrents) מן המתיישבים הפשוטים.
+                        בעוד הלורדים רצו להפיק רווחים מסחריים ואגרו אחוזות בדרום (צ'ארלסטאון), היעד של המתיישבים בצפון קרוליינה היה הישרדות וחירות אזרחית. הם רצו להתרחק מחוקי הדת, מבעלי המטעים העשירים של וירג'יניה, ומגביית המיסים של הכתר הבריטי.
                     </p>
                 </div>
             </section>
@@ -100,24 +108,54 @@
             <section class="content-section bg-white dark:bg-darkCard p-8 rounded-3xl shadow-sm border border-gray-100 dark:border-gray-800 border-r-4 border-r-blue-500 dark:border-r-gold">
                 <div class="flex items-center gap-3 mb-6">
                     <div class="p-3 bg-blue-100 dark:bg-gray-800 rounded-2xl text-blue-600 dark:text-gold">
-                        <i class="ph ph-users text-3xl"></i>
+                        <i class="ph ph-user text-3xl"></i>
                     </div>
-                    <h2 class="text-3xl font-bold">2. רקע המייסדים וההוגים</h2>
+                    <h2 class="text-3xl font-bold">2. דמויות משקפות: משחיתות לפיראטיות</h2>
                 </div>
                 
-                <div class="text-lg text-gray-700 dark:text-gray-300 leading-relaxed space-y-6">
-                    <!-- הלורד אשלי קופר -->
-                    <div>
-                        <h3 class="text-2xl font-bold text-blue-800 dark:text-blue-300 mb-2">אנתוני אשלי קופר (Lord Shaftesbury) (1621–1683)</h3>
-                        <p><strong>רקע:</strong> הבולט מבין 8 הבעלים. פוליטיקאי אנגלי מבריק שהשקיע ממרצו כדי למשוך מתיישבים. קופר שאף להקים חברת מופת היררכית וסלד מהרעיון שקרוליינה תהפוך למקלט לאיכרים עניים.</p>
+                <!-- שחור-הזקן ומושל אידן -->
+                <div class="space-y-10">
+                    <!-- שחור-הזקן -->
+                    <div class="flex flex-col md:flex-row gap-8 items-start">
+                        <div class="w-full max-w-[240px] mx-auto md:mx-0 shrink-0 group cursor-pointer relative rounded-2xl overflow-hidden shadow-md border border-gray-200 dark:border-gray-700 aspect-[9/16]" 
+                             onclick="openImageModal(this)" 
+                             data-image="../images/blackbeard_portrait.jpg" 
+                             data-caption="אדוארד טיץ' ('שחור-הזקן'). הפיראט המפורסם בעולם, שמצא מקלט וסחר חופשי בחופיה המפורצים של קרוליינה הצפונית.">
+                            <img src="../images/blackbeard_portrait.jpg" alt="דיוקן שחור הזקן" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                            <div class="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
+                                <i class="ph ph-magnifying-glass-plus text-4xl text-white"></i>
+                            </div>
+                            <div class="absolute bottom-0 left-0 right-0 bg-black/70 p-2 text-xs text-white text-center">אדוארד טיץ' (שחור-הזקן)</div>
+                        </div>
+                        
+                        <div class="md:w-2/3 text-lg text-gray-700 dark:text-gray-300 leading-relaxed space-y-4">
+                            <p>קרוליינה הצפונית לא נוסדה על ידי אישיות דגולה אחת כמו וינתרופ או פן. היא הייתה אוסף של עריקים. הדמות שמייצגת יותר מכל את האופי נטול החוק (Lawless) של חופיה בתחילת המאה ה-18 היא הפיראט המפורסם מכולם.</p>
+                            
+                            <h3 class="text-2xl font-bold text-blue-800 dark:text-blue-300 mb-2 mt-4">אדוארד טיץ' המכונה "שחור הזקן" (Edward Teach / Blackbeard) (סביבות 1680–1718)</h3>
+                            <p><strong>הקשר למושבה:</strong> בשל המבנה הגיאוגרפי המורכב של חופי קרוליינה הצפונית, אוניות הצי הבריטי לא יכלו לנווט שם בקלות. שחור-הזקן ניצל זאת והפך את האי אוקראקוק (Ocracoke Island) למפקדת הפיראטים שלו. שם סחר בחופשיות בסחורות גנובות עם המתיישבים המקומיים, שלא יכלו להרשות לעצמם סחורות מיובאות מבריטניה.</p>
+                            <p><strong>סופו:</strong> השלטון בוירג'יניה השכנה שסבלה מהשוד מאס במצב. ב-1718 נשלח כוח ימי מיוחד שצד את שחור-הזקן, הרג אותו בקרב עקוב מדם, ותלה את ראשו הכרות על חרטום הספינה כאזהרה.</p>
+                        </div>
                     </div>
 
                     <hr class="border-gray-200 dark:border-gray-700">
 
-                    <!-- ג'ון לוק -->
-                    <div>
-                        <h3 class="text-2xl font-bold text-blue-800 dark:text-blue-300 mb-2">הפילוסוף ג'ון לוק (John Locke) (1632–1704)</h3>
-                        <p><strong>רקע והישגים בקרוליינה:</strong> לוק, אבי הליברליזם, היה אז מזכירו של קופר. ב-1669, הוא עזר לנסח את <strong>"החוקה היסודית של קרוליינה"</strong>. זהו מסמך פרדוקסלי: הוא הבטיח חופש דת סובלני מחד, אך מצד שני ייסד מערכת פיאודלית עם תוארי אצולה מומצאים ("Cazique", "Landgrave") ומיסד את העבדות באופן מוחלט. למזלם של מתיישבי הצפון, חוקה מנותקת זו מעולם לא יושמה במלואה, כיוון שהחקלאים פשוט סירבו לציית.</p>
+                    <!-- מושל אידן -->
+                    <div class="flex flex-col md:flex-row-reverse gap-8 items-start">
+                        <div class="w-full max-w-[240px] mx-auto md:mx-0 shrink-0 group cursor-pointer relative rounded-2xl overflow-hidden shadow-md border border-gray-200 dark:border-gray-700 aspect-[9/16]" 
+                             onclick="openImageModal(this)" 
+                             data-image="../images/charles_eden_portrait.jpg" 
+                             data-caption="המושל המלכותי צ'ארלס אידן. הואשם בשיתוף פעולה והעלמת עין מפעילותו של שחור-הזקן.">
+                            <img src="../images/charles_eden_portrait.jpg" alt="דיוקן צ'ארלס אידן" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                            <div class="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
+                                <i class="ph ph-magnifying-glass-plus text-4xl text-white"></i>
+                            </div>
+                            <div class="absolute bottom-0 left-0 right-0 bg-black/70 p-2 text-xs text-white text-center">המושל צ'ארלס אידן</div>
+                        </div>
+                        
+                        <div class="md:w-2/3 text-lg text-gray-700 dark:text-gray-300 leading-relaxed space-y-4">
+                            <h3 class="text-2xl font-bold text-blue-800 dark:text-blue-300 mb-2">המושל צ'ארלס אידן (Charles Eden) (1673–1722)</h3>
+                            <p>המושל הקולוניאלי של צפון קרוליינה בתקופת "תור הזהב של הפיראטיות". הוא הפך לסמל של השלטון החלש והמושחת במושבה. היסטוריונים רבים, בני תקופתו, האמינו כי אידן העלים עין ממעשיו של שחור-הזקן בתמורה לנתח מהשלל. למעשה, מזכירו האישי של אידן נתפס כשברשותו סחורות גנובות מאחת הספינות ששדד הפיראט. עם זאת, הדבר לא הוכח רשמית מעולם, ואידן נשאר בתפקידו עד מותו.</p>
+                        </div>
                     </div>
                 </div>
             </section>
@@ -128,13 +166,15 @@
                     <div class="p-3 bg-blue-100 dark:bg-gray-800 rounded-2xl text-blue-600 dark:text-gold">
                         <i class="ph ph-scales text-3xl"></i>
                     </div>
-                    <h2 class="text-3xl font-bold">3. אידאולוגיה: הפער בין חלום למציאות</h2>
+                    <h2 class="text-3xl font-bold">3. אידאולוגיה: אנטי-אליטיזם</h2>
                 </div>
                 <div class="text-lg text-gray-700 dark:text-gray-300 leading-relaxed space-y-4">
-                    <p>האידאולוגיה המקורית הייתה הקמת מיקרו-קוסמוס אריסטוקרטי. אך המציאות בצפון הפכה זאת לאידאולוגיה של <strong>מרד</strong>.</p>
+                    <p>
+                        "האידאולוגיה" העיקרית הייתה פשוט להניח לאנשים לנפשם. המושבה התאפיינה ברוח דמוקרטית-עממית קשוחה:
+                    </p>
                     <ul class="list-disc list-inside space-y-4 ml-4">
-                        <li><strong>חוסר ציות והברחות:</strong> תושבי אזור אלבמארל התאפיינו באנטי-סמכותיות חריפה. הם סירבו לשלם מיסים ללורדים שבלונדון (מרידות כמו "מרד קולפפר" ב-1677), והתעלמו מחוקי הסחר הבריטיים.</li>
-                        <li><strong>חופש דת וקווייקרים:</strong> השלטון החלש משך קבוצות נרדפות. ה<strong>קווייקרים (Quakers)</strong>, שסבלו מרדיפות קשות, מצאו כאן מקלט והפכו לכוח הפוליטי המאורגן היחיד במושבה, תוך קידום אידאולוגיה של פציפיזם ושוויון.</li>
+                        <li><strong>עמק השווים:</strong> האזור היה מקלט עבור משרתים חוזיים לשעבר (Indentured servants) שסיימו את חוזיהם בווירג'יניה אך לא יכלו להרשות לעצמם אדמות שם. הם היו חקלאים קטנים וגאים ששנאו אצולה והתנגדו לכל ניסיון לגבות מהם מיסים או לכפות עליהם את הכנסייה האנגליקנית.</li>
+                        <li><strong>סובלנות כברירת מחדל:</strong> בשל היעדר שלטון מרכזי חזק, המושבה הפכה למקלט לכתות דתיות נרדפות כמו ה<strong>קווייקרים</strong>, שזכו בה לחופש דת דה-פקטו פשוט כי לא היה מי שירדוף אותם.</li>
                     </ul>
                 </div>
             </section>
@@ -145,14 +185,14 @@
                     <div class="p-3 bg-blue-100 dark:bg-gray-800 rounded-2xl text-blue-600 dark:text-gold">
                         <i class="ph ph-map-pin text-3xl"></i>
                     </div>
-                    <h2 class="text-3xl font-bold">4. גיאוגרפיה: מחסום האוקיינוס</h2>
+                    <h2 class="text-3xl font-bold">4. גיאוגרפיה: "בית הקברות של האוקיינוס"</h2>
                 </div>
                 
                 <div class="text-lg text-gray-700 dark:text-gray-300 leading-relaxed space-y-4">
-                    <p>הגיאוגרפיה חרצה את גורלה ואופייה של קרוליינה הצפונית, והבדילה אותה לחלוטין מדרום קרוליינה:</p>
+                    <p>הגיאוגרפיה הייתה הגורם המכריע ביותר בעיצוב האופי הנפרד של צפון קרוליינה מדרומה:</p>
                     <ul class="list-disc list-inside space-y-4 ml-4">
-                        <li><strong>איי המחסום ("הגדה החיצונית" - The Outer Banks):</strong> החוף חסום על ידי שרשרת איי חול שיצרה ים רדוד ורווי שרטונות מסוכנים, שזכה לכינוי <strong>"בית הקברות של האוקיינוס האטלנטי"</strong>.</li>
-                        <li><strong>היעדר נמלי מים עמוקים:</strong> בניגוד למפרץ צ'ספיק (וירג'יניה) או נמל צ'ארלסטון (דרום קרוליינה), בצפון קרוליינה לא היה נמל טבעי לספינות גדולות. המושבה הייתה <strong>מבודדת כלכלית ופיזית</strong>. הסחר התבסס על סירות קטנות שהבריחו סחורות לווירג'יניה.</li>
+                        <li><strong>אאוטר בנקס (The Outer Banks):</strong> חופי קרוליינה הצפונית חסומים על ידי שרשרת ארוכה של איים צרים ודיונות חול. מאחוריהם נחים מפרצים ענקיים (Sounds) אך <strong>רדודים מאוד</strong> (כמו Albemarle Sound).</li>
+                        <li><strong>היעדר נמלי עומק:</strong> בשל המים הרדודים והשרטונות הקטלניים (אזור שכונה "בית הקברות של האוקיינוס האטלנטי"), ספינות מסחר גדולות לא יכלו לעגון בקרוליינה הצפונית. משמעות הדבר: המושבה לא יכלה לייצא תוצרת חקלאית עצומה לאירופה, ולכן <strong>לא הוקמו בה ערי נמל עשירות</strong> כמו צ'ארלסטאון או בוסטון, והיא נותרה מבודדת וכפרית.</li>
                     </ul>
                 </div>
             </section>
@@ -163,158 +203,169 @@
                     <div class="p-3 bg-green-100 dark:bg-gray-800 rounded-2xl text-green-700 dark:text-emerald-400">
                         <i class="ph ph-coins text-3xl"></i>
                     </div>
-                    <h2 class="text-3xl font-bold">5. כלכלה: יערות, זפת וחקלאות זעירה</h2>
+                    <h2 class="text-3xl font-bold">5. כלכלה: עטרן, זפת ועצי אורן</h2>
                 </div>
-                <div class="text-lg text-gray-700 dark:text-gray-300 leading-relaxed space-y-4">
-                    <p>
-                        כלכלת קרוליינה הצפונית לא התבססה בתחילה על מטע הטבק הקלאסי, אלא על תוצרת היער ומסחר פנימי:
-                    </p>
-                    <ul class="list-disc list-inside space-y-3 ml-4">
-                        <li><strong>תעשיית העצים והזפת (Naval Stores):</strong> היערות העצומים של אורן ארוך-עלים סיפקו לאימפריה הבריטית את המשאב החשוב ביותר לצי הימי שלה: עטרן, זפת (Tar) וטרפנטין ששימשו לאיטום ספינות. עבודה שחורה זו העניקה לתושבים את הכינוי המפורסם "עקבי הזפת" (Tar Heels), המלווה את המדינה עד היום.</li>
-                        <li><strong>חקלאות קיום:</strong> רוב התושבים גידלו תירס, חיטה וטבק בכמויות קטנות בחלקות אדמה מבודדות, וגידלו חזירים ששוטטו בחופשיות ביערות עד שניצודו להמלחה וייצוא.</li>
-                    </ul>
-                </div>
-            </section>
-
-            <!-- 6. תור הזהב של הפיראטים (חדש) -->
-            <section class="content-section bg-white dark:bg-darkCard p-8 rounded-3xl shadow-sm border border-gray-100 dark:border-gray-800 border-r-4 border-r-purple-500 dark:border-r-purple-400">
-                <div class="flex items-center gap-3 mb-6">
-                    <div class="p-3 bg-purple-100 dark:bg-gray-800 rounded-2xl text-purple-700 dark:text-purple-400">
-                        <i class="ph ph-skull text-3xl"></i>
+                
+                <div class="flex flex-col md:flex-row-reverse gap-8 items-start">
+                    <!-- תמונה 3 (תעשיית הזפת) -->
+                    <div class="md:w-1/3 shrink-0 w-full group cursor-pointer relative rounded-2xl overflow-hidden shadow-md border border-gray-200 dark:border-gray-700" 
+                         onclick="openImageModal(this)" 
+                         data-image="../images/nc_naval_stores.jpg" 
+                         data-caption="הפקת 'חומרי צי' (זפת ועטרן) משרף של עצי אורן. התעשייה שהחזיקה את הכלכלה ונתנה לתושבים את הכינוי Tar Heels.">
+                        <img src="../images/nc_naval_stores.jpg" alt="הפקת זפת ביערות קרוליינה" class="w-full object-cover group-hover:scale-105 transition-transform duration-500">
+                        <div class="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
+                            <i class="ph ph-magnifying-glass-plus text-4xl text-white"></i>
+                        </div>
+                        <div class="absolute bottom-0 left-0 right-0 bg-black/70 p-2 text-xs text-white text-center">הפקת זפת ועטרן</div>
                     </div>
-                    <h2 class="text-3xl font-bold">6. חוק וסדר: תור הזהב של הפיראטים</h2>
-                </div>
-                <div class="text-lg text-gray-700 dark:text-gray-300 leading-relaxed space-y-4">
-                    <p>
-                        חוסר המשילות של הלורדים, יחד עם הגיאוגרפיה הבוגדנית של ה-Outer Banks (שהצי המלכותי חשש להתקרב אליה), הפכו את צפון קרוליינה לגן עדן עבור שודדי ים מהקריביים שמצאו בה מסתור ושווקים שחורים:
-                    </p>
-                    <ul class="list-disc list-inside space-y-3 ml-4">
-                        <li><strong>שחור הזקן (Blackbeard):</strong> הפיראט המפורסם מכולם, שמו האמיתי היה <strong>אדוארד טיץ' (Edward Teach / Thatch)</strong> (נולד בערך ב-1680 בבריסטול, אנגליה – נהרג ב-22 בנובמבר 1718). לאחר שהטיל מצור אימתני על העיר צ'ארלסטון, הוא העביר את בסיס הפעולה שלו לאי אוקרקוק (Ocracoke) שבצפון קרוליינה.</li>
-                        <li><strong>שחיתות שלטונית וסוף אלים:</strong> שחור-הזקן חיפש "חנינה" מלכותית, וקיבל אותה ממושל צפון קרוליינה, צ'ארלס אידן (Charles Eden), שאף חילק עמו שלל שדוד. תושבי המושבה וסוחריה חיו בפחד, אך הנהגתם הייתה מושחתת. בלית ברירה, הם פנו למושל וירג'יניה השכנה, אלכסנדר ספוטסווד. ספוטסווד שלח כוח פשיטה לא חוקי (מחוץ לתחום שיפוטו) בפיקודו של סגן רוברט מיינרד. בקרב אפי מטווח אפס במפרץ אוקרקוק ב-1718, מיינרד הרג את שחור-הזקן (שספג 5 כדורים ו-20 דקירות חרב), ערף את ראשו, ותלה אותו על חרטום הספינה.</li>
-                    </ul>
-                </div>
-            </section>
-
-            <!-- 7. הדמוגרפיה והחברה -->
-            <section class="content-section bg-white dark:bg-darkCard p-8 rounded-3xl shadow-sm border border-gray-100 dark:border-gray-800 border-r-4 border-r-green-500 dark:border-r-emerald-400">
-                <div class="flex items-center gap-3 mb-6">
-                    <div class="p-3 bg-green-100 dark:bg-gray-800 rounded-2xl text-green-700 dark:text-emerald-400">
-                        <i class="ph ph-users-three text-3xl"></i>
-                    </div>
-                    <h2 class="text-3xl font-bold">7. דמוגרפיה: חקלאים פשוטים ועצמאיים</h2>
-                </div>
-                <div class="text-lg text-gray-700 dark:text-gray-300 leading-relaxed space-y-4">
-                    <p>
-                        ההבדל הדמוגרפי בין צפון קרוליינה לדרומה היה תהומי ובלתי ניתן לגישור:
-                    </p>
-                    <ul class="list-disc list-inside space-y-3 ml-4">
-                        <li><strong>חקלאי קיום (Yeoman Farmers):</strong> רוב האוכלוסייה הורכבה מחקלאים לבנים עניים שעיבדו חוות קטנות בעצמם. רובם הגדול פשוט חצו את הגבול מוירג'יניה לאחר שברחו מחובות או מסיום תקופת המשרתות החוזית (Indentured servants) שלהם.</li>
-                        <li><strong>שיעור עבדות נמוך (יחסית):</strong> בניגוד לדרום (שם העבדים הפכו במהירות לרוב האוכלוסייה סביב מטעי האורז), בצפון קרוליינה שיעור העבדים נותר נמוך יחסית בעשורים הראשונים, כיוון שהכלכלה לא דרשה כוח אדם מאסיבי ברמת האחוזה.</li>
-                        <li><strong>היעדר ערים:</strong> המושבה הייתה כפרית ומבוזרת לחלוטין. העיר הראשונה (באת' - Bath) הוקמה רק כ-40 שנה לאחר הגעת המתיישבים הראשונים, והייתה כפר זעיר.</li>
-                    </ul>
-                </div>
-            </section>
-
-            <!-- 8. מלחמות הילידים (חדש) -->
-            <section class="content-section bg-white dark:bg-darkCard p-8 rounded-3xl shadow-sm border border-gray-100 dark:border-gray-800 border-r-4 border-r-orange-500 dark:border-r-orange-400">
-                <div class="flex items-center gap-3 mb-6">
-                    <div class="p-3 bg-orange-100 dark:bg-gray-800 rounded-2xl text-orange-600 dark:text-orange-400">
-                        <i class="ph ph-fire text-3xl"></i>
-                    </div>
-                    <h2 class="text-3xl font-bold">8. יחסי ילידים: מלחמת טוסקרורה</h2>
-                </div>
-                <div class="text-lg text-gray-700 dark:text-gray-300 leading-relaxed space-y-4">
-                    <p>
-                        ההתפשטות האיטית של המתיישבים אל תוך שטחי היערות הובילה להתנגשות קטלנית שהעמידה את קיום המושבה בסכנה:
-                    </p>
-                    <ul class="list-disc list-inside space-y-3 ml-4">
-                        <li><strong>מלחמת טוסקרורה (Tuscarora War) 1711–1715:</strong> שבט הטוסקרורה (Tuscarora), שסבל מגזל אדמות מתמשך, הפרות חוזים מסחריים, וגרוע מכל - פשיטות עבדים בלתי חוקיות בהן נחטפו ילדיהם ונמכרו לעבדות במושבות אחרות, החליט להתקומם. בהנהגת הצ'יף הנקוק (Chief Hancock), הם פתחו במתקפת פתע מתואמת על ההתיישבויות האירופיות לאורך נהרות הנאוס והפמליקו (כולל העיירה ניו ברן), וטבחו במאות מתיישבים.</li>
-                        <li><strong>התמוטטות והצלה מבחוץ:</strong> צפון קרוליינה הענייה והמפולגת לא הצליחה לגייס כוח צבאי שיעמוד מול הילידים, ופנתה לעזרה. דרום קרוליינה שלחה שתי משלחות חמושות שכללו מיליציות לבנות ואלפי לוחמים אינדיאנים משבט היאמאסי (Yamasee - יריביהם של הטוסקרורה). הכוח המשולב כיתר את המבצר של הצ'יף הנקוק, השמיד את כוח ההתנגדות, ומכר מאות שבויים טוסקרורים לעבדות. הניצולים נמלטו צפונה אל ניו יורק והצטרפו לקונפדרציית האירוקוי.</li>
-                    </ul>
-                </div>
-            </section>
-
-            <!-- 9. מאבקי השליטה (השתלטות) -->
-            <section class="content-section bg-white dark:bg-darkCard p-8 rounded-3xl shadow-sm border border-gray-100 dark:border-gray-800 border-r-4 border-r-red-500 dark:border-r-red-400">
-                <div class="flex items-center gap-3 mb-6">
-                    <div class="p-3 bg-red-100 dark:bg-gray-800 rounded-2xl text-red-600 dark:text-red-400">
-                        <i class="ph ph-crown text-3xl"></i>
-                    </div>
-                    <h2 class="text-3xl font-bold">9. מאבקי השליטה: פיצול והשתלטות הכתר</h2>
-                </div>
-                <div class="text-lg text-gray-700 dark:text-gray-300 leading-relaxed space-y-6">
-                    <p>קרוליינה נוהלה באופן כושל במשך עשרות שנים על ידי ה-Lords Proprietors המרוחקים. המשבר הכפול של הפיראטיות (שחור-הזקן) ומלחמת טוסקרורה שבר את גב הגמל:</p>
                     
-                    <div class="bg-gray-50 dark:bg-gray-800/30 p-6 rounded-2xl border border-gray-200 dark:border-gray-700">
-                        <h3 class="text-2xl font-bold text-red-800 dark:text-red-400 mb-3 flex items-center gap-2">
-                            <i class="ph ph-flag-banner"></i> ההשתלטות המלכותית (Royal Takeover)
-                        </h3>
-                        <ul class="list-none space-y-3 text-lg">
-                            <li><strong>מועד ופיצול:</strong> בשל המרחק העצום והשוני הדמוגרפי בין צפון קרוליינה (חקלאים עניים) לדרום (אחוזות אצולה), הבעלים חילקו את הממשל דה-פקטו כבר ב-1712. ההשתלטות הרשמית של הכתר התרחשה ב-<strong>1729</strong>, אז הופרדו המושבות לשתיים באופן חוקי וסופי.</li>
-                            <li><strong>אישים בולטים:</strong> המלך <strong>ג'ורג' השני</strong> שאישר את רכישת הזיכיון. הלורד היחיד <strong>ג'ון קרטרט, לורד גרנוויל</strong>, סירב למכור את חלקו למלך (והחזיק בשליש מהמדינה כאדמה פרטית עד המהפכה האמריקאית, מה שיצר חציצה פנימית מורכבת).</li>
-                            <li><strong>סיבת ההשתלטות:</strong> 
-                                הבעלים (Proprietors) הוכיחו חוסר מסוגלות מוחלט להגן על המושבה. כשהמתיישבים הותקפו במלחמת טוסקרורה, הבעלים סירבו לשלוח חיילים או מימון לעזרה. כששודדי הים שלטו בחופים, הבעלים לא שלחו אוניות משמר. המתיישבים המתוסכלים והנואשים פנו לעזרת הכתר והגישו עצומה לפרלמנט הבריטי בדרישה להפוך למושבת כתר (Royal Colony), שתספק להם הגנה צבאית יציבה. הכתר ניצל את ההזדמנות וקנה בחזרה 7 מתוך 8 החלקות מידי יורשי הלורדים המקוריים.
-                            </li>
+                    <div class="md:w-2/3 text-lg text-gray-700 dark:text-gray-300 leading-relaxed space-y-4">
+                        <p>בשל העדר נמלים וקושי בייצוא, הכלכלה נשענה על משאבי הפנים והישרדות:</p>
+                        <ul class="list-disc list-inside space-y-3 ml-4">
+                            <li><strong>חוות משפחתיות קטנות:</strong> גידלו טבק בהיקף קטן (ששונע בדרכים יבשתיות לוירג'יניה כדי להימכר משם), תירס וגידול חזירים חופשיים ביערות.</li>
+                            <li><strong>"חומרי הצי" (Naval Stores):</strong> התעשייה המכניסה ביותר הייתה הפקת עטרן, זפת, טרפנטין וקורות עץ ממיליוני עצי ה"אורן ארוך-העלים" (Longleaf pine) שכיסו את האזור. חומרים אלו היו קריטיים לאטימת ספינות הצי הבריטי מפני מים. עובדי האדמה שם זכו לכינוי <strong>Tar Heels (עקבי זפת)</strong>, כינוי של המדינה עד היום.</li>
                         </ul>
                     </div>
                 </div>
             </section>
 
-            <!-- 10. מחקר אטימולוגי מפורט -->
+            <!-- 6. הדמוגרפיה והחברה -->
+            <section class="content-section bg-white dark:bg-darkCard p-8 rounded-3xl shadow-sm border border-gray-100 dark:border-gray-800 border-r-4 border-r-green-500 dark:border-r-emerald-400">
+                <div class="flex items-center gap-3 mb-6">
+                    <div class="p-3 bg-green-100 dark:bg-gray-800 rounded-2xl text-green-700 dark:text-emerald-400">
+                        <i class="ph ph-users-three text-3xl"></i>
+                    </div>
+                    <h2 class="text-3xl font-bold">6. דמוגרפיה: אי של שוויון עני</h2>
+                </div>
+                <div class="text-lg text-gray-700 dark:text-gray-300 leading-relaxed space-y-4">
+                    <p>
+                        דמוגרפית, קרוליינה הצפונית הייתה "עמק של ענווה בין שני הרי גאווה" (וירג'יניה ודרום קרוליינה):
+                    </p>
+                    <ul class="list-disc list-inside space-y-3 ml-4">
+                        <li><strong>מעמד סוציו-אקונומי:</strong> רוב מוחלט של האוכלוסייה הלבנה היו חקלאים עניים, ללא תארים, שחיו בבקתות עץ פשוטות ועבדו במו ידיהם.</li>
+                        <li><strong>מיעוט עבדים:</strong> בניגוד לדרום קרוליינה, שבה השחורים היו רוב האוכלוסייה, בצפון קרוליינה לא היו מטעי אורז או סוכר ענקיים. לכן, מספר האפריקאים-אמריקאים המשועבדים היה קטן בהרבה, אם כי העבדות בהחלט הייתה קיימת (בעיקר במזרח המדינה).</li>
+                    </ul>
+                </div>
+            </section>
+
+            <!-- 7. מאבקי השליטה (קבוצה 2 - הסעיף הקיים המשודרג עם ג'ון קולפפר) -->
+            <section class="content-section bg-white dark:bg-darkCard p-8 rounded-3xl shadow-sm border border-gray-100 dark:border-gray-800 border-r-4 border-r-red-500 dark:border-r-red-400">
+                <div class="flex items-center gap-3 mb-6">
+                    <div class="p-3 bg-red-100 dark:bg-gray-800 rounded-2xl text-red-600 dark:text-red-400">
+                        <i class="ph ph-swords text-3xl"></i>
+                    </div>
+                    <h2 class="text-3xl font-bold">7. מאבקי השליטה: מרידות נגד מיסים</h2>
+                </div>
+                
+                <div class="flex flex-col md:flex-row gap-8 items-start mb-6">
+                    <!-- תמונה של קולפפר (יחס 9:16) -->
+                    <div class="w-full max-w-[240px] mx-auto md:mx-0 shrink-0 group cursor-pointer relative rounded-2xl overflow-hidden shadow-md border border-gray-200 dark:border-gray-700 aspect-[9/16]" 
+                         onclick="openImageModal(this)" 
+                         data-image="../images/john_culpeper_portrait.jpg" 
+                         data-caption="ג'ון קולפפר, מנהיג המרד העממי. סירב לשלם מכסים לכתר הבריטי והדיח את סגן המושל.">
+                        <img src="../images/john_culpeper_portrait.jpg" alt="דיוקן ג'ון קולפפר" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                        <div class="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
+                            <i class="ph ph-magnifying-glass-plus text-4xl text-white"></i>
+                        </div>
+                        <div class="absolute bottom-0 left-0 right-0 bg-black/70 p-2 text-xs text-white text-center">ג'ון קולפפר</div>
+                    </div>
+                    
+                    <div class="md:w-2/3 text-lg text-gray-700 dark:text-gray-300 leading-relaxed space-y-6">
+                        <p>תושבי קרוליינה הצפונית פיתחו מסורת ארוכה של סילוק מושלים שלא מצאו חן בעיניהם, בטענה שהשלטון המרכזי רק גובה מיסים ולא מספק הגנה:</p>
+                        
+                        <div class="bg-gray-50 dark:bg-gray-800/30 p-6 rounded-2xl border border-gray-200 dark:border-gray-700">
+                            <h3 class="text-2xl font-bold text-red-800 dark:text-red-400 mb-3 flex items-center gap-2">
+                                <i class="ph ph-flag-banner"></i> מרד קולפפר והפיצול הרשמי
+                            </h3>
+                            <ul class="list-none space-y-3 text-lg">
+                                <li><strong>מועדי המאבק:</strong> 1677 (מרד קולפפר), 1712 (הפיצול), ו-1729 (רכישה מלכותית).</li>
+                                <li><strong>מהלך המאבקים:</strong> 
+                                    האות הראשון למרדנות היה ב-<strong>1677 ("מרד קולפפר")</strong>. כאשר הכתר הבריטי חוקק את "חוקי הסחר" שניסו לכפות על חקלאי הצפון לשלם מכס על ייצוא טבק, המתיישבים הזועמים בהנהגת <strong>ג'ון קולפפר (John Culpeper)</strong> פשוט כלאו את סגן המושל ואת גובי המיסים, והקימו ממשלה משלהם ששלטה ללא הפרעה במשך שנתיים. בסופו של דבר קולפפר הועמד לדין באנגליה אך זוכה, מה שהעניק רוח גבית למורדים.
+                                    "הלורדים הבעלים" בלונדון מעולם לא הצליחו באמת לשלוט בחלק הצפוני והמורד הזה של המושבה. הם התייאשו מהם, ובשנת <strong>1712 מינו מושל נפרד</strong> באופן רשמי ל"צפון קרוליינה". ההפרדה הפכה לסופית בשנת <strong>1729</strong>, כאשר המלך ג'ורג' השני פשוט קנה את הזיכיון מידי הלורדים, והפך את קרוליינה הצפונית למושבת כתר (Royal Colony) תחת שלטון בריטי ישיר.
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- 8. מחקר אטימולוגי מפורט -->
             <section class="content-section bg-white dark:bg-darkCard p-8 rounded-3xl shadow-sm border border-gray-100 dark:border-gray-800">
                 <div class="flex items-center gap-3 mb-6">
                     <div class="p-3 bg-blue-100 dark:bg-gray-800 rounded-2xl text-blue-600 dark:text-gold">
                         <i class="ph ph-text-aa text-3xl"></i>
                     </div>
-                    <h2 class="text-3xl font-bold">10. מחקר אטימולוגי: מ-Carolana ל-North Carolina</h2>
+                    <h2 class="text-3xl font-bold">8. מחקר אטימולוגי: North Carolina</h2>
                 </div>
                 
-                <div class="overflow-x-auto mt-6">
-                    <table class="w-full text-right border-collapse">
-                        <thead>
-                            <tr class="bg-blue-50 dark:bg-gray-800 text-blue-900 dark:text-gold border-b-2 border-blue-200 dark:border-gray-700">
-                                <th class="p-4 font-bold rounded-tr-xl">מרכיב בשם</th>
-                                <th class="p-4 font-bold">מקור לשוני ותקופה</th>
-                                <th class="p-4 font-bold rounded-tl-xl">משמעות והקשר היסטורי / פוליטי</th>
-                            </tr>
-                        </thead>
-                        <tbody class="text-gray-700 dark:text-gray-300">
-                            <tr class="border-b border-gray-100 dark:border-gray-800 hover:bg-gray-50 dark:hover:bg-gray-800/50 transition-colors">
-                                <td class="p-4 font-mono font-bold text-xl">Carolus</td>
-                                <td class="p-4">לטינית</td>
-                                <td class="p-4">
-                                    התרגום הלטיני הרשמי לשם <strong>צ'ארלס (Charles)</strong>. 
-                                </td>
-                            </tr>
-                            <tr class="border-b border-gray-100 dark:border-gray-800 hover:bg-gray-50 dark:hover:bg-gray-800/50 transition-colors">
-                                <td class="p-4 font-mono font-bold text-xl">-ina</td>
-                                <td class="p-4">סיומת לטינית נקבית</td>
-                                <td class="p-4">
-                                    סיומת המשמשת במשפט הגיאוגרפי של האימפריה לציון "הארץ של-".
-                                </td>
-                            </tr>
-                            <tr class="border-b border-gray-100 dark:border-gray-800 hover:bg-gray-50 dark:hover:bg-gray-800/50 transition-colors">
-                                <td class="p-4 font-mono font-bold text-xl">Carolina</td>
-                                <td class="p-4">הלחם מלכותי (אנגלי/לטיני)</td>
-                                <td class="p-4">
-                                    נקראה לראשונה "קרולאנה" ב-1629 על ידי צ'ארלס ה-1. לאחר חידוש המלוכה על ידי בנו, <strong>צ'ארלס השני</strong>, שונה השם ל-Carolina בזיכיון של 1663. המשמעות: <strong>"ארצו של צ'ארלס"</strong>.
-                                </td>
-                            </tr>
-                            <tr class="bg-blue-50/50 dark:bg-gray-800/30">
-                                <td class="p-4 font-bold text-blue-800 dark:text-blue-300">הפיצול:<br><span class="font-mono text-2xl">North</span></td>
-                                <td class="p-4 text-lg font-semibold text-gray-900 dark:text-white">אנגלית: "צפון" (1712/1729)</td>
-                                <td class="p-4 text-lg font-semibold text-gray-900 dark:text-white">
-                                    <strong>סיבת התוספת:</strong> הפיצול אינו רק גיאוגרפי, אלא דמוגרפי-פוליטי עמוק. הגיאוגרפיה הפכה את צפון האזור לעני (חקלאים, יערות) ואת דרומו לעשיר (נמל מים עמוקים, עבדים). הבעלים בלונדון לא הצליחו למשול עליהם יחד. ב-1712 מונה מושל נפרד, ובהשתלטות הכתר ב-1729, השם <em>North Carolina</em> הפך לישות ריבונית נפרדת.
-                                </td>
-                            </tr>
-                        </tbody>
-                    </table>
+                <div class="text-lg text-gray-700 dark:text-gray-300 leading-relaxed mb-4">
+                    השם המשותף לשתי המדינות (קרוליינה) הוא אות למסירות מוחלטת לכתר האנגלי, בעוד התחילית מסמלת את הפיצול המעמדי והגיאוגרפי:
+                </div>
+
+                <div class="space-y-6 mt-6">
+                    <!-- חלק 1 -->
+                    <div class="p-6 bg-blue-50/50 dark:bg-gray-800/30 rounded-2xl border-r-4 border-blue-500 dark:border-gold shadow-sm hover:bg-blue-50 dark:hover:bg-gray-800 transition-colors">
+                        <div class="flex flex-col sm:flex-row sm:items-center justify-between mb-3 gap-2">
+                            <h3 class="text-2xl font-mono font-bold text-gray-900 dark:text-white">
+                                North <span class="text-xl font-sans font-normal text-gray-500 dark:text-gray-400">(צפון)</span>
+                            </h3>
+                            <span class="inline-block px-3 py-1 bg-blue-100 dark:bg-gray-700 text-blue-800 dark:text-blue-300 text-sm rounded-full font-semibold border border-blue-200 dark:border-gray-600">
+                                מקור: אנגלית גיאוגרפית
+                            </span>
+                        </div>
+                        <p class="text-lg text-gray-700 dark:text-gray-300 leading-relaxed">
+                            כיוון גיאוגרפי. הקידומת התווספה רשמית ב-1712, והיא מסמלת את הניתוק המוחלט של החקלאים העצמאיים והעניים בצפון ממעמד האצולה, בעלי המטעים וסוחרי העבדים שהתבססו סביב צ'ארלסטאון שבדרום (South).
+                        </p>
+                    </div>
+
+                    <!-- חלק 2 -->
+                    <div class="p-6 bg-blue-50/50 dark:bg-gray-800/30 rounded-2xl border-r-4 border-blue-500 dark:border-gold shadow-sm hover:bg-blue-50 dark:hover:bg-gray-800 transition-colors">
+                        <div class="flex flex-col sm:flex-row sm:items-center justify-between mb-3 gap-2">
+                            <h3 class="text-2xl font-mono font-bold text-gray-900 dark:text-white">
+                                Carolus <span class="text-xl font-sans font-normal text-gray-500 dark:text-gray-400">(קרולוס)</span>
+                            </h3>
+                            <span class="inline-block px-3 py-1 bg-blue-100 dark:bg-gray-700 text-blue-800 dark:text-blue-300 text-sm rounded-full font-semibold border border-blue-200 dark:border-gray-600">
+                                מקור: לטינית
+                            </span>
+                        </div>
+                        <p class="text-lg text-gray-700 dark:text-gray-300 leading-relaxed">
+                            המקור של המילה "קרוליינה" מגיע מהשם הלטיני <em>Carolus</em>, שהוא התרגום הרשמי לשם האנגלי <strong>Charles (צ'ארלס)</strong>.
+                        </p>
+                    </div>
+
+                    <!-- חלק 3 -->
+                    <div class="p-6 bg-blue-100/50 dark:bg-gray-800/80 rounded-2xl border-r-4 border-blue-700 dark:border-yellow-400 shadow-md">
+                        <div class="flex items-center gap-3 mb-3">
+                            <i class="ph ph-puzzle-piece text-3xl text-blue-700 dark:text-yellow-400"></i>
+                            <h3 class="text-2xl font-mono font-black text-blue-900 dark:text-white">
+                                North Carolina <span class="text-xl font-sans font-normal text-gray-600 dark:text-gray-300">(קרוליינה הצפונית)</span>
+                            </h3>
+                        </div>
+                        <p class="text-lg text-gray-800 dark:text-gray-200 leading-relaxed font-medium">
+                            הפירוש המלא הוא: <strong>"הארץ הצפונית של המלך צ'ארלס"</strong>.<br><br>
+                            הלורדים הבעלים העניקו למושבה המקורית את השם בשנת 1663 כאות תודה ל<strong>מלך צ'ארלס השני</strong> על שהעניק להם את שטח האדמה העצום הזה, וכהכרת תודה על תמיכתם בו במהלך שנות גלותו ומלחמת האזרחים האנגלית.
+                        </p>
+                    </div>
                 </div>
             </section>
 
         </article>
 
     </main>
+
+    <!-- חלון צף (Modal) להגדלת תמונות -->
+    <div id="imageModal" class="fixed inset-0 z-[100] hidden bg-black/90 backdrop-blur-md flex items-center justify-center p-4 touch-manipulation opacity-0 transition-opacity duration-300" onclick="closeImageModal()">
+        <button class="absolute top-4 right-4 text-white/70 hover:text-white p-3 bg-black/50 hover:bg-black/80 rounded-full transition-colors duration-200 z-10" onclick="closeImageModal()">
+            <i class="ph ph-x text-2xl"></i>
+        </button>
+        
+        <div class="relative max-w-5xl w-full h-full flex flex-col items-center justify-center">
+            <img id="modalImage" src="" alt="תמונה מוגדלת" class="max-w-full max-h-[80vh] object-contain rounded-xl shadow-2xl scale-95 transition-transform duration-300" onclick="event.stopPropagation()">
+            <div class="mt-6 p-4 bg-darkCard/80 backdrop-blur-sm rounded-xl border border-gray-700 text-white text-center shadow-lg max-w-3xl" onclick="event.stopPropagation()">
+                <p id="modalCaption" class="text-lg leading-relaxed"></p>
+            </div>
+        </div>
+    </div>
 
     <!-- כותרת תחתונה (Footer) -->
     <footer class="bg-white dark:bg-darkBg border-t border-gray-200 dark:border-gray-800 py-8 mt-12">
@@ -324,7 +375,7 @@
         </div>
     </footer>
 
-    <!-- JavaScript Base Logic -->
+    <!-- JavaScript Base Logic (מנגנון Data Attributes בטוח) -->
     <script>
         function toggleDarkMode() {
             const htmlClasses = document.documentElement.classList;
@@ -342,6 +393,53 @@
         } else {
             document.documentElement.classList.remove('dark');
         }
+
+        // פונקציות חלון צף
+        function openImageModal(element) {
+            const src = element.getAttribute('data-image');
+            const caption = element.getAttribute('data-caption');
+            
+            const modal = document.getElementById('imageModal');
+            const modalImg = document.getElementById('modalImage');
+            const modalCap = document.getElementById('modalCaption');
+            
+            modalImg.src = src;
+            modalCap.textContent = caption;
+            
+            modal.classList.remove('hidden');
+            document.body.classList.add('modal-open');
+            
+            setTimeout(() => {
+                modal.classList.remove('opacity-0');
+                modalImg.classList.remove('scale-95');
+                modalImg.classList.add('scale-100');
+            }, 10);
+        }
+
+        function closeImageModal() {
+            const modal = document.getElementById('imageModal');
+            const modalImg = document.getElementById('modalImage');
+            
+            modal.classList.add('opacity-0');
+            modalImg.classList.remove('scale-100');
+            modalImg.classList.add('scale-95');
+            
+            setTimeout(() => {
+                modal.classList.add('hidden');
+                document.body.classList.remove('modal-open');
+            }, 300);
+        }
+        
+        document.addEventListener('keydown', function(event) {
+            if (event.key === "Escape") {
+                const modal = document.getElementById('imageModal');
+                if (!modal.classList.contains('hidden')) {
+                    closeImageModal();
+                }
+            }
+        });
     </script>
 </body>
 </html>
+
+
