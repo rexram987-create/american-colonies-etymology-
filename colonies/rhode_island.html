@@ -28,6 +28,8 @@
     <style>
         body { transition: background-color 0.3s ease, color 0.3s ease; }
         .content-section { scroll-margin-top: 100px; }
+        /* מניעת גלילה כשהחלון הצף פתוח */
+        .modal-open { overflow: hidden; }
     </style>
 </head>
 <body class="bg-gray-50 text-gray-900 dark:bg-darkBg dark:text-gray-100 font-sans antialiased selection:bg-blue-200 dark:selection:bg-blue-900">
@@ -36,8 +38,8 @@
     <header class="relative z-40 w-full bg-white dark:bg-darkBg border-b border-gray-200 dark:border-gray-800 shadow-sm">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex items-center justify-between h-20">
-                <!-- כפתור חזרה -->
-                <a href="index.html" class="flex items-center gap-2 text-blue-600 dark:text-gold hover:text-blue-800 dark:hover:text-yellow-400 transition-colors touch-manipulation font-semibold bg-blue-50 dark:bg-gray-800 px-4 py-2 rounded-full">
+                <!-- כפתור חזרה (מעודכן לתיקיית colonies) -->
+                <a href="../index.html" class="flex items-center gap-2 text-blue-600 dark:text-gold hover:text-blue-800 dark:hover:text-yellow-400 transition-colors touch-manipulation font-semibold bg-blue-50 dark:bg-gray-800 px-4 py-2 rounded-full">
                     <i class="ph ph-arrow-right text-xl"></i>
                     <span>חזרה לדף הבית</span>
                 </a>
@@ -69,11 +71,18 @@
             </p>
         </div>
 
-        <!-- תמונה ראשית -->
-        <div class="w-full h-64 md:h-96 rounded-3xl overflow-hidden mb-16 shadow-2xl relative border border-gray-200 dark:border-gray-800">
-            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/f/f6/Roger_Williams_sheltered_by_the_Narragansetts.jpg/1200px-Roger_Williams_sheltered_by_the_Narragansetts.jpg" alt="" class="w-full h-full object-cover">
-            <div class="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/80 to-transparent p-4 text-white text-sm md:text-base text-center">
+        <!-- תמונה ראשית 1 (מנגנון שאיבת נתונים בטוח) -->
+        <div class="w-full h-64 md:h-96 rounded-3xl overflow-hidden mb-16 shadow-2xl relative border border-gray-200 dark:border-gray-800 group cursor-pointer" 
+             onclick="openImageModal(this)" 
+             data-image="../images/rhode_island_hero.jpg" 
+             data-caption="רוג'ר ויליאמס ניצל ממוות בשלג הודות למקלט שהעניקו לו הילידים משבט הנראגנסט (חורף 1636).">
+            <img src="../images/rhode_island_hero.jpg" alt="רוג'ר ויליאמס והאינדיאנים" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700">
+            <div class="absolute inset-0 bg-black/20 group-hover:bg-transparent transition-colors duration-500"></div>
+            <div class="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/90 via-black/60 to-transparent p-6 text-white text-sm md:text-base text-center">
                 רוג'ר ויליאמס ניצל ממוות בשלג הודות למקלט שהעניקו לו הילידים משבט הנראגנסט (חורף 1636).
+                <div class="mt-2 text-xs text-gray-300 flex items-center justify-center gap-1 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                    <i class="ph ph-magnifying-glass-plus text-lg"></i> לחץ להגדלה
+                </div>
             </div>
         </div>
 
@@ -105,24 +114,34 @@
                     <h2 class="text-3xl font-bold">2. רקע המייסדים: המורדים הגדולים</h2>
                 </div>
                 
-                <div class="text-lg text-gray-700 dark:text-gray-300 leading-relaxed space-y-6">
-                    <!-- רוג'ר ויליאמס -->
-                    <div>
+                <div class="flex flex-col md:flex-row gap-8 items-start mb-8">
+                    <!-- תמונה 2 -->
+                    <div class="md:w-1/3 shrink-0 w-full group cursor-pointer relative rounded-2xl overflow-hidden shadow-md border border-gray-200 dark:border-gray-700" 
+                         onclick="openImageModal(this)" 
+                         data-image="../images/roger_williams_portrait.jpg" 
+                         data-caption="דיוקן קלאסי של רוג'ר ויליאמס, מייסד המושבה ואבי הפרדת הדת והמדינה באמריקה.">
+                        <img src="../images/roger_williams_portrait.jpg" alt="דיוקן רוג'ר ויליאמס" class="w-full object-cover group-hover:scale-105 transition-transform duration-500">
+                        <div class="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
+                            <i class="ph ph-magnifying-glass-plus text-4xl text-white"></i>
+                        </div>
+                        <div class="absolute bottom-0 left-0 right-0 bg-black/70 p-2 text-xs text-white text-center">רוג'ר ויליאמס</div>
+                    </div>
+                    
+                    <div class="md:w-2/3 text-lg text-gray-700 dark:text-gray-300 leading-relaxed space-y-4">
                         <h3 class="text-2xl font-bold text-blue-800 dark:text-blue-300 mb-2">רוג'ר ויליאמס (1603–1683)</h3>
                         <p><strong>ילדות ורקע:</strong> נולד בלונדון למשפחת סוחרים. כנער הפגין כישרון לשוני מזהיר וזכה לחסותו של סר אדוארד קוק, משפטן אנגלי דגול שחשף אותו למושגי הצדק האנגלי. הוא הוסמך לכמורה באוניברסיטת קיימברידג' והפך לפוריטני אדוק, מה שאילץ אותו להימלט למסצ'וסטס ב-1631.</p>
-                        <p><strong>משבר אמוני והגלות:</strong> עם הגעתו לבוסטון, ויליאמס זעזע את הממסד הפוריטני. הוא סירב לכהן בכנסייה משום שלטענתו היא לא התנתקה מספיק מהכנסייה האנגליקנית המושחתת. גרוע מכך - הוא טען שלמלך אנגליה <strong>אין שום זכות</strong> להעניק זיכיונות על אדמות אמריקה, משום שהן שייכות בלעדית לאינדיאנים ויש לרכוש אותן מהם בכסף מלא. בית המשפט של וינתרופ האשים אותו בהמרדה וגזר עליו גירוש חזרה לאנגליה. כדי להימנע ממעצר, ויליאמס נמלט אל תוך השלג בחורף 1636. חייו ניצלו בזכות הילידים משבט הנראגנסט (Narragansett) שאספו אותו לאוהליהם.</p>
-                        <p><strong>הישגים:</strong> באביב 1636 רכש אדמה מהצ'יפים קנוניקוס ומיאנטונומי, וייסד את העיר "פרובידנס". הוא טבע את המונח <strong>"חומת הפרדה" (Wall of Separation)</strong> בין הכנסייה לעולם הפוליטי, יצר את מילון השפות הילידיות הראשון, וייסד את הכנסייה הבפטיסטית הראשונה באמריקה (אותה עזב מאוחר יותר בחיפוש אחר אמת טהורה יותר).</p>
+                        <p><strong>משבר אמוני והגלות:</strong> עם הגעתו לבוסטון, ויליאמס זעזע את הממסד הפוריטני. הוא סירב לכהן בכנסייה משום שלטענתו היא לא התנתקה מספיק מהכנסייה האנגליקנית. גרוע מכך - הוא טען שלמלך אנגליה <strong>אין שום זכות</strong> להעניק זיכיונות על אדמות אמריקה, משום שהן שייכות בלעדית לאינדיאנים. בית המשפט של ג'ון וינתרופ האשים אותו בהמרדה וגזר עליו גירוש חזרה לאנגליה. כדי להימנע ממעצר, ויליאמס נמלט אל תוך השלג בחורף 1636 וחייו ניצלו בזכות הילידים משבט הנראגנסט (Narragansett).</p>
+                        <p><strong>הישגים:</strong> באביב 1636 רכש אדמה מהצ'יפים קנוניקוס ומיאנטונומי, וייסד את העיר "פרובידנס". הוא טבע את המונח <strong>"חומת הפרדה" (Wall of Separation)</strong> בין הכנסייה לעולם הפוליטי, ויצר את מילון השפות הילידיות הראשון.</p>
                     </div>
+                </div>
 
-                    <hr class="border-gray-200 dark:border-gray-700">
+                <hr class="border-gray-200 dark:border-gray-700 my-6">
 
-                    <!-- אן האצ'ינסון -->
-                    <div>
-                        <h3 class="text-2xl font-bold text-blue-800 dark:text-blue-300 mb-2">אן האצ'ינסון (1591–1643)</h3>
-                        <p><strong>ילדות ורקע:</strong> נולדה באנגליה כבתו של כומר מורד שישב במאסר בשל דעותיו. היא זכתה לחינוך תיאולוגי נדיר לנשים בתקופתה. היא הפליגה לבוסטון בעקבות הכומר הנערץ עליה, ג'ון קוטון, ועבדה כמיילדת ומרפאה - תפקיד שהעניק לה השפעה חברתית עצומה.</p>
-                        <p><strong>משבר אמוני (פולמוס האנטינומיזם):</strong> אן החלה לערוך מפגשי לימוד תנ"ך בביתה, אליהם נהרו עשרות נשים ואף גברים רבים (דבר שנחשב לשערורייה). היא קראה תיגר על שלטון הכמרים וטענה שניתן להגיע לגאולה רוחנית ישירה מאלוהים ללא תיווך כנסייתי או ציות לחוקי דת חיצוניים. ג'ון וינתרופ ראה בה איום חתרני על עצם קיום החברה. היא הועמדה למשפט אינקוויזיטורי ב-1637, הוקעה כ"אישה שאינה מתאימה לחברה", וגורשה בחרפה מהמושבה.</p>
-                        <p><strong>הישגים וסוף טרגי:</strong> יחד עם תומכיה, היא עברה דרומה ויסדה ב-1638 את העיירה פורטסמות' (Portsmouth) על האי אקווידנק שייכלל ברוד איילנד. לאחר מות בעלה, עברה למושבה ההולנדית (ניו יורק) בחיפוש אחר שקט, אך נרצחה ב-1643 עם רוב ילדיה במהלך פשיטה של שבט אינדיאני זועם במהלך "מלחמת קיפט".</p>
-                    </div>
+                <div class="text-lg text-gray-700 dark:text-gray-300 leading-relaxed space-y-4">
+                    <h3 class="text-2xl font-bold text-blue-800 dark:text-blue-300 mb-2">אן האצ'ינסון (1591–1643)</h3>
+                    <p><strong>ילדות ורקע:</strong> נולדה באנגליה כבתו של כומר מורד שישב במאסר בשל דעותיו. היא זכתה לחינוך תיאולוגי נדיר לנשים בתקופתה. היא הפליגה לבוסטון ועבדה כמיילדת ומרפאה - תפקיד שהעניק לה השפעה חברתית עצומה.</p>
+                    <p><strong>משבר אמוני (פולמוס האנטינומיזם):</strong> אן החלה לערוך מפגשי לימוד תנ"ך בביתה, אליהם נהרו עשרות נשים ואף גברים רבים. היא קראה תיגר על שלטון הכמרים וטענה שניתן להגיע לגאולה רוחנית ישירה מאלוהים ללא תיווך כנסייתי. היא הועמדה למשפט אינקוויזיטורי ב-1637, הוקעה כ"אישה שאינה מתאימה לחברה", וגורשה בחרפה מהמושבה.</p>
+                    <p><strong>הישגים וסוף טרגי:</strong> יחד עם תומכיה, היא עברה דרומה ויסדה ב-1638 את העיירה פורטסמות' על האי אקווידנק (בשטח רוד איילנד). לאחר מות בעלה, עברה למושבה ההולנדית (ניו יורק) בחיפוש אחר שקט, אך נרצחה ב-1643 במהלך פשיטה של שבט אינדיאני זועם.</p>
                 </div>
             </section>
 
@@ -139,8 +158,8 @@
                         האידאולוגיה של רוד איילנד הקדימה את זמנה במאות שנים. היא הייתה הניסוי הדמוקרטי הרדיקלי ביותר בעולם של המאה ה-17.
                     </p>
                     <ul class="list-disc list-inside space-y-4 ml-4">
-                        <li><strong>הפרדת דת ומדינה מוחלטת:</strong> בעוד מרילנד הסכימה לסבול רק נוצרים טריניטריים (המאמינים בשילוש הקדוש), רוג'ר ויליאמס קבע שהמדינה לא תעניש אף אדם על אמונתו או חוסר אמונתו. בקודקס החוקים הראשון של רוד איילנד לא היה זכר לשבועת נאמנות דתית. המושבה הפכה למקלט למיעוטים נרדפים, כולל קווייקרים (Quakers) ואף קהילות יהודיות (שבנו בניופורט את "בית הכנסת טורו", בית הכנסת העתיק ביותר בארה"ב שעדיין עומד).</li>
-                        <li><strong>זכויות הילידים:</strong> האידאולוגיה המייסדת הכירה בריבונות המוחלטת של האינדיאנים על הארץ. ויליאמס למד את שפתם, חימם את ביתם ויצר עמם ברית שלום שאפשרה את קיום המושבה עד לפרוץ מלחמת המלך פיליפ (1675), אירוע ששבר את לבו של ויליאמס הקשיש.</li>
+                        <li><strong>הפרדת דת ומדינה מוחלטת:</strong> בעוד מרילנד הסכימה לסבול רק נוצרים, רוג'ר ויליאמס קבע שהמדינה לא תעניש אף אדם על אמונתו או חוסר אמונתו. בקודקס החוקים הראשון של רוד איילנד לא היה זכר לשבועת נאמנות דתית. המושבה הפכה למקלט למיעוטים נרדפים, כולל קווייקרים (Quakers) ואף קהילות יהודיות (שבנו בניופורט את "בית הכנסת טורו", בית הכנסת העתיק בארה"ב).</li>
+                        <li><strong>זכויות הילידים:</strong> האידאולוגיה המייסדת הכירה בריבונות המוחלטת של האינדיאנים על הארץ. ויליאמס יצר עמם ברית שלום שאפשרה את קיום המושבה עד לפרוץ "מלחמת המלך פיליפ" (1675), אירוע ששבר את לבו של ויליאמס הקשיש.</li>
                     </ul>
                 </div>
             </section>
@@ -154,13 +173,27 @@
                     <h2 class="text-3xl font-bold">4. גיאוגרפיה: מפרץ נראגנסט והאיים</h2>
                 </div>
                 
-                <div class="text-lg text-gray-700 dark:text-gray-300 leading-relaxed space-y-4">
-                    <p><strong>מידע הידרולוגי - מפרץ נראגנסט (Narragansett Bay):</strong> הגיאוגרפיה של רוד איילנד מוגדרת לחלוטין על ידי הים. זהו אסטואר (מפרץ נהרי) ענק החודר עמוק אל תוך היבשת. המפרץ מלא באיים גדולים וקטנים, כשהגדול שבהם הוא האי אקווידנק (Aquidneck Island). המפרץ סיפק נמלי מים עמוקים, מוגנים מרוחות האוקיינוס ופתוחים לשיט בכל ימות השנה, ללא הקרח הכבד ששיתק לעיתים את נמלי מסצ'וסטס בחורף.</p>
-                    <p><strong>בחירת המיקום (ההכרח וההזדמנות):</strong> ויליאמס לא בחר את המיקום מתוך תוכנית עסקית, אלא מתוך צורך קיומי להימצא מחוץ לגבולות הזיכיון של מסצ'וסטס ופלימות', כדי שלא יוכלו לאסור אותו שוב. הוא התיישב במעלה נהר הפרובידנס, במקום בו הנהר הופך למפרץ רחב. האדמה לא הייתה פורייה כמו עמק הקונטיקט, מה שהכריח את המושבה לפנות במהרה לפעילות ימית כמקור פרנסה.</p>
+                <div class="flex flex-col md:flex-row-reverse gap-8 items-start">
+                    <!-- תמונה 3 -->
+                    <div class="md:w-1/3 shrink-0 w-full group cursor-pointer relative rounded-2xl overflow-hidden shadow-md border border-gray-200 dark:border-gray-700" 
+                         onclick="openImageModal(this)" 
+                         data-image="../images/providence_settlement.jpg" 
+                         data-caption="הקמת העיירה פרובידנס (1636) על גדות הנהר, מתוך סחר שליו ודו-קיום עם הילידים.">
+                        <img src="../images/providence_settlement.jpg" alt="הקמת העיירה פרובידנס" class="w-full object-cover group-hover:scale-105 transition-transform duration-500">
+                        <div class="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
+                            <i class="ph ph-magnifying-glass-plus text-4xl text-white"></i>
+                        </div>
+                        <div class="absolute bottom-0 left-0 right-0 bg-black/70 p-2 text-xs text-white text-center">הקמת פרובידנס</div>
+                    </div>
+                    
+                    <div class="md:w-2/3 text-lg text-gray-700 dark:text-gray-300 leading-relaxed space-y-4">
+                        <p><strong>מידע הידרולוגי - מפרץ נראגנסט (Narragansett Bay):</strong> הגיאוגרפיה של רוד איילנד מוגדרת לחלוטין על ידי הים. זהו אסטואר ענק החודר עמוק אל תוך היבשת ומלא באיים. המפרץ סיפק נמלי מים עמוקים, מוגנים מרוחות האוקיינוס ופתוחים לשיט בכל ימות השנה, ללא הקרח הכבד ששיתק לעיתים את נמלי מסצ'וסטס בחורף.</p>
+                        <p><strong>בחירת המיקום (ההכרח וההזדמנות):</strong> ויליאמס לא בחר את המיקום מתוך תוכנית עסקית, אלא מתוך צורך קיומי להימצא מחוץ לגבולות מסצ'וסטס ופלימות', כדי שלא יאסרו אותו שוב. הוא התיישב במעלה נהר הפרובידנס. האדמה לא הייתה פורייה כמו בעמק קונטיקט, מה שהכריח את המושבה לפנות במהרה לפעילות ימית כמקור פרנסה.</p>
+                    </div>
                 </div>
             </section>
 
-            <!-- 5. הסחר והכלכלה (חדש) -->
+            <!-- 5. הסחר והכלכלה -->
             <section class="content-section bg-white dark:bg-darkCard p-8 rounded-3xl shadow-sm border border-gray-100 dark:border-gray-800 border-r-4 border-r-green-500 dark:border-r-emerald-400">
                 <div class="flex items-center gap-3 mb-6">
                     <div class="p-3 bg-green-100 dark:bg-gray-800 rounded-2xl text-green-700 dark:text-emerald-400">
@@ -173,14 +206,14 @@
                         כלכלת רוד איילנד התפתחה במהירות מהישרדות כפרית למעצמה מסחרית, אך עם צל מוסרי כבד:
                     </p>
                     <ul class="list-disc list-inside space-y-3 ml-4">
-                        <li><strong>כלכלת הים והסחר החופשי:</strong> הגיאוגרפיה הבלתי פורייה דחפה אותם אל הים. העיר ניופורט (Newport) שעל האי הפכה במהרה לאחד הנמלים העמוסים באמריקה. הם סחרו בדגים מומלחים, עצים ואספקה חקלאית קטנה מול המושבות האחרות ומול האיים הקריביים. מדיניות ה"אין שאלות" הדתית שלהם משכה סוחרים מכל קצוות הקשת.</li>
-                        <li><strong>תעשיית הרום (Rum Distillation):</strong> סוחרי רוד איילנד ייבאו כמויות אדירות של דבשה (מולסה) ממטעי הסוכר בקריביים, והקימו עשרות מזקקות בפרובידנס וניופורט. הרום של רוד איילנד נחשב למטבע עובר לסוחר והיווה את הבסיס הכלכלי של המושבה.</li>
-                        <li><strong>סחר העבדים הטרנס-אטלנטי:</strong> זהו הפרדוקס המוסרי הגדול של רוד איילנד. למרות שהמושבה נוסדה על עקרונות החופש, ויליאמס עצמו ניסה (ונכשל) להעביר חוק נגד עבדות נצחית ב-1652. במהלך המאה ה-18, סוחרי ניופורט הפכו לשחקנים הראשיים ביבשת האמריקאית ב"סחר המשולש". הם שלחו רום חריף למערב אפריקה, החליפו אותו באנשים משועבדים, מכרו את העבדים בקריביים תמורת מולסה, וחזרו איתה לייצור עוד רום. עדויות מצביעות על כך שרוד איילנד שיגרה כ-1,000 מסעות סחר עבדים – יותר מכל מושבה צפונית אחרת.</li>
+                        <li><strong>כלכלת הים והסחר החופשי:</strong> הגיאוגרפיה הבלתי פורייה דחפה אותם אל הים. העיר ניופורט (Newport) הפכה במהרה לאחד הנמלים העמוסים באמריקה. הם סחרו בדגים, עצים ואספקה חקלאית מול המושבות האחרות והאיים הקריביים. מדיניות ה"אין שאלות" הדתית שלהם משכה סוחרים רבים.</li>
+                        <li><strong>תעשיית הרום (Rum Distillation):</strong> סוחרי רוד איילנד ייבאו כמויות אדירות של דבשה (מולסה) ממטעי הסוכר בקריביים, והקימו עשרות מזקקות. הרום של רוד איילנד נחשב למטבע עובר לסוחר והיווה את הבסיס הכלכלי של המושבה.</li>
+                        <li><strong>סחר העבדים הטרנס-אטלנטי:</strong> זהו הפרדוקס המוסרי הגדול של רוד איילנד. למרות שהמושבה נוסדה על עקרונות החופש (וויליאמס עצמו ניסה להעביר חוק נגד עבדות נצחית ב-1652 ונכשל), במהלך המאה ה-18 סוחרי ניופורט הפכו לשחקנים ראשיים ב"סחר המשולש". הם שלחו רום לאפריקה, החליפו אותו באנשים משועבדים, מכרו את העבדים בקריביים תמורת מולסה, וחזרו איתה לייצור עוד רום. עדויות מצביעות על כך שרוד איילנד שיגרה כ-1,000 מסעות סחר עבדים – יותר מכל מושבה צפונית אחרת.</li>
                     </ul>
                 </div>
             </section>
 
-            <!-- 6. הדמוגרפיה והחברה (חדש) -->
+            <!-- 6. הדמוגרפיה והחברה -->
             <section class="content-section bg-white dark:bg-darkCard p-8 rounded-3xl shadow-sm border border-gray-100 dark:border-gray-800 border-r-4 border-r-green-500 dark:border-r-emerald-400">
                 <div class="flex items-center gap-3 mb-6">
                     <div class="p-3 bg-green-100 dark:bg-gray-800 rounded-2xl text-green-700 dark:text-emerald-400">
@@ -193,67 +226,131 @@
                         האוכלוסייה של רוד איילנד הייתה השונה ביותר בנופה של ניו אינגלנד:
                     </p>
                     <ul class="list-disc list-inside space-y-3 ml-4">
-                        <li><strong>כור היתוך של פליטים:</strong> בניגוד להומוגניות הפוריטנית המחמירה של קונטיקט ומסצ'וסטס, האוכלוסייה כאן הורכבה מפסיפס של קבוצות. הגיעו לכאן בפטיסטים, קווייקרים, פריטנים רדיקליים, יהודים ממקור ספרדי/פורטוגלי, ואפילו פושעים נמלטים שמצאו מקלט. הקהילות הקימו עיירות אוטונומיות (כמו פרובידנס, פורטסמות', ניופורט ווורוויק) שלעיתים קרובות רבו והתווכחו ביניהן ללא הרף על הנהגה.</li>
-                        <li><strong>שיעורי ילודה ותוחלת חיים:</strong> בדומה לשאר צפון אמריקה האנגלית (ניו אינגלנד), מזג האוויר הקר בחורף והעדר הביצות העכורות של הדרום הבטיחו תוחלת חיים גבוהה יחסית, הרבה מעל הממוצע של אנגליה.</li>
-                        <li><strong>מרכזיות עירונית:</strong> מכיוון שלא היו כמעט מטעי ענק חקלאיים, רוב האוכלוסייה התרכזה סביב נמלי הים והעיירות. דבר זה יצר חברה עירונית, פלורליסטית, פטפטנית מאוד ובעלת אוריינות (קרוא וכתוב) גבוהה בשל המסחר והדיונים הדתיים החופשיים ברחובות.</li>
+                        <li><strong>כור היתוך של פליטים:</strong> בניגוד להומוגניות הפוריטנית המחמירה של קונטיקט ומסצ'וסטס, האוכלוסייה כאן הורכבה מפסיפס: בפטיסטים, קווייקרים, פריטנים רדיקליים, יהודים, ואפילו פושעים נמלטים שמצאו מקלט. הקהילות הקימו עיירות אוטונומיות (כמו פרובידנס, פורטסמות', ניופורט ווורוויק) שלעיתים קרובות רבו והתווכחו ביניהן על הנהגה.</li>
+                        <li><strong>שיעורי ילודה ותוחלת חיים:</strong> בדומה לשאר ניו אינגלנד, מזג האוויר הקר והעדר הביצות העכורות של הדרום הבטיחו תוחלת חיים גבוהה יחסית.</li>
+                        <li><strong>מרכזיות עירונית:</strong> מכיוון שלא היו כמעט מטעי ענק חקלאיים, רוב האוכלוסייה התרכזה סביב נמלי הים והעיירות. דבר זה יצר חברה עירונית, פלורליסטית, פטפטנית מאוד ובעלת אוריינות גבוהה.</li>
                     </ul>
                 </div>
             </section>
 
-            <!-- 7. מחקר אטימולוגי מפורט של רוד איילנד -->
+            <!-- 7. מאבקי השליטה (חדש) -->
+            <section class="content-section bg-white dark:bg-darkCard p-8 rounded-3xl shadow-sm border border-gray-100 dark:border-gray-800 border-r-4 border-r-red-500 dark:border-r-red-400">
+                <div class="flex items-center gap-3 mb-6">
+                    <div class="p-3 bg-red-100 dark:bg-gray-800 rounded-2xl text-red-600 dark:text-red-400">
+                        <i class="ph ph-swords text-3xl"></i>
+                    </div>
+                    <h2 class="text-3xl font-bold">7. מאבקי השליטה: איום הסיפוח והשגת הזיכיון</h2>
+                </div>
+                <div class="text-lg text-gray-700 dark:text-gray-300 leading-relaxed space-y-6">
+                    <p>רוד איילנד הייתה צריכה להילחם בשיניים לא נגד אינדיאנים או מעצמות זרות, אלא נגד שכנותיה האנגליות שרצו להשמיד אותה פוליטית:</p>
+                    
+                    <div class="bg-gray-50 dark:bg-gray-800/30 p-6 rounded-2xl border border-gray-200 dark:border-gray-700">
+                        <h3 class="text-2xl font-bold text-red-800 dark:text-red-400 mb-3 flex items-center gap-2">
+                            <i class="ph ph-flag-banner"></i> הזיכיון המלכותי שמנע סיפוח
+                        </h3>
+                        <ul class="list-none space-y-3 text-lg">
+                            <li><strong>מועדי המאבק:</strong> 1643 (ברית הפוריטנים), 1663 (קבלת הזיכיון המלכותי).</li>
+                            <li><strong>אישים בולטים:</strong> <strong>רוג'ר ויליאמס</strong>, ד"ר <strong>ג'ון קלארק</strong> (שהפליג לאנגליה כדי לשכנע את המלך), והמלך <strong>צ'ארלס השני</strong>.</li>
+                            <li><strong>סיבת המאבק וההישרדות:</strong> 
+                                שכנותיה החזקות של רוד איילנד (מסצ'וסטס, פלימות' וקונטיקט) ראו בה "קן של כופרים". בשנת 1643 הן הקימו ברית צבאית בשם "קונפדרציית ניו אינגלנד" ונידו את רוד איילנד מתוכה במכוון, תוך איום תדיר לפלוש אליה ולחלק את אדמותיה ביניהן. 
+                                כדי לשרוד את האיום, רוג'ר ויליאמס הפליג לאנגליה והשיג פטנט הגנה ראשוני מהפרלמנט. אולם, ההישג הדיפלומטי האמיתי קרה ב-1663. ד"ר ג'ון קלארק הצליח לשכנע את המלך החדש, צ'ארלס השני, להעניק לרוד איילנד "זיכיון מלכותי" (Royal Charter of 1663). הזיכיון הזה היה מסמך היסטורי מדהים: הוא חרט בחוק את <strong>חופש הדת המוחלט</strong> ואת העצמאות הפוליטית של המושבה, ואסר מפורשות על מסצ'וסטס להתערב בענייניה. זיכיון זה שימש כחוקת המדינה במשך כמעט מאתיים שנה!
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </section>
+
+            <!-- 8. מחקר אטימולוגי מפורט (מעוצב כטקסט) -->
             <section class="content-section bg-white dark:bg-darkCard p-8 rounded-3xl shadow-sm border border-gray-100 dark:border-gray-800">
                 <div class="flex items-center gap-3 mb-6">
                     <div class="p-3 bg-blue-100 dark:bg-gray-800 rounded-2xl text-blue-600 dark:text-gold">
                         <i class="ph ph-text-aa text-3xl"></i>
                     </div>
-                    <h2 class="text-3xl font-bold">7. מחקר אטימולוגי: Rhode Island & Providence</h2>
+                    <h2 class="text-3xl font-bold">8. מחקר אטימולוגי: Rhode Island & Providence</h2>
                 </div>
                 
-                <div class="overflow-x-auto mt-6">
-                    <table class="w-full text-right border-collapse">
-                        <thead>
-                            <tr class="bg-blue-50 dark:bg-gray-800 text-blue-900 dark:text-gold border-b-2 border-blue-200 dark:border-gray-700">
-                                <th class="p-4 font-bold rounded-tr-xl">מרכיב / אזור</th>
-                                <th class="p-4 font-bold">מקור לשוני</th>
-                                <th class="p-4 font-bold rounded-tl-xl">משמעות והקשר היסטורי</th>
-                            </tr>
-                        </thead>
-                        <tbody class="text-gray-700 dark:text-gray-300">
-                            <tr class="border-b border-gray-100 dark:border-gray-800 hover:bg-gray-50 dark:hover:bg-gray-800/50 transition-colors">
-                                <td class="p-4 font-mono font-bold text-xl">Providence</td>
-                                <td class="p-4">לטינית: <em>providentia</em> (ראיית הנולד / השגחה)</td>
-                                <td class="p-4">
-                                    <strong>"השגחה אלוהית"</strong>. זהו השם שהעניק רוג'ר ויליאמס ליישוב הראשון שהקים לאחר שניצל ממוות בשלג. הוא האמין בכל ליבו שרק "השגחתו הרחומה של אלוהים" היא שהנחתה אותו אל המקלט הבטוח בקרב הילידים.
-                                </td>
-                            </tr>
-                            <tr class="border-b border-gray-100 dark:border-gray-800 hover:bg-gray-50 dark:hover:bg-gray-800/50 transition-colors">
-                                <td class="p-4 font-mono font-bold text-xl">Rhode (תאוריה א')</td>
-                                <td class="p-4">איטלקית / יוונית</td>
-                                <td class="p-4">
-                                    חוקר הארצות האיטלקי ג'ובאני דה וראצאנו (1524) כתב ביומנו שמצא אי במפרץ נראגנסט (כנראה בלוק איילנד של ימינו) שגודלו דמה לזה של ה<strong>אי היווני רודוס (Rhodes)</strong>. הפוריטנים קראו את יומנו וכנראה אימצו את השם בטעות לאי הגדול של המפרץ (Aquidneck).
-                                </td>
-                            </tr>
-                            <tr class="border-b border-gray-100 dark:border-gray-800 hover:bg-gray-50 dark:hover:bg-gray-800/50 transition-colors">
-                                <td class="p-4 font-mono font-bold text-xl">Roodt (תאוריה ב')</td>
-                                <td class="p-4">הולנדית עתיקה: <em>Roodt Eylandt</em></td>
-                                <td class="p-4">
-                                    נווט הולנדי בשם אדריאן בלוק מיפה את האזור (1614) וכינה את האי "Roodt Eylandt", שמשמעותו <strong>"האי האדום"</strong>, זאת בשל העלווה האדומה של הסתיו או חימר אדמדם שהבחין בו בחופים. מאוחר יותר עבר השם אנגליזציה ל-Rhode Island.
-                                </td>
-                            </tr>
-                            <tr class="bg-blue-50/50 dark:bg-gray-800/30">
-                                <td class="p-4 font-bold text-blue-800 dark:text-blue-300">הלחם היסטורי</td>
-                                <td colspan="2" class="p-4 text-lg font-semibold text-gray-900 dark:text-white">
-                                    שמה הרשמי והמלא של המדינה היה הארוך ביותר בארה"ב: <strong>"State of Rhode Island and Providence Plantations"</strong>. השם משלב את שם האי הגדול (שנקרא כך על ידי אן האצ'ינסון ותומכיה) עם אזור היבשת שנקרא פרובידנס. רק בשנת 2020 שונה שם המדינה רשמית ל"רוד איילנד" בלבד, עקב ההקשר השלילי של המילה Plantations (מטעים) לתקופת העבדות.
-                                </td>
-                            </tr>
-                        </tbody>
-                    </table>
+                <div class="text-lg text-gray-700 dark:text-gray-300 leading-relaxed mb-4">
+                    שמה הרשמי של המדינה היה הארוך ביותר בארצות הברית כולה ("State of Rhode Island and Providence Plantations") עד שנת 2020. להלן הפירוק הלשוני וההיסטורי של מרכיבי השם:
+                </div>
+
+                <div class="space-y-6 mt-6">
+                    <!-- חלק 1 -->
+                    <div class="p-6 bg-blue-50/50 dark:bg-gray-800/30 rounded-2xl border-r-4 border-blue-500 dark:border-gold shadow-sm hover:bg-blue-50 dark:hover:bg-gray-800 transition-colors">
+                        <div class="flex flex-col sm:flex-row sm:items-center justify-between mb-3 gap-2">
+                            <h3 class="text-2xl font-mono font-bold text-gray-900 dark:text-white">
+                                Providence <span class="text-xl font-sans font-normal text-gray-500 dark:text-gray-400">(פרובידנס)</span>
+                            </h3>
+                            <span class="inline-block px-3 py-1 bg-blue-100 dark:bg-gray-700 text-blue-800 dark:text-blue-300 text-sm rounded-full font-semibold border border-blue-200 dark:border-gray-600">
+                                מקור: לטינית
+                            </span>
+                        </div>
+                        <p class="text-lg text-gray-700 dark:text-gray-300 leading-relaxed">
+                            נגזר מהמילה הלטינית <em>Providentia</em> (ראיית הנולד / השגחה). המשמעות היא <strong>"השגחה אלוהית"</strong>. זהו השם שהעניק רוג'ר ויליאמס ליישוב הראשון שהקים. הוא האמין בכל ליבו שרק "השגחתו הרחומה של אלוהים" היא שהנחתה אותו אל המקלט הבטוח בקרב הילידים בעת שברח למען חייו בשלג.
+                        </p>
+                    </div>
+
+                    <!-- חלק 2 -->
+                    <div class="p-6 bg-blue-50/50 dark:bg-gray-800/30 rounded-2xl border-r-4 border-blue-500 dark:border-gold shadow-sm hover:bg-blue-50 dark:hover:bg-gray-800 transition-colors">
+                        <div class="flex flex-col sm:flex-row sm:items-center justify-between mb-3 gap-2">
+                            <h3 class="text-2xl font-mono font-bold text-gray-900 dark:text-white">
+                                Rhode <span class="text-xl font-sans font-normal text-gray-500 dark:text-gray-400">(תאוריה א' - יוון)</span>
+                            </h3>
+                            <span class="inline-block px-3 py-1 bg-blue-100 dark:bg-gray-700 text-blue-800 dark:text-blue-300 text-sm rounded-full font-semibold border border-blue-200 dark:border-gray-600">
+                                מקור: איטלקית/יוונית
+                            </span>
+                        </div>
+                        <p class="text-lg text-gray-700 dark:text-gray-300 leading-relaxed">
+                            חוקר הארצות האיטלקי ג'ובאני דה וראצאנו (1524) כתב ביומנו שמצא אי במפרץ נראגנסט שגודלו דמה לזה של ה<strong>אי היווני רודוס (Rhodes)</strong>. הפוריטנים קראו את יומנו וכנראה אימצו את השם בטעות עבור האי הגדול של המפרץ (Aquidneck Island).
+                        </p>
+                    </div>
+
+                    <!-- חלק 3 -->
+                    <div class="p-6 bg-blue-50/50 dark:bg-gray-800/30 rounded-2xl border-r-4 border-blue-500 dark:border-gold shadow-sm hover:bg-blue-50 dark:hover:bg-gray-800 transition-colors">
+                        <div class="flex flex-col sm:flex-row sm:items-center justify-between mb-3 gap-2">
+                            <h3 class="text-2xl font-mono font-bold text-gray-900 dark:text-white">
+                                Roodt <span class="text-xl font-sans font-normal text-gray-500 dark:text-gray-400">(תאוריה ב' - הולנד)</span>
+                            </h3>
+                            <span class="inline-block px-3 py-1 bg-blue-100 dark:bg-gray-700 text-blue-800 dark:text-blue-300 text-sm rounded-full font-semibold border border-blue-200 dark:border-gray-600">
+                                מקור: הולנדית עתיקה
+                            </span>
+                        </div>
+                        <p class="text-lg text-gray-700 dark:text-gray-300 leading-relaxed">
+                            נווט הולנדי בשם אדריאן בלוק מיפה את האזור ב-1614 וכינה את האי <em>"Roodt Eylandt"</em>, שמשמעותו <strong>"האי האדום"</strong>, זאת כנראה בשל העלווה האדומה של הסתיו או חימר אדמדם שהבחין בו בחופים. מאוחר יותר עבר השם אנגליזציה טבעית ל-Rhode Island.
+                        </p>
+                    </div>
+
+                    <!-- חלק 4 -->
+                    <div class="p-6 bg-blue-100/50 dark:bg-gray-800/80 rounded-2xl border-r-4 border-blue-700 dark:border-yellow-400 shadow-md">
+                        <div class="flex items-center gap-3 mb-3">
+                            <i class="ph ph-puzzle-piece text-3xl text-blue-700 dark:text-yellow-400"></i>
+                            <h3 class="text-2xl font-mono font-black text-blue-900 dark:text-white">
+                                הלחם והשמטת השם <span class="text-xl font-sans font-normal text-gray-600 dark:text-gray-300">(2020)</span>
+                            </h3>
+                        </div>
+                        <p class="text-lg text-gray-800 dark:text-gray-200 leading-relaxed font-medium">
+                            השם המלא בזיכיון שילב את שם האי (שבו ישבו מתנגדיה של אן האצ'ינסון) עם אזור היבשת שנקרא פרובידנס. המילה "Plantations" (מטעים) התייחסה במקור למושג האנגלי העתיק של "לשתול התיישבות", אך במאות המאוחרות יותר המילה נקשרה בארצות הברית באופן בלתי נפרד למטעי העבדות של הדרום. לכן, בשנת 2020, הצביעו אזרחי המדינה על מחיקת המילה והמדינה שינתה את שמה רשמית ל"רוד איילנד" בלבד.
+                        </p>
+                    </div>
                 </div>
             </section>
 
         </article>
 
     </main>
+
+    <!-- חלון צף (Modal) להגדלת תמונות -->
+    <div id="imageModal" class="fixed inset-0 z-[100] hidden bg-black/90 backdrop-blur-md flex items-center justify-center p-4 touch-manipulation opacity-0 transition-opacity duration-300" onclick="closeImageModal()">
+        <button class="absolute top-4 right-4 text-white/70 hover:text-white p-3 bg-black/50 hover:bg-black/80 rounded-full transition-colors duration-200 z-10" onclick="closeImageModal()">
+            <i class="ph ph-x text-2xl"></i>
+        </button>
+        
+        <div class="relative max-w-5xl w-full h-full flex flex-col items-center justify-center">
+            <img id="modalImage" src="" alt="תמונה מוגדלת" class="max-w-full max-h-[80vh] object-contain rounded-xl shadow-2xl scale-95 transition-transform duration-300" onclick="event.stopPropagation()">
+            <div class="mt-6 p-4 bg-darkCard/80 backdrop-blur-sm rounded-xl border border-gray-700 text-white text-center shadow-lg max-w-3xl" onclick="event.stopPropagation()">
+                <p id="modalCaption" class="text-lg leading-relaxed"></p>
+            </div>
+        </div>
+    </div>
 
     <!-- כותרת תחתונה (Footer) -->
     <footer class="bg-white dark:bg-darkBg border-t border-gray-200 dark:border-gray-800 py-8 mt-12">
@@ -263,7 +360,7 @@
         </div>
     </footer>
 
-    <!-- JavaScript Base Logic -->
+    <!-- JavaScript Base Logic (מנגנון Data Attributes בטוח) -->
     <script>
         function toggleDarkMode() {
             const htmlClasses = document.documentElement.classList;
@@ -281,6 +378,51 @@
         } else {
             document.documentElement.classList.remove('dark');
         }
+
+        // פונקציות חלון צף
+        function openImageModal(element) {
+            const src = element.getAttribute('data-image');
+            const caption = element.getAttribute('data-caption');
+            
+            const modal = document.getElementById('imageModal');
+            const modalImg = document.getElementById('modalImage');
+            const modalCap = document.getElementById('modalCaption');
+            
+            modalImg.src = src;
+            modalCap.textContent = caption;
+            
+            modal.classList.remove('hidden');
+            document.body.classList.add('modal-open');
+            
+            setTimeout(() => {
+                modal.classList.remove('opacity-0');
+                modalImg.classList.remove('scale-95');
+                modalImg.classList.add('scale-100');
+            }, 10);
+        }
+
+        function closeImageModal() {
+            const modal = document.getElementById('imageModal');
+            const modalImg = document.getElementById('modalImage');
+            
+            modal.classList.add('opacity-0');
+            modalImg.classList.remove('scale-100');
+            modalImg.classList.add('scale-95');
+            
+            setTimeout(() => {
+                modal.classList.add('hidden');
+                document.body.classList.remove('modal-open');
+            }, 300);
+        }
+        
+        document.addEventListener('keydown', function(event) {
+            if (event.key === "Escape") {
+                const modal = document.getElementById('imageModal');
+                if (!modal.classList.contains('hidden')) {
+                    closeImageModal();
+                }
+            }
+        });
     </script>
 </body>
 </html>
