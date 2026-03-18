@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>מושבת פלימות' (1620) | המושבות האמריקאיות</title>
+    <title>פלימות' (1620) | המושבות האמריקאיות</title>
     <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
@@ -28,6 +28,8 @@
     <style>
         body { transition: background-color 0.3s ease, color 0.3s ease; }
         .content-section { scroll-margin-top: 100px; }
+        /* מניעת גלילה כשהחלון הצף פתוח */
+        .modal-open { overflow: hidden; }
     </style>
 </head>
 <body class="bg-gray-50 text-gray-900 dark:bg-darkBg dark:text-gray-100 font-sans antialiased selection:bg-blue-200 dark:selection:bg-blue-900">
@@ -36,8 +38,8 @@
     <header class="relative z-40 w-full bg-white dark:bg-darkBg border-b border-gray-200 dark:border-gray-800 shadow-sm">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex items-center justify-between h-20">
-                <!-- כפתור חזרה -->
-                <a href="index.html" class="flex items-center gap-2 text-blue-600 dark:text-gold hover:text-blue-800 dark:hover:text-yellow-400 transition-colors touch-manipulation font-semibold bg-blue-50 dark:bg-gray-800 px-4 py-2 rounded-full">
+                <!-- כפתור חזרה (מעודכן לתיקיית colonies) -->
+                <a href="../index.html" class="flex items-center gap-2 text-blue-600 dark:text-gold hover:text-blue-800 dark:hover:text-yellow-400 transition-colors touch-manipulation font-semibold bg-blue-50 dark:bg-gray-800 px-4 py-2 rounded-full">
                     <i class="ph ph-arrow-right text-xl"></i>
                     <span>חזרה לדף הבית</span>
                 </a>
@@ -65,15 +67,22 @@
                 מושבת פלימות'
             </h1>
             <p class="text-xl text-gray-600 dark:text-gray-300 leading-relaxed">
-                סיפורם האפי של האבות העולים (Pilgrims). מסע הישרדות של קהילה נרדפת שיצאה אל הלא-נודע בספינת יין ישנה, וייסדה חברה חדשה המבוססת על אמנה חברתית דמוקרטית, הרחק מזרועה הארוכה של הכנסייה האנגליקנית.
+                הסיפור המכונן של האתוס האמריקאי. קבוצת פליטים קטנה ועקשנית (הצליינים), שחצתה אוקיינוס סוער כדי להתנתק לחלוטין מהכנסייה באנגליה, שרדה חורף קטלני, וייסדה קהילה מבוססת ברית דמוקרטית וסיוע ילידי.
             </p>
         </div>
 
-        <!-- תמונה ראשית -->
-        <div class="w-full h-64 md:h-96 rounded-3xl overflow-hidden mb-16 shadow-2xl relative border border-gray-200 dark:border-gray-800">
-            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/c5/The_Mayflower_in_Plymouth_Harbor_by_William_Halsall.jpg/1200px-The_Mayflower_in_Plymouth_Harbor_by_William_Halsall.jpg" alt="" class="w-full h-full object-cover">
-            <div class="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/80 to-transparent p-4 text-white text-sm md:text-base text-center">
-                ספינת המייפלאוור מטילה עוגן במפרץ פלימות' הקפוא. ציור היסטורי מאת וויליאם הלסל (1882).
+        <!-- תמונה ראשית 1 (מנגנון Data-Attributes הבטוח) -->
+        <div class="w-full h-64 md:h-96 rounded-3xl overflow-hidden mb-16 shadow-2xl relative border border-gray-200 dark:border-gray-800 group cursor-pointer" 
+             onclick="openImageModal(this)" 
+             data-image="../images/plymouth_hero.jpg" 
+             data-caption="ספינת המייפלאוור עוגנת במפרץ פלימות' בחורף הקפוא של 1620. המתיישבים יורדים אל החוף המושלג.">
+            <img src="../images/plymouth_hero.jpg" alt="המייפלאוור מגיעה לפלימות'" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700">
+            <div class="absolute inset-0 bg-black/20 group-hover:bg-transparent transition-colors duration-500"></div>
+            <div class="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/90 via-black/60 to-transparent p-6 text-white text-sm md:text-base text-center">
+                ספינת המייפלאוור עוגנת במפרץ פלימות' בחורף הקפוא של 1620. המתיישבים יורדים אל החוף המושלג.
+                <div class="mt-2 text-xs text-gray-300 flex items-center justify-center gap-1 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                    <i class="ph ph-magnifying-glass-plus text-lg"></i> לחץ להגדלה
+                </div>
             </div>
         </div>
 
@@ -88,240 +97,240 @@
                     <h2 class="text-3xl font-bold">1. שנות פעילות, הקמה ויעדים</h2>
                 </div>
                 <div class="text-lg text-gray-700 dark:text-gray-300 leading-relaxed space-y-4">
-                    <p><strong>שנת הקמה:</strong> דצמבר 1620. (הספינה הגיעה לקייפ קוד בנובמבר, אך ההתיישבות בפלימות' החלה בדצמבר).</p>
-                    <p><strong>ישות מקימה:</strong> קבוצה של בדלנים דתיים (Separatists) אנגלים, שמימנו את מסעם באמצעות חוזה דרקוני עם חברת משקיעים לונדונית בשם "ההרפתקנים הסוחרים" (Merchant Adventurers). בשנת 1691, פלימות' איבדה את עצמאותה ומוזגה לתוך פרובינציית מפרץ מסצ'וסטס הענקית.</p>
-                    <p><strong>היעדים המקוריים:</strong> בניגוד לוירג'יניה שחיפשה זהב, המטרה הראשית של מתיישבי פלימות' הייתה <strong>רוחנית-הישרדותית</strong>. הם ביקשו להקים קהילה סגורה וטהורה שבה יוכלו לעבוד את אלוהים לפי צו מצפונם, לחנך את ילדיהם כראות עיניהם, ולשמר את שפתם וזהותם האנגלית. במקביל, היה עליהם להחזיר את חובם העצום למשקיעים בלונדון דרך סחר בפרוות ובעצים.</p>
+                    <p><strong>שנת הקמה:</strong> דצמבר 1620.</p>
+                    <p><strong>ישות מקימה:</strong> קבוצת פליטים דתיים הידועה כ"בדלנים" (Separatists), שלימים זכו לכינוי <strong>"הצליינים" (The Pilgrims)</strong>, שמימנו את מסעם דרך משקיעים מלונדון. הקבוצה הפליגה על ספינת ה-<strong>"מייפלאוור" (Mayflower)</strong>.</p>
+                    <p><strong>היעדים המקוריים והסטייה מהתוכנית:</strong> 
+                        מטרתם הייתה להגיע לווירג'יניה, שם היה להם אישור רשמי להתיישב. אולם, סערות קשות הֵסִיטוּ את הספינה צפונה אל קייפ קוד (מסצ'וסטס של ימינו). מכיוון שנחתו מחוץ לשטח הזיכיון שלהם, לא היה להם שום מעמד חוקי. ה"מורדים" הלא-דתיים שעל הספינה טענו שכעת אינם כפופים לשום חוק, מה שהוביל לכתיבת המסמך המכונן - "אמנת המייפלאוור" (Mayflower Compact) - כדי למנוע אנרכיה ולהתאגד לחברה אזרחית אחת.
+                    </p>
                 </div>
             </section>
 
-            <!-- 2. דמויות מפתח: ויליאם ברדפורד -->
+            <!-- 2. דמויות מפתח -->
             <section class="content-section bg-white dark:bg-darkCard p-8 rounded-3xl shadow-sm border border-gray-100 dark:border-gray-800 border-r-4 border-r-blue-500 dark:border-r-gold">
                 <div class="flex items-center gap-3 mb-6">
                     <div class="p-3 bg-blue-100 dark:bg-gray-800 rounded-2xl text-blue-600 dark:text-gold">
                         <i class="ph ph-user text-3xl"></i>
                     </div>
-                    <h2 class="text-3xl font-bold">2. רקע המייסדים: ויליאם ברדפורד</h2>
-                </div>
-                <div class="text-lg text-gray-700 dark:text-gray-300 leading-relaxed space-y-4">
-                    <p><strong>ויליאם ברדפורד (William Bradford)</strong> - חיו בין השנים 1590–1657. מנהיגה הבלתי מעורער של מושבת פלימות' וההיסטוריון הראשון שלה.</p>
-                    <p><strong>ילדות ורקע:</strong> נולד למשפחת חקלאים מבוססת במחוז יורקשייר. אביו ואימו נפטרו כשהיה קטן. בילדותו סבל ממחלה שמנעה ממנו לעבוד בשדות, וכך שקע בקריאת התנ"ך. הקריאה המעמיקה הובילה אותו בגיל 12 להצטרף לכת בדלנית פרוטסטנטית, עמה גלה מאוחר יותר להולנד.</p>
-                    <p><strong>הישגים היסטוריים ומנהיגות:</strong> היה מנסחי "אמנת המייפלאוור". לאחר מות המושל הראשון, נבחר למושל המושבה 30 פעמים רצופות. הנהיג את המושבה ברגעיה הקשים ביותר, שמר על שלום עם צ'יף מסאסויט (אירוע שהוליד את "חג ההודיה"), וכתב את יומן המסע ההיסטורי <em>"על פלנטציית פלימות'" (Of Plymouth Plantation)</em>.</p>
-                </div>
-            </section>
-
-            <!-- 3. דמויות מפתח: סקוואנטו -->
-            <section class="content-section bg-white dark:bg-darkCard p-8 rounded-3xl shadow-sm border border-gray-100 dark:border-gray-800 border-r-4 border-r-blue-500 dark:border-r-gold">
-                <div class="flex items-center gap-3 mb-6">
-                    <div class="p-3 bg-blue-100 dark:bg-gray-800 rounded-2xl text-blue-600 dark:text-gold">
-                        <i class="ph ph-handshake text-3xl"></i>
-                    </div>
-                    <h2 class="text-3xl font-bold">3. הישרדות ודיפלומטיה: סקוואנטו</h2>
-                </div>
-                <div class="text-lg text-gray-700 dark:text-gray-300 leading-relaxed space-y-4 mb-6">
-                    <p><strong>סקוואנטו / טיסקואנטום (Squanto / Tisquantum)</strong> - (1585 בערך – 1622). המושיע של פלימות'.</p>
-                    <p><strong>ביוגרפיה מטלטלת:</strong> חבר בשבט הפאטוקסט. ב-1614 נחטף על ידי קפטן אנגלי ונלקח לספרד להימכר לעבדות. נזירים ספרדים שחררו אותו. הוא הגיע לאנגליה, למד אנגלית, וב-1619 חזר לאמריקה רק כדי לגלות שכל שבטו נמחק במגפה. הוא היה הניצול היחיד.</p>
-                    <p><strong>הישגים בפלימות':</strong> שימש כמתורגמן מול צ'יף מסאסויט. לימד את האנגלים הגוועים כיצד לשתול תירס אינדיאני תוך שימוש בדגי הרינג כדשן. אלמלא כישוריו, המושבה הייתה גוועת ברעב.</p>
-                </div>
-
-                <h3 class="text-xl font-bold text-gray-900 dark:text-white mb-4 mt-8 flex items-center gap-2">
-                    <i class="ph ph-text-aa text-blue-600 dark:text-gold"></i>
-                    מחקר אטימולוגי של השם Tisquantum
-                </h3>
-                <div class="overflow-x-auto">
-                    <table class="w-full text-right border-collapse">
-                        <thead>
-                            <tr class="bg-blue-50 dark:bg-gray-800 text-blue-900 dark:text-gold border-b-2 border-blue-200 dark:border-gray-700">
-                                <th class="p-4 font-bold rounded-tr-xl">שם / כינוי</th>
-                                <th class="p-4 font-bold">מקור לשוני</th>
-                                <th class="p-4 font-bold rounded-tl-xl">משמעות והסבר</th>
-                            </tr>
-                        </thead>
-                        <tbody class="text-gray-700 dark:text-gray-300">
-                            <tr class="border-b border-gray-100 dark:border-gray-800 hover:bg-gray-50 dark:hover:bg-gray-800/50 transition-colors">
-                                <td class="p-4 font-mono font-bold text-xl">Tisquantum</td>
-                                <td class="p-4">שפת המסצ'וסט</td>
-                                <td class="p-4">משמעותו המצמררת היא <strong>"הזעם האלוהי"</strong> או "רוח החורבן". כינוי שאימץ לעצמו לאחר שגילה ששבטו נמחק.</td>
-                            </tr>
-                            <tr class="border-b border-gray-100 dark:border-gray-800 hover:bg-gray-50 dark:hover:bg-gray-800/50 transition-colors">
-                                <td class="p-4 font-mono font-bold text-xl">Squanto</td>
-                                <td class="p-4">קיצור אנגלי</td>
-                                <td class="p-4">קיצור חיבה ונוחות שהוענק לו על ידי האנגלים (ברדפורד קורא לו כך ביומנו).</td>
-                            </tr>
-                        </tbody>
-                    </table>
-                </div>
-            </section>
-
-            <!-- 4. המייפלאוור -->
-            <section class="content-section bg-white dark:bg-darkCard p-8 rounded-3xl shadow-sm border border-gray-100 dark:border-gray-800">
-                <div class="flex items-center gap-3 mb-6">
-                    <div class="p-3 bg-blue-100 dark:bg-gray-800 rounded-2xl text-blue-600 dark:text-gold">
-                        <i class="ph ph-anchor text-3xl"></i>
-                    </div>
-                    <h2 class="text-3xl font-bold">4. המייפלאוור: המסע ו"הספינה המתוקה"</h2>
+                    <h2 class="text-3xl font-bold">2. רקע המייסד: ויליאם ברדפורד</h2>
                 </div>
                 
-                <div class="text-lg text-gray-700 dark:text-gray-300 leading-relaxed space-y-6">
-                    <div>
-                        <h3 class="text-2xl font-bold text-blue-800 dark:text-blue-300 mb-2">א. הרקע למסע</h3>
-                        <p>לאחר שספינת ה-<em>Speedwell</em> דלפה וננטשה, כל 102 הנוסעים נדחסו לבטן המייפלאוור למסע סיוט שנמשך 66 ימים בלב סערות הסתיו.</p>
+                <div class="flex flex-col md:flex-row gap-8 items-start">
+                    <!-- תמונה 2 -->
+                    <div class="md:w-1/3 shrink-0 w-full group cursor-pointer relative rounded-2xl overflow-hidden shadow-md border border-gray-200 dark:border-gray-700" 
+                         onclick="openImageModal(this)" 
+                         data-image="../images/william_bradford_portrait.jpg" 
+                         data-caption="דיוקנו של ויליאם ברדפורד, המושל ארוך-הימים של מושבת פלימות'.">
+                        <img src="../images/william_bradford_portrait.jpg" alt="דיוקן ויליאם ברדפורד" class="w-full object-cover group-hover:scale-105 transition-transform duration-500">
+                        <div class="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
+                            <i class="ph ph-magnifying-glass-plus text-4xl text-white"></i>
+                        </div>
+                        <div class="absolute bottom-0 left-0 right-0 bg-black/70 p-2 text-xs text-white text-center">המושל ויליאם ברדפורד</div>
                     </div>
-
-                    <div>
-                        <h3 class="text-2xl font-bold text-blue-800 dark:text-blue-300 mb-2">ב. מדוע נבחרה המייפלאוור?</h3>
-                        <p><strong>יתרון היין הקריטי:</strong> המייפלאוור הייתה אוניית מסחר ששימשה להובלת יין מצרפת. היין החמוץ שניגר מהחביות נספג בלוחות העץ ו<strong>נטרל את הבקטריות והריחות המעופשים</strong>. בזכות היותה "ספינה מתוקה", התנאים התת-תברואתיים היו פחות קטלניים, ורק נוסע אחד מת במהלך חציית האוקיינוס.</p>
+                    
+                    <div class="md:w-2/3 text-lg text-gray-700 dark:text-gray-300 leading-relaxed space-y-6">
+                        <div>
+                            <h3 class="text-2xl font-bold text-blue-800 dark:text-blue-300 mb-2">ויליאם ברדפורד (William Bradford) (1590–1657)</h3>
+                            <p><strong>ילדות ומשבר:</strong> נולד ביורקשייר, אנגליה. התייתם בגיל צעיר. כנער, נמשך להטפות ה"בדלנים" - קבוצה נוצרית רדיקלית שהוצאה אל מחוץ לחוק משום שסירבה להכיר בסמכות הכנסייה האנגליקנית. כדי להימנע ממאסר, הוא וחברי קהילתו נמלטו להולנד, חיו שם בעוני 12 שנים, ולבסוף החליטו להגר לאמריקה כדי לשמור על זהותם האנגלית והדתית כאחד.</p>
+                            <p class="mt-4"><strong>הישגים ומנהיגות:</strong> ברדפורד חתם על אמנת המייפלאוור, ונבחר למושל המושבה מיד לאחר החורף הראשון הקטלני. הוא כיהן כמושל במשך יותר מ-30 שנה. הישגו ההיסטורי הגדול ביותר, מעבר להישרדות המושבה, הוא כתיבת יומנו המפורסם <strong>"על מטע פלימות'" (Of Plymouth Plantation)</strong>, שהוא המסמך ההיסטורי המקיף והחשוב ביותר שמתעד את חייהם ומאבקיהם של הצליינים באמריקה.</p>
+                        </div>
                     </div>
-                </div>
-
-                <h3 class="text-xl font-bold text-gray-900 dark:text-white mb-4 mt-8 flex items-center gap-2">
-                    <i class="ph ph-text-aa text-blue-600 dark:text-gold"></i>
-                    מחקר אטימולוגי של השם Mayflower
-                </h3>
-                <div class="overflow-x-auto">
-                    <table class="w-full text-right border-collapse">
-                        <thead>
-                            <tr class="bg-blue-50 dark:bg-gray-800 text-blue-900 dark:text-gold border-b-2 border-blue-200 dark:border-gray-700">
-                                <th class="p-4 font-bold rounded-tr-xl">מרכיב בשם</th>
-                                <th class="p-4 font-bold">מקור לשוני</th>
-                                <th class="p-4 font-bold rounded-tl-xl">משמעות והסבר בוטני</th>
-                            </tr>
-                        </thead>
-                        <tbody class="text-gray-700 dark:text-gray-300">
-                            <tr class="border-b border-gray-100 dark:border-gray-800 hover:bg-gray-50 dark:hover:bg-gray-800/50 transition-colors">
-                                <td class="p-4 font-mono font-bold text-xl">May</td>
-                                <td class="p-4">לטינית: <em>Maius</em></td>
-                                <td class="p-4">חודש מאי. קרוי על שמה של אלת הצמיחה הרומית "מאיה".</td>
-                            </tr>
-                            <tr class="border-b border-gray-100 dark:border-gray-800 hover:bg-gray-50 dark:hover:bg-gray-800/50 transition-colors">
-                                <td class="p-4 font-mono font-bold text-xl">Flower</td>
-                                <td class="p-4">לטינית: <em>flos</em></td>
-                                <td class="p-4">פרח או ניצן פורח.</td>
-                            </tr>
-                            <tr class="bg-blue-50/50 dark:bg-gray-800/30">
-                                <td class="p-4 font-bold text-blue-800 dark:text-blue-300">הלחם מסורתי</td>
-                                <td colspan="2" class="p-4 text-lg font-semibold text-gray-900 dark:text-white">
-                                    באנגלית מסורתית, המונח הוא שמו העממי של שיח ה<strong>עוזרר (Hawthorn)</strong>, שפורח באנגליה במאי ונחשב לסמל של התחדשות ואביב - תקווה שסימלה את מסעם.
-                                </td>
-                            </tr>
-                        </tbody>
-                    </table>
                 </div>
             </section>
 
-            <!-- 5. אידאולוגיה (אמנת המייפלאוור) -->
+            <!-- 3. אידאולוגיה וסיבת ההקמה -->
             <section class="content-section bg-white dark:bg-darkCard p-8 rounded-3xl shadow-sm border border-gray-100 dark:border-gray-800">
                 <div class="flex items-center gap-3 mb-6">
                     <div class="p-3 bg-blue-100 dark:bg-gray-800 rounded-2xl text-blue-600 dark:text-gold">
-                        <i class="ph ph-scroll text-3xl"></i>
+                        <i class="ph ph-scales text-3xl"></i>
                     </div>
-                    <h2 class="text-3xl font-bold">5. אידאולוגיה ו"אמנת המייפלאוור"</h2>
+                    <h2 class="text-3xl font-bold">3. אידאולוגיה: בדלנות דתית וקונצנזוס</h2>
                 </div>
                 <div class="text-lg text-gray-700 dark:text-gray-300 leading-relaxed space-y-4">
-                    <p><strong>אמנת המייפלאוור (The Mayflower Compact):</strong> כדי למנוע אנרכיה לאחר שנחתו מחוץ לתחום השיפוט הבריטי, חיברו מנהיגי הבדלנים מסמך היסטורי. האמנה הייתה הבטחה הדדית לכונן "גוף פוליטי אזרחי" שיחוקק חוקים צודקים. זהו המסמך הראשון באמריקה המבוסס על רעיון ה<strong>"אמנה החברתית"</strong> – הממשלה שואבת את כוחה מהסכמת הנשלטים.</p>
+                    <p>
+                        פלימות' מייצגת את הגרעין הקשה ביותר של הפרוטסטנטיות האנגלית, אך גם את זרעי הדמוקרטיה:
+                    </p>
+                    <ul class="list-disc list-inside space-y-4 ml-4">
+                        <li><strong>בדלנות מוחלטת (Separatism):</strong> בניגוד לפוריטנים של מסצ'וסטס שרצו "לטהר" את הכנסייה האנגלית מבפנים, הצליינים בפלימות' האמינו שהכנסייה מושחתת לחלוטין מעבר לכל תקנה, וחובה להתנתק ממנה כליל.</li>
+                        <li><strong>אמנת המייפלאוור (Mayflower Compact):</strong> כדי למנוע מרד בקרב הנוסעים הזרים, מנהיגי הצליינים ניסחו אמנה שבה כל הגברים על הסיפון התחייבו להתאגד ل"גוף פוליטי אזרחי" (Civil body politic) ולציית לחוקים שייקבעו לטובת הכלל. זו הפעם הראשונה בהיסטוריה של אמריקה האירופית שממשלה הוקמה לא על בסיס זכות אלוהית או צו מלכותי, אלא על בסיס <strong>הסכמת הנשלטים</strong>.</li>
+                    </ul>
                 </div>
             </section>
 
-            <!-- 6. בחירת מיקום המושבה והידרולוגיה -->
+            <!-- 4. גיאוגרפיה, הידרולוגיה ובחירת המיקום -->
             <section class="content-section bg-white dark:bg-darkCard p-8 rounded-3xl shadow-sm border border-gray-100 dark:border-gray-800">
                 <div class="flex items-center gap-3 mb-6">
                     <div class="p-3 bg-blue-100 dark:bg-gray-800 rounded-2xl text-blue-600 dark:text-gold">
                         <i class="ph ph-map-pin text-3xl"></i>
                     </div>
-                    <h2 class="text-3xl font-bold">6. גיאוגרפיה: מפרץ פלימות' ובחירת המיקום</h2>
+                    <h2 class="text-3xl font-bold">4. גיאוגרפיה: מזל בתוך הטרגדיה</h2>
                 </div>
+                
                 <div class="text-lg text-gray-700 dark:text-gray-300 leading-relaxed space-y-4">
-                    <p><strong>השיקולים לבחירת המיקום (כפר פאטוקסט):</strong></p>
-                    <ul class="list-disc list-inside space-y-2 ml-4 mb-4">
-                        <li><strong>אדמה חקלאית מוכנה:</strong> הם נחתו על חורבותיו של כפרו של סקוואנטו, אדמה שכבר בוראה מעצים.</li>
-                        <li><strong>הידרולוגיה (Town Brook):</strong> "נחל העיירה" שניזון ממי מעיינות סיפק להם מי שתייה נקיים באורח פלא, ובאביב משך אליו דגי הרינג כדשן. בניגוד לוירג'יניה, המים כאן לא היו נגועים במלריה.</li>
-                        <li><strong>חיסרון גיאוגרפי:</strong> המפרץ היה רדוד. המייפלאוור עגנה במרחק רב מהחוף, והצורך לחתור הלוך ושוב במי הים הקפואים זירז את תמותת החורף הראשון.</li>
+                    <p>הבחירה בגיאוגרפיה של פלימות' לא הייתה מתוכננת, והיא התאפשרה בזכות צירוף מקרים היסטורי עגום:</p>
+                    <ul class="list-disc list-inside space-y-4 ml-4">
+                        <li><strong>מפרץ פלימות' וקייפ קוד:</strong> הספינה הגיעה לקצהו של חצי האי קייפ קוד (Cape Cod) בתחילת החורף. לאחר חיפושים, הם מצאו מפרץ בעל נמל סביר ומים מתוקים (Town Brook) הזורמים אליו. האדמה הייתה חולית, מסלעית ופחות פורייה מזו שבווירג'יניה.</li>
+                        <li><strong>הכפר הנטוש של שבט הפאטוקסט (Patuxet):</strong> המתיישבים גילו, להפתעתם, אדמה שהייתה כבר מבוראת מעצים ומוכנה לחקלאות. הם לא ידעו ששנים ספורות קודם לכן (1616-1619), מגפה קטלנית (כנראה אבעבועות שחורות או לפטוספירוזיס שהביאו סוחרים אירופאים) מחקה את רוב אוכלוסיית הילידים באזור. הצליינים, באמונתם היוקדת, ראו בכך "השגחה אלוהית שפינתה עבורם את הדרך".</li>
                     </ul>
                 </div>
             </section>
 
-            <!-- 7. הסחר והכלכלה (חדש) -->
+            <!-- 5. הסחר והכלכלה (וסקוואנטו) -->
             <section class="content-section bg-white dark:bg-darkCard p-8 rounded-3xl shadow-sm border border-gray-100 dark:border-gray-800 border-r-4 border-r-green-500 dark:border-r-emerald-400">
                 <div class="flex items-center gap-3 mb-6">
                     <div class="p-3 bg-green-100 dark:bg-gray-800 rounded-2xl text-green-700 dark:text-emerald-400">
                         <i class="ph ph-coins text-3xl"></i>
                     </div>
-                    <h2 class="text-3xl font-bold">7. כלכלה ומערכת הסחר</h2>
+                    <h2 class="text-3xl font-bold">5. כלכלה: הישרדות, חג ההודיה וסקוואנטו</h2>
                 </div>
-                <div class="text-lg text-gray-700 dark:text-gray-300 leading-relaxed space-y-4">
-                    <p>
-                        ההישרדות הכלכלית של פלימות' הייתה מאבק מתמיד להשתחרר מחובות כבדים שרבצו עליהם בלונדון:
-                    </p>
-                    <ul class="list-disc list-inside space-y-3 ml-4">
-                        <li><strong>מסחר פרוות (The Fur Trade):</strong> כדי להחזיר את חובם למשקיעים ("ההרפתקנים הסוחרים"), הכלכלה נשענה תחילה על מסחר בפרוות בונים (Beaver) ועורות לוטרה. הנהגת המושבה הקימה תחנות סחר מרוחקות לאורך נהר הקנבק (Kennebec) במיין של ימינו, וסחרה עם שבטי אבנאקי. הפרוות נשלחו לאנגליה ונמכרו ברווח רב.</li>
-                        <li><strong>מעבר מכלכלה שיתופית לפרטית:</strong> בתחילה, בהוראת המשקיעים, כל האדמות והיבולים היו שייכים לקופה ציבורית (כלכלה קומונלית). מודל זה נכשל, יצר תרעומת, ואנשים סירבו לעבוד קשה עבור אחרים. בשנת 1623, ויליאם ברדפורד ביצע רפורמה קריטית: הוא חילק חלקות אדמה פרטיות לכל משפחה, מה שזינק את פריון העבודה והבטיח שלא יהיה יותר רעב במושבה.</li>
-                        <li><strong>כלכלת קיום:</strong> בניגוד לוירג'יניה וקונטיקט, אדמת פלימות' הייתה חולית, סלעית ודלה. לא התפתחו בה מטעי ענק, והמתיישבים נסמכו בעיקר על דיג, חיתוך עצי בניין (Lumber) וחקלאות זעירה שמספיקה לקיום המשפחה בלבד.</li>
-                    </ul>
+                
+                <div class="flex flex-col md:flex-row-reverse gap-8 items-start">
+                    <!-- תמונה 3 -->
+                    <div class="md:w-1/3 shrink-0 w-full group cursor-pointer relative rounded-2xl overflow-hidden shadow-md border border-gray-200 dark:border-gray-700" 
+                         onclick="openImageModal(this)" 
+                         data-image="../images/squanto_teaching.jpg" 
+                         data-caption="היליד סקוואנטו (טיסקוואנטום) מלמד את הצליינים להשתמש בדגים כדשן לגידול תירס, מה שהציל אותם מרעב ב-1621.">
+                        <img src="../images/squanto_teaching.jpg" alt="סקוואנטו מלמד את הצליינים" class="w-full object-cover group-hover:scale-105 transition-transform duration-500">
+                        <div class="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
+                            <i class="ph ph-magnifying-glass-plus text-4xl text-white"></i>
+                        </div>
+                        <div class="absolute bottom-0 left-0 right-0 bg-black/70 p-2 text-xs text-white text-center">סקוואנטו והמתיישבים</div>
+                    </div>
+                    
+                    <div class="md:w-2/3 text-lg text-gray-700 dark:text-gray-300 leading-relaxed space-y-4">
+                        <p>כלכלת פלימות' התחילה לא מתוך רצון לרווח, אלא ממאבק נואש נגד רעב:</p>
+                        <ul class="list-disc list-inside space-y-3 ml-4">
+                            <li><strong>ההצלה על ידי סקוואנטו:</strong> הצליינים לא ידעו לדוג נכון באזור והזרעים האנגליים שלהם נכשלו. באביב 1621, הם פגשו יליד דובר אנגלית בשם <strong>טיסקוואנטום (Tisquantum - סקוואנטו)</strong>. הוא היה השורד האחרון מכפר הפאטוקסט. סקוואנטו לימד אותם את חקלאות ה"שלוש אחיות" (תירס, שעועית, דלעת) וכיצד לדשן את האדמה החולית באמצעות דגי הרינג.</li>
+                            <li><strong>"חג ההודיה" (Thanksgiving):</strong> קציר הסתיו של 1621 היה כה מוצלח שהמתיישבים ערכו סעודת חג בת שלושה ימים יחד עם הצ'יף מסאסויט ו-90 מלוחמיו. אירוע זה התקבע בזיכרון הלאומי כחג ההודיה הראשון.</li>
+                            <li><strong>מסחר לפירעון חובות:</strong> כדי להחזיר את חובותיהם למשקיעים בלונדון, המתיישבים סחרו בפרוות בונה (Beaver pelts) ועצים, ובהמשך עברו לכלכלת דיג מסחרית קטנה ולגידול בקר.</li>
+                        </ul>
+                    </div>
                 </div>
             </section>
 
-            <!-- 8. הדמוגרפיה והחברה (חדש) -->
+            <!-- 6. הדמוגרפיה והחברה -->
             <section class="content-section bg-white dark:bg-darkCard p-8 rounded-3xl shadow-sm border border-gray-100 dark:border-gray-800 border-r-4 border-r-green-500 dark:border-r-emerald-400">
                 <div class="flex items-center gap-3 mb-6">
                     <div class="p-3 bg-green-100 dark:bg-gray-800 rounded-2xl text-green-700 dark:text-emerald-400">
                         <i class="ph ph-users-three text-3xl"></i>
                     </div>
-                    <h2 class="text-3xl font-bold">8. דמוגרפיה ומבנה חברתי</h2>
+                    <h2 class="text-3xl font-bold">6. דמוגרפיה ומבנה חברתי: הקהילה הקטנה</h2>
                 </div>
                 <div class="text-lg text-gray-700 dark:text-gray-300 leading-relaxed space-y-4">
                     <p>
-                        הדמוגרפיה של פלימות' עוצבה על ידי טראומת החורף הראשון ומבנה המשפחה הייחודי שלה:
+                        ההתחלה הדמוגרפית של פלימות' הייתה קטנה ואסונית:
                     </p>
                     <ul class="list-disc list-inside space-y-3 ml-4">
-                        <li><strong>"החולי הכללי" (The General Sickness):</strong> במהלך החורף הראשון (1620-1621), המושבה חוותה אסון דמוגרפי. מתוך 102 הנוסעים שהגיעו, 51 נפטרו תוך מספר חודשים מדלקות ריאות, צפדינה וחשיפה לקור, כולל 14 מתוך 18 הנשים הבוגרות. בחלק מהימים רק 6 או 7 אנשים היו בריאים מספיק כדי לטפל בכל השאר ולקבור את המתים (הם קברו אותם בלילה ויישרו את האדמה כדי שהאינדיאנים לא יבחינו בחולשתם).</li>
-                        <li><strong>יחידת המשפחה הפוריטנית:</strong> בניגוד לדרום, מתיישבי פלימות' הגיעו כקבוצה של משפחות שלמות, קהילות מאורגנות, וילדים קטנים. מבנה חברתי זה העניק להם יציבות אדירה לאחר המשבר הראשוני. החברה הייתה שוויונית למדי, עמוקה באמונתה, וללא פערי המעמדות הקיצוניים של "אדונים ומשרתים" שאפיינו את וירג'יניה.</li>
-                        <li><strong>גידול איטי אך טבעי:</strong> בניגוד ל"הגירה הגדולה" שהציפה את מסצ'וסטס באלפי אנשים בעשור הבא, פלימות' נותרה קהילה קטנה (כ-300 מתיישבים בלבד בשנת 1630). הגידול הדמוגרפי שלהם התבסס כמעט כולו על ריבוי טבעי, עם משפחות ברוכות ילדים שזכו לתוחלת חיים גבוהה מאוד באוויר הצח של ניו אינגלנד.</li>
+                        <li><strong>חורף המוות:</strong> מתוך 102 הנוסעים שהגיעו על המייפלאוור (רובם משפחות, גברים, נשים וילדים), <strong>מחציתם מתו</strong> במהלך החורף הראשון ממחלת הצפדינה, דלקת ריאות וקור חודר עצמות.</li>
+                        <li><strong>קצב צמיחה איטי:</strong> בניגוד לשכנתה מסצ'וסטס שקלטה עשרות אלפים, פלימות' נותרה מושבה קטנה ואינטימית מאוד. גם עשור לאחר הקמתה, היו בה רק כמה מאות תושבים. החברה הייתה שוויונית למדי, מאוחדת באמונה ובמשמעת קהילתית נוקשה, ללא פערים כלכליים דרמטיים.</li>
                     </ul>
                 </div>
             </section>
 
-            <!-- 9. מחקר אטימולוגי מפורט של פלימות' -->
+            <!-- 7. מאבקי השליטה (חדש) -->
+            <section class="content-section bg-white dark:bg-darkCard p-8 rounded-3xl shadow-sm border border-gray-100 dark:border-gray-800 border-r-4 border-r-red-500 dark:border-r-red-400">
+                <div class="flex items-center gap-3 mb-6">
+                    <div class="p-3 bg-red-100 dark:bg-gray-800 rounded-2xl text-red-600 dark:text-red-400">
+                        <i class="ph ph-swords text-3xl"></i>
+                    </div>
+                    <h2 class="text-3xl font-bold">7. מאבקי השליטה: סופה של העצמאות הקטנה</h2>
+                </div>
+                <div class="text-lg text-gray-700 dark:text-gray-300 leading-relaxed space-y-6">
+                    <p>פלימות' מעולם לא הצליחה לעגן את קיומה החוקי בעיני הכתר הבריטי, מה שהוביל בסופו של דבר להיבלעותה על ידי שכנתה הגדולה והחזקה:</p>
+                    
+                    <div class="bg-gray-50 dark:bg-gray-800/30 p-6 rounded-2xl border border-gray-200 dark:border-gray-700">
+                        <h3 class="text-2xl font-bold text-red-800 dark:text-red-400 mb-3 flex items-center gap-2">
+                            <i class="ph ph-flag-banner"></i> הסיפוח למסצ'וסטס (1691)
+                        </h3>
+                        <ul class="list-none space-y-3 text-lg">
+                            <li><strong>מועדי המאבק:</strong> תקופת הדומיניון (1686) והסיפוח הסופי (1691).</li>
+                            <li><strong>אישים בולטים:</strong> המלך <strong>ויליאם השלישי</strong> והמלכה מרי.</li>
+                            <li><strong>סיבת אובדן העצמאות:</strong> 
+                                הבעיה הגדולה ביותר של פלימות' הייתה שמעולם <strong>לא היה להם זיכיון מלכותי רשמי (Royal Charter)</strong> מהמלך שמכיר בהם כמושבה חוקית. הם התקיימו במשך עשורים כ"מושבת פולשים" שנסמכת רק על "אמנת המייפלאוור" הפנימית שלהם. 
+                                בשנת 1686, הכתר הבריטי מיזג בכפייה את פלימות' לתוך "דומיניון ניו אינגלנד" האוטוקרטי של המושל אנדרוס. לאחר מרד בוסטון ב-1689 והדחתו של אנדרוס, ניסו מנהיגי פלימות' לקבל בחזרה את עצמאותם מידי המלך החדש, ויליאם השלישי. 
+                                אולם, המלך החליט שמושבת פלימות' קטנה, ענייה וחסרת חשיבות מכדי להתקיים כישות עצמאית. בשנת <strong>1691</strong>, הכתר הוציא זיכיון חדש ש<strong>סיפח את מושבת פלימות' באופן רשמי לתוך "פרובינציית מפרץ מסצ'וסטס"</strong>. בכך הקיץ הקץ על המושבה העצמאית של הצליינים, והיא הפכה למחוז במדינה השכנה.
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </section>
+
+            <!-- 8. מחקר אטימולוגי מפורט (מעוצב כטקסט חופשי) -->
             <section class="content-section bg-white dark:bg-darkCard p-8 rounded-3xl shadow-sm border border-gray-100 dark:border-gray-800">
                 <div class="flex items-center gap-3 mb-6">
                     <div class="p-3 bg-blue-100 dark:bg-gray-800 rounded-2xl text-blue-600 dark:text-gold">
                         <i class="ph ph-text-aa text-3xl"></i>
                     </div>
-                    <h2 class="text-3xl font-bold">9. מחקר אטימולוגי: המושבה Plymouth</h2>
+                    <h2 class="text-3xl font-bold">8. מחקר אטימולוגי: המושבה Plymouth</h2>
                 </div>
                 
-                <div class="overflow-x-auto mt-6">
-                    <table class="w-full text-right border-collapse">
-                        <thead>
-                            <tr class="bg-blue-50 dark:bg-gray-800 text-blue-900 dark:text-gold border-b-2 border-blue-200 dark:border-gray-700">
-                                <th class="p-4 font-bold rounded-tr-xl">מרכיב בשם</th>
-                                <th class="p-4 font-bold">מקור לשוני</th>
-                                <th class="p-4 font-bold rounded-tl-xl">משמעות והקשר היסטורי</th>
-                            </tr>
-                        </thead>
-                        <tbody class="text-gray-700 dark:text-gray-300">
-                            <tr class="border-b border-gray-100 dark:border-gray-800 hover:bg-gray-50 dark:hover:bg-gray-800/50 transition-colors">
-                                <td class="p-4 font-mono font-bold text-xl">Plym</td>
-                                <td class="p-4">קלטית עתיקה / אנגלית עתיקה</td>
-                                <td class="p-4">מתייחס לנהר באנגליה. המקור הוא כנראה קלטי ומתייחס לאוכלוסייה של עצי <strong>שזיף הבר (Plum tree)</strong> לאורך גדותיו.</td>
-                            </tr>
-                            <tr class="border-b border-gray-100 dark:border-gray-800 hover:bg-gray-50 dark:hover:bg-gray-800/50 transition-colors">
-                                <td class="p-4 font-mono font-bold text-xl">mouth</td>
-                                <td class="p-4">אנגלית עתיקה: <em>mūþa</em></td>
-                                <td class="p-4">פה או פתח. מתייחס ל<strong>"שפך נהר"</strong>.</td>
-                            </tr>
-                            <tr class="bg-blue-50/50 dark:bg-gray-800/30">
-                                <td class="p-4 font-bold text-blue-800 dark:text-blue-300">הלחם משמעויות</td>
-                                <td colspan="2" class="p-4 text-lg font-semibold text-gray-900 dark:text-white">
-                                    <strong>"שפך נהר הפלים"</strong>. השם מופיע על מפות של קפטן ג'ון סמית' מ-1614. העובדה שהם הפליגו מפלימות' באנגליה ונחתו בפלימות' באמריקה נחשבה בעיניהם להשגחה אלוהית.
-                                </td>
-                            </tr>
-                        </tbody>
-                    </table>
+                <div class="text-lg text-gray-700 dark:text-gray-300 leading-relaxed mb-4">
+                    העיר באמריקה קרויה על שמה של עיר הנמל המפורסמת באנגליה, ממנה הפליגה המייפלאוור. השם הבריטי המקורי מורכב משתי שפות עתיקות:
+                </div>
+
+                <div class="space-y-6 mt-6">
+                    <!-- חלק 1 -->
+                    <div class="p-6 bg-blue-50/50 dark:bg-gray-800/30 rounded-2xl border-r-4 border-blue-500 dark:border-gold shadow-sm hover:bg-blue-50 dark:hover:bg-gray-800 transition-colors">
+                        <div class="flex flex-col sm:flex-row sm:items-center justify-between mb-3 gap-2">
+                            <h3 class="text-2xl font-mono font-bold text-gray-900 dark:text-white">
+                                Plym <span class="text-xl font-sans font-normal text-gray-500 dark:text-gray-400">(פלים)</span>
+                            </h3>
+                            <span class="inline-block px-3 py-1 bg-blue-100 dark:bg-gray-700 text-blue-800 dark:text-blue-300 text-sm rounded-full font-semibold border border-blue-200 dark:border-gray-600">
+                                מקור: שפה קלטית עתיקה
+                            </span>
+                        </div>
+                        <p class="text-lg text-gray-700 dark:text-gray-300 leading-relaxed">
+                            מקור המילה מיוחס לשם הנהר (River Plym) שזורם בעיר הבריטית. המקור הקלטי העתיק הוא <em>plum</em> (עץ שזיף) או לחלופין מילה שמשמעותה פשוטה - "מים מתגלגלים".
+                        </p>
+                    </div>
+
+                    <!-- חלק 2 -->
+                    <div class="p-6 bg-blue-50/50 dark:bg-gray-800/30 rounded-2xl border-r-4 border-blue-500 dark:border-gold shadow-sm hover:bg-blue-50 dark:hover:bg-gray-800 transition-colors">
+                        <div class="flex flex-col sm:flex-row sm:items-center justify-between mb-3 gap-2">
+                            <h3 class="text-2xl font-mono font-bold text-gray-900 dark:text-white">
+                                -mouth <span class="text-xl font-sans font-normal text-gray-500 dark:text-gray-400">(מאות')</span>
+                            </h3>
+                            <span class="inline-block px-3 py-1 bg-blue-100 dark:bg-gray-700 text-blue-800 dark:text-blue-300 text-sm rounded-full font-semibold border border-blue-200 dark:border-gray-600">
+                                מקור: אנגלית עתיקה
+                            </span>
+                        </div>
+                        <p class="text-lg text-gray-700 dark:text-gray-300 leading-relaxed">
+                            המילה האנגלית העתיקה <em>mūþa</em>, שמשמעותה <strong>"פה"</strong>. במונחים של גיאוגרפיה בריטית, היא מציינת את ה"שפך" – המקום שבו נהר נשפך אל הים.
+                        </p>
+                    </div>
+
+                    <!-- חלק 3 -->
+                    <div class="p-6 bg-blue-100/50 dark:bg-gray-800/80 rounded-2xl border-r-4 border-blue-700 dark:border-yellow-400 shadow-md">
+                        <div class="flex items-center gap-3 mb-3">
+                            <i class="ph ph-puzzle-piece text-3xl text-blue-700 dark:text-yellow-400"></i>
+                            <h3 class="text-2xl font-mono font-black text-blue-900 dark:text-white">
+                                Plymouth <span class="text-xl font-sans font-normal text-gray-600 dark:text-gray-300">(פלימות')</span>
+                            </h3>
+                        </div>
+                        <p class="text-lg text-gray-800 dark:text-gray-200 leading-relaxed font-medium">
+                            הלחם המילים באנגליה יצר את השם הגאוגרפי: <strong>"שפך נהר הפלים"</strong>.<br><br>
+                            <strong>צירוף מקרים היסטורי מדהים:</strong> המקום שבו נחתו הצליינים באמריקה נקרא כבר "פלימות'" במפות הניווט. קפטן ג'ון סמית' הפליג ומיפה את חופי אמריקה שש שנים קודם לכן (ב-1614) ונתן למפרץ הזה את השם. הצליינים בסך הכל יצאו מעיר הנמל פלימות' שבאנגליה, ובעקבות סערות מצאו את עצמם במקרה נוחתים בנקודה שכבר נקראה פלימות' על המפה האמריקאית שלהם!
+                        </p>
+                    </div>
                 </div>
             </section>
 
         </article>
 
     </main>
+
+    <!-- חלון צף (Modal) להגדלת תמונות -->
+    <div id="imageModal" class="fixed inset-0 z-[100] hidden bg-black/90 backdrop-blur-md flex items-center justify-center p-4 touch-manipulation opacity-0 transition-opacity duration-300" onclick="closeImageModal()">
+        <button class="absolute top-4 right-4 text-white/70 hover:text-white p-3 bg-black/50 hover:bg-black/80 rounded-full transition-colors duration-200 z-10" onclick="closeImageModal()">
+            <i class="ph ph-x text-2xl"></i>
+        </button>
+        
+        <div class="relative max-w-5xl w-full h-full flex flex-col items-center justify-center">
+            <img id="modalImage" src="" alt="תמונה מוגדלת" class="max-w-full max-h-[80vh] object-contain rounded-xl shadow-2xl scale-95 transition-transform duration-300" onclick="event.stopPropagation()">
+            <div class="mt-6 p-4 bg-darkCard/80 backdrop-blur-sm rounded-xl border border-gray-700 text-white text-center shadow-lg max-w-3xl" onclick="event.stopPropagation()">
+                <p id="modalCaption" class="text-lg leading-relaxed"></p>
+            </div>
+        </div>
+    </div>
 
     <!-- כותרת תחתונה (Footer) -->
     <footer class="bg-white dark:bg-darkBg border-t border-gray-200 dark:border-gray-800 py-8 mt-12">
@@ -349,6 +358,51 @@
         } else {
             document.documentElement.classList.remove('dark');
         }
+
+        // פונקציות חלון צף (מבוססות Data Attributes לבטיחות מירבית)
+        function openImageModal(element) {
+            const src = element.getAttribute('data-image');
+            const caption = element.getAttribute('data-caption');
+            
+            const modal = document.getElementById('imageModal');
+            const modalImg = document.getElementById('modalImage');
+            const modalCap = document.getElementById('modalCaption');
+            
+            modalImg.src = src;
+            modalCap.textContent = caption;
+            
+            modal.classList.remove('hidden');
+            document.body.classList.add('modal-open');
+            
+            setTimeout(() => {
+                modal.classList.remove('opacity-0');
+                modalImg.classList.remove('scale-95');
+                modalImg.classList.add('scale-100');
+            }, 10);
+        }
+
+        function closeImageModal() {
+            const modal = document.getElementById('imageModal');
+            const modalImg = document.getElementById('modalImage');
+            
+            modal.classList.add('opacity-0');
+            modalImg.classList.remove('scale-100');
+            modalImg.classList.add('scale-95');
+            
+            setTimeout(() => {
+                modal.classList.add('hidden');
+                document.body.classList.remove('modal-open');
+            }, 300);
+        }
+        
+        document.addEventListener('keydown', function(event) {
+            if (event.key === "Escape") {
+                const modal = document.getElementById('imageModal');
+                if (!modal.classList.contains('hidden')) {
+                    closeImageModal();
+                }
+            }
+        });
     </script>
 </body>
 </html>
