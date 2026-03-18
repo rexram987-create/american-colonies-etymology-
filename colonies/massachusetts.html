@@ -28,6 +28,8 @@
     <style>
         body { transition: background-color 0.3s ease, color 0.3s ease; }
         .content-section { scroll-margin-top: 100px; }
+        /* מניעת גלילה כשהחלון הצף פתוח */
+        .modal-open { overflow: hidden; }
     </style>
 </head>
 <body class="bg-gray-50 text-gray-900 dark:bg-darkBg dark:text-gray-100 font-sans antialiased selection:bg-blue-200 dark:selection:bg-blue-900">
@@ -37,7 +39,7 @@
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex items-center justify-between h-20">
                 <!-- כפתור חזרה -->
-                <a href="index.html" class="flex items-center gap-2 text-blue-600 dark:text-gold hover:text-blue-800 dark:hover:text-yellow-400 transition-colors touch-manipulation font-semibold bg-blue-50 dark:bg-gray-800 px-4 py-2 rounded-full">
+                <a href="../index.html" class="flex items-center gap-2 text-blue-600 dark:text-gold hover:text-blue-800 dark:hover:text-yellow-400 transition-colors touch-manipulation font-semibold bg-blue-50 dark:bg-gray-800 px-4 py-2 rounded-full">
                     <i class="ph ph-arrow-right text-xl"></i>
                     <span>חזרה לדף הבית</span>
                 </a>
@@ -69,11 +71,18 @@
             </p>
         </div>
 
-        <!-- תמונה ראשית -->
-        <div class="w-full h-64 md:h-96 rounded-3xl overflow-hidden mb-16 shadow-2xl relative border border-gray-200 dark:border-gray-800">
-            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/1/1a/John_Winthrop_Arrival.jpg/1200px-John_Winthrop_Arrival.jpg" alt="" class="w-full h-full object-cover">
-            <div class="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/80 to-transparent p-4 text-white text-sm md:text-base text-center">
+        <!-- תמונה ראשית (עם חלון צף) -->
+        <div class="w-full h-64 md:h-96 rounded-3xl overflow-hidden mb-16 shadow-2xl relative border border-gray-200 dark:border-gray-800 group cursor-pointer"
+             onclick="openImageModal(this)"
+             data-image="../images/massachusetts_hero.jpg"
+             data-caption="הגעת צי אוניותיו של ג'ון וינתרופ למפרץ מסצ'וסטס, 1630. תחילתה של ההגירה הגדולה וייסוד העיר בוסטון.">
+            <img src="../images/massachusetts_hero.jpg" alt="צי וינתרופ מגיע למסצ'וסטס" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700">
+            <div class="absolute inset-0 bg-black/20 group-hover:bg-transparent transition-colors duration-500"></div>
+            <div class="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/90 via-black/60 to-transparent p-6 text-white text-sm md:text-base text-center">
                 הגעת צי אוניותיו של ג'ון וינתרופ למפרץ מסצ'וסטס, 1630. תחילתה של הגירה המונית ויסוד בוסטון.
+                <div class="mt-2 text-xs text-gray-300 flex items-center justify-center gap-1 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                    <i class="ph ph-magnifying-glass-plus text-lg"></i> לחץ להגדלה
+                </div>
             </div>
         </div>
 
@@ -89,7 +98,7 @@
                 </div>
                 <div class="text-lg text-gray-700 dark:text-gray-300 leading-relaxed space-y-4">
                     <p><strong>שנת הקמה:</strong> הזיכיון ניתן ב-1628, אך ההתיישבות המסיבית והקמת הממשל החלו בקיץ 1630 עם הגעת "צי וינתרופ" (11 ספינות נושאות כ-700 מתיישבים).</p>
-                    <p><strong>ישות מקימה:</strong> "חברת מפרץ מסצ'וסטס" (Massachusetts Bay Company). בניגוד לחברות אחרות, הפוריטנים רכשו את השליטה בחברה ולקחו את הצ'ארטר (מסמך הזיכיון המלכותי) איתם לאמריקה, מה שהבטיח להם עצמאות פוליטית ומשפטית מוחלטת מלונדון.</p>
+                    <p><strong>ישות מקימה:</strong> "חברת מפרץ מסצ'וסטס" (Massachusetts Bay Company). בניגוד לחברות אחרות, הפוריטנים רכשו את השליטה בחברה ולקחו את הצ'ארטר (מסמך הזיכיון המלכותי) איתם לאמריקה, מה שהבטיח להם עצמאות פוליטית ומשפטית מוחלטת מלונדון במשך עשרות שנים.</p>
                     <p><strong>היעדים המקוריים (הגירה לעומת קולוניאליזם):</strong> 
                         המתיישבים במסצ'וסטס לא באו לחפש זהב כהרפתקנים (וירג'יניה) ולא באו כפליטים עניים (פלימות'). זו הייתה הגירה של משפחות ממעמד הביניים - סוחרים, עורכי דין וחקלאים מבוססים. מטרתם הייתה להקים מודל חברתי-דתי מושלם, מבוסס על משמעת קהילתית ברזל ומוסר עבודה פרוטסטנטי.
                     </p>
@@ -104,14 +113,25 @@
                     </div>
                     <h2 class="text-3xl font-bold">2. רקע המייסדים: ג'ון וינתרופ</h2>
                 </div>
-                <div class="text-lg text-gray-700 dark:text-gray-300 leading-relaxed space-y-4">
-                    <p><strong>ג'ון וינתרופ (John Winthrop)</strong> - חי בין השנים 1588–1649. עורך דין אמיד, אביה המייסד של בוסטון והמושל שנבחר 12 פעמים.</p>
-                    <p><strong>ילדות ומשבר אמוני:</strong> 
-                        נולד למשפחת אצולה כפרית עשירה באנגליה. למד באוניברסיטת קיימברידג' - כור ההיתוך של המחשבה הפוריטנית. בשנות העשרים לחייו עבר משבר נפשי ורוחני, הרגיש כי אורח החיים החומרי באנגליה מושחת, ומצא נחמה רק בתיאולוגיה הפוריטנית המחמירה.
-                    </p>
-                    <p><strong>הישגים היסטוריים:</strong> 
-                        כאשר החלו רדיפות פוריטנים באנגליה, וינתרופ ארגן את "ההגירה הגדולה". בעודו על אוניית הדגל "ארבלה" בלב אוקיינוס (1630), נשא את דרשתו המפורסמת וטבע את המונח <strong>"עיר על גבעה" (City upon a Hill)</strong> - החזון שעל אמריקה להיות חברת מופת מוסרית. כמושל, הוא בנה את התשתית החוקית, אך גם גירש באכזריות כל מי שחלק על הדוקטרינה שלו (כמו רוג'ר ויליאמס ואן האצ'ינסון).
-                    </p>
+                
+                <div class="flex flex-col md:flex-row gap-8 items-start">
+                    <!-- תמונה 2 -->
+                    <div class="md:w-1/3 shrink-0 w-full group cursor-pointer relative rounded-2xl overflow-hidden shadow-md border border-gray-200 dark:border-gray-700" 
+                         onclick="openImageModal(this)" 
+                         data-image="../images/john_winthrop_portrait.jpg" 
+                         data-caption="דיוקנו של ג'ון וינתרופ, המושל הפוריטני והאב המייסד של בוסטון.">
+                        <img src="../images/john_winthrop_portrait.jpg" alt="דיוקן ג'ון וינתרופ" class="w-full object-cover group-hover:scale-105 transition-transform duration-500">
+                        <div class="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
+                            <i class="ph ph-magnifying-glass-plus text-4xl text-white"></i>
+                        </div>
+                        <div class="absolute bottom-0 left-0 right-0 bg-black/70 p-2 text-xs text-white text-center">המושל ג'ון וינתרופ</div>
+                    </div>
+                    
+                    <div class="md:w-2/3 text-lg text-gray-700 dark:text-gray-300 leading-relaxed space-y-4">
+                        <h3 class="text-2xl font-bold text-blue-800 dark:text-blue-300 mb-2">ג'ון וינתרופ (John Winthrop) (1588–1649)</h3>
+                        <p><strong>ילדות ומשבר אמוני:</strong> נולד למשפחת אצולה כפרית עשירה באנגליה. למד באוניברסיטת קיימברידג' - כור ההיתוך של המחשבה הפוריטנית. בשנות העשרים לחייו עבר משבר נפשי ורוחני, הרגיש כי אורח החיים החומרי באנגליה מושחת, ומצא נחמה רק בתיאולוגיה הפוריטנית המחמירה.</p>
+                        <p class="mt-4"><strong>הישגים היסטוריים:</strong> כאשר החלו רדיפות פוריטנים באנגליה, וינתרופ ארגן את "ההגירה הגדולה". בעודו על אוניית הדגל "ארבלה" בלב אוקיינוס (1630), נשא את דרשתו המפורסמת וטבע את המונח <strong>"עיר על גבעה" (City upon a Hill)</strong> - החזון שעל אמריקה להיות חברת מופת מוסרית. כמושל (נבחר 12 פעמים), הוא בנה את התשתית החוקית של המושבה, אך גם גירש באכזריות כל מי שחלק על הדוקטרינה שלו (כמו רוג'ר ויליאמס ואן האצ'ינסון).</p>
+                    </div>
                 </div>
             </section>
 
@@ -121,16 +141,16 @@
                     <div class="p-3 bg-blue-100 dark:bg-gray-800 rounded-2xl text-blue-600 dark:text-gold">
                         <i class="ph ph-scales text-3xl"></i>
                     </div>
-                    <h2 class="text-3xl font-bold">3. אידאולוגיה: פוריטניזם (Puritanism)</h2>
+                    <h2 class="text-3xl font-bold">3. אידאולוגיה: פוריטניזם נוקשה</h2>
                 </div>
                 <div class="text-lg text-gray-700 dark:text-gray-300 leading-relaxed space-y-4">
                     <p>
-                        ישנו הבדל תהומי בין האידאולוגיה של מסצ'וסטס לזו של פלימות':
+                        ישנו הבדל תהומי בין האידאולוגיה של מסצ'וסטס לזו של מושבת פלימות':
                     </p>
                     <ul class="list-disc list-inside space-y-4 ml-4">
-                        <li><strong>תיקון מבפנים לעומת בריחה:</strong> הבדלנים (פלימות') פרשו מהכנסייה האנגליקנית. הפוריטנים (מסצ'וסטס) סירבו להיפרד ממנה באופן רשמי; מטרתם הייתה <strong>"לטהר" (Purify)</strong> אותה משרידים קתוליים, ולקוות שאנגליה כולה תחקה את המודל שלהם.</li>
-                        <li><strong>תאוקרטיה נוקשה:</strong> מסצ'וסטס לא הייתה דמוקרטיה חופשית, אלא תאוקרטיה שבה החוק האזרחי והדתי התמזגו. רק גברים שהוכרו כחברי כנסייה רשמיים (שעברו "חווית ישועה") הורשו להצביע בבחירות. </li>
-                        <li><strong>השכלה ככלי דתי:</strong> כדי למנוע מ"השטן הזקן" להרחיק אנשים מהתנ"ך, הפוריטנים קבעו כי קרוא וכתוב היא חובה דתית. הם חוקקו את חוקי החינוך הציבורי הראשונים באמריקה (Old Deluder Satan Act) והקימו ב-1636 את <strong>אוניברסיטת הרווארד (Harvard)</strong> כדי להכשיר כמרי כנסייה משכילים.</li>
+                        <li><strong>תיקון מבפנים לעומת בריחה:</strong> הבדלנים (פלימות') פרשו מהכנסייה האנגליקנית וניתקו קשר. הפוריטנים (מסצ'וסטס) סירבו להיפרד ממנה; מטרתם הייתה <strong>"לטהר" (Purify)</strong> אותה משרידים קתוליים, ולקוות שאנגליה כולה תחקה את המודל שלהם שייבנה באמריקה.</li>
+                        <li><strong>תאוקרטיה נוקשה:</strong> מסצ'וסטס לא הייתה דמוקרטיה חופשית, אלא תאוקרטיה שבה החוק האזרחי והדתי התמזגו. רק גברים שהוכרו כחברי כנסייה מלאים (שעברו "חווית ישועה" מוכחת) הורשו להצביע בבחירות למועצה המקומית.</li>
+                        <li><strong>השכלה ככלי דתי:</strong> כדי למנוע מ"השטן הזקן" להרחיק אנשים מקריאת התנ"ך, הפוריטנים קבעו כי קרוא וכתוב היא חובה דתית עליונה. הם חוקקו את חוקי החינוך הציבורי הראשונים באמריקה והקימו ב-1636 את <strong>אוניברסיטת הרווארד (Harvard)</strong> כדי להכשיר כמרי כנסייה משכילים לעתיד המושבה.</li>
                     </ul>
                 </div>
             </section>
@@ -147,7 +167,7 @@
                 <div class="mb-10">
                     <h3 class="text-2xl font-bold text-blue-800 dark:text-blue-300 mb-4 border-b border-gray-200 dark:border-gray-700 pb-2">א. מערכת נהר צ'ארלס (Charles River)</h3>
                     <div class="text-lg text-gray-700 dark:text-gray-300 leading-relaxed space-y-4">
-                        <p><strong>מידע הידרולוגי:</strong> נהר קצר יחסית (129 ק"מ) הזורם למפרץ בוסטון. בניגוד לזרמים האדירים של הג'יימס בוירג'יניה, נהר צ'ארלס מתאפיין בזרימה איטית ומתפתלת, ואגן הניקוז שלו כולל אגמים וביצות טבעיות המנקים את המים. השפך למפרץ יוצר נמל טבעי (Estuary) עמוק ומוגן היטב מסערות.</p>
+                        <p><strong>מידע הידרולוגי:</strong> נהר קצר יחסית הזורם למפרץ בוסטון. בניגוד לזרמים האדירים של הג'יימס בוירג'יניה, נהר צ'ארלס מתאפיין בזרימה איטית ומתפתלת, ואגן הניקוז שלו כולל אגמים וביצות טבעיות המנקים את המים. השפך למפרץ יוצר נמל טבעי עמוק ומוגן היטב מסערות.</p>
                         
                         <div class="mt-6 bg-gray-50 dark:bg-gray-800/50 p-6 rounded-2xl border border-gray-100 dark:border-gray-700">
                             <h4 class="text-xl font-bold mb-4 flex items-center gap-2 text-gray-900 dark:text-white">
@@ -174,15 +194,14 @@
                             צי וינתרופ התיישב תחילה בצ'ארלסטאון, אך מקורות המים שם היו גרועים. הם ניצלו מאסון בזכות מעבר מהיר לחצי אי סמוך בשם "שומוט" (Shawmut Peninsula), ששמו שונה ל<strong>בוסטון</strong>.
                         </p>
                         <ul class="list-disc list-inside space-y-2 ml-4 mb-4">
-                            <li><strong>"המעיין הגדול" (The Great Spring):</strong> היתרון ההידרולוגי הדרמטי. חצי האי שפע נביעות מים מתוקים וטהורים שפרצו מהגבעות. מקור זה מנע לחלוטין את מחלות הדיזנטריה והטיפוס.</li>
+                            <li><strong>"המעיין הגדול" (The Great Spring):</strong> היתרון ההידרולוגי הדרמטי. חצי האי שפע נביעות מים מתוקים וטהורים שפרצו מהגבעות. מקור זה מנע לחלוטין את מחלות הדיזנטריה שחיסלו מושבות אחרות.</li>
                             <li><strong>הגנה טבעית:</strong> חצי האי חובר ליבשת באמצעות רצועת חול דקיקה ("The Neck"), מה שהפך אותו למבצר טבעי קל להגנה.</li>
-                            <li><strong>טופוגרפיה:</strong> גבעה בעלת שלוש פסגות על חצי האי (Trimountaine) סיפקה נקודות תצפית להגנה מפני ספינות זרות.</li>
                         </ul>
                     </div>
                 </div>
             </section>
 
-            <!-- 5. הסחר והכלכלה (חדש) -->
+            <!-- 5. הסחר והכלכלה -->
             <section class="content-section bg-white dark:bg-darkCard p-8 rounded-3xl shadow-sm border border-gray-100 dark:border-gray-800 border-r-4 border-r-green-500 dark:border-r-emerald-400">
                 <div class="flex items-center gap-3 mb-6">
                     <div class="p-3 bg-green-100 dark:bg-gray-800 rounded-2xl text-green-700 dark:text-emerald-400">
@@ -190,19 +209,32 @@
                     </div>
                     <h2 class="text-3xl font-bold">5. כלכלה ומערכת הסחר הימי</h2>
                 </div>
-                <div class="text-lg text-gray-700 dark:text-gray-300 leading-relaxed space-y-4">
-                    <p>
-                        כלכלת מסצ'וסטס עוצבה על ידי חסרונותיה הגיאוגרפיים, שאילצו אותה לפנות אל הים ולהפוך למעצמה מסחרית:
-                    </p>
-                    <ul class="list-disc list-inside space-y-3 ml-4">
-                        <li><strong>האדמה הסלעית והקפואה:</strong> בניגוד לוירג'יניה, האדמה סביב מפרץ מסצ'וסטס הייתה סלעית (עקב תנועת קרחונים קדומים) ואקלים החורף היה ארוך וקשה. זה מנע הקמת מטעים ענקיים לגידול טבק או צמחי מסחר (Cash crops). הכלכלה החקלאית הייתה בעיקרה "חקלאות קיום" משפחתית (Subsistence farming) לגידול תירס וחיטה לצריכה מקומית.</li>
-                        <li><strong>עושר הים - דיג וספינות:</strong> מכיוון שלא יכלו לייצא גידולים, הם פנו ל"מכרה הזהב" של האוקיינוס האטלנטי – הדיג. המים הקרים של מפרץ מסצ'וסטס וקייפ קוד שפעו דגי בקלה (Cod) ולווייתנים. כדי לדוג ולייצא את הדגים המומלחים, הם נזקקו לספינות, והיערות העבותים של ניו אינגלנד סיפקו להם עץ איכותי. תוך כמה עשורים, בוסטון הפכה למרכז העולמי לבניית ספינות איכותיות וזולות אפילו מאלו שיוצרו באנגליה עצמה.</li>
-                        <li><strong>הסחר המשולש (Triangular Trade):</strong> סוחרי מסצ'וסטס הפכו ל"מובילים" של האוקיינוס. הם יצאו עם ספינות עמוסות בעץ, דגים מומלחים ומצרכים לקריביים (איי הודו המערבית), ושם סחרו בהם תמורת סוכר, דבשה (מולסה) ועבדים. את המולסה הביאו חזרה לבוסטון, זיקקו אותה במזקקות מקומיות לרום חריף, ואת הרום שלחו לאירופה או לאפריקה. סחר זה הפך את ערי הנמל של מסצ'וסטס לעשירות וקפיטליסטיות מאוד, מה שיצר לעיתים מתח מול הנהגת הכנסייה הפוריטנית.</li>
-                    </ul>
+                
+                <div class="flex flex-col md:flex-row-reverse gap-8 items-start">
+                    <!-- תמונה 3 -->
+                    <div class="md:w-1/3 shrink-0 w-full group cursor-pointer relative rounded-2xl overflow-hidden shadow-md border border-gray-200 dark:border-gray-700" 
+                         onclick="openImageModal(this)" 
+                         data-image="../images/boston_harbor_trade.jpg" 
+                         data-caption="נמל בוסטון - מרכז בניית הספינות והסחר הימי שהפך את מסצ'וסטס למעצמה כלכלית.">
+                        <img src="../images/boston_harbor_trade.jpg" alt="נמל בוסטון ההיסטורי" class="w-full object-cover group-hover:scale-105 transition-transform duration-500">
+                        <div class="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
+                            <i class="ph ph-magnifying-glass-plus text-4xl text-white"></i>
+                        </div>
+                        <div class="absolute bottom-0 left-0 right-0 bg-black/70 p-2 text-xs text-white text-center">הסחר הימי בבוסטון</div>
+                    </div>
+                    
+                    <div class="md:w-2/3 text-lg text-gray-700 dark:text-gray-300 leading-relaxed space-y-4">
+                        <p>כלכלת מסצ'וסטס עוצבה על ידי חסרונותיה הגיאוגרפיים, שאילצו אותה לפנות אל הים:</p>
+                        <ul class="list-disc list-inside space-y-3 ml-4">
+                            <li><strong>האדמה הסלעית:</strong> האדמה סביב מפרץ מסצ'וסטס הייתה סלעית ואקלים החורף היה ארוך. זה מנע הקמת מטעים ענקיים לגידול מסחרי (כמו טבק בדרום). החקלאות הייתה בעיקרה "חקלאות קיום" משפחתית (Subsistence farming).</li>
+                            <li><strong>עושר הים - דיג וספינות:</strong> מכיוון שלא יכלו לייצא גידולים, הם פנו ל"מכרה הזהב" של האוקיינוס – הדיג. המים הקרים שפעו דגי בקלה (Cod). כדי לדוג ולייצא אותם, הם נזקקו לספינות. היערות העבותים סיפקו עץ איכותי, ותוך כמה עשורים הפכה בוסטון למרכז העולמי לבניית ספינות.</li>
+                            <li><strong>הסחר המשולש (Triangular Trade):</strong> סוחרי מסצ'וסטס הפכו ל"מובילים" של האוקיינוס. הם ייצאו עץ ודגים לקריביים תמורת סוכר ומולסה, שאותה זיקקו בבוסטון לרום חריף שנשלח לאירופה או לאפריקה.</li>
+                        </ul>
+                    </div>
                 </div>
             </section>
 
-            <!-- 6. הדמוגרפיה והחברה (חדש) -->
+            <!-- 6. הדמוגרפיה והחברה -->
             <section class="content-section bg-white dark:bg-darkCard p-8 rounded-3xl shadow-sm border border-gray-100 dark:border-gray-800 border-r-4 border-r-green-500 dark:border-r-emerald-400">
                 <div class="flex items-center gap-3 mb-6">
                     <div class="p-3 bg-green-100 dark:bg-gray-800 rounded-2xl text-green-700 dark:text-emerald-400">
@@ -212,69 +244,136 @@
                 </div>
                 <div class="text-lg text-gray-700 dark:text-gray-300 leading-relaxed space-y-4">
                     <p>
-                        הדמוגרפיה של מסצ'וסטס הייתה ייחודית במושגי המאה ה-17, ויצרה את החברה הבריאה והיציבה ביותר באמריקה:
+                        הדמוגרפיה של מסצ'וסטס הייתה ייחודית במושגי המאה ה-17, ויצרה את החברה היציבה ביותר באמריקה:
                     </p>
                     <ul class="list-disc list-inside space-y-3 ml-4">
-                        <li><strong>הגירת משפחות ענקית:</strong> תופעת "ההגירה הגדולה" (Great Migration) התרחשה בין 1630 ל-1640. במהלך עשור זה, כ-20,000 פוריטנים עזבו את אנגליה למסצ'וסטס. בניגוד לוירג'יניה (שאליה באו גברים בודדים ומשרתים), לכאן הגיעו <strong>משפחות גרעיניות שלמות</strong> עם ילדים, ואפילו קהילות שלמות שהיגרו יחד עם הכומר המקומי שלהן. הדבר יצר מיד יחס מאוזן בין גברים לנשים, מה שהבטיח ילודה מהירה וצמיחה דמוגרפית יציבה.</li>
-                        <li><strong>תוחלת חיים פלאית:</strong> האקלים הקר במיוחד בניו אינגלנד מנע את שגשוגם של יתושי המלריה, והמים הטהורים של חצי האי בוסטון מנעו מחלות מעיים. בשילוב עם תזונה נאותה, תוחלת החיים של פוריטני במסצ'וסטס הגיעה בממוצע לגיל 70 (!), נתון מדהים שהיה גבוה ב-10 שנים מתוחלת החיים באנגליה, וגבוה ב-20 שנים מזו שבוירג'יניה. גם תמותת התינוקות הייתה נמוכה להפליא.</li>
-                        <li><strong>מבנה הקהילה הצפוף (Town System):</strong> בניגוד לאחוזות המבודדות של הדרום, מסצ'וסטס נבנתה בשיטת העיירות (Towns). כל קהילה הקימה עיירה צפופה, כשבמרכזה <strong>בית האסיפה (Meetinghouse)</strong> ששימש הן ככנסייה בימי ראשון והן כבניין עירייה לישיבות פוליטיות. הבתים נבנו סביב רחבה מרכזית (The Common), מה שאיפשר שליטה מוסרית חברתית הדוקה על התנהגות השכנים, שילוב כוחות בהגנה, והקמת בתי ספר ציבוריים חובה בכל עיירה שמנתה מעל 50 משפחות.</li>
+                        <li><strong>הגירת משפחות ענקית:</strong> תופעת "ההגירה הגדולה" התרחשה בין 1630 ל-1640. כ-20,000 פוריטנים עזבו את אנגליה למסצ'וסטס. בניגוד לוירג'יניה, לכאן הגיעו <strong>משפחות גרעיניות שלמות</strong> עם ילדים, מה שהבטיח ילודה מהירה וצמיחה דמוגרפית יציבה.</li>
+                        <li><strong>תוחלת חיים פלאית:</strong> האקלים הקר והמים הטהורים של חצי האי בוסטון מנעו מחלות קטלניות. תוחלת החיים של פוריטני במסצ'וסטס הגיעה בממוצע לגיל 70, גבוה ב-10 שנים מבאנגליה, וב-20 שנים מווירג'יניה.</li>
+                        <li><strong>מבנה הקהילה הצפוף (Town System):</strong> מסצ'וסטס נבנתה בשיטת העיירות. כל קהילה הקימה עיירה צפופה, כשבמרכזה <strong>בית האסיפה (Meetinghouse)</strong> ששימש ככנסייה וכבניין עירייה. הדבר איפשר שליטה מוסרית חברתית הדוקה על התנהגות השכנים.</li>
                     </ul>
                 </div>
             </section>
 
-            <!-- 7. מחקר אטימולוגי מפורט של מסצ'וסטס -->
+            <!-- 7. מאבקי השליטה (סעיף מורחב) -->
+            <section class="content-section bg-white dark:bg-darkCard p-8 rounded-3xl shadow-sm border border-gray-100 dark:border-gray-800 border-r-4 border-r-red-500 dark:border-r-red-400">
+                <div class="flex items-center gap-3 mb-6">
+                    <div class="p-3 bg-red-100 dark:bg-gray-800 rounded-2xl text-red-600 dark:text-red-400">
+                        <i class="ph ph-swords text-3xl"></i>
+                    </div>
+                    <h2 class="text-3xl font-bold">7. מאבקי השליטה: הדומיניון ומרד בוסטון</h2>
+                </div>
+                <div class="text-lg text-gray-700 dark:text-gray-300 leading-relaxed space-y-6">
+                    <p>העצמאות הפוריטנית המוחלטת של מסצ'וסטס הייתה לצנינים בעיני הכתר הבריטי, מה שהוביל להתנגשות חזיתית וביטול הממשל:</p>
+                    
+                    <div class="bg-gray-50 dark:bg-gray-800/30 p-6 rounded-2xl border border-gray-200 dark:border-gray-700">
+                        <h3 class="text-2xl font-bold text-red-800 dark:text-red-400 mb-3 flex items-center gap-2">
+                            <i class="ph ph-flag-banner"></i> אובדן הזיכיון ו"דומיניון ניו אינגלנד"
+                        </h3>
+                        <ul class="list-none space-y-3 text-lg">
+                            <li><strong>מועדי המאבק:</strong> 1684 (ביטול הזיכיון המקורי), 1689 (מרד בוסטון), ו-1691 (קבלת זיכיון מלכותי חדש).</li>
+                            <li><strong>אישים בולטים:</strong> המלך <strong>צ'ארלס השני</strong> ואחיו <strong>ג'יימס השני</strong>, המושל העריץ <strong>סר אדמונד אנדרוס</strong> (Andros), וצמד המנהיגים הפוריטנים החזקים אינקריס וקוטון מאת'ר (Mather).</li>
+                            <li><strong>מהלך המאבקים:</strong> 
+                                במשך עשרות שנים מסצ'וסטס התנהלה כמעט כמו מדינה עצמאית, סירבה לאפשר חופש דת לאנגליקנים, ואף סירבה לציית לחוקי הסחר של הכתר. בתגובה, בשנת 1684, המלך צ'ארלס השני ביטל לחלוטין את הזיכיון שלהם. אחיו, המלך הקתולי ג'יימס השני, הלך צעד רחוק יותר וב-1686 מיזג את מסצ'וסטס עם שאר המושבות בצפון לישות דיקטטורית עצומה בשם <strong>דומיניון ניו אינגלנד</strong>, ומינה את אדמונד אנדרוס למושל עליון.
+                                אנדרוס הנהיג משטר אימה: הוא ביטל את אסיפות העיירה (לב הדמוקרטיה הפוריטנית), הטיל מיסים ללא אישור, וכפה עריכת טקסים אנגליקניים בתוך הכנסיות הפוריטניות. 
+                                כשהגיעה לאמריקה הבשורה על "המהפכה המהוללת" באנגליה (הדחת ג'יימס השני ב-1688), תושבי בוסטון הזועמים יצאו לרחובות באפריל 1689. הם פתחו במרד חמוש, כיתרו את אנדרוס, וכלאו אותו. למרות המרד המוצלח, השלטון החדש בלונדון לא החזיר להם את התאוקרטיה הישנה. ב-1691 הוענק <strong>זיכיון מלכותי חדש</strong>: מסצ'וסטס הפכה למושבת כתר רשמית, מוזגה עם מושבת פלימות', וחשוב מכל - זכות ההצבעה שונתה מדרישה ל"חברות בכנסייה" לדרישת "בעלות על רכוש", צעד שסיים את השליטה המוחלטת של הכמרים הפוריטנים.
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </section>
+
+            <!-- 8. מחקר אטימולוגי (עיצוב בכרטיסיות) -->
             <section class="content-section bg-white dark:bg-darkCard p-8 rounded-3xl shadow-sm border border-gray-100 dark:border-gray-800">
                 <div class="flex items-center gap-3 mb-6">
                     <div class="p-3 bg-blue-100 dark:bg-gray-800 rounded-2xl text-blue-600 dark:text-gold">
                         <i class="ph ph-text-aa text-3xl"></i>
                     </div>
-                    <h2 class="text-3xl font-bold">7. מחקר אטימולוגי: המושבה Massachusetts</h2>
+                    <h2 class="text-3xl font-bold">8. מחקר אטימולוגי: המושבה Massachusetts</h2>
                 </div>
                 
-                <div class="overflow-x-auto mt-6">
-                    <table class="w-full text-right border-collapse">
-                        <thead>
-                            <tr class="bg-blue-50 dark:bg-gray-800 text-blue-900 dark:text-gold border-b-2 border-blue-200 dark:border-gray-700">
-                                <th class="p-4 font-bold rounded-tr-xl">מרכיב בשם</th>
-                                <th class="p-4 font-bold">מקור לשוני (אלגונקווין)</th>
-                                <th class="p-4 font-bold rounded-tl-xl">משמעות והקשר היסטורי</th>
-                            </tr>
-                        </thead>
-                        <tbody class="text-gray-700 dark:text-gray-300">
-                            <tr class="border-b border-gray-100 dark:border-gray-800 hover:bg-gray-50 dark:hover:bg-gray-800/50 transition-colors">
-                                <td class="p-4 font-mono font-bold text-xl">Mass</td>
-                                <td class="p-4">שפת המסצ'וסט: <em>Massa</em> או <em>Missi</em></td>
-                                <td class="p-4">גדול (Great) או רחב ממדים. </td>
-                            </tr>
-                            <tr class="border-b border-gray-100 dark:border-gray-800 hover:bg-gray-50 dark:hover:bg-gray-800/50 transition-colors">
-                                <td class="p-4 font-mono font-bold text-xl">adchu</td>
-                                <td class="p-4">שפת המסצ'וסט: <em>Wadchu</em></td>
-                                <td class="p-4">הר (Mountain) או גבעה נישאה.</td>
-                            </tr>
-                            <tr class="border-b border-gray-100 dark:border-gray-800 hover:bg-gray-50 dark:hover:bg-gray-800/50 transition-colors">
-                                <td class="p-4 font-mono font-bold text-xl">-s</td>
-                                <td class="p-4">סיומת דקדוקית ילידית</td>
-                                <td class="p-4">צורת הקטנה או סיומת ריבוי של שרשרת גבעות.</td>
-                            </tr>
-                            <tr class="border-b border-gray-100 dark:border-gray-800 hover:bg-gray-50 dark:hover:bg-gray-800/50 transition-colors">
-                                <td class="p-4 font-mono font-bold text-xl">-et</td>
-                                <td class="p-4">סיומת מיקום: <em>ut</em> או <em>et</em></td>
-                                <td class="p-4">סיומת המציינת "במקום של-" או "לצד-".</td>
-                            </tr>
-                            <tr class="bg-blue-50/50 dark:bg-gray-800/30">
-                                <td class="p-4 font-bold text-blue-800 dark:text-blue-300">הלחם משמעויות</td>
-                                <td colspan="2" class="p-4 text-lg font-semibold text-gray-900 dark:text-white">
-                                    <strong>"במקום של הגבעה הגדולה"</strong>. השם ניתן במקור על ידי הילידים לשבט המרכזי ששכן באזור (שבט המסצ'וסט). הגבעה המדוברת היא רכס "הגבעות הכחולות" (Great Blue Hill) הנמצא מדרום לבוסטון, ששימש כנקודת ציון ליורדי ים ולשבטים המקומיים.
-                                </td>
-                            </tr>
-                        </tbody>
-                    </table>
+                <div class="text-lg text-gray-700 dark:text-gray-300 leading-relaxed mb-4">
+                    השם ניתן במקור על ידי הילידים לשבט המרכזי ששכן באזור. הוא בשפת המסצ'וסט (ממשפחת השפות האלגונקוויות). להלן הפירוק הלשוני:
+                </div>
+
+                <div class="space-y-6 mt-6">
+                    <!-- חלק 1 -->
+                    <div class="p-6 bg-blue-50/50 dark:bg-gray-800/30 rounded-2xl border-r-4 border-blue-500 dark:border-gold shadow-sm hover:bg-blue-50 dark:hover:bg-gray-800 transition-colors">
+                        <div class="flex flex-col sm:flex-row sm:items-center justify-between mb-3 gap-2">
+                            <h3 class="text-2xl font-mono font-bold text-gray-900 dark:text-white">
+                                Mass <span class="text-xl font-sans font-normal text-gray-500 dark:text-gray-400">(מאס)</span>
+                            </h3>
+                            <span class="inline-block px-3 py-1 bg-blue-100 dark:bg-gray-700 text-blue-800 dark:text-blue-300 text-sm rounded-full font-semibold border border-blue-200 dark:border-gray-600">
+                                מקור: שפת המסצ'וסט
+                            </span>
+                        </div>
+                        <p class="text-lg text-gray-700 dark:text-gray-300 leading-relaxed">
+                            נגזר מהמילה <em>Massa</em> או <em>Missi</em>. משמעותו היא <strong>"גדול" (Great)</strong> או רחב ממדים.
+                        </p>
+                    </div>
+
+                    <!-- חלק 2 -->
+                    <div class="p-6 bg-blue-50/50 dark:bg-gray-800/30 rounded-2xl border-r-4 border-blue-500 dark:border-gold shadow-sm hover:bg-blue-50 dark:hover:bg-gray-800 transition-colors">
+                        <div class="flex flex-col sm:flex-row sm:items-center justify-between mb-3 gap-2">
+                            <h3 class="text-2xl font-mono font-bold text-gray-900 dark:text-white">
+                                adchu <span class="text-xl font-sans font-normal text-gray-500 dark:text-gray-400">(אדצ'ו)</span>
+                            </h3>
+                            <span class="inline-block px-3 py-1 bg-blue-100 dark:bg-gray-700 text-blue-800 dark:text-blue-300 text-sm rounded-full font-semibold border border-blue-200 dark:border-gray-600">
+                                מקור: שפת המסצ'וסט
+                            </span>
+                        </div>
+                        <p class="text-lg text-gray-700 dark:text-gray-300 leading-relaxed">
+                            נגזר מהמילה <em>Wadchu</em>. משמעותו <strong>"הר" (Mountain)</strong> או גבעה נישאה ובולטת בנוף.
+                        </p>
+                    </div>
+
+                    <!-- חלק 3 -->
+                    <div class="p-6 bg-blue-50/50 dark:bg-gray-800/30 rounded-2xl border-r-4 border-blue-500 dark:border-gold shadow-sm hover:bg-blue-50 dark:hover:bg-gray-800 transition-colors">
+                        <div class="flex flex-col sm:flex-row sm:items-center justify-between mb-3 gap-2">
+                            <h3 class="text-2xl font-mono font-bold text-gray-900 dark:text-white">
+                                -s / -et <span class="text-xl font-sans font-normal text-gray-500 dark:text-gray-400">(ס / אט)</span>
+                            </h3>
+                            <span class="inline-block px-3 py-1 bg-blue-100 dark:bg-gray-700 text-blue-800 dark:text-blue-300 text-sm rounded-full font-semibold border border-blue-200 dark:border-gray-600">
+                                מקור: סיומות דקדוקיות
+                            </span>
+                        </div>
+                        <p class="text-lg text-gray-700 dark:text-gray-300 leading-relaxed">
+                            האות "s" משמשת כסיומת הקטנה או ריבוי (שרשרת גבעות), בעוד הסיומת "et" (או ut) היא סיומת מיקום נפוצה שמשמעותה <strong>"במקום של-"</strong> או "לצד".
+                        </p>
+                    </div>
+
+                    <!-- חלק 4 -->
+                    <div class="p-6 bg-blue-100/50 dark:bg-gray-800/80 rounded-2xl border-r-4 border-blue-700 dark:border-yellow-400 shadow-md">
+                        <div class="flex items-center gap-3 mb-3">
+                            <i class="ph ph-puzzle-piece text-3xl text-blue-700 dark:text-yellow-400"></i>
+                            <h3 class="text-2xl font-mono font-black text-blue-900 dark:text-white">
+                                Massachusetts <span class="text-xl font-sans font-normal text-gray-600 dark:text-gray-300">(מסצ'וסטס)</span>
+                            </h3>
+                        </div>
+                        <p class="text-lg text-gray-800 dark:text-gray-200 leading-relaxed font-medium">
+                            חיבור כל המרכיבים (Massa-adchu-s-et) יוצר את המשמעות המלאה והציורית: <strong>"במקום של הגבעה הגדולה"</strong>.<br><br>
+                            הגבעה המדוברת היא רכס "הגבעות הכחולות" (Great Blue Hill) הממוקם מעט מדרום לבוסטון של ימינו. רכס זה היה בולט מאוד בנוף ושימש כנקודת ציון חשובה לניווט, הן עבור השבטים המקומיים והן עבור יורדי הים האירופאים שהתקרבו אל המפרץ.
+                        </p>
+                    </div>
                 </div>
             </section>
 
         </article>
 
     </main>
+
+    <!-- חלון צף (Modal) להגדלת תמונות -->
+    <div id="imageModal" class="fixed inset-0 z-[100] hidden bg-black/90 backdrop-blur-md flex items-center justify-center p-4 touch-manipulation opacity-0 transition-opacity duration-300" onclick="closeImageModal()">
+        <button class="absolute top-4 right-4 text-white/70 hover:text-white p-3 bg-black/50 hover:bg-black/80 rounded-full transition-colors duration-200 z-10" onclick="closeImageModal()">
+            <i class="ph ph-x text-2xl"></i>
+        </button>
+        
+        <div class="relative max-w-5xl w-full h-full flex flex-col items-center justify-center">
+            <img id="modalImage" src="" alt="תמונה מוגדלת" class="max-w-full max-h-[80vh] object-contain rounded-xl shadow-2xl scale-95 transition-transform duration-300" onclick="event.stopPropagation()">
+            <div class="mt-6 p-4 bg-darkCard/80 backdrop-blur-sm rounded-xl border border-gray-700 text-white text-center shadow-lg max-w-3xl" onclick="event.stopPropagation()">
+                <p id="modalCaption" class="text-lg leading-relaxed"></p>
+            </div>
+        </div>
+    </div>
 
     <!-- כותרת תחתונה (Footer) -->
     <footer class="bg-white dark:bg-darkBg border-t border-gray-200 dark:border-gray-800 py-8 mt-12">
@@ -302,8 +401,51 @@
         } else {
             document.documentElement.classList.remove('dark');
         }
+
+        // פונקציות חלון צף
+        function openImageModal(element) {
+            const src = element.getAttribute('data-image');
+            const caption = element.getAttribute('data-caption');
+            
+            const modal = document.getElementById('imageModal');
+            const modalImg = document.getElementById('modalImage');
+            const modalCap = document.getElementById('modalCaption');
+            
+            modalImg.src = src;
+            modalCap.textContent = caption;
+            
+            modal.classList.remove('hidden');
+            document.body.classList.add('modal-open');
+            
+            setTimeout(() => {
+                modal.classList.remove('opacity-0');
+                modalImg.classList.remove('scale-95');
+                modalImg.classList.add('scale-100');
+            }, 10);
+        }
+
+        function closeImageModal() {
+            const modal = document.getElementById('imageModal');
+            const modalImg = document.getElementById('modalImage');
+            
+            modal.classList.add('opacity-0');
+            modalImg.classList.remove('scale-100');
+            modalImg.classList.add('scale-95');
+            
+            setTimeout(() => {
+                modal.classList.add('hidden');
+                document.body.classList.remove('modal-open');
+            }, 300);
+        }
+        
+        document.addEventListener('keydown', function(event) {
+            if (event.key === "Escape") {
+                const modal = document.getElementById('imageModal');
+                if (!modal.classList.contains('hidden')) {
+                    closeImageModal();
+                }
+            }
+        });
     </script>
 </body>
 </html>
-
-
