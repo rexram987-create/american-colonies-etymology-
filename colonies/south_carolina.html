@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>קרוליינה הדרומית (1663) | המושבות האמריקאיות</title>
+    <title>קרוליינה הדרומית (1670) | המושבות האמריקאיות</title>
     <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
@@ -28,6 +28,8 @@
     <style>
         body { transition: background-color 0.3s ease, color 0.3s ease; }
         .content-section { scroll-margin-top: 100px; }
+        /* מניעת גלילה כשהחלון הצף פתוח */
+        .modal-open { overflow: hidden; }
     </style>
 </head>
 <body class="bg-gray-50 text-gray-900 dark:bg-darkBg dark:text-gray-100 font-sans antialiased selection:bg-blue-200 dark:selection:bg-blue-900">
@@ -36,8 +38,8 @@
     <header class="relative z-40 w-full bg-white dark:bg-darkBg border-b border-gray-200 dark:border-gray-800 shadow-sm">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex items-center justify-between h-20">
-                <!-- כפתור חזרה -->
-                <a href="index.html" class="flex items-center gap-2 text-blue-600 dark:text-gold hover:text-blue-800 dark:hover:text-yellow-400 transition-colors touch-manipulation font-semibold bg-blue-50 dark:bg-gray-800 px-4 py-2 rounded-full">
+                <!-- כפתור חזרה (מעודכן) -->
+                <a href="../index.html" class="flex items-center gap-2 text-blue-600 dark:text-gold hover:text-blue-800 dark:hover:text-yellow-400 transition-colors touch-manipulation font-semibold bg-blue-50 dark:bg-gray-800 px-4 py-2 rounded-full">
                     <i class="ph ph-arrow-right text-xl"></i>
                     <span>חזרה לדף הבית</span>
                 </a>
@@ -59,21 +61,28 @@
         <div class="mb-12 text-center md:text-right">
             <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-green-100 dark:bg-green-900/40 text-green-800 dark:text-green-300 text-sm font-semibold tracking-wide mb-4">
                 <i class="ph ph-calendar-blank"></i>
-                שנת הקמה: 1663 (זיכיון) / 1670 (צ'ארלסטאון)
+                שנת הקמה: 1670 (כחלק מקרוליינה) / 1712 (פיצול רשמי)
             </div>
             <h1 class="text-4xl md:text-5xl lg:text-6xl font-extrabold leading-tight text-gray-900 dark:text-white mb-6">
                 מושבת קרוליינה הדרומית
             </h1>
             <p class="text-xl text-gray-600 dark:text-gray-300 leading-relaxed">
-                ארץ העושר האגדי והאכזריות הממוסדת. המושבה שהפכה ליהלום שבכתר הבריטי בצפון אמריקה בזכות נמל עמוק ואחוזות אורז אדירות, והייתה למקום היחיד ביבשת שבו אוכלוסיית העבדים השחורים עלתה במספרה על האוכלוסייה הלבנה.
+                מושבת העושר האריסטוקרטי. היא תוכננה על ידי פילוסופים כאוטופיה פיאודלית, אך הפכה במהרה לחברה המקוטבת ביותר באמריקה: מעמד של בעלי מטעים עשירים כקורח מהקריביים, ששלטו על הכלכלה באמצעות עבדות המונית בשדות האורז.
             </p>
         </div>
 
-        <!-- תמונה ראשית -->
-        <div class="w-full h-64 md:h-96 rounded-3xl overflow-hidden mb-16 shadow-2xl relative border border-gray-200 dark:border-gray-800">
-            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/e0/Charleston_South_Carolina_in_1780.jpg/1200px-Charleston_South_Carolina_in_1780.jpg" alt="" class="w-full h-full object-cover">
-            <div class="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/80 to-transparent p-4 text-white text-sm md:text-base text-center">
-                נמל צ'ארלסטון (Charleston), מוקד העושר, המסחר וסחר העבדים של דרום קרוליינה.
+        <!-- תמונה ראשית 1 (מנגנון Data-Attributes) -->
+        <div class="w-full h-64 md:h-96 rounded-3xl overflow-hidden mb-16 shadow-2xl relative border border-gray-200 dark:border-gray-800 group cursor-pointer" 
+             onclick="openImageModal(this)" 
+             data-image="../images/south_carolina_hero.jpg" 
+             data-caption="הקמת העיר צ'ארלסטאון ב-1670. מתיישבים עשירים מברבדוס הגיעו כדי להקים אימפריה חקלאית חדשה.">
+            <img src="../images/south_carolina_hero.jpg" alt="הקמת צ'ארלסטאון" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700">
+            <div class="absolute inset-0 bg-black/20 group-hover:bg-transparent transition-colors duration-500"></div>
+            <div class="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/90 via-black/60 to-transparent p-6 text-white text-sm md:text-base text-center">
+                הקמת העיר צ'ארלסטאון ב-1670 על ידי מתיישבים שהגיעו מברבדוס.
+                <div class="mt-2 text-xs text-gray-300 flex items-center justify-center gap-1 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                    <i class="ph ph-magnifying-glass-plus text-lg"></i> לחץ להגדלה
+                </div>
             </div>
         </div>
 
@@ -88,10 +97,10 @@
                     <h2 class="text-3xl font-bold">1. שנות פעילות, הקמה ויעדים</h2>
                 </div>
                 <div class="text-lg text-gray-700 dark:text-gray-300 leading-relaxed space-y-4">
-                    <p><strong>שנת הקמה:</strong> הזיכיון לשטח כולו ניתן ב-1663. ההתיישבות המוצלחת הראשונה בדרום הוקמה ב-1670 באלבמארל פוינט, והועברה ב-1680 למיקומה הנוכחי של העיר צ'ארלסטאון (Charleston).</p>
-                    <p><strong>ישות מקימה (Proprietors):</strong> 8 האצילים הלונדוניים ("Lords Proprietors") שקיבלו את הזיכיון מהמלך צ'ארלס השני. בשונה מהכישלון בצפון קרוליינה, בדרום הם השקיעו הון רב כדי להבטיח את הצלחת ההתיישבות.</p>
-                    <p><strong>היעדים המקוריים (הקשר הברבדוסי):</strong> 
-                        הלורדים לא הסתמכו רק על מתיישבים מאנגליה. היעד היה להביא חוואים עשירים ממושבת הסוכר הבריטית באי <strong>ברבדוס (Barbados)</strong> שבקריביים, שכבר הייתה צפופה מדי. מתיישבים אלו ("אנשי גוס קריק") הביאו איתם הון, ידע חקלאי בניהול מטעים, ומעל לכל – את מערכת חוקי העבדות האכזרית והממוסדת של הקריביים.
+                    <p><strong>שנת הקמה:</strong> הזיכיון המקורי ניתן ב-1663. היישוב הקבוע הראשון, צ'ארלס טאון (Charleston), הוקם ב-1670. ב-1712 המושבה התפצלה רשמית לצפון ודרום.</p>
+                    <p><strong>ישות מקימה:</strong> "הלורדים הבעלים" (Lords Proprietors). המלך צ'ארלס השני העניק את האזור העצום לשמונה מאציליו המקורבים ביותר כאות תודה על עזרתם בהשבתו לכס המלוכה באנגליה.</p>
+                    <p><strong>היעדים המקוריים:</strong> 
+                        המטרה הייתה מסחרית ואריסטוקרטית. הלורדים רצו להקים אחוזות ענק ולהרוויח מגביית דמי חכירה (Quitrents) מהמתיישבים. מבחינה אסטרטגית, המושבה נועדה להוות חיץ חזק בין המושבות האנגליות מצפון לבין פלורידה הספרדית מדרום.
                     </p>
                 </div>
             </section>
@@ -100,24 +109,30 @@
             <section class="content-section bg-white dark:bg-darkCard p-8 rounded-3xl shadow-sm border border-gray-100 dark:border-gray-800 border-r-4 border-r-blue-500 dark:border-r-gold">
                 <div class="flex items-center gap-3 mb-6">
                     <div class="p-3 bg-blue-100 dark:bg-gray-800 rounded-2xl text-blue-600 dark:text-gold">
-                        <i class="ph ph-users text-3xl"></i>
+                        <i class="ph ph-user text-3xl"></i>
                     </div>
-                    <h2 class="text-3xl font-bold">2. רקע המייסדים ודמויות מפתח</h2>
+                    <h2 class="text-3xl font-bold">2. רקע המייסד: הלורד שפטסברי (וג'ון לוק)</h2>
                 </div>
                 
-                <div class="text-lg text-gray-700 dark:text-gray-300 leading-relaxed space-y-6">
-                    <!-- סר ג'ון יימנס -->
-                    <div>
-                        <h3 class="text-2xl font-bold text-blue-800 dark:text-blue-300 mb-2">סר ג'ון יימנס (Sir John Yeamans) (1611–1674)</h3>
-                        <p><strong>רקע והישגים:</strong> נולד בבריסטול שבאנגליה, והיגר לאי ברבדוס שם עשה הון עצום ממטעי סוכר וסחר בעבדים אפריקאים. ב-1671 הוא מונה למושל המושבה החדשה של דרום קרוליינה. הוא הביא איתו עשרות עבדים משלו, והוא הדמות המרכזית שהטמיעה את קוד העבדות הברבדוסי אל תוך החוקה של קרוליינה – קוד שהתייחס לעבדים כאל רכוש נייד נטול זכויות אנוש לחלוטין.</p>
+                <div class="flex flex-col md:flex-row gap-8 items-start">
+                    <!-- תמונה 2 -->
+                    <div class="md:w-1/3 shrink-0 w-full group cursor-pointer relative rounded-2xl overflow-hidden shadow-md border border-gray-200 dark:border-gray-700" 
+                         onclick="openImageModal(this)" 
+                         data-image="../images/ashley_cooper_portrait.jpg" 
+                         data-caption="אנתוני אשלי קופר, הלורד שפטסברי - המנוע העיקרי מאחורי ייסוד המושבה.">
+                        <img src="../images/ashley_cooper_portrait.jpg" alt="דיוקן הלורד אשלי קופר" class="w-full object-cover group-hover:scale-105 transition-transform duration-500">
+                        <div class="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
+                            <i class="ph ph-magnifying-glass-plus text-4xl text-white"></i>
+                        </div>
+                        <div class="absolute bottom-0 left-0 right-0 bg-black/70 p-2 text-xs text-white text-center">הלורד אשלי קופר</div>
                     </div>
-
-                    <hr class="border-gray-200 dark:border-gray-700">
-
-                    <!-- אלייזה לוקאס פינקני -->
-                    <div>
-                        <h3 class="text-2xl font-bold text-blue-800 dark:text-blue-300 mb-2">אלייזה לוקאס פינקני (Eliza Lucas Pinckney) (1622–1793)</h3>
-                        <p><strong>רקע והישגים:</strong> למרות שהיא שייכת למאה ה-18, אלייזה היא מהדמויות הכלכליות החשובות של המושבה. כשהייתה בת 16 בלבד, אביה חזר לאנטיגואה והשאיר אותה לנהל שלוש אחוזות ענק בדרום קרוליינה. אלייזה, חובבת בוטניקה, ניסתה במשך שנים לפתח זרעי <strong>אינדיגו (Indigo)</strong> – צמח המפיק צבע כחול עמוק שהיה מבוקש מאוד בתעשיית הטקסטיל האירופית. ב-1744 היא הצליחה, ואינדיגו הפך לגידול היצוא השני בחשיבותו של המושבה (אחרי אורז), והכפיל את עושרה של האליטה.</p>
+                    
+                    <div class="md:w-2/3 text-lg text-gray-700 dark:text-gray-300 leading-relaxed space-y-6">
+                        <div>
+                            <h3 class="text-2xl font-bold text-blue-800 dark:text-blue-300 mb-2">אנתוני אשלי קופר (Anthony Ashley Cooper) (1621–1683)</h3>
+                            <p><strong>רקע:</strong> מבין שמונת הלורדים, אשלי קופר (הרוזן משפטסברי) היה הפעיל ביותר. בעוד השאר איבדו עניין כשהרווחים בוששו לבוא, הוא סירב לוותר. הוא מימן משלחות והוביל אישית את ניהול המושבה מלונדון.</p>
+                            <p class="mt-4"><strong>החזון בשיתוף ג'ון לוק:</strong> ההישג/ניסוי המרתק ביותר שלו היה כתיבת <strong>"החוקות היסודיות של קרוליינה" (Fundamental Constitutions of Carolina)</strong> בשנת 1669. הוא נעזר במזכירו האישי, שהיה לא אחר מאשר הפילוסוף הנודע <strong>ג'ון לוק</strong> (John Locke). החוקה ניסתה ליצור חברה הרמונית אך בלתי שוויונית בעליל, עם אצולה מקומית מדורגת (שקיבלה תארים מומצאים כמו "Landgrave" ו-"Cacique"), ולצידה חופש דת מרחיק לכת (כולל ליהודים ולעובדי אלילים) כדי למשוך מתיישבים. המודל הפיאודלי נכשל במציאות האמריקאית, אך רוח האליטיזם נותרה.</p>
+                        </div>
                     </div>
                 </div>
             </section>
@@ -128,13 +143,13 @@
                     <div class="p-3 bg-blue-100 dark:bg-gray-800 rounded-2xl text-blue-600 dark:text-gold">
                         <i class="ph ph-scales text-3xl"></i>
                     </div>
-                    <h2 class="text-3xl font-bold">3. אידאולוגיה: אליטיזם קפיטליסטי</h2>
+                    <h2 class="text-3xl font-bold">3. אידאולוגיה: אריסטוקרטיה וחופש מסחרי</h2>
                 </div>
                 <div class="text-lg text-gray-700 dark:text-gray-300 leading-relaxed space-y-4">
-                    <p>האידאולוגיה הדרומית הייתה אריסטוקרטית וקפיטליסטית באופן מובהק. בעוד שבצפון (מסצ'וסטס) שאפו ל"עיר של אלוהים" וברוד איילנד ל"חופש מצפון", בדרום קרוליינה האידאולוגיה הייתה של מעמדות מולדים ועושר חומרי.</p>
+                    <p>האידאולוגיה של קרוליינה הדרומית הייתה שילוב פרדוקסלי של חירות אישית קיצונית לאדונים, ושעבוד מוחלט לאחרים:</p>
                     <ul class="list-disc list-inside space-y-4 ml-4">
-                        <li><strong>אריסטוקרטיה חברתית:</strong> אף על פי ש"החוקה היסודית של קרוליינה" (שנכתבה על ידי ג'ון לוק) נכשלה בצפון, בדרום קרוליינה רוחה השתמרה. נוצר מעמד של אצולת קרקעות (Planter elite) שהתגוררה באחוזות קיץ מפוארות בצ'ארלסטון, חיה חיי מותרות, קראה ספרות אירופאית ושלטה בפוליטיקה ביד רמה.</li>
-                        <li><strong>סובלנות דתית למען מסחר:</strong> כדי למשוך כישרונות, צ'ארלסטון הציעה חופש דת יחסי (למעט לקתולים). עיר הנמל משכה אנגליקנים, הוגנוטים (פרוטסטנטים צרפתים שברחו מצרפת והביאו ידע רב), ואף אחת מהקהילות היהודיות המשגשגות ביותר בצפון אמריקה המוקדמת.</li>
+                        <li><strong>מעמדות בלתי שבירים:</strong> בניגוד לאידאולוגיה של פנסילבניה הדוגלת בשוויון, קרוליינה הדרומית קידשה את הפער המעמדי. בעלי המטעים ראו עצמם כאצולה לכל דבר, ושלטו בפוליטיקה דרך האסיפה המקומית ללא כל התחשבות במעמדות הנמוכים.</li>
+                        <li><strong>סובלנות ככלי כלכלי:</strong> חופש הדת שהוענק במושבה לא נבע מאידאולוגיה הומנית כמו זו של רוג'ר ויליאמס, אלא מהכורח הכלכלי למשוך כוח אדם ומשקיעים, כולל קהילה גדולה של הוגנוטים צרפתים (פרוטסטנטים נרדפים) שהביאו הון וידע.</li>
                     </ul>
                 </div>
             </section>
@@ -145,14 +160,14 @@
                     <div class="p-3 bg-blue-100 dark:bg-gray-800 rounded-2xl text-blue-600 dark:text-gold">
                         <i class="ph ph-map-pin text-3xl"></i>
                     </div>
-                    <h2 class="text-3xl font-bold">4. גיאוגרפיה והידרולוגיה: נמל הים והביצות</h2>
+                    <h2 class="text-3xl font-bold">4. גיאוגרפיה: ביצות הגאות וצ'ארלסטאון</h2>
                 </div>
                 
                 <div class="text-lg text-gray-700 dark:text-gray-300 leading-relaxed space-y-4">
-                    <p>שני גורמים גיאוגרפיים הפכו את דרום קרוליינה לאימפריה כלכלית:</p>
+                    <p>הגיאוגרפיה של דרום קרוליינה עיצבה את הכלכלה, הבריאות והחברה שלה:</p>
                     <ul class="list-disc list-inside space-y-4 ml-4">
-                        <li><strong>נמל צ'ארלסטון ומפגש הנהרות:</strong> העיר צ'ארלסטון נבנתה על חצי אי במפגש של שני נהרות רחבים שנשפכים לאוקיינוס – נהר האשלי (Ashley) ונהר הקופר (Cooper) – שנקראו שניהם על שם הלורד המייסד, אנתוני אשלי קופר. בניגוד לצפון קרוליינה החסומה, נמל זה היה מוגן, עמוק, ויכול היה לקלוט את ספינות הסוחר הגדולות ביותר של האימפריה הבריטית. זה הפך אותה למרכז הסחר של כל דרום היבשת.</li>
-                        <li><strong>אזור השפלה והביצות (The Lowcountry):</strong> מישור החוף של דרום קרוליינה הוא שטוח, עשיר במים ונתון להצפות של גאות ושפל (Tidal zone). הגיאוגרפיה הזו התגלתה (החל משנות ה-90 של המאה ال-17) כמושלמת לדבר אחד: <strong>גידול אורז</strong>. האורז דורש שדות מוצפים במים, והידרולוגיית הגאות שימשה לשאיבה וניקוז של מי הנהרות אל תוך שדות האורז.</li>
+                        <li><strong>צ'ארלסטאון (Charleston):</strong> העיר הוקמה במפגש הנהרות אשלי וקופר (על שם המייסד). הנמל העמוק והמצוין שלה הפך אותה לעיר הגדולה והעשירה ביותר בדרום, ומרכז הסחר המרכזי של כל המושבות הדרומיות.</li>
+                        <li><strong>אזור ה-Tidewater (מי הגאות):</strong> רצועת החוף של המושבה הייתה שטוחה וביצתית, ונשלטה על ידי זרמי גאות מהאוקיינוס. אזור זה היה מסוכן ביותר לבריאות האירופאים (שפעת, מלריה וקדחת צהובה הותירו שיעורי תמותה גבוהים), אך התגלה כמושלם מבחינה הידרולוגית לדבר אחד - הצפת שדות אורז. בעלי המטעים العשירים נטו לעזוב את המטעים בקיץ ולגור באחוזותיהם המפוארות בצ'ארלסטאון המאווררת.</li>
                     </ul>
                 </div>
             </section>
@@ -163,138 +178,154 @@
                     <div class="p-3 bg-green-100 dark:bg-gray-800 rounded-2xl text-green-700 dark:text-emerald-400">
                         <i class="ph ph-coins text-3xl"></i>
                     </div>
-                    <h2 class="text-3xl font-bold">5. כלכלה: מ"סחר אינדיאנים" ל"זהב קרוליינה"</h2>
+                    <h2 class="text-3xl font-bold">5. כלכלה: "זהב קרוליינה" ואינדיגו</h2>
                 </div>
-                <div class="text-lg text-gray-700 dark:text-gray-300 leading-relaxed space-y-4">
-                    <p>
-                        כלכלת המושבה עברה טרנספורמציה אכזרית ומכניסה:
-                    </p>
-                    <ul class="list-disc list-inside space-y-3 ml-4">
-                        <li><strong>סחר העבדים האינדיאנים (Indian Slave Trade):</strong> בעשורים הראשונים, הכלכלה נשענה על עורות צבאים, אך בעיקר על סחר אכזרי בבני אדם. סוחרי צ'ארלסטון חימשו שבטים אינדיאנים בנשק חם ועודדו אותם לפשוט על שבטים יריבים (או על המיסיונים הספרדים בפלורידה). רבבות ילידים שבויים הובאו לצ'ארלסטון ונמכרו כעבדים למטעי הסוכר בקריביים.</li>
-                        <li><strong>"זהב קרוליינה" (Carolina Gold Rice):</strong> תפנית הזהב התרחשה כשגילו שהביצות מתאימות לאורז. למתיישבים הלבנים לא היה מושג איך לגדל אורז. הידע הטכנולוגי והחקלאי (בניית סכרים, תעלות, ודיש אורז) הגיע ישירות מאפריקה המערבית, יחד עם העבדים שיובאו משם במיוחד בשל מומחיותם באורז. אורז זה (שגרגריו צהבהבים) הפך ליצוא היוקרתי והרווחי ביותר באמריקה.</li>
-                    </ul>
+                
+                <div class="flex flex-col md:flex-row-reverse gap-8 items-start">
+                    <!-- תמונה 3 -->
+                    <div class="md:w-1/3 shrink-0 w-full group cursor-pointer relative rounded-2xl overflow-hidden shadow-md border border-gray-200 dark:border-gray-700" 
+                         onclick="openImageModal(this)" 
+                         data-image="../images/carolina_rice_plantation.jpg" 
+                         data-caption="מטעי האורז ('זהב קרוליינה') שדרשו מערכות השקיה מורכבות וכוח אדם עצום של עבדים.">
+                        <img src="../images/carolina_rice_plantation.jpg" alt="מטע אורז בקרוליינה הדרומית" class="w-full object-cover group-hover:scale-105 transition-transform duration-500">
+                        <div class="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
+                            <i class="ph ph-magnifying-glass-plus text-4xl text-white"></i>
+                        </div>
+                        <div class="absolute bottom-0 left-0 right-0 bg-black/70 p-2 text-xs text-white text-center">שדות האורז (זהב קרוליינה)</div>
+                    </div>
+                    
+                    <div class="md:w-2/3 text-lg text-gray-700 dark:text-gray-300 leading-relaxed space-y-4">
+                        <p>הכלכלה של דרום קרוליינה הייתה הרווחית ביותר מבין 13 המושבות, בזכות שני גידולי ענק:</p>
+                        <ul class="list-disc list-inside space-y-3 ml-4">
+                            <li><strong>אורז ("Carolina Gold"):</strong> האנגלים לא ידעו לגדל אורז. הידע הטכנולוגי והחקלאי להקמת מערכות הסכרים בביצות הגיע <strong>ישירות מהעבדים שיובאו ממערב אפריקה</strong>, שם היו מסורות גידול אורז מתקדמות. האורז הפך לייצוא המוביל והפך את בעלי המטעים למולטי-מיליונרים במונחי התקופה.</li>
+                            <li><strong>אינדיגו (Indigo):</strong> בשנות ה-40 של המאה ה-18, צעירה בשם <strong>אליזה לוקאס</strong> (Eliza Lucas) פיתחה טכניקה לגידול צמח האינדיגו (המפיק צבע כחול עמוק לתעשיית הטקסטיל). האינדיגו היה גידול קיץ שמשלים את עונת האורז, והפך לגידול היצוא השני בחשיבותו.</li>
+                        </ul>
+                    </div>
                 </div>
             </section>
 
-            <!-- 6. הדמוגרפיה והחברה (הרוב השחור) -->
+            <!-- 6. הדמוגרפיה והחברה -->
             <section class="content-section bg-white dark:bg-darkCard p-8 rounded-3xl shadow-sm border border-gray-100 dark:border-gray-800 border-r-4 border-r-green-500 dark:border-r-emerald-400">
                 <div class="flex items-center gap-3 mb-6">
                     <div class="p-3 bg-green-100 dark:bg-gray-800 rounded-2xl text-green-700 dark:text-emerald-400">
                         <i class="ph ph-users-three text-3xl"></i>
                     </div>
-                    <h2 class="text-3xl font-bold">6. דמוגרפיה: הרוב השחור ותרבות הגולה</h2>
+                    <h2 class="text-3xl font-bold">6. דמוגרפיה: הרוב השחור וקשר ברבדוס</h2>
                 </div>
                 <div class="text-lg text-gray-700 dark:text-gray-300 leading-relaxed space-y-4">
-                    <p>
-                        קרוליינה הדרומית הייתה ייחודית מבחינה דמוגרפית בקרב כל 13 המושבות:
-                    </p>
+                    <p>הדמוגרפיה של קרוליינה הדרומית הייתה ייחודית ומבוססת על יבוא מודל חברתי אכזרי מן האיים הקריביים:</p>
                     <ul class="list-disc list-inside space-y-3 ml-4">
-                        <li><strong>רוב שחור (Black Majority):</strong> בשל הצורך בכוח עבודה עצום ובמומחיות לעיבוד שדות האורז הקטלניים בביצות, יובאו כמויות עצומות של עבדים מאפריקה (בעיקר מחוף השנהב, סנגל ואנגולה). עד שנת 1708, העבדים השחורים הפכו לרוב באוכלוסיית המושבה (כ-60% ולפעמים יותר באזורי המטעים), רוב שהשתמר עד למאה ה-20. מצב זה יצר חרדה עצומה בקרב האליטה הלבנה מפני מרידות, מה שהוליד חוקי עבדות אכזריים ומשטרות פטרול.</li>
-                        <li><strong>תרבות ה"גולה" (Gullah Geechee):</strong> המלטריה בביצות האורז הבריחה את בעלי המטעים הלבנים לעיר צ'ארלסטון בחודשי הקיץ, והותירה את העבדים תחת פיקוח מינימלי בחוות. בידוד גיאוגרפי זה באיי הים ובביצות איפשר לעבדים לשמר את מורשתם. נוצרה תרבות אפריקאית-אמריקאית ייחודית בשם "גולה", הכוללת שפת קריאול (שילוב של אנגלית ושפות אפריקאיות), מנהגים, אריגת סלים מתוקים ומוזיקה ששורדים באזור עד היום.</li>
+                        <li><strong>החיבור לברבדוס (Barbados Connection):</strong> מחצית מהמתיישבים הלבנים הראשונים לא הגיעו מאנגליה, אלא מהאי ברבדוס שבקריביים. האי היה צפוף מדי, ובני בעלי המטעים הגיעו לקרוליינה לחפש אדמות חדשות. הם הביאו איתם מודל מוכן ומאובזר של עבדות קשוחה, כולל חוקי עבדים מחמירים (Slave Codes) ששללו כל זכות אנושית.</li>
+                        <li><strong>הרוב השחור:</strong> גידול האורז דרש כוח אדם עצום העמיד למחלות הביצה. קרוליינה הדרומית ייבאה כמות חסרת תקדים של עבדים. משנת 1710 לערך, היא הייתה המושבה היחידה שבה <strong>האוכלוסייה האפריקאית-אמריקאית הייתה גדולה יותר מהאוכלוסייה הלבנה הלבנה</strong>.</li>
+                        <li><strong>תרבות הגולה (Gullah):</strong> בשל בידוד המטעים והריכוז הגבוה של עבדים ממערב אפריקה, התפתחה לאורך החוף תרבות ושפה ייחודית הנקראת "גולה" - שילוב של אנגלית ומספר שפות אפריקאיות, אשר שרדה עד ימינו.</li>
                     </ul>
                 </div>
             </section>
 
-            <!-- 7. מלחמות הילידים -->
-            <section class="content-section bg-white dark:bg-darkCard p-8 rounded-3xl shadow-sm border border-gray-100 dark:border-gray-800 border-r-4 border-r-orange-500 dark:border-r-orange-400">
-                <div class="flex items-center gap-3 mb-6">
-                    <div class="p-3 bg-orange-100 dark:bg-gray-800 rounded-2xl text-orange-600 dark:text-orange-400">
-                        <i class="ph ph-fire text-3xl"></i>
-                    </div>
-                    <h2 class="text-3xl font-bold">7. יחסי ילידים: מלחמת היאמאסי</h2>
-                </div>
-                <div class="text-lg text-gray-700 dark:text-gray-300 leading-relaxed space-y-4">
-                    <p>
-                        מדיניות סחר העבדים האינדיאנים של קרוליינה הדרומית התפוצצה להם בפנים באחד הסכסוכים העקובים מדם בהיסטוריה הקולוניאלית:
-                    </p>
-                    <ul class="list-disc list-inside space-y-3 ml-4">
-                        <li><strong>מלחמת היאמאסי (Yamasee War) 1715–1717:</strong> שבט היאמאסי, שהיו בני בריתם ושותפיהם של האנגלים לסחר בעבדים, מצאו עצמם שקועים בחובות עתק לסוחרים מקרוליינה הדרומית. כשהסוחרים הבריטים החלו לשעבד את בני היאמאסי עצמם כדי לכסות את החובות, קמה קואליציה של שבטים אדירה (כולל הקריק והצ'ירוקי) במטרה להשמיד את המושבה הלבנה לחלוטין.</li>
-                        <li><strong>על סף השמדה:</strong> הילידים החריבו חוות, הרגו מאות מתיישבים (כ-7% מהאוכלוסייה הלבנה), והדפו את הניצולים אל תוך ביצוריה של העיר צ'ארלסטון. המושבה ניצלה רק בנס, כאשר מושל קרוליינה הצליח לשחד את שבט הצ'ירוקי החזק לעבור צד ולתקוף את היאמאסי בתמורה להורדת חובות ומתנות. שבט היאמאסי הושמד ברובו, והניצולים נמלטו לפלורידה הספרדית.</li>
-                    </ul>
-                </div>
-            </section>
-
-            <!-- 8. מאבקי השליטה (השתלטות) -->
+            <!-- 7. מאבקי השליטה (נשמר מהפרויקט הקודם) -->
             <section class="content-section bg-white dark:bg-darkCard p-8 rounded-3xl shadow-sm border border-gray-100 dark:border-gray-800 border-r-4 border-r-red-500 dark:border-r-red-400">
                 <div class="flex items-center gap-3 mb-6">
                     <div class="p-3 bg-red-100 dark:bg-gray-800 rounded-2xl text-red-600 dark:text-red-400">
-                        <i class="ph ph-crown text-3xl"></i>
+                        <i class="ph ph-swords text-3xl"></i>
                     </div>
-                    <h2 class="text-3xl font-bold">8. מאבקי השליטה: המרד באצילים (1719)</h2>
+                    <h2 class="text-3xl font-bold">7. מאבקי השליטה: הפיכה פנימית והדחת הלורדים</h2>
                 </div>
                 <div class="text-lg text-gray-700 dark:text-gray-300 leading-relaxed space-y-6">
-                    <p>בניגוד לצפון קרוליינה שהייתה חלשה וחיכתה להתערבות הכתר, בדרום קרוליינה המתיישבים המבוססים לקחו את העניינים לידיים:</p>
+                    <p>בניגוד למושבות אחרות שהמלך השתלט עליהן בכפייה, בקרוליינה הדרומית האזרחים <strong>התחננו</strong> שהמלך ייקח את השליטה מידי המייסדים:</p>
                     
                     <div class="bg-gray-50 dark:bg-gray-800/30 p-6 rounded-2xl border border-gray-200 dark:border-gray-700">
                         <h3 class="text-2xl font-bold text-red-800 dark:text-red-400 mb-3 flex items-center gap-2">
-                            <i class="ph ph-flag-banner"></i> הפיכת דרום קרוליינה למושבת כתר
+                            <i class="ph ph-crown"></i> מרד האזרחים והפיכה למושבת כתר
                         </h3>
                         <ul class="list-none space-y-3 text-lg">
-                            <li><strong>מועד ופיצול:</strong> בשנת <strong>1719</strong> התרחשה הפיכה אזרחית (הפיצול דה-פקטו מהצפון התחיל כבר ב-1712). הפיכתה למושבת כתר רשמית הוכרה ב-1729 לאחר משא ומתן משפטי עם הלורדים.</li>
-                            <li><strong>אישים בולטים:</strong> ארתור מידלטון והאליטה של מטעי צ'ארלסטון שהובילו את העצומה. רוברט ג'ונסון, שנבחר על ידי המורדים למושל זמני. המלך ג'ורג' הראשון (King George I) שקיבל לידיו את המושבה.</li>
-                            <li><strong>סיבת ההשתלטות:</strong> 
-                                האצילים-הבעלים (Lords Proprietors) בלונדון סירבו לשלוח צבא או מימון כדי לעזור למושבה בשעתה הקשה ביותר – במהלך מלחמת היאמאסי (1715) ואל מול המצור שהטיל הפיראט <strong>שחור-הזקן</strong> על נמל צ'ארלסטון (1718). בעלי המטעים העשירים הרגישו שהם מממנים את האצילים במיסים אך מופקרים למות. ב-1719, באסיפה פוליטית, הם מרדו בסמכות הלורדים, הדיחו את מושל הבעלים, ושלחו נציגים ללונדון שהתחננו בפני המלך ג'ורג' לקחת אותם תחת חסותו כמושבת כתר, שתזכה להגנת הצי המלכותי הבריטי. הכתר הסכים בשמחה לקבל לידיו את המושבה העשירה ביותר בצפון אמריקה.
+                            <li><strong>מועדי המאבק:</strong> 1715 (מלחמת יאמאסי), 1719 (המרד האזרחי), ו-1729 (רכישה רשמית).</li>
+                            <li><strong>אישים בולטים:</strong> המלך <strong>ג'ורג' הראשון</strong>, והלורדים הבעלים של המושבה.</li>
+                            <li><strong>סיבת המאבק וההפיכה:</strong> 
+                                בתחילת המאה ה-18, המושבה העשירה עמדה תחת סכנה קיומית: פלישות של שודדי ים נודעים לשמצה (כמו שחור-הזקן, שצר על צ'ארלסטאון), מתקפות מהספרדים בפלורידה, והנורא מכל - <strong>מלחמת יאמאסי (Yamasee War, 1715)</strong>, שבה קואליציית שבטים אינדיאנים כמעט והשמידה את המושבה לחלוטין.
+                                לאורך כל המשברים האלה, המתיישבים זעקו לעזרה וביקשו כוחות צבא ומימון מה"לורדים הבעלים" בלונדון. הלורדים פשוט התעלמו וסירבו לבזבז את כספם הפרטי. בעלי המטעים העשירים בקרוליינה, שזעמו על נטישתם והפקרה למוות, לקחו את העניינים לידיים. בשנת <strong>1719</strong> הם פתחו במרד אזרחי נטול דם, הדיחו את המושל מטעם הלורדים, והקימו ממשלה משלהם. הם שלחו משלחת למלך ג'ורג' הראשון וביקשו להפוך למושבת כתר מוגנת. המלך הסכים בשמחה. ב-1729, הכתר הבריטי פשוט <strong>קנה את הזכויות</strong> משבעה מתוך שמונת הלורדים, והמושבה הפכה רשמית למושבת כתר מלכותית יציבה ובטוחה.
                             </li>
                         </ul>
                     </div>
                 </div>
             </section>
 
-            <!-- 9. מחקר אטימולוגי מפורט -->
+            <!-- 8. מחקר אטימולוגי מפורט -->
             <section class="content-section bg-white dark:bg-darkCard p-8 rounded-3xl shadow-sm border border-gray-100 dark:border-gray-800">
                 <div class="flex items-center gap-3 mb-6">
                     <div class="p-3 bg-blue-100 dark:bg-gray-800 rounded-2xl text-blue-600 dark:text-gold">
                         <i class="ph ph-text-aa text-3xl"></i>
                     </div>
-                    <h2 class="text-3xl font-bold">9. מחקר אטימולוגי: מ-Carolana ל-South Carolina</h2>
+                    <h2 class="text-3xl font-bold">8. מחקר אטימולוגי: המושבה South Carolina</h2>
                 </div>
                 
-                <div class="overflow-x-auto mt-6">
-                    <table class="w-full text-right border-collapse">
-                        <thead>
-                            <tr class="bg-blue-50 dark:bg-gray-800 text-blue-900 dark:text-gold border-b-2 border-blue-200 dark:border-gray-700">
-                                <th class="p-4 font-bold rounded-tr-xl">מרכיב בשם</th>
-                                <th class="p-4 font-bold">מקור לשוני ותקופה</th>
-                                <th class="p-4 font-bold rounded-tl-xl">משמעות והקשר היסטורי / פוליטי</th>
-                            </tr>
-                        </thead>
-                        <tbody class="text-gray-700 dark:text-gray-300">
-                            <tr class="border-b border-gray-100 dark:border-gray-800 hover:bg-gray-50 dark:hover:bg-gray-800/50 transition-colors">
-                                <td class="p-4 font-mono font-bold text-xl">Carolus</td>
-                                <td class="p-4">לטינית</td>
-                                <td class="p-4">
-                                    התרגום הלטיני הרשמי לשם <strong>צ'ארלס (Charles)</strong>. 
-                                </td>
-                            </tr>
-                            <tr class="border-b border-gray-100 dark:border-gray-800 hover:bg-gray-50 dark:hover:bg-gray-800/50 transition-colors">
-                                <td class="p-4 font-mono font-bold text-xl">-ina</td>
-                                <td class="p-4">סיומת לטינית נקבית</td>
-                                <td class="p-4">
-                                    סיומת המשמשת במשפט הגיאוגרפי של האימפריה לציון "הארץ של-".
-                                </td>
-                            </tr>
-                            <tr class="border-b border-gray-100 dark:border-gray-800 hover:bg-gray-50 dark:hover:bg-gray-800/50 transition-colors">
-                                <td class="p-4 font-mono font-bold text-xl">Carolina</td>
-                                <td class="p-4">הלחם מלכותי (אנגלי/לטיני)</td>
-                                <td class="p-4">
-                                    השם שניתן בזיכיון של 1663 (על ידי צ'ארלס השני) ומשמעותו: <strong>"ארצו של צ'ארלס"</strong>, להנצחת שושלת בית סטיוארט. העיר המרכזית, צ'ארלסטאון (Charles Town), נקראה גם היא ישירות על שמו.
-                                </td>
-                            </tr>
-                            <tr class="bg-blue-50/50 dark:bg-gray-800/30">
-                                <td class="p-4 font-bold text-blue-800 dark:text-blue-300">הפיצול:<br><span class="font-mono text-2xl">South</span></td>
-                                <td class="p-4 text-lg font-semibold text-gray-900 dark:text-white">אנגלית: "דרום" (1712/1719)</td>
-                                <td class="p-4 text-lg font-semibold text-gray-900 dark:text-white">
-                                    <strong>סיבת התוספת:</strong> כאמור, המושבה הענקית פוצלה בפועל בשנת 1712 בגלל הריחוק הגיאוגרפי והכלכלי מהצפון העני. תוספת השם "דרום" קיבלה תוקף שלטוני בלתי הפיך כאשר מתיישבי הדרום מרדו בלורדים ב-1719, התנתקו פוליטית משאר המושבה, והפכו לישות <em>South Carolina</em> תחת שלטון ישיר של מלך אנגליה.
-                                </td>
-                            </tr>
-                        </tbody>
-                    </table>
+                <div class="text-lg text-gray-700 dark:text-gray-300 leading-relaxed mb-4">
+                    השם של המדינה הוא תזכורת חיה לנאמנות פוליטית עמוקה למלוכה האנגלית. להלן הפירוק הלשוני:
+                </div>
+
+                <div class="space-y-6 mt-6">
+                    <!-- חלק 1 -->
+                    <div class="p-6 bg-blue-50/50 dark:bg-gray-800/30 rounded-2xl border-r-4 border-blue-500 dark:border-gold shadow-sm hover:bg-blue-50 dark:hover:bg-gray-800 transition-colors">
+                        <div class="flex flex-col sm:flex-row sm:items-center justify-between mb-3 gap-2">
+                            <h3 class="text-2xl font-mono font-bold text-gray-900 dark:text-white">
+                                Carolus <span class="text-xl font-sans font-normal text-gray-500 dark:text-gray-400">(קרולוס)</span>
+                            </h3>
+                            <span class="inline-block px-3 py-1 bg-blue-100 dark:bg-gray-700 text-blue-800 dark:text-blue-300 text-sm rounded-full font-semibold border border-blue-200 dark:border-gray-600">
+                                מקור: לטינית
+                            </span>
+                        </div>
+                        <p class="text-lg text-gray-700 dark:text-gray-300 leading-relaxed">
+                            המקור של המילה "קרוליינה" מגיע מהשם הלטיני <em>Carolus</em>, שהוא התרגום לשם האנגלי <strong>Charles (צ'ארלס)</strong>.
+                        </p>
+                    </div>
+
+                    <!-- חלק 2 -->
+                    <div class="p-6 bg-blue-50/50 dark:bg-gray-800/30 rounded-2xl border-r-4 border-blue-500 dark:border-gold shadow-sm hover:bg-blue-50 dark:hover:bg-gray-800 transition-colors">
+                        <div class="flex flex-col sm:flex-row sm:items-center justify-between mb-3 gap-2">
+                            <h3 class="text-2xl font-mono font-bold text-gray-900 dark:text-white">
+                                -ina <span class="text-xl font-sans font-normal text-gray-500 dark:text-gray-400">(אינה)</span>
+                            </h3>
+                            <span class="inline-block px-3 py-1 bg-blue-100 dark:bg-gray-700 text-blue-800 dark:text-blue-300 text-sm rounded-full font-semibold border border-blue-200 dark:border-gray-600">
+                                מקור: סיומת לטינית/גיאוגרפית
+                            </span>
+                        </div>
+                        <p class="text-lg text-gray-700 dark:text-gray-300 leading-relaxed">
+                            סיומת קלאסית בגיאוגרפיה המציינת טריטוריה. הפירוש המלא למילה "קרוליינה" הוא <strong>"הארץ של צ'ארלס"</strong>.
+                        </p>
+                    </div>
+
+                    <!-- חלק 3 -->
+                    <div class="p-6 bg-blue-100/50 dark:bg-gray-800/80 rounded-2xl border-r-4 border-blue-700 dark:border-yellow-400 shadow-md">
+                        <div class="flex items-center gap-3 mb-3">
+                            <i class="ph ph-puzzle-piece text-3xl text-blue-700 dark:text-yellow-400"></i>
+                            <h3 class="text-2xl font-mono font-black text-blue-900 dark:text-white">
+                                South Carolina <span class="text-xl font-sans font-normal text-gray-600 dark:text-gray-300">(קרוליינה הדרומית)</span>
+                            </h3>
+                        </div>
+                        <p class="text-lg text-gray-800 dark:text-gray-200 leading-relaxed font-medium">
+                            הלורדים המייסדים העניקו למושבה הענקית את השם ב-1663 כדי להפגין נאמנות מוחלטת ל<strong>מלך צ'ארלס השני</strong> (שהעניק להם את הזיכיון). המלך עצמו שרד תקופה קשה של גלות במהלך מלחמת האזרחים האנגלית, והלורדים היו חבריו הקרובים שעזרו לו לחזור לכס המלוכה.<br><br>
+                            התוספת <strong>"הדרומית" (South)</strong> התקבעה באופן רשמי ב-1712 כאשר ניהול הטריטוריה העצומה הפך קשה מדי, והלורדים החליטו לפצל אותה מבחינה אדמיניסטרטיבית לשני מחוזות שונים: החצי הצפוני, שאופיין בחקלאים עניים ועצמאיים (North Carolina), והחצי הדרומי העשיר, האריסטוקרטי ומבוסס המטעים, שהתרכז סביב נמל צ'ארלסטאון (שקרוי גם הוא, כמובן, על שם אותו מלך).
+                        </p>
+                    </div>
                 </div>
             </section>
 
         </article>
 
     </main>
+
+    <!-- חלון צף (Modal) להגדלת תמונות -->
+    <div id="imageModal" class="fixed inset-0 z-[100] hidden bg-black/90 backdrop-blur-md flex items-center justify-center p-4 touch-manipulation opacity-0 transition-opacity duration-300" onclick="closeImageModal()">
+        <button class="absolute top-4 right-4 text-white/70 hover:text-white p-3 bg-black/50 hover:bg-black/80 rounded-full transition-colors duration-200 z-10" onclick="closeImageModal()">
+            <i class="ph ph-x text-2xl"></i>
+        </button>
+        
+        <div class="relative max-w-5xl w-full h-full flex flex-col items-center justify-center">
+            <img id="modalImage" src="" alt="תמונה מוגדלת" class="max-w-full max-h-[80vh] object-contain rounded-xl shadow-2xl scale-95 transition-transform duration-300" onclick="event.stopPropagation()">
+            <div class="mt-6 p-4 bg-darkCard/80 backdrop-blur-sm rounded-xl border border-gray-700 text-white text-center shadow-lg max-w-3xl" onclick="event.stopPropagation()">
+                <p id="modalCaption" class="text-lg leading-relaxed"></p>
+            </div>
+        </div>
+    </div>
 
     <!-- כותרת תחתונה (Footer) -->
     <footer class="bg-white dark:bg-darkBg border-t border-gray-200 dark:border-gray-800 py-8 mt-12">
@@ -304,7 +335,7 @@
         </div>
     </footer>
 
-    <!-- JavaScript Base Logic -->
+    <!-- JavaScript Base Logic (מנגנון Data Attributes בטוח) -->
     <script>
         function toggleDarkMode() {
             const htmlClasses = document.documentElement.classList;
@@ -322,6 +353,53 @@
         } else {
             document.documentElement.classList.remove('dark');
         }
+
+        // פונקציות חלון צף
+        function openImageModal(element) {
+            const src = element.getAttribute('data-image');
+            const caption = element.getAttribute('data-caption');
+            
+            const modal = document.getElementById('imageModal');
+            const modalImg = document.getElementById('modalImage');
+            const modalCap = document.getElementById('modalCaption');
+            
+            modalImg.src = src;
+            modalCap.textContent = caption;
+            
+            modal.classList.remove('hidden');
+            document.body.classList.add('modal-open');
+            
+            setTimeout(() => {
+                modal.classList.remove('opacity-0');
+                modalImg.classList.remove('scale-95');
+                modalImg.classList.add('scale-100');
+            }, 10);
+        }
+
+        function closeImageModal() {
+            const modal = document.getElementById('imageModal');
+            const modalImg = document.getElementById('modalImage');
+            
+            modal.classList.add('opacity-0');
+            modalImg.classList.remove('scale-100');
+            modalImg.classList.add('scale-95');
+            
+            setTimeout(() => {
+                modal.classList.add('hidden');
+                document.body.classList.remove('modal-open');
+            }, 300);
+        }
+        
+        document.addEventListener('keydown', function(event) {
+            if (event.key === "Escape") {
+                const modal = document.getElementById('imageModal');
+                if (!modal.classList.contains('hidden')) {
+                    closeImageModal();
+                }
+            }
+        });
     </script>
 </body>
 </html>
+
+
