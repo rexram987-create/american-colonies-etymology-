@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>וירג'יניה (1607) | המושבות האמריקאיות</title>
+    <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
         tailwind.config = {
@@ -22,22 +23,28 @@
             }
         }
     </script>
+    <!-- Phosphor Icons -->
     <script src="https://unpkg.com/@phosphor-icons/web"></script>
     <style>
         body { transition: background-color 0.3s ease, color 0.3s ease; }
         .content-section { scroll-margin-top: 100px; }
+        /* מניעת גלילה כשהחלון הצף פתוח */
+        .modal-open { overflow: hidden; }
     </style>
 </head>
 <body class="bg-gray-50 text-gray-900 dark:bg-darkBg dark:text-gray-100 font-sans antialiased selection:bg-blue-200 dark:selection:bg-blue-900">
 
+    <!-- ניווט עליון (Header) -->
     <header class="relative z-40 w-full bg-white dark:bg-darkBg border-b border-gray-200 dark:border-gray-800 shadow-sm">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex items-center justify-between h-20">
-                <a href="index.html" class="flex items-center gap-2 text-blue-600 dark:text-gold hover:text-blue-800 dark:hover:text-yellow-400 transition-colors touch-manipulation font-semibold bg-blue-50 dark:bg-gray-800 px-4 py-2 rounded-full">
+                <!-- כפתור חזרה -->
+                <a href="../index.html" class="flex items-center gap-2 text-blue-600 dark:text-gold hover:text-blue-800 dark:hover:text-yellow-400 transition-colors touch-manipulation font-semibold bg-blue-50 dark:bg-gray-800 px-4 py-2 rounded-full">
                     <i class="ph ph-arrow-right text-xl"></i>
                     <span>חזרה לדף הבית</span>
                 </a>
                 
+                <!-- תפריט כפתורים -->
                 <div class="flex items-center gap-4">
                     <button onclick="toggleDarkMode()" class="p-3 rounded-full bg-gray-200 dark:bg-gray-800 hover:bg-gray-300 dark:hover:bg-gray-700 transition-colors touch-manipulation" aria-label="החלף מצב תצוגה">
                         <i class="ph ph-moon text-xl block dark:hidden"></i>
@@ -50,6 +57,7 @@
 
     <main class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
         
+        <!-- כותרת ראשית (Hero) -->
         <div class="mb-12 text-center md:text-right">
             <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-green-100 dark:bg-green-900/40 text-green-800 dark:text-green-300 text-sm font-semibold tracking-wide mb-4">
                 <i class="ph ph-calendar-blank"></i>
@@ -59,19 +67,28 @@
                 מושבת וירג'יניה
             </h1>
             <p class="text-xl text-gray-600 dark:text-gray-300 leading-relaxed">
-                ההתיישבות האנגלית הקבועה הראשונה בעולם החדש. סיפור אפי ורווי דם של הישרדות כנגד כל הסיכויים, אינטרסים כלכליים של אימפריה, מאבק בלתי פוסק באיתני הטבע ובמקומיים, והולדת הדמוקרטיה והעבדות באמריקה באותה שנה ממש.
+                הראשונה מכולן. סיפור של חמדנות תאגידית, הישרדות נואשת, ואכזריות אנושית, שמתוך הביצות והרעב של ג'יימסטאון הצמיח את הכלכלה החזקה ביותר ואת המוסדות הדמוקרטיים הראשונים באמריקה.
             </p>
         </div>
 
-        <div class="w-full h-64 md:h-96 rounded-3xl overflow-hidden mb-16 shadow-2xl relative border border-gray-200 dark:border-gray-800">
-            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/c2/Jamestown_settlement_panorama.jpg/1200px-Jamestown_settlement_panorama.jpg" alt="" class="w-full h-full object-cover">
-            <div class="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/80 to-transparent p-4 text-white text-sm md:text-base text-center">
-                שחזור של מבצר ג'יימסטאון, ההתיישבות הראשונה בוירג'יניה (1607). המבצר נבנה בצורת משולש להגנה יעילה.
+        <!-- תמונה ראשית 1 -->
+        <div class="w-full h-64 md:h-96 rounded-3xl overflow-hidden mb-16 shadow-2xl relative border border-gray-200 dark:border-gray-800 group cursor-pointer" 
+             onclick="openImageModal(this)" 
+             data-image="../images/virginia_hero.jpg" 
+             data-caption="שלוש ספינות הצי האנגלי עוגנות בחופי ג'יימסטאון הבוציים בשנת 1607. תחילת ההתיישבות האנגלית הקבועה באמריקה.">
+            <img src="../images/virginia_hero.jpg" alt="הגעת הספינות לג'יימסטאון" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700">
+            <div class="absolute inset-0 bg-black/20 group-hover:bg-transparent transition-colors duration-500"></div>
+            <div class="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/90 via-black/60 to-transparent p-6 text-white text-sm md:text-base text-center">
+                הגעת הספינות האנגליות אל חופי ג'יימסטאון, 1607.
+                <div class="mt-2 text-xs text-gray-300 flex items-center justify-center gap-1 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                    <i class="ph ph-magnifying-glass-plus text-lg"></i> לחץ להגדלה
+                </div>
             </div>
         </div>
 
         <article class="space-y-16">
             
+            <!-- 1. שנות פעילות ויעדים -->
             <section class="content-section bg-white dark:bg-darkCard p-8 rounded-3xl shadow-sm border border-gray-100 dark:border-gray-800">
                 <div class="flex items-center gap-3 mb-6">
                     <div class="p-3 bg-blue-100 dark:bg-gray-800 rounded-2xl text-blue-600 dark:text-gold">
@@ -80,215 +97,271 @@
                     <h2 class="text-3xl font-bold">1. שנות פעילות, הקמה ויעדים</h2>
                 </div>
                 <div class="text-lg text-gray-700 dark:text-gray-300 leading-relaxed space-y-4">
-                    <p><strong>שנת הקמה:</strong> מאי 1607.</p>
-                    <p><strong>ישות מקימה:</strong> "חברת וירג'יניה של לונדון" (Virginia Company of London) - חברת מניות משותפת שקיבלה צ'ארטר (זיכיון קולוניאלי) ישירות מהמלך ג'יימס הראשון באפריל 1606. בשנת 1624, לאחר סדרת אסונות כלכליים וצבאיים, ביטל המלך את הזיכיון והפך את וירג'יניה ל<strong>מושבת כתר (Royal Colony)</strong> בשליטה ישירה של המונרכיה.</p>
-                    <p><strong>היעדים המקוריים, כישלון הזהב וזמן ההרעבה:</strong> 
-                        המתיישבים הראשונים נשלחו עם יעדים ברורים: למצוא זהב כפי שמצאו הספרדים, ולגלות נתיב מים לאסיה. החיפוש האובססיבי אחר זהב הוביל להזנחת החקלאות. כאשר סמית' עזב ב-1609, שקעה המושבה ל<strong>"זמן ההרעבה" (The Starving Time)</strong> של חורף 1609-1610. המתיישבים הכלואים במבצר נאלצו לאכול את סוסיהם, כלביהם, ואף התגלו עדויות ארכיאולוגיות מודרניות לקניבליזם של ממש בניסיון נואש לשרוד. 
+                    <p><strong>שנת הקמה:</strong> מאי 1607 (הקמת מצודת ג'יימסטאון).</p>
+                    <p><strong>ישות מקימה:</strong> "חברת וירג'יניה של לונדון" (Virginia Company of London). זו הייתה <strong>חברת מניות משותפת</strong> מוקדמת, שהוקמה על ידי משקיעים בריטיים למטרות רווח, ופעלה תחת זיכיון מלכותי מהמלך ג'יימס הראשון.</p>
+                    <p><strong>היעדים המקוריים:</strong> 
+                        המטרה הייתה מסחרית טהורה, ללא שום היבט דתי או אוטופי. המשקיעים בלונדון קיוו לשחזר את ההצלחה הספרדית בדרום אמריקה. מטרותיהם היו:
+                        <br>1. למצוא מרבצי זהב וכסף (שלא היו קיימים שם).
+                        <br>2. לגלות מעבר ימי מהיר לאסיה (המעבר הצפון-מערבי).
+                        <br>3. להקים נקודת סחר ולהפיק רווח מהיר מניצול משאבי הטבע המקומיים.
                     </p>
                 </div>
             </section>
 
+            <!-- 2. דמויות מפתח -->
             <section class="content-section bg-white dark:bg-darkCard p-8 rounded-3xl shadow-sm border border-gray-100 dark:border-gray-800 border-r-4 border-r-blue-500 dark:border-r-gold">
                 <div class="flex items-center gap-3 mb-6">
                     <div class="p-3 bg-blue-100 dark:bg-gray-800 rounded-2xl text-blue-600 dark:text-gold">
-                        <i class="ph ph-crown text-3xl"></i>
+                        <i class="ph ph-users text-3xl"></i>
                     </div>
-                    <h2 class="text-3xl font-bold">2. מבשר ההתיישבות: סר וולטר ראלי</h2>
-                </div>
-                <div class="text-lg text-gray-700 dark:text-gray-300 leading-relaxed space-y-4">
-                    <p><strong>סר וולטר ראלי (Sir Walter Raleigh)</strong> - (1552–1618). איש אשכולות, מגלה ארצות, סופר ולוחם. ראלי מעולם לא ביקר אישית בצפון אמריקה, אך הוא האיש שחלם, מימן והגה את רעיון "וירג'יניה".</p>
-                    <p><strong>ילדות ורקע:</strong> נולד למשפחת אצולה כפרית, פרוטסטנטית באדיקות, במחוז דבון שבאנגליה. בילדותו חווה משפחתו רדיפות קשות מצד המלכה מרי הקתולית, אירועים שצרבו בו שנאה יוקדת לספרד.</p>
-                    <p><strong>אידאולוגיה והישגים:</strong> ראלי הפך לאחד מחביביה של המלכה אליזבת הראשונה. ב-1584, קיבל מהמלכה זיכיון לחקור את אמריקה, והוא זה שהעניק לכל החוף המזרחי את השם "וירג'יניה". ראלי מימן את הקמת מושבת רואנוק ב-1587 ("המושבה האבודה"), וכישלונו סלל את הדרך להבנה שנדרשת חברת מניות ממוסדת ולא מימון פרטי.</p>
-                    <p><strong>סופו הטראגי:</strong> לאחר מותה של אליזבת, המלך ג'יימס הראשון (ששאף לשלום עם ספרד) כלא את ראלי במצודת לונדון במשך 13 שנים. ב-1618 הוצא ראלי להורג בעריפת ראש בצו המלך, בניסיון לפייס את שגריר ספרד.</p>
-                </div>
-            </section>
-
-            <section class="content-section bg-white dark:bg-darkCard p-8 rounded-3xl shadow-sm border border-gray-100 dark:border-gray-800 border-r-4 border-r-blue-500 dark:border-r-gold">
-                <div class="flex items-center gap-3 mb-6">
-                    <div class="p-3 bg-blue-100 dark:bg-gray-800 rounded-2xl text-blue-600 dark:text-gold">
-                        <i class="ph ph-sword text-3xl"></i>
-                    </div>
-                    <h2 class="text-3xl font-bold">3. דמויות מפתח: קפטן ג'ון סמית'</h2>
-                </div>
-                <div class="text-lg text-gray-700 dark:text-gray-300 leading-relaxed space-y-4">
-                    <p><strong>קפטן ג'ון סמית' (1580–1631)</strong>. האיש שהציל את ג'יימסטאון מכיליון בשנותיה הראשונות.</p>
-                    <p><strong>ילדות ותחילת הדרך:</strong> סמית' נולד בכפר אלפורד שבאנגליה. אביו היה חוואי אריס. בגיל 16 יצא לים. הרקע "הנחות" שלו גרם לחיכוך מתמיד מצד האצילים במשלחת לג'יימסטאון.</p>
-                    <p><strong>הישגים צבאיים לפני אמריקה:</strong> לחם בהולנד נגד הספרדים, ולאחר מכן שימש כשכיר חרב נגד העות'מאנים בטרנסילבניה. ב-1602 נשבה בקרב, נמכר לעבדות בקרים, רצח את אדונו, ונמלט חזרה לאנגליה.</p>
-                    <p><strong>מנהיגות בג'יימסטאון ומפות היסטוריות:</strong> הנהיג משמעת צבאית: <em>"מי שלא יעבוד, לא יאכל"</em>. בנוסף להצלת המושבה, חקר יסודי של מפרץ צ'ספיק ונהר הג'יימס ב-1608 והפיק מפות מדויקות להפליא. בסתיו 1609 סבל מכוויות קשות מפיצוץ אבק שריפה ואילץ להפליג מיד לאנגליה. מעולם לא חזר לוירג'יניה.</p>
-                </div>
-            </section>
-
-            <section class="content-section bg-white dark:bg-darkCard p-8 rounded-3xl shadow-sm border border-gray-100 dark:border-gray-800 border-r-4 border-r-blue-500 dark:border-r-gold">
-                <div class="flex items-center gap-3 mb-6">
-                    <div class="p-3 bg-blue-100 dark:bg-gray-800 rounded-2xl text-blue-600 dark:text-gold">
-                        <i class="ph ph-feather text-3xl"></i>
-                    </div>
-                    <h2 class="text-3xl font-bold">4. דמויות מפתח: פוקהונטס</h2>
-                </div>
-                <div class="text-lg text-gray-700 dark:text-gray-300 leading-relaxed space-y-4 mb-6">
-                    <p><strong>פוקהונטס (Pocahontas)</strong> - חיה בין השנים 1596 (בערך) ל-1617. הדמות הילידית המפורסמת ביותר.</p>
-                    <p><strong>ילדות ורקע:</strong> נולדה כבתו המועדפת של צ'יף פווהאטן. למדה מסורות של לקטות ופוליטיקה, ונחשפה לאנגלים כנערה צעירה סביב גיל 11.</p>
-                    <p><strong>חטיפה, המרה ונישואין:</strong> ב-1613 נחטפה על ידי האנגלים לשמש קלף מיקוח. הוטבלה וקיבלה את השם הבריטי "רבקה". באפריל 1614, נישאה ליזם הטבק ג'ון רולף. נישואין אלו הביאו ל"שלום פוקהונטס".</p>
-                    <p><strong>הסוף הטרגי:</strong> בשנת 1616 הובאה ללונדון כ"יחסי ציבור" למושבה. במרץ 1617, בעת שעמדו להפליג חזרה, חלתה אנושות ומתה באנגליה והיא רק בת 21.</p>
+                    <h2 class="text-3xl font-bold">2. דמויות מפתח: סמית', פוקהונטס ורולף</h2>
                 </div>
                 
-                <h3 class="text-xl font-bold text-gray-900 dark:text-white mb-4 mt-8 flex items-center gap-2">
-                    <i class="ph ph-text-aa text-blue-600 dark:text-gold"></i>
-                    מחקר אטימולוגי של שמותיה
-                </h3>
-                <div class="overflow-x-auto">
-                    <table class="w-full text-right border-collapse">
-                        <thead>
-                            <tr class="bg-blue-50 dark:bg-gray-800 text-blue-900 dark:text-gold border-b-2 border-blue-200 dark:border-gray-700">
-                                <th class="p-4 font-bold rounded-tr-xl">שם / כינוי</th>
-                                <th class="p-4 font-bold">מקור לשוני</th>
-                                <th class="p-4 font-bold rounded-tl-xl">משמעות והסבר</th>
-                            </tr>
-                        </thead>
-                        <tbody class="text-gray-700 dark:text-gray-300">
-                            <tr class="border-b border-gray-100 dark:border-gray-800 hover:bg-gray-50 dark:hover:bg-gray-800/50 transition-colors">
-                                <td class="p-4 font-mono font-bold text-xl">Matoaka<br><span class="text-sm font-normal text-gray-500">(מאטואקה)</span></td>
-                                <td class="p-4">שפת הפווהאטן</td>
-                                <td class="p-4">שמה <strong>האמיתי והסודי</strong>. משמעותו: "פרח בין שני זרמים". מוסתר מהאנגלים כדי להגן עליה רוחנית מפני מאגיה שחורה.</td>
-                            </tr>
-                            <tr class="border-b border-gray-100 dark:border-gray-800 hover:bg-gray-50 dark:hover:bg-gray-800/50 transition-colors">
-                                <td class="p-4 font-mono font-bold text-xl">Pocahontas<br><span class="text-sm font-normal text-gray-500">(פוקהונטס)</span></td>
-                                <td class="p-4">שפת הפווהאטן</td>
-                                <td class="p-4"><strong>כינוי חיבה מילדות</strong>. הפירוש הוא "הילדה השובבה" או "זו שמתנהגת בחוסר משמעת".</td>
-                            </tr>
-                        </tbody>
-                    </table>
+                <!-- ג'ון סמית' -->
+                <div class="flex flex-col md:flex-row gap-8 items-start mb-10">
+                    <div class="md:w-1/3 shrink-0 w-full group cursor-pointer relative rounded-2xl overflow-hidden shadow-md border border-gray-200 dark:border-gray-700" 
+                         onclick="openImageModal(this)" 
+                         data-image="../images/john_smith_portrait.jpg" 
+                         data-caption="קפטן ג'ון סמית' בשריון. האיש שהציל את ג'יימסטאון מגוויעה ברעב באמצעות משמעת צבאית נוקשה.">
+                        <img src="../images/john_smith_portrait.jpg" alt="דיוקן ג'ון סמית'" class="w-full object-cover group-hover:scale-105 transition-transform duration-500">
+                        <div class="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
+                            <i class="ph ph-magnifying-glass-plus text-4xl text-white"></i>
+                        </div>
+                        <div class="absolute bottom-0 left-0 right-0 bg-black/70 p-2 text-xs text-white text-center">קפטן ג'ון סמית'</div>
+                    </div>
+                    
+                    <div class="md:w-2/3 text-lg text-gray-700 dark:text-gray-300 leading-relaxed space-y-4">
+                        <h3 class="text-2xl font-bold text-blue-800 dark:text-blue-300 mb-1">קפטן ג'ון סמית' (1580–1631)</h3>
+                        <p><strong>ילדות ורקע:</strong> נולד באנגליה למשפחת חקלאים. בצעירותו הפך לחייל שכיר חרב נועז, נלחם בצרפת, ולחם במזרח אירופה נגד האימפריה העות'מאנית, שם אף נשבה ונמכר לעבדות לפני שהצליח לברוח חזרה לאנגליה.</p>
+                        <p><strong>הישגים ומנהיגות:</strong> בג'יימסטאון, סמית' מצא קבוצה של "ג'נטלמנים" שמתו ברעב כי סירבו לעבוד אדמה. הוא תפס את ההנהגה והשליט כלל ברזל הישרדותי: <em>"מי שלא יעבוד, לא יאכל"</em>. הוא גם ניהל את המשא ומתן המסוכן מול קונפדרציית פווהאטן האינדיאנית כדי להשיג מזון, ובכך הציל את המושבה ממוות ודאי בשנותיה הראשונות. הוא נפצע מפיצוץ אבק שריפה וחזר לאנגליה ב-1609.</p>
+                    </div>
+                </div>
+
+                <hr class="border-gray-200 dark:border-gray-700 my-6">
+
+                <!-- פוקהונטס -->
+                <div class="flex flex-col md:flex-row-reverse gap-8 items-start mb-10">
+                    <div class="md:w-1/3 shrink-0 w-full group cursor-pointer relative rounded-2xl overflow-hidden shadow-md border border-gray-200 dark:border-gray-700" 
+                         onclick="openImageModal(this)" 
+                         data-image="../images/pocahontas_portrait.jpg" 
+                         data-caption="פוקהונטס, בתו של הצ'יף הגדול, שגילמה תפקיד קריטי בשמירת השלום בין השבטים והאנגלים בג'יימסטאון.">
+                        <img src="../images/pocahontas_portrait.jpg" alt="דיוקן פוקהונטס" class="w-full object-cover group-hover:scale-105 transition-transform duration-500">
+                        <div class="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
+                            <i class="ph ph-magnifying-glass-plus text-4xl text-white"></i>
+                        </div>
+                        <div class="absolute bottom-0 left-0 right-0 bg-black/70 p-2 text-xs text-white text-center">פוקהונטס</div>
+                    </div>
+                    
+                    <div class="md:w-2/3 text-lg text-gray-700 dark:text-gray-300 leading-relaxed space-y-4">
+                        <h3 class="text-2xl font-bold text-blue-800 dark:text-blue-300 mb-1">פוקהונטס (Pocahontas) (סביבות 1596–1617)</h3>
+                        <p><strong>רקע:</strong> שמה האמיתי היה מאטואקה (Matoaka). היא הייתה בתו המועדפת של פווהאטן, הצ'יף העליון של אימפריה אינדיאנית ענקית בווירג'יניה. שמה המוכר, פוקהונטס, היה כינוי שפירושו "השובבה".</p>
+                        <p><strong>הישגים (והאגדה):</strong> על פי סיפורו של ג'ון סמית', היא הצילה אותו מהוצאה להורג על ידי אביה כשהניחה את ראשה על ראשו (היסטוריונים חלוקים אם האירוע קרה באמת או שהיה טקס אימוץ). היא שימשה כגשר תרבותי, הביאה מזון למתיישבים וקידמה שלום. ב-1613 היא נשבתה בידי האנגלים. במהלך השבי המירה את דתה לנצרות, קיבלה את השם <em>רבקה</em>, ונישאה למתיישב ג'ון רולף.</p>
+                    </div>
+                </div>
+
+                <hr class="border-gray-200 dark:border-gray-700 my-6">
+
+                <!-- ג'ון רולף (חדש: שילוב תמונה חמישית) -->
+                <div class="flex flex-col md:flex-row gap-8 items-start">
+                    <div class="md:w-1/3 shrink-0 w-full group cursor-pointer relative rounded-2xl overflow-hidden shadow-md border border-gray-200 dark:border-gray-700" 
+                         onclick="openImageModal(this)" 
+                         data-image="../images/john_rolfe_portrait.jpg" 
+                         data-caption="ג'ון רולף. חלוץ חקלאות הטבק בוירג'יניה, שהציל את המושבה מקריסה כלכלית.">
+                        <img src="../images/john_rolfe_portrait.jpg" alt="דיוקן ג'ון רולף" class="w-full object-cover group-hover:scale-105 transition-transform duration-500">
+                        <div class="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
+                            <i class="ph ph-magnifying-glass-plus text-4xl text-white"></i>
+                        </div>
+                        <div class="absolute bottom-0 left-0 right-0 bg-black/70 p-2 text-xs text-white text-center">ג'ון רולף</div>
+                    </div>
+                    
+                    <div class="md:w-2/3 text-lg text-gray-700 dark:text-gray-300 leading-relaxed space-y-4">
+                        <h3 class="text-2xl font-bold text-blue-800 dark:text-blue-300 mb-1">ג'ון רולף (John Rolfe) (1585–1622)</h3>
+                        <p>המושיע הכלכלי של וירג'יניה. ב-1612, רולף הצליח להכליא טבק אינדיאני מקומי עם זרעי טבק מתוק ויקר שהבריח בחשאי מהקריביים הספרדיים. "הזהב החום" הזה הפך את וירג'יניה לאימפריה כלכלית. נישואיו לפוקהונטס ב-1614 יצרו תקופת רגיעה ארוכה שנקראה "השלום של פוקהונטס". הזוג נסע לאנגליה, שם פוקהונטס התקבלה כנסיכה אך חלתה ומתה בגיל צעיר. רולף חזר לווירג'יניה ונהרג (כנראה) במתקפת האינדיאנים של 1622.</p>
+                    </div>
                 </div>
             </section>
 
+            <!-- 3. אידאולוגיה וסיבת ההקמה -->
             <section class="content-section bg-white dark:bg-darkCard p-8 rounded-3xl shadow-sm border border-gray-100 dark:border-gray-800">
                 <div class="flex items-center gap-3 mb-6">
                     <div class="p-3 bg-blue-100 dark:bg-gray-800 rounded-2xl text-blue-600 dark:text-gold">
                         <i class="ph ph-scales text-3xl"></i>
                     </div>
-                    <h2 class="text-3xl font-bold">5. אידאולוגיה וסיבת ההקמה הכללית</h2>
+                    <h2 class="text-3xl font-bold">3. אידאולוגיה: ניהול תאגידי וראשית הדמוקרטיה</h2>
                 </div>
                 <div class="text-lg text-gray-700 dark:text-gray-300 leading-relaxed space-y-4">
-                    <p>בניגוד למושבות הצפוניות (חופש דת), האידאולוגיה מאחורי וירג'יניה הייתה ברובה הגדול <strong>גיאופוליטית וכלכלית-קפיטליסטית.</strong></p>
-                    <ul class="list-disc list-inside space-y-2 ml-4">
-                        <li><strong>כלכלה אימפריאלית (מרקנטיליזם):</strong> הפקת רווחים, הספקת חומרי גלם (עצים לצי המלכותי) ופתיחת שווקים חדשים.</li>
-                        <li><strong>מאזן כוחות צבאי:</strong> יצירת בסיס קדמי נגד הספרדים הקתולים.</li>
+                    <p>האידאולוגיה הראשונית הייתה קפיטליסטית ותאגידית, אך מתוכה צמחה הדמוקרטיה הייצוגית:</p>
+                    <ul class="list-disc list-inside space-y-4 ml-4">
+                        <li><strong>זכויות אנגליות מלאות:</strong> הזיכיון של המלך קבע כי המתיישבים שומרים על כל הזכויות והחירויות שיש לאזרח בתוך אנגליה. סעיף משפטי זה שימש את האמריקאים מאוחר יותר כדי להצדיק את המהפכה האמריקאית.</li>
+                        <li><strong>בית הבורגסים (House of Burgesses, 1619):</strong> כדי למשוך יותר מהגרים, החברה בלונדון אפשרה למתיישבים להקים אסיפה מחוקקת. זה היה <strong>המוסד הדמוקרטי הייצוגי הראשון בעולם החדש</strong>. בעלי קרקעות יכלו להצביע ולבחור נציגים שיקבעו מיסים ויחוקקו חוקים מקומיים.</li>
                     </ul>
                 </div>
             </section>
 
+            <!-- 4. גיאוגרפיה, הידרולוגיה ובחירת המיקום -->
             <section class="content-section bg-white dark:bg-darkCard p-8 rounded-3xl shadow-sm border border-gray-100 dark:border-gray-800">
                 <div class="flex items-center gap-3 mb-6">
                     <div class="p-3 bg-blue-100 dark:bg-gray-800 rounded-2xl text-blue-600 dark:text-gold">
                         <i class="ph ph-map-pin text-3xl"></i>
                     </div>
-                    <h2 class="text-3xl font-bold">6. גיאוגרפיה: נהר הג'יימס ובחירת המיקום</h2>
+                    <h2 class="text-3xl font-bold">4. גיאוגרפיה ובחירת המיקום: אסון ג'יימסטאון</h2>
                 </div>
                 
-                <div class="mb-10">
-                    <h3 class="text-2xl font-bold text-blue-800 dark:text-blue-300 mb-4 border-b border-gray-200 dark:border-gray-700 pb-2">א. מערכת נהר הג'יימס (The James River)</h3>
-                    <div class="text-lg text-gray-700 dark:text-gray-300 leading-relaxed space-y-4">
-                        <p><strong>מידע הידרולוגי, עומק ואקולוגיה:</strong> הנהר הגדול בוירג'יניה. אזור שפך הנהר, ובמיוחד ליד האי ג'יימסטאון, מתאפיין בבורות עומק טבעיים שהגיעו עד ל-<strong>6 פאתום (כ-11 מטרים) עומק ממש בקו הגדה.</strong> הנהר שפע בדגי חדקן אטלנטי ענקיים שהיוו מקור חלבון קריטי. העומק הנדיר איפשר לגליאונים אנגליים להיצמד ליבשה לפריקה קלה.</p>
-                        
-                        <div class="mt-6 bg-gray-50 dark:bg-gray-800/50 p-6 rounded-2xl border border-gray-100 dark:border-gray-700">
-                            <h4 class="text-xl font-bold mb-4 flex items-center gap-2 text-gray-900 dark:text-white">
-                                <i class="ph ph-text-aa text-blue-600 dark:text-gold"></i> מחקר אטימולוגי של נהר הג'יימס
-                            </h4>
-                            <ul class="space-y-4 text-gray-700 dark:text-gray-300">
-                                <li><strong class="text-blue-800 dark:text-blue-300 font-mono text-lg">Powhatan River (שם מקורי):</strong> "ליד המפלים" או "מעבר המים העצום".</li>
-                                <li><strong class="text-blue-800 dark:text-blue-300 font-mono text-lg">James River (שם אנגלי):</strong> נקרא במאי 1607 לכבודו של המלך ג'יימס הראשון.</li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-
-                <div>
-                    <h3 class="text-2xl font-bold text-blue-800 dark:text-blue-300 mb-4 border-b border-gray-200 dark:border-gray-700 pb-2">ב. מדוע נבחר אי ג'יימסטאון?</h3>
-                    <div class="text-lg text-gray-700 dark:text-gray-300 leading-relaxed space-y-4">
-                        <p><strong>השיקולים הטקטיים:</strong> הסוואה מהארמדה הספרדית, עגינה צמודת חוף (בזכות ה-11 מטר עומק), והגנה יבשתית (מחובר במצר דק המקל על הגנה מהאינדיאנים).</p>
-                        <p><strong>האסון האקולוגי:</strong> היתרונות לא פיצו על הגיאוגרפיה הבוגדנית. האי היה ביצתי, מלא יתושי אנופלס. בקיץ, מי הים המלוחים ממפרץ צ'ספיק עלו בנהר ולכדו את מי הפסולת. מי השתייה המזוהמים הובילו למגפות טיפוס ודיזנטריה קטלניות.</p>
-                    </div>
+                <div class="text-lg text-gray-700 dark:text-gray-300 leading-relaxed space-y-4">
+                    <p>הבחירה בגיאוגרפיה של ג'יימסטאון הייתה מהגרועות בהיסטוריה האנושית, אך נבעה מפחד:</p>
+                    <ul class="list-disc list-inside space-y-4 ml-4">
+                        <li><strong>נהר הג'יימס:</strong> המתיישבים הפליגו במעלה הנהר הרחב כדי להיות מוסתרים מעיניהם של ספינות פטרול ספרדיות שעלולות היו להפגיז אותם.</li>
+                        <li><strong>האי (או חצי-האי) ג'יימסטאון:</strong> הם בחרו להתיישב על חלקת אדמה שהייתה מוקפת מים מ-3 כיוונים כדי שיוכלו להגן עליה בקלות מהאינדיאנים.</li>
+                        <li><strong>האסון ההידרולוגי:</strong> האזור היה ביצת מלח רקובה. המים היו מעורבים במי אוקיינוס מלוחים ("ברקיים"), ובקיץ האזור שרץ ביתושים נושאי מחלות (טיפוס, דיזנטריה ומלריה). כמעט כל מתיישב שהגיע בשנים הראשונות חלה ומת בתוך חודשים.</li>
+                    </ul>
                 </div>
             </section>
 
+            <!-- 5. הסחר והכלכלה -->
             <section class="content-section bg-white dark:bg-darkCard p-8 rounded-3xl shadow-sm border border-gray-100 dark:border-gray-800 border-r-4 border-r-green-500 dark:border-r-emerald-400">
                 <div class="flex items-center gap-3 mb-6">
                     <div class="p-3 bg-green-100 dark:bg-gray-800 rounded-2xl text-green-700 dark:text-emerald-400">
                         <i class="ph ph-coins text-3xl"></i>
                     </div>
-                    <h2 class="text-3xl font-bold">7. כלכלה ומערכת הסחר</h2>
+                    <h2 class="text-3xl font-bold">5. כלכלה: הזהב החום והולדת העבדות</h2>
                 </div>
-                <div class="text-lg text-gray-700 dark:text-gray-300 leading-relaxed space-y-4">
-                    <p>
-                        כלכלת וירג'יניה נולדה מתוך אשליה והפכה למעצמה חקלאית אדירה בזכות צמח אחד:
-                    </p>
-                    <ul class="list-disc list-inside space-y-3 ml-4">
-                        <li><strong>האשליה והכישלון:</strong> חברת וירג'יניה ציפתה למצוא זהב ונחושת שניתן לאסוף בקלות מהקרקע. המתיישבים, שרבים מהם היו אצילים זוטרים, סירבו לעבוד בחקלאות, מה שהוביל לקריסה כלכלית ולחוסר במזון בשנים הראשונות.</li>
-                        <li><strong>מהפכת הטבק:</strong> בשנת 1612, ג'ון רולף השיג זרעים של טבק מתוק מסוג "אורינוקו" מאזור טרינידד. הטבק הילידי המקומי בוירג'יניה היה מריר וקשה לעישון, אך הזן החדש של רולף הפך ללהיט מסחרר באירופה. הטבק הפך ליצוא המרכזי (Cash Crop) והציל את המושבה מפשיטת רגל מוחלטת.</li>
-                        <li><strong>שיטת החלקות (Headright System):</strong> כדי לעודד הגירה וכוח עבודה לגידול הטבק, חברת לונדון הנהיגה מדיניות שבה כל אדם ששילם על מסעו לאמריקה קיבל 50 אקרים של אדמה בחינם. זה עודד יצירת אחוזות ומטעים גדולים (Plantations) שהתפרסו לאורך נהר הג'יימס, במקום בניית עיירות וערים צפופות.</li>
-                    </ul>
+                
+                <div class="flex flex-col md:flex-row-reverse gap-8 items-start">
+                    <!-- תמונה 5 (שדה הטבק) -->
+                    <div class="md:w-1/3 shrink-0 w-full group cursor-pointer relative rounded-2xl overflow-hidden shadow-md border border-gray-200 dark:border-gray-700" 
+                         onclick="openImageModal(this)" 
+                         data-image="../images/virginia_tobacco_field.jpg" 
+                         data-caption="שדות טבק בוירג'יניה. ה'זהב החום' הציל את המושבה מפשיטת רגל, אך יצר את הדרישה העצומה לכוח אדם שהובילה למיסוד העבדות באמריקה.">
+                        <img src="../images/virginia_tobacco_field.jpg" alt="מטע טבק בווירג'יניה" class="w-full object-cover group-hover:scale-105 transition-transform duration-500">
+                        <div class="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
+                            <i class="ph ph-magnifying-glass-plus text-4xl text-white"></i>
+                        </div>
+                        <div class="absolute bottom-0 left-0 right-0 bg-black/70 p-2 text-xs text-white text-center">מטע טבק</div>
+                    </div>
+                    
+                    <div class="md:w-2/3 text-lg text-gray-700 dark:text-gray-300 leading-relaxed space-y-4">
+                        <p>כשהבינו שאין זהב, וירג'יניה פנתה לכלכלת מטעים חד-גידולית (Cash crop):</p>
+                        <ul class="list-disc list-inside space-y-3 ml-4">
+                            <li><strong>מהפכת הטבק:</strong> הטבק של ג'ון רולף הפך ללהיט בקרב אצולת לונדון. המחירים זינקו, וכל חלקה פנויה בוירג'יניה נשתלה בטבק. הטבק דלדל את האדמה במהירות, מה שאילץ את המתיישבים להתפשט תמיד מערבה וליצור סכסוכים אלימים עם האינדיאנים.</li>
+                            <li><strong>משרתים חוזיים (Indentured Servants):</strong> כדי לעבד את שדות הטבק הענקיים, בעלי המטעים ייבאו עשרות אלפי צעירים עניים מאנגליה שחתמו על חוזה עבודה של 4-7 שנים בתמורה לכרטיס ההפלגה לאמריקה.</li>
+                            <li><strong>שנת 1619 - ראשית העבדות:</strong> בשנה זו הגיעה ספינה הולנדית (או שודדי ים אנגלים ממרקה הולנדית) לחופי ג'יימסטאון ומכרה למתיישבים כ-20 אפריקאים משועבדים. זו הייתה ההתחלה הטרגית של מוסד העבדות האפריקאי באמריקה הצפונית.</li>
+                        </ul>
+                    </div>
                 </div>
             </section>
 
+            <!-- 6. הדמוגרפיה והחברה -->
             <section class="content-section bg-white dark:bg-darkCard p-8 rounded-3xl shadow-sm border border-gray-100 dark:border-gray-800 border-r-4 border-r-green-500 dark:border-r-emerald-400">
                 <div class="flex items-center gap-3 mb-6">
                     <div class="p-3 bg-green-100 dark:bg-gray-800 rounded-2xl text-green-700 dark:text-emerald-400">
                         <i class="ph ph-users-three text-3xl"></i>
                     </div>
-                    <h2 class="text-3xl font-bold">8. דמוגרפיה ומבנה חברתי (העבדים הראשונים)</h2>
+                    <h2 class="text-3xl font-bold">6. דמוגרפיה: רעב ושיעורי תמותה קיצוניים</h2>
                 </div>
                 <div class="text-lg text-gray-700 dark:text-gray-300 leading-relaxed space-y-4">
-                    <p>
-                        הדמוגרפיה בוירג'יניה הייתה קטלנית, מעמדית ובלתי מאוזנת בעליל במשך עשרות השנים הראשונות:
-                    </p>
+                    <p>הדמוגרפיה המוקדמת של וירג'יניה הייתה ברוטאלית:</p>
                     <ul class="list-disc list-inside space-y-3 ml-4">
-                        <li><strong>חברה של גברים צעירים ומעמד המשרתים:</strong> בניגוד להגירת המשפחות של הפוריטנים במסצ'וסטס, וירג'יניה אוכלסה בעיקר על ידי גברים צעירים, רווקים ועניים שהגיעו כ<strong>משרתים חוזיים (Indentured Servants)</strong>. הם חתמו על חוזה עבודה של 4-7 שנים בתמורה לתשלום על הפלגתם. נשים היו נדירות מאוד עד להגעתן של ספינות ה"כלות" סביב 1619.</li>
-                        <li><strong>תמותה מחרידה:</strong> בשל המים המזוהמים, המלריה וההתקפות האינדיאניות, תוחלת החיים הייתה מהנמוכות בעולם. מתוך כ-6,000 מתיישבים שהגיעו בין 1607 ל-1624, רק כ-1,200 שרדו.</li>
-                        <li><strong>שנת 1619 - הולדת העבדות באמריקה:</strong> באוגוסט של אותה שנה, ספינת פריבטיר הולנדית בשם <em>White Lion</em> עגנה בוירג'יניה לאחר ששדדה ספינת עבדים פורטוגלית. הם החליפו מזון ואספקה תמורת "20 וכמה כושים" (אפריקאים מאזור אנגולה של ימינו). אירוע דמוגרפי חשוך זה סימן את תחילתה של מוסד העבדות האפריקאית בצפון אמריקה, שהלכה והחליפה את מעמד המשרתים החוזיים הלבנים במהלך המאה ה-17, ועיצבה את עתידה של ארצות הברית כולה.</li>
+                        <li><strong>אוכלוסיית גברים:</strong> בתחילה הגיעו רק גברים רווקים. רק ב-1619 החברה החלה לשלוח במכוון ספינות עם נשים צעירות כדי ליצור יציבות חברתית ולהקים משפחות.</li>
+                        <li><strong>"זמן הרעב" (The Starving Time):</strong> בחורף הקשה של 1609-1610, המושבה הייתה תחת מצור אינדיאני וללא מזון. מתוך כ-500 תושבים, שרדו רק 60. ישנן עדויות ארכיאולוגיות קשות למעשי קניבליזם של המתיישבים בנפטרים.</li>
+                        <li><strong>שיטת החלוקה (Headright System):</strong> כדי לעודד הגירה למרות התמותה, הממשל הבטיח 50 אקרים של אדמה לכל מתיישב שישלם על כרטיס ההפלגה שלו, ו-50 אקרים נוספים על כל פועל/משרת שהוא יביא איתו. זה יצר שכבה של אצולת קרקעות עשירה שהחזיקה ברוב השטחים הטובים.</li>
                     </ul>
                 </div>
             </section>
 
+            <!-- 7. מאבקי השליטה -->
+            <section class="content-section bg-white dark:bg-darkCard p-8 rounded-3xl shadow-sm border border-gray-100 dark:border-gray-800 border-r-4 border-r-red-500 dark:border-r-red-400">
+                <div class="flex items-center gap-3 mb-6">
+                    <div class="p-3 bg-red-100 dark:bg-gray-800 rounded-2xl text-red-600 dark:text-red-400">
+                        <i class="ph ph-swords text-3xl"></i>
+                    </div>
+                    <h2 class="text-3xl font-bold">7. מאבקי השליטה: הטבח ומרד בייקון</h2>
+                </div>
+                <div class="text-lg text-gray-700 dark:text-gray-300 leading-relaxed space-y-6">
+                    <p>ההיסטוריה של וירג'יניה רצופה באלימות דחוסה – הן במאבקי הישרדות מול הילידים והן במאבקי מעמדות פנימיים:</p>
+                    
+                    <!-- טבח 1622 ואובדן הזיכיון -->
+                    <div class="bg-gray-50 dark:bg-gray-800/30 p-6 rounded-2xl border border-gray-200 dark:border-gray-700">
+                        <h3 class="text-2xl font-bold text-red-800 dark:text-red-400 mb-3 flex items-center gap-2">
+                            <i class="ph ph-crown"></i> טבח הפווהאטן ופשיטת הרגל (1624)
+                        </h3>
+                        <ul class="list-none space-y-3 text-lg">
+                            <li><strong>מועד האירוע:</strong> 1622 (הטבח) – 1624 (הפיכה למושבת כתר).</li>
+                            <li><strong>מהלך האירועים:</strong> לאחר מותם של פווהאטן ופוקהונטס, אחיו הלוחמני אופצ'נקנו לקח את ההנהגה. מתוסכל מהתפשטות שדות הטבק, הוא פתח בהתקפת פתע מתואמת במרץ 1622 וטבח בכשליש מאוכלוסיית וירג'יניה בבוקר אחד. המתיישבים הגיבו במלחמת שמד עקובה מדם.</li>
+                            <li><strong>המעבר לשליטת המלך:</strong> למרות שהמתיישבים שרדו, ההוצאות הצבאיות ושיעורי התמותה הובילו את "חברת וירג'יניה" לפשיטת רגל. בשנת <strong>1624</strong>, המלך ג'יימס הראשון ביטל את הזיכיון של החברה והפך את וירג'יניה ל<strong>מושבת כתר</strong> (Royal Colony).</li>
+                        </ul>
+                    </div>
+
+                    <!-- מרד בייקון -->
+                    <div class="bg-gray-50 dark:bg-gray-800/30 p-6 rounded-2xl border border-gray-200 dark:border-gray-700 mt-6">
+                        <h3 class="text-2xl font-bold text-red-800 dark:text-red-400 mb-3 flex items-center gap-2">
+                            <i class="ph ph-flag-banner"></i> מרד בייקון (Bacon's Rebellion, 1676)
+                        </h3>
+                        <ul class="list-none space-y-3 text-lg">
+                            <li><strong>מהות המאבק:</strong> מאבק פנימי על מעמדות ואדמה. חקלאים עניים ומשרתים חוזיים לשעבר נאלצו לשבת על קרקעות מסוכנות ליד הגבול האינדיאני. הם סבלו מפשיטות וביקשו מהמושל המלכותי (ויליאם ברקלי) סיוע צבאי, אך הוא סירב.</li>
+                            <li><strong>המרד:</strong> צעיר כריזמטי בשם <strong>נתנאל בייקון</strong> הקים מיליציה פרטית של חקלאים עניים (לבנים ושחורים כאחד). הם טבחו באינדיאנים, צעדו על ג'יימסטאון ובסופו של דבר <strong>העלו את ג'יימסטאון באש</strong>.</li>
+                            <li><strong>התוצאה (נקודת המפנה בהיסטוריה האמריקאית):</strong> המרד דוכא, אך אליטת בעלי המטעים נבהלה משיתוף הפעולה בין משרתים עניים לבנים ועבדים שחורים. כתוצאה ישירה, האליטה <strong>הפסיקה לייבא משרתים לבנים</strong> ועברה להסתמך באופן מוחלט על <strong>עבדות גזעית מאפריקה לכל החיים</strong>, ויצרה חוקי גזע נוקשים.</li>
+                        </ul>
+                    </div>
+                </div>
+            </section>
+
+            <!-- 8. מחקר אטימולוגי מפורט -->
             <section class="content-section bg-white dark:bg-darkCard p-8 rounded-3xl shadow-sm border border-gray-100 dark:border-gray-800">
                 <div class="flex items-center gap-3 mb-6">
                     <div class="p-3 bg-blue-100 dark:bg-gray-800 rounded-2xl text-blue-600 dark:text-gold">
                         <i class="ph ph-text-aa text-3xl"></i>
                     </div>
-                    <h2 class="text-3xl font-bold">9. מחקר אטימולוגי: המושבה Virginia</h2>
+                    <h2 class="text-3xl font-bold">8. מחקר אטימולוגי: המושבה Virginia</h2>
                 </div>
                 
-                <div class="overflow-x-auto mt-6">
-                    <table class="w-full text-right border-collapse">
-                        <thead>
-                            <tr class="bg-blue-50 dark:bg-gray-800 text-blue-900 dark:text-gold border-b-2 border-blue-200 dark:border-gray-700">
-                                <th class="p-4 font-bold rounded-tr-xl">מרכיב בשם</th>
-                                <th class="p-4 font-bold">מקור לשוני</th>
-                                <th class="p-4 font-bold rounded-tl-xl">משמעות והקשר היסטורי</th>
-                            </tr>
-                        </thead>
-                        <tbody class="text-gray-700 dark:text-gray-300">
-                            <tr class="border-b border-gray-100 dark:border-gray-800 hover:bg-gray-50 dark:hover:bg-gray-800/50 transition-colors">
-                                <td class="p-4 font-mono font-bold text-xl">Virgin</td>
-                                <td class="p-4">לטינית: <em>virgo</em> (בתולה / עלמה טהורה)</td>
-                                <td class="p-4">
-                                    מתייחס באופן ישיר למלכה <strong>אליזבת הראשונה</strong> מאנגליה, אשר נודעה בכינויה ההיסטורי והפוליטי "המלכה הבתולה" מכיוון שסירבה בעקשנות להינשא ולהכפיף את אנגליה למלך זר.
-                                </td>
-                            </tr>
-                            <tr class="border-b border-gray-100 dark:border-gray-800 hover:bg-gray-50 dark:hover:bg-gray-800/50 transition-colors">
-                                <td class="p-4 font-mono font-bold text-xl">-ia</td>
-                                <td class="p-4">סיומת לטינית ויוונית עתיקה</td>
-                                <td class="p-4">
-                                    סיומת גיאוגרפית המשמשת לציון טריטוריה או להורות על "הארץ של-".
-                                </td>
-                            </tr>
-                            <tr class="bg-blue-50/50 dark:bg-gray-800/30">
-                                <td class="p-4 font-bold text-blue-800 dark:text-blue-300">הלחם משמעויות</td>
-                                <td colspan="2" class="p-4 text-lg font-semibold text-gray-900 dark:text-white">
-                                    <strong>"ארץ הבתולה"</strong> או "הארץ של המלכה הבתולה". השם ניתן על ידי סר וולטר ראלי בשנת 1584, כאות נאמנות מוחלטת למלכתו ולהעניק לה עולם חדש לשלוט בו.
-                                </td>
-                            </tr>
-                        </tbody>
-                    </table>
+                <div class="text-lg text-gray-700 dark:text-gray-300 leading-relaxed mb-4">
+                    שמה של המושבה הראשונה הוא ביטוי מובהק של חנופה מלכותית וקולוניאליזם אנגלי. להלן הפירוק הלשוני:
+                </div>
+
+                <div class="space-y-6 mt-6">
+                    <!-- חלק 1 -->
+                    <div class="p-6 bg-blue-50/50 dark:bg-gray-800/30 rounded-2xl border-r-4 border-blue-500 dark:border-gold shadow-sm hover:bg-blue-50 dark:hover:bg-gray-800 transition-colors">
+                        <div class="flex flex-col sm:flex-row sm:items-center justify-between mb-3 gap-2">
+                            <h3 class="text-2xl font-mono font-bold text-gray-900 dark:text-white">
+                                Virgin <span class="text-xl font-sans font-normal text-gray-500 dark:text-gray-400">(בתולה)</span>
+                            </h3>
+                            <span class="inline-block px-3 py-1 bg-blue-100 dark:bg-gray-700 text-blue-800 dark:text-blue-300 text-sm rounded-full font-semibold border border-blue-200 dark:border-gray-600">
+                                מקור: לטינית עתיקה
+                            </span>
+                        </div>
+                        <p class="text-lg text-gray-700 dark:text-gray-300 leading-relaxed">
+                            המילה הלטינית <em>Virgo</em> או <em>Virginis</em> (בתולה / עלמה טהורה). הקשר ההיסטורי הוא הקדשה ישירה ל<strong>מלכה אליזבת הראשונה (Queen Elizabeth I)</strong>, ששלטה באנגליה ונמנעה מנישואין פוליטיים לאורך כל חייה, ולכן כונתה "המלכה הבתולה".
+                        </p>
+                    </div>
+
+                    <!-- חלק 2 -->
+                    <div class="p-6 bg-blue-50/50 dark:bg-gray-800/30 rounded-2xl border-r-4 border-blue-500 dark:border-gold shadow-sm hover:bg-blue-50 dark:hover:bg-gray-800 transition-colors">
+                        <div class="flex flex-col sm:flex-row sm:items-center justify-between mb-3 gap-2">
+                            <h3 class="text-2xl font-mono font-bold text-gray-900 dark:text-white">
+                                -ia <span class="text-xl font-sans font-normal text-gray-500 dark:text-gray-400">(יה)</span>
+                            </h3>
+                            <span class="inline-block px-3 py-1 bg-blue-100 dark:bg-gray-700 text-blue-800 dark:text-blue-300 text-sm rounded-full font-semibold border border-blue-200 dark:border-gray-600">
+                                מקור: סיומת לטינית
+                            </span>
+                        </div>
+                        <p class="text-lg text-gray-700 dark:text-gray-300 leading-relaxed">
+                            סיומת קלאסית נפוצה בגיאוגרפיה ובקרטוגרפיה המציינת טריטוריה או ממלכה - משמעותה <strong>"הארץ של-"</strong>.
+                        </p>
+                    </div>
+
+                    <!-- חלק 3 -->
+                    <div class="p-6 bg-blue-100/50 dark:bg-gray-800/80 rounded-2xl border-r-4 border-blue-700 dark:border-yellow-400 shadow-md">
+                        <div class="flex items-center gap-3 mb-3">
+                            <i class="ph ph-puzzle-piece text-3xl text-blue-700 dark:text-yellow-400"></i>
+                            <h3 class="text-2xl font-mono font-black text-blue-900 dark:text-white">
+                                Virginia <span class="text-xl font-sans font-normal text-gray-600 dark:text-gray-300">(וירג'יניה)</span>
+                            </h3>
+                        </div>
+                        <p class="text-lg text-gray-800 dark:text-gray-200 leading-relaxed font-medium">
+                            החיבור יוצר את המשמעות הברורה: <strong>"הארץ של הבתולה"</strong> (ארצה של המלכה אליזבת).<br><br>
+                            השם ניתן בשנת 1584 על ידי חוקר הארצות סר וולטר ראלי. למרות שהמושבה המוצלחת בג'יימסטאון הוקמה רק ב-1607, השם הכולל "וירג'יניה" כבר התקבע במפות האנגליות כשם הכללי לחוף המזרחי של אמריקה הצפונית.
+                        </p>
+                    </div>
                 </div>
             </section>
 
@@ -296,6 +369,21 @@
 
     </main>
 
+    <!-- חלון צף (Modal) להגדלת תמונות -->
+    <div id="imageModal" class="fixed inset-0 z-[100] hidden bg-black/90 backdrop-blur-md flex items-center justify-center p-4 touch-manipulation opacity-0 transition-opacity duration-300" onclick="closeImageModal()">
+        <button class="absolute top-4 right-4 text-white/70 hover:text-white p-3 bg-black/50 hover:bg-black/80 rounded-full transition-colors duration-200 z-10" onclick="closeImageModal()">
+            <i class="ph ph-x text-2xl"></i>
+        </button>
+        
+        <div class="relative max-w-5xl w-full h-full flex flex-col items-center justify-center">
+            <img id="modalImage" src="" alt="תמונה מוגדלת" class="max-w-full max-h-[80vh] object-contain rounded-xl shadow-2xl scale-95 transition-transform duration-300" onclick="event.stopPropagation()">
+            <div class="mt-6 p-4 bg-darkCard/80 backdrop-blur-sm rounded-xl border border-gray-700 text-white text-center shadow-lg max-w-3xl" onclick="event.stopPropagation()">
+                <p id="modalCaption" class="text-lg leading-relaxed"></p>
+            </div>
+        </div>
+    </div>
+
+    <!-- כותרת תחתונה (Footer) -->
     <footer class="bg-white dark:bg-darkBg border-t border-gray-200 dark:border-gray-800 py-8 mt-12">
         <div class="max-w-7xl mx-auto px-4 text-center text-gray-500 dark:text-gray-400">
             <p class="font-bold text-gray-700 dark:text-gray-300">נבנה על ידי ג'מיני ורם בעבור מחקר היסטורי ואטימולוגי.</p>
@@ -303,6 +391,7 @@
         </div>
     </footer>
 
+    <!-- JavaScript Base Logic (מנגנון Data Attributes בטוח) -->
     <script>
         function toggleDarkMode() {
             const htmlClasses = document.documentElement.classList;
@@ -320,6 +409,51 @@
         } else {
             document.documentElement.classList.remove('dark');
         }
+
+        // פונקציות חלון צף
+        function openImageModal(element) {
+            const src = element.getAttribute('data-image');
+            const caption = element.getAttribute('data-caption');
+            
+            const modal = document.getElementById('imageModal');
+            const modalImg = document.getElementById('modalImage');
+            const modalCap = document.getElementById('modalCaption');
+            
+            modalImg.src = src;
+            modalCap.textContent = caption;
+            
+            modal.classList.remove('hidden');
+            document.body.classList.add('modal-open');
+            
+            setTimeout(() => {
+                modal.classList.remove('opacity-0');
+                modalImg.classList.remove('scale-95');
+                modalImg.classList.add('scale-100');
+            }, 10);
+        }
+
+        function closeImageModal() {
+            const modal = document.getElementById('imageModal');
+            const modalImg = document.getElementById('modalImage');
+            
+            modal.classList.add('opacity-0');
+            modalImg.classList.remove('scale-100');
+            modalImg.classList.add('scale-95');
+            
+            setTimeout(() => {
+                modal.classList.add('hidden');
+                document.body.classList.remove('modal-open');
+            }, 300);
+        }
+        
+        document.addEventListener('keydown', function(event) {
+            if (event.key === "Escape") {
+                const modal = document.getElementById('imageModal');
+                if (!modal.classList.contains('hidden')) {
+                    closeImageModal();
+                }
+            }
+        });
     </script>
 </body>
 </html>
