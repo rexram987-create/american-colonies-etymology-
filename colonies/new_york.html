@@ -28,6 +28,7 @@
     <style>
         body { transition: background-color 0.3s ease, color 0.3s ease; }
         .content-section { scroll-margin-top: 100px; }
+        .modal-open { overflow: hidden; }
     </style>
 </head>
 <body class="bg-gray-50 text-gray-900 dark:bg-darkBg dark:text-gray-100 font-sans antialiased selection:bg-blue-200 dark:selection:bg-blue-900">
@@ -36,13 +37,11 @@
     <header class="relative z-40 w-full bg-white dark:bg-darkBg border-b border-gray-200 dark:border-gray-800 shadow-sm">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex items-center justify-between h-20">
-                <!-- כפתור חזרה -->
-                <a href="index.html" class="flex items-center gap-2 text-blue-600 dark:text-gold hover:text-blue-800 dark:hover:text-yellow-400 transition-colors touch-manipulation font-semibold bg-blue-50 dark:bg-gray-800 px-4 py-2 rounded-full">
+                <a href="../index.html" class="flex items-center gap-2 text-blue-600 dark:text-gold hover:text-blue-800 dark:hover:text-yellow-400 transition-colors touch-manipulation font-semibold bg-blue-50 dark:bg-gray-800 px-4 py-2 rounded-full">
                     <i class="ph ph-arrow-right text-xl"></i>
                     <span>חזרה לדף הבית</span>
                 </a>
                 
-                <!-- תפריט כפתורים -->
                 <div class="flex items-center gap-4">
                     <button onclick="toggleDarkMode()" class="p-3 rounded-full bg-gray-200 dark:bg-gray-800 hover:bg-gray-300 dark:hover:bg-gray-700 transition-colors touch-manipulation" aria-label="החלף מצב תצוגה">
                         <i class="ph ph-moon text-xl block dark:hidden"></i>
@@ -55,25 +54,32 @@
 
     <main class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
         
-        <!-- כותרת ראשית (Hero) -->
+        <!-- כותרת ראשית -->
         <div class="mb-12 text-center md:text-right">
             <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-green-100 dark:bg-green-900/40 text-green-800 dark:text-green-300 text-sm font-semibold tracking-wide mb-4">
                 <i class="ph ph-calendar-blank"></i>
-                שנת הקמה: 1624 (כהולנד החדשה) / 1664 (כניו יורק)
+                שנת הקמה: 1624 (הולנד) / 1664 (כיבוש אנגלי)
             </div>
             <h1 class="text-4xl md:text-5xl lg:text-6xl font-extrabold leading-tight text-gray-900 dark:text-white mb-6">
                 מושבת ניו יורק
             </h1>
             <p class="text-xl text-gray-600 dark:text-gray-300 leading-relaxed">
-                כור ההיתוך הראשון של אמריקה והאימפריה המסחרית שניצחה את הדת. מושבה שהחלה את דרכה כתחנת מסחר הולנדית קטנה באי מנהטן, והפכה בכיבוש אימפריאלי אנגלי שקט לבירת הקפיטליזם של העולם החדש.
+                בירת המסחר והסובלנות. מושבה שהחלה כעמדת סחר הולנדית בשם "ניו אמסטרדם", נכבשה ללא ירייה אחת על ידי הבריטים, והפכה למרכז הקוסמופוליטי והמגוון ביותר בצפון אמריקה.
             </p>
         </div>
 
-        <!-- תמונה ראשית -->
-        <div class="w-full h-64 md:h-96 rounded-3xl overflow-hidden mb-16 shadow-2xl relative border border-gray-200 dark:border-gray-800">
-            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/ca/New_Amsterdam_1650.jpg/1200px-New_Amsterdam_1650.jpg" alt="" class="w-full h-full object-cover">
-            <div class="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/80 to-transparent p-4 text-white text-sm md:text-base text-center">
-                אמסטרדם החדשה (New Amsterdam) בשנת 1650, המושבה ההולנדית בקצה הדרומי של מנהטן שתהפוך לניו יורק.
+        <!-- תמונה ראשית 1 (מנגנון Data-Attributes הבטוח) -->
+        <div class="w-full h-64 md:h-96 rounded-3xl overflow-hidden mb-16 shadow-2xl relative border border-gray-200 dark:border-gray-800 group cursor-pointer" 
+             onclick="openImageModal(this)" 
+             data-image="../images/new_york_hero.jpg" 
+             data-caption="הצי האנגלי מגיע לחופי ניו אמסטרדם ב-1664. העיר ההולנדית נכנעת ללא קרב והופכת לניו יורק הבריטית.">
+            <img src="../images/new_york_hero.jpg" alt="הצי האנגלי מול ניו אמסטרדם" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700">
+            <div class="absolute inset-0 bg-black/20 group-hover:bg-transparent transition-colors duration-500"></div>
+            <div class="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/90 via-black/60 to-transparent p-6 text-white text-sm md:text-base text-center">
+                הצי האנגלי מגיע לחופי ניו אמסטרדם, 1664. תחילת השלטון הבריטי.
+                <div class="mt-2 text-xs text-gray-300 flex items-center justify-center gap-1 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                    <i class="ph ph-magnifying-glass-plus text-lg"></i> לחץ להגדלה
+                </div>
             </div>
         </div>
 
@@ -88,10 +94,10 @@
                     <h2 class="text-3xl font-bold">1. שנות פעילות, הקמה ויעדים</h2>
                 </div>
                 <div class="text-lg text-gray-700 dark:text-gray-300 leading-relaxed space-y-4">
-                    <p><strong>שנת הקמה (כהולנד החדשה):</strong> 1624, כאשר הגיעו 30 משפחות ראשונות של פליטים פרוטסטנטים דוברי צרפתית (וואלונים). שנת ההקמה כישות אנגלית היא <strong>1664</strong>.</p>
-                    <p><strong>ישות מקימה:</strong> "חברת הודו המערבית ההולנדית" (Dutch West India Company), תאגיד ענק ומונופול סחר צבאי למחצה. לאחר 1664, היא הפכה למושבה קניינית (Proprietary colony) בבעלותו הישירה של ג'יימס, דוכס יורק (אחיו של המלך צ'ארלס השני), וב-1685 הפכה למושבת כתר כשג'יימס הוכתר למלך.</p>
+                    <p><strong>שנות הקמה:</strong> ב-1624 הוקמה המושבה ההולנדית "הולנד החדשה" (New Netherland) שבירתה "ניו אמסטרדם". בשנת 1664 נכבשה המושבה על ידי האנגלים ושמה שונה ל"ניו יורק".</p>
+                    <p><strong>ישות מקימה:</strong> ההולנדים הקימו את המושבה דרך "חברת הודו המערבית ההולנדית" כמיזם מסחרי. לאחר הכיבוש ב-1664, היא הפכה למושבה קניינית (Proprietary) בבעלותו הבלעדית של ג'יימס, הדוכס מיורק (אחיו של מלך אנגליה).</p>
                     <p><strong>היעדים המקוריים:</strong> 
-                        ההולנדים לא באו לאמריקה כדי לחפש חופש דת או לבנות חברת מופת (כמו הפוריטנים במסצ'וסטס). המטרה הייתה <strong>קפיטליזם טהור:</strong> הפקת רווחים אדירים מסחר הפרוות, ובניית בסיס אסטרטגי שממנו ניתן יהיה ליירט ספינות אוצר ספרדיות שחוזרות מדרום אמריקה.
+                        המטרה ההולנדית המקורית הייתה מסחרית נטו: שליטה בסחר הפרוות הרווחי ביותר באמריקה וניצול הנהר העצום כמסדרון תחבורה. האנגלים כבשו את המושבה כדי למחוק את הנוכחות ההולנדית שאיימה על ההגמוניה הבריטית, וכדי לחבר גיאוגרפית את מושבות ניו אינגלנד בצפון עם וירג'יניה ומרילנד בדרום.
                     </p>
                 </div>
             </section>
@@ -100,27 +106,36 @@
             <section class="content-section bg-white dark:bg-darkCard p-8 rounded-3xl shadow-sm border border-gray-100 dark:border-gray-800 border-r-4 border-r-blue-500 dark:border-r-gold">
                 <div class="flex items-center gap-3 mb-6">
                     <div class="p-3 bg-blue-100 dark:bg-gray-800 rounded-2xl text-blue-600 dark:text-gold">
-                        <i class="ph ph-users text-3xl"></i>
+                        <i class="ph ph-user text-3xl"></i>
                     </div>
-                    <h2 class="text-3xl font-bold">2. דמויות מפתח: מגלי הארצות והמושלים</h2>
+                    <h2 class="text-3xl font-bold">2. רקע המייסדים: מהולנד לבריטניה</h2>
                 </div>
                 
-                <div class="text-lg text-gray-700 dark:text-gray-300 leading-relaxed space-y-6">
-                    <!-- הנרי הדסון -->
-                    <div>
-                        <h3 class="text-2xl font-bold text-blue-800 dark:text-blue-300 mb-2">הנרי הדסון (Henry Hudson) (1565–1611)</h3>
-                        <p><strong>רקע והישגים:</strong> מגלה ארצות אנגלי שפעל כמעין "שכיר חרב" ימי. ב-1609, הוא נשכר על ידי חברת הודו המזרחית ההולנדית למצוא את המעבר הצפון-מערבי לאסיה. במקום אסיה, הוא גילה את המפרץ המרהיב ואת הנהר הגדול (שלימים ייקרא על שמו - נהר ההדסון) והפליג צפונה עד לאזור העיר אולבני של ימינו. המסע שלו הוא שהעניק להולנדים את הזכות החוקית לתבוע בעלות על הקרקע.</p>
-                        <p><strong>הסוף הטראגי:</strong> ב-1611, במסע נוסף (עבור האנגלים) במפרץ הדסון הקפוא בקנדה, צוות ספינתו סבל מרעב כבד ומרד בו. המורדים נטשו את הדסון, בנו העשרה, ועוד שבעה אנשי צוות חולים בתוך סירה פתוחה וקטנה בלב המפרץ הקפוא. הוא מעולם לא נראה שוב.</p>
+                <div class="flex flex-col md:flex-row gap-8 items-start mb-8">
+                    <!-- תמונה 2 (עיצוב אנכי 9:16 לדיוקן) -->
+                    <div class="w-full max-w-[240px] mx-auto md:mx-0 shrink-0 group cursor-pointer relative rounded-2xl overflow-hidden shadow-md border border-gray-200 dark:border-gray-700 aspect-[9/16]" 
+                         onclick="openImageModal(this)" 
+                         data-image="../images/peter_stuyvesant_portrait.jpg" 
+                         data-caption="פטר סטויווסנט, המושל ההולנדי האחרון והקשוח של ניו אמסטרדם, שנודע ברגל העץ שלו.">
+                        <img src="../images/peter_stuyvesant_portrait.jpg" alt="דיוקן פטר סטויווסנט" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                        <div class="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
+                            <i class="ph ph-magnifying-glass-plus text-4xl text-white"></i>
+                        </div>
+                        <div class="absolute bottom-0 left-0 right-0 bg-black/70 p-2 text-xs text-white text-center">פטר סטויווסנט</div>
                     </div>
-
-                    <hr class="border-gray-200 dark:border-gray-700">
-
-                    <!-- פטר סטויווסאנט -->
-                    <div>
-                        <h3 class="text-2xl font-bold text-blue-800 dark:text-blue-300 mb-2">פטר סטויווסאנט (Peter Stuyvesant) (1592–1672)</h3>
-                        <p><strong>רקע:</strong> המושל-הכללי (Director-General) האחרון והמפורסם ביותר של הולנד החדשה. איש צבא נוקשה ועריץ שאיבד את רגלו הימנית מפגז תותח בקרב מול הספרדים בקריביים, והלך עם רגל עץ מעוטרת ברצועות כסף.</p>
-                        <p><strong>אידאולוגיה והישגים:</strong> סטויווסאנט נשלח ב-1647 כדי להציל את המושבה שהייתה על סף פשיטת רגל ונהרסה במלחמות אינדיאנים. הוא שיקם את הכלכלה ביד ברזל, בנה רחובות מסודרים, את בית החולים הראשון, וחומת הגנה. הוא היה קלוויניסט קנאי וניסה לגרש את הקהילה היהודית הראשונה שהגיעה מברזיל (1654), אך חברת הודו המערבית ההולנדית פקדה עליו להשאיר אותם מסיבות כלכליות.</p>
+                    
+                    <div class="md:w-2/3 text-lg text-gray-700 dark:text-gray-300 leading-relaxed space-y-4">
+                        <h3 class="text-2xl font-bold text-blue-800 dark:text-blue-300 mb-2">פטר מינואיט (Peter Minuit) (1580–1638)</h3>
+                        <p>המושל ההולנדי שביצע את עסקת הנדל"ן המפורסמת ביותר בהיסטוריה: ב-1626 הוא "קנה" את האי מנהטן (Manhattan) מידי שבט הלנאפה תמורת סחורות (חרוזי זכוכית, כלי עבודה ובדים) בשווי מוערך של 60 גילדן הולנדים (סכום השווה למאות דולרים בודדים כיום). האינדיאנים, שלא החזיקו במושג של "בעלות פרטית על קרקע", כנראה חשבו שהם בסך הכל מאשרים להולנדים זכות מעבר או ציד משותף.</p>
+                        
+                        <h3 class="text-2xl font-bold text-blue-800 dark:text-blue-300 mb-2 mt-6">פטר סטויווסנט (Peter Stuyvesant) (1612–1672)</h3>
+                        <p>המנהל הכללי האחרון של ניו אמסטרדם מטעם ההולנדים. איש צבא נוקשה, קלוויניסט אדוק, שאיבד את רגלו הימנית בקרב מול הספרדים וצעד על רגל עץ מעוטרת כסף. למרות שהביא סדר וביטחון לעיר המבולגנת, הוא היה שנוא על התושבים בגלל עריצותו וחוסר הסובלנות שלו כלפי יהודים וקווייקרים. כשהבריטים תקפו ב-1664, איש מתושבי העיר לא היה מוכן להילחם עבורו, והוא נאלץ להיכנע.</p>
                     </div>
+                </div>
+
+                <div class="text-lg text-gray-700 dark:text-gray-300 leading-relaxed space-y-4 border-t border-gray-200 dark:border-gray-700 pt-6">
+                    <h3 class="text-2xl font-bold text-blue-800 dark:text-blue-300 mb-2">ג'יימס, דוכס יורק (לימים המלך ג'יימס השני) (1633–1701)</h3>
+                    <p>אחיו של מלך אנגליה צ'ארלס השני. המלך העניק לו במתנה את כל השטח שבין נהר הקונטיקט לנהר הדלאוור – שטח שהיה באותו זמן, כאמור, בשליטת ההולנדים! ג'יימס שלח צי מלחמה קטן שתבע את העיר, והפך לבעלים הפרטי של המושבה. הוא ניהל אותה כאוטוקרט, ללא מועצה נבחרת, עד שהומלך למלך אנגליה (והודח כמה שנים מאוחר יותר בגלל נטיותיו הקתוליות).</p>
                 </div>
             </section>
 
@@ -130,13 +145,15 @@
                     <div class="p-3 bg-blue-100 dark:bg-gray-800 rounded-2xl text-blue-600 dark:text-gold">
                         <i class="ph ph-scales text-3xl"></i>
                     </div>
-                    <h2 class="text-3xl font-bold">3. אידאולוגיה: קפיטליזם ופרגמטיזם</h2>
+                    <h2 class="text-3xl font-bold">3. אידאולוגיה: קפיטליזם וסובלנות מסחרית</h2>
                 </div>
                 <div class="text-lg text-gray-700 dark:text-gray-300 leading-relaxed space-y-4">
-                    <p>האידאולוגיה המרכזית בניו יורק/אמסטרדם החדשה הייתה סובלנות דתית ואזרחית – אבל לא מטעמי מוסר גבוה, אלא מטעמים פרגמטיים של <strong>עשיית עסקים</strong>.</p>
+                    <p>
+                        ניו יורק הייתה שונה לחלוטין מניו אינגלנד. לא הייתה לה שום כוונה לתקן את העולם מבחינה דתית:
+                    </p>
                     <ul class="list-disc list-inside space-y-4 ml-4">
-                        <li><strong>סובלנות למען המסחר:</strong> בניגוד למסצ'וסטס שהוציאה להורג קווייקרים, ההולנדים (ולאחריהם האנגלים בניו יורק) הבינו שכדי לבנות אימפריה מסחרית, אי אפשר להרחיק סוחרים בעלי הון רק בגלל דתם. הם קיבלו בברכה כל מי שיכול היה לתרום לכלכלה: הוגנוטים, יהודים, קווייקרים, לותרנים וקתולים.</li>
-                        <li><strong>שיטת הפטרונים (Patroonship):</strong> בניסיון לאכלס את השטחים העצומים לאורך הנהר, ההולנדים יצרו אידאולוגיה כלכלית-פיאודלית בשם "פטרונים". כל משקיע עשיר שהביא 50 מתיישבים לאמריקה, קיבל נחלה ענקית לאורך הנהר (לעיתים בגודל של מחוז שלם) שבה פעל כאדון עליון ויצר לעצמו מונופול סחר. האצולה הקרקעית הזו המשיכה לשלוט בפוליטיקה של ניו יורק עשרות שנים לאחר הכיבוש האנגלי.</li>
+                        <li><strong>כסף לפני דת:</strong> האידאולוגיה ההולנדית (שהבריטים אימצו בחלקה) הייתה פרגמטית – המסחר הוא המלך. כדי שהעיר תפרח, הם היו חייבים לקבל סוחרים מכל לאום ודת. זה יצר סובלנות דתית מתוך הכרח כלכלי, ולא מתוך אידאלים זכויות אדם (כמו בפנסילבניה או רוד איילנד).</li>
+                        <li><strong>מורשת הולנדית של חירות אזרחית:</strong> למרות השלטון האנגלי, ניו יורק שמרה על מנהגים חברתיים הולנדיים רבים. למשל, נשים בניו יורק נהנו מזכויות קניין ועסקים גבוהות בהרבה מאשר נשים במסצ'וסטס או וירג'יניה, מכיוון שהמשפט ההולנדי התיר להן לנהל עסקים באופן עצמאי.</li>
                     </ul>
                 </div>
             </section>
@@ -147,14 +164,14 @@
                     <div class="p-3 bg-blue-100 dark:bg-gray-800 rounded-2xl text-blue-600 dark:text-gold">
                         <i class="ph ph-map-pin text-3xl"></i>
                     </div>
-                    <h2 class="text-3xl font-bold">4. גיאוגרפיה: שער הכניסה ליבשת</h2>
+                    <h2 class="text-3xl font-bold">4. גיאוגרפיה: המפתח ליבשת (נהר ההדסון)</h2>
                 </div>
                 
                 <div class="text-lg text-gray-700 dark:text-gray-300 leading-relaxed space-y-4">
-                    <p>הגיאוגרפיה של ניו יורק היא זו שהפכה אותה לבירת העולם המודרני, ומיקומה נבחר בקפידה על ידי פטר מינואי כשקנה את <strong>האי מנהטן</strong> (1626):</p>
+                    <p>הגיאוגרפיה של ניו יורק הפכה אותה ליעד האסטרטגי החשוב ביותר בצפון אמריקה:</p>
                     <ul class="list-disc list-inside space-y-4 ml-4">
-                        <li><strong>נמל מים עמוקים ללא הפסקה:</strong> מפרץ ניו יורק התחתון הוא אחד הנמלים הטבעיים הטובים והעמוקים בעולם. בניגוד לנהרות אחרים, הזרמים העזים באזור שפך ההדסון מנעו בדרך כלל מהנמל לקפוא בחורף, מה שאיפשר מסחר אוקייני רציף לאורך כל עונות השנה.</li>
-                        <li><strong>נהר ההדסון כ"כביש מהיר" לאירוקוי:</strong> ההדסון אינו סתם נהר, אלא "פיורד גאות" (Tidal estuary) שבו מי הים חודרים עמוק פנימה (מעל 240 ק"מ צפונה עד אולבני). גיאוגרפיה הידרולוגית זו איפשרה לספינות גדולות לשוט אל פנים היבשת, למרכז השליטה של <strong>קונפדרציית האירוקוי</strong> האדירה, שהייתה הספקית הראשית של פרוות בונים. השליטה בנהר ההדסון העניקה לניו יורק את השליטה בסחר היבשתי.</li>
+                        <li><strong>הנמל הטבעי ומנהטן:</strong> האי מנהטן ממוקם בנקודת המפגש של נהרות אל תוך אוקיינוס עמוק. הנמל המוגן מסערות לא קפא בחורף ואפשר לספינות ענק לעגון ממש על קו החוף. ההולנדים בנו בקצה הדרומי של האי חומה הגנתית עשויה בולי עץ כדי להתגונן ממתקפות – החומה הזו נתנה את השם לרחוב העסקים הידוע ביותר בעולם: <strong>"וול סטריט" (Wall Street)</strong>.</li>
+                        <li><strong>נהר ההדסון (Hudson River):</strong> זהו ה"אוטובאן" של המאה ה-17. הנהר הרחב זורם מהצפון הרחוק ישירות דרומה לניו יורק. הוא אפשר למתיישבים גישה ישירה וימית לאימפריית סחר הפרוות של שבט האירוקוי (Iroquois) בצפון (אזור אלבני), ולהזרים את הסחורה ללא מאמץ יבשתי עד לנמל שבמנהטן.</li>
                     </ul>
                 </div>
             </section>
@@ -165,17 +182,30 @@
                     <div class="p-3 bg-green-100 dark:bg-gray-800 rounded-2xl text-green-700 dark:text-emerald-400">
                         <i class="ph ph-coins text-3xl"></i>
                     </div>
-                    <h2 class="text-3xl font-bold">5. כלכלה: מפרוות לוול סטריט</h2>
+                    <h2 class="text-3xl font-bold">5. כלכלה: מפרוות לסחר עולמי</h2>
                 </div>
-                <div class="text-lg text-gray-700 dark:text-gray-300 leading-relaxed space-y-4">
-                    <p>
-                        כלכלת ניו יורק התפתחה מתחנת סחר ספר להתעצמות קפיטליסטית מודרנית:
-                    </p>
-                    <ul class="list-disc list-inside space-y-3 ml-4">
-                        <li><strong>סחר הפרוות המונופוליסטי:</strong> השנים הראשונות נשענו לחלוטין על עורות הבונה. האירוקוי (Iroquois) צדו את הבונים באזור האגמים הגדולים, הביאו אותם לאולבני, וההולנדים השיטו אותם במורד ההדסון למנהטן ומשם לאירופה. הפרוות היו כל כך מרכזיות, שעור בונה הפך למטבע הרשמי של המושבה.</li>
-                        <li><strong>הולדת "וול סטריט" (Wall Street):</strong> כדי להגן על בירת הסחר של מנהטן מפני אינדיאנים, וכדי למנוע פלישה של אנגלים ממסצ'וסטס, המושל פטר סטויווסאנט בנה <strong>חומת עץ ובוץ ענקית</strong> בקצה הצפוני של היישוב (1653). הרחוב שעבר לאורך החומה הפך למרכז המסחר של סוחרים ומלווים כספים. החומה נהרסה על ידי הבריטים ב-1699, אך רחוב החומה – <em>Wall Street</em> – נותר כמרכז הפיננסי של העולם.</li>
-                        <li><strong>סחר העבדים הצפוני:</strong> לרוב חושבים על עבדות בהקשר של הדרום, אך ניו יורק הייתה מושבת העבדים הגדולה ביותר מצפון למרילנד. עבדים מאפריקה הובאו על ידי ההולנדים (והאנגלים אחריהם) כדי לבנות את התשתיות, החומות והכבישים. בעיר ניו יורק פעל שוק עבדים פומבי מרכזי בוול סטריט עד המאה ה-18.</li>
-                    </ul>
+                
+                <div class="flex flex-col md:flex-row-reverse gap-8 items-start">
+                    <!-- תמונה 3 -->
+                    <div class="md:w-1/3 shrink-0 w-full group cursor-pointer relative rounded-2xl overflow-hidden shadow-md border border-gray-200 dark:border-gray-700" 
+                         onclick="openImageModal(this)" 
+                         data-image="../images/new_york_wall_street.jpg" 
+                         data-caption="רחוב 'וול סטריט' (Wall Street) בראשיתו, כמרכז לסחר בפרוות בונה מול הילידים לאורך חומת המגן של העיר.">
+                        <img src="../images/new_york_wall_street.jpg" alt="רחוב וול סטריט ההיסטורי" class="w-full object-cover group-hover:scale-105 transition-transform duration-500">
+                        <div class="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
+                            <i class="ph ph-magnifying-glass-plus text-4xl text-white"></i>
+                        </div>
+                        <div class="absolute bottom-0 left-0 right-0 bg-black/70 p-2 text-xs text-white text-center">וול סטריט ההיסטורי</div>
+                    </div>
+                    
+                    <div class="md:w-2/3 text-lg text-gray-700 dark:text-gray-300 leading-relaxed space-y-4">
+                        <p>הכלכלה העירונית של ניו יורק צמחה בבת אחת על חשבון עורף חקלאי מסורתי:</p>
+                        <ul class="list-disc list-inside space-y-3 ml-4">
+                            <li><strong>סחר הפרוות (Fur Trade):</strong> המנוע הכלכלי הראשון היה פרוות הבונה (Beaver), שהיו שיא האופנה באירופה להכנת כובעים חסיני מים. הסחר הזה יצר בריתות פוליטיות עמוקות ואלימות עם שבטי האינדיאנים.</li>
+                            <li><strong>אחוזות ה"פטרון" (Patroonships):</strong> ההולנדים, ולאחריהם הבריטים, חילקו אחוזות ענק לאורך הנהר לאצילים מקורבים. בניגוד לחוות הקטנות של מסצ'וסטס, האחוזות האלה נוהלו בצורה חצי-פיאודלית על ידי חקלאים-שוכרים (Tenant farmers).</li>
+                            <li><strong>עבדות עירונית:</strong> בניו יורק התפתחה צורה של עבדות שונה מזו של מטעי הדרום. רבים מהעבדים האפריקאים שייבאה החברה ההולנדית חיו בעיר עצמה ועסקו במלאכות כפיים (נפחים, בנאים, פריקת ספינות). בעיר היה אחוז גבוה של שחורים חופשיים ושחורים משועבדים שחיו בסמיכות ללבנים.</li>
+                        </ul>
+                    </div>
                 </div>
             </section>
 
@@ -189,93 +219,118 @@
                 </div>
                 <div class="text-lg text-gray-700 dark:text-gray-300 leading-relaxed space-y-4">
                     <p>
-                        ההולנדים מעולם לא היגרו בהמוניהם לאמריקה (מכיוון שהכלכלה בהולנד עצמה הייתה משגשגת וסובלנית), מה שחייב אותם לפתוח את השערים לכולם:
+                        ניו יורק הייתה העיר הרב-תרבותית הראשונה בעולם המודרני. "כור ההיתוך" האמריקאי נולד שם במאה ה-17:
                     </p>
                     <ul class="list-disc list-inside space-y-3 ml-4">
-                        <li><strong>מגדל בבל:</strong> כבר בשנת 1643, דיווח כומר מקומי שברחובות מנהטן – יישוב של פחות מ-500 איש באותה עת – דיברו <strong>18 שפות שונות!</strong> האוכלוסייה כללה הולנדים, וולונים, שוודים (מסחר דלאוור), צרפתים, גרמנים, סקוטים, אנגלים, עבדים מאפריקה, וילידים. זה היה הבסיס התרבותי ל"כור ההיתוך" האמריקאי.</li>
-                        <li><strong>חברה אזרחית, לא דתית:</strong> בניגוד לניו אינגלנד, שבה הקהילה התרכזה סביב "בית האסיפה" (הכנסייה), באמסטרדם החדשה מרכז החיים החברתיים היה <strong>הטברנה (Tavern)</strong>. חיי הקהילה היו חילוניים יותר, מבוססי מסחר, מסבאות, וחגיגות.</li>
+                        <li><strong>מגוון לשוני ודתי:</strong> כבר בשנות ה-40 של המאה ה-17, מנה כומר שעבר בניו אמסטרדם <strong>18 שפות שונות</strong> המדוברות ברחובות העיר (שמנתה אז פחות מ-1,000 תושבים!). חיו בה הולנדים, אנגלים, צרפתים, וולונים (בלגים), גרמנים, אפריקאים, שוודים, וילידים.</li>
+                        <li><strong>הקהילה היהודית:</strong> בספטמבר 1654 הגיעה לעיר ספינה מברזיל עם 23 פליטים יהודים-ספרדים (שנמלטו מהאינקוויזיציה). המושל סטויווסנט דרש לגרשם, אך מנהלי החברה בהולנד – בלחץ בעלי מניות יהודים באמסטרדם – הורו לו לאפשר להם להישאר, לחיות ולסחור, ובכך החלה הנוכחות היהודית הרציפה באמריקה הצפונית.</li>
                     </ul>
                 </div>
             </section>
 
-            <!-- 7. מאבקי השליטה (חוק ההשתלטות) -->
+            <!-- 7. מאבקי השליטה (סעיף מורחב) -->
             <section class="content-section bg-white dark:bg-darkCard p-8 rounded-3xl shadow-sm border border-gray-100 dark:border-gray-800 border-r-4 border-r-red-500 dark:border-r-red-400">
                 <div class="flex items-center gap-3 mb-6">
                     <div class="p-3 bg-red-100 dark:bg-gray-800 rounded-2xl text-red-600 dark:text-red-400">
                         <i class="ph ph-swords text-3xl"></i>
                     </div>
-                    <h2 class="text-3xl font-bold">7. מאבקי השליטה: הכיבוש האנגלי ללא ירייה</h2>
+                    <h2 class="text-3xl font-bold">7. מאבקי השליטה: הכיבוש ומרד לייזלר</h2>
                 </div>
                 <div class="text-lg text-gray-700 dark:text-gray-300 leading-relaxed space-y-6">
-                    <p>קיומה של "הולנד החדשה" היה כקוץ בגרונה של האימפריה הבריטית, משום שהיא פיצלה את מושבות ניו אינגלנד מהמושבות הדרומיות (וירג'יניה ומרילנד) ואפשרה הברחות סחר מסיביות שעקפו את מס המלך.</p>
+                    <p>השלטון בניו יורק התאפיין בהפיכות חדות ובמאבקים אלימים בין מעמדות ולאומים:</p>
                     
                     <div class="bg-gray-50 dark:bg-gray-800/30 p-6 rounded-2xl border border-gray-200 dark:border-gray-700">
                         <h3 class="text-2xl font-bold text-red-800 dark:text-red-400 mb-3 flex items-center gap-2">
-                            <i class="ph ph-flag-banner"></i> פלישת הצי ושינוי השם (1664)
+                            <i class="ph ph-flag-banner"></i> מכיבוש בריטי למרד פנימי
                         </h3>
                         <ul class="list-none space-y-3 text-lg">
-                            <li><strong>מועד:</strong> אוגוסט - ספטמבר 1664. (ההולנדים כבשו אותה חזרה לתקופה קצרה ב-1673, אך האנגלים קיבלו אותה סופית בהסכם וסטמינסטר ב-1674).</li>
-                            <li><strong>אישים בולטים:</strong> המלך צ'ארלס השני, שהעניק את האדמה מראש (עוד לפני שכבש אותה) לאחיו, <strong>ג'יימס, דוכס יורק</strong>. המפקד האנגלי הקולונל <strong>ריצ'רד ניקולס</strong> (Richard Nicolls), והמושל ההולנדי הזועם <strong>פטר סטויווסאנט</strong>.</li>
-                            <li><strong>מהלך ההשתלטות:</strong> 
-                                באוגוסט 1664, צי קטן של 4 פריגטות אנגליות חמושות בכבדות הופיע במפרץ מנהטן, וכיוון את תותחיו אל עבר היישוב ואל מבצר אמסטרדם. המפקד ריצ'רד ניקולס דרש כניעה ללא תנאי. המושל סטויווסאנט, איש הצבא גדוע-הרגל, זעם ורצה לקרע את מכתב הדרישה ולהילחם עד טיפת הדם האחרונה.
-                                אולם, לסטויווסאנט לא היה גיבוי. התושבים ההולנדים, שמאסו בשלטונו הרודני וראו שאין להם מספיק אבק שריפה, חתמו על עצומה (Remonstrance) שכללה גם את חתימת בנו של סטויווסאנט עצמו, ודרשו ממנו להיכנע כדי להציל את רכושם מהרס. 
-                                ב-8 בספטמבר 1664, סטויווסאנט המובס נכנע. הבריטים הבטיחו לשמור על רכושם, עסקיהם ודתם של התושבים ההולנדים. "אמסטרדם החדשה" נכבשה ללא ירייה אחת, ושמה שונה מיד לניו יורק.
+                            <li><strong>מועדי המאבק:</strong> 1664 (הכיבוש הבריטי), 1689-1691 (מרד לייזלר).</li>
+                            <li><strong>אישים בולטים:</strong> פטר סטויווסנט, ג'יימס דוכס יורק, והסוחר הגרמני-הולנדי <strong>ג'ייקוב לייזלר</strong> (Jacob Leisler).</li>
+                            <li><strong>מהלך המאבקים:</strong> 
+                                המאבק הראשון היה קצרצר. באוגוסט 1664, ארבע ספינות מלחמה אנגליות הקיפו את ניו אמסטרדם ודרשו את כניעתה. תושבי העיר, שמאסו במיסים הגבוהים של החברה ההולנדית ובעריצות של המושל סטויווסנט, סירבו להגן עליו. העיר נכנעה ללא קרב והועברה לשליטת האנגלים (למעט כיבוש חוזר הולנדי קצרצר ב-1673 שלא החזיק מעמד).
+                                המאבק המדמם יותר הגיע רבע מאה מאוחר יותר. כאשר הגיעה הבשורה על הדחת המלך הקתולי ג'יימס השני (1689), המושל המלכותי בניו יורק איבד מסמכותו. וואקום שלטוני זה נוצל על ידי <strong>ג'ייקוב לייזלר</strong>, סוחר גרמני עשיר שייצג את ההמונים (החקלאים, העניים, וההולנדים ששנאו את האליטה האנגלית החדשה). לייזלר הוביל מיליציה, תפס את המבצר בעיר, ושלט בניו יורק כרודן במשך כמעט שנתיים. בסופו של דבר, המלך החדש ויליאם שלח כוחות אנגלים להשתלט מחדש. לייזלר סירב להיכנע מיד, נשפט בעוון בגידה, ו**הוצא להורג פומבית באכזריות (נתלה וראשו נערף)** ב-1691. המרד הותיר את ניו יורק מפולגת למחנות יריבים למשך עשרות שנים.
                             </li>
                         </ul>
                     </div>
                 </div>
             </section>
 
-            <!-- 8. מחקר אטימולוגי מפורט -->
+            <!-- 8. מחקר אטימולוגי מפורט (עיצוב בכרטיסיות) -->
             <section class="content-section bg-white dark:bg-darkCard p-8 rounded-3xl shadow-sm border border-gray-100 dark:border-gray-800">
                 <div class="flex items-center gap-3 mb-6">
                     <div class="p-3 bg-blue-100 dark:bg-gray-800 rounded-2xl text-blue-600 dark:text-gold">
                         <i class="ph ph-text-aa text-3xl"></i>
                     </div>
-                    <h2 class="text-3xl font-bold">8. מחקר אטימולוגי: משמות ילידיים להולנדים ולאנגלים</h2>
+                    <h2 class="text-3xl font-bold">8. מחקר אטימולוגי: מאמסטרדם ליורק</h2>
                 </div>
                 
-                <div class="overflow-x-auto mt-6">
-                    <table class="w-full text-right border-collapse">
-                        <thead>
-                            <tr class="bg-blue-50 dark:bg-gray-800 text-blue-900 dark:text-gold border-b-2 border-blue-200 dark:border-gray-700">
-                                <th class="p-4 font-bold rounded-tr-xl">מרכיב בשם</th>
-                                <th class="p-4 font-bold">מקור לשוני ותקופה</th>
-                                <th class="p-4 font-bold rounded-tl-xl">משמעות והקשר היסטורי / אבולוציוני</th>
-                            </tr>
-                        </thead>
-                        <tbody class="text-gray-700 dark:text-gray-300">
-                            <tr class="border-b border-gray-100 dark:border-gray-800 hover:bg-gray-50 dark:hover:bg-gray-800/50 transition-colors">
-                                <td class="p-4 font-mono font-bold text-xl">Manna-hata<br><span class="text-sm text-gray-500">(Manhattan)</span></td>
-                                <td class="p-4">שפת הלנאפה (הילידים)</td>
-                                <td class="p-4">
-                                    תועד לראשונה ביומנו של קצין בספינתו של הנרי הדסון ב-1609. המשמעות המקובלת היא <strong>"האי של הגבעות הרבות"</strong> או "מקום איסוף עצי הקשת".
-                                </td>
-                            </tr>
-                            <tr class="border-b border-gray-100 dark:border-gray-800 hover:bg-gray-50 dark:hover:bg-gray-800/50 transition-colors">
-                                <td class="p-4 font-mono font-bold text-xl">Nieuw Amsterdam</td>
-                                <td class="p-4">הולנדית (1625–1664)</td>
-                                <td class="p-4">
-                                    "אמסטרדם החדשה". נקראה על ידי חברת הודו המערבית כדי לחלוק כבוד לעיר הבירה והמרכז הכלכלי של הרפובליקה ההולנדית. השטח כולו נקרא "ניו נדרלנד" (Nieuw-Nederland).
-                                </td>
-                            </tr>
-                            <tr class="bg-blue-50/50 dark:bg-gray-800/30">
-                                <td class="p-4 font-bold text-blue-800 dark:text-blue-300">New York</td>
-                                <td class="p-4 text-lg font-semibold text-gray-900 dark:text-white">אנגלית / קלטית / ויקינגית (1664)</td>
-                                <td class="p-4 text-lg font-semibold text-gray-900 dark:text-white">
-                                    האזור והעיר שונו מיד ל-New York לכבוד הבעלים החדש, <strong>ג'יימס, דוכס יורק</strong> (אחיו של המלך).<br><br>
-                                    <strong>האבולוציה המרתקת של המילה York:</strong><br>
-                                    העיר יורק באנגליה עברה גלגולים לשוניים של אלפיים שנה: הקלתים המקוריים קראו למקום <em>Eburākon</em> (אחוזת עצי הטקסוס - Yew trees). הרומאים כבשו ותרגמו זאת ל-<em>Eboracum</em>. במאה ה-9 הגיעו הוויקינגים הדנים, התקשו בהגייה הרומית, והפכו את השם ל-<em>Jórvík</em> (משמעות אפשרית בשפתם: מפרץ סוסי הבר). במרוצת מאות השנים, ההגייה האנגלית קיצרה את הג'ורוויק הוויקינגי ל-<strong>York</strong>.
-                                </td>
-                            </tr>
-                        </tbody>
-                    </table>
+                <div class="text-lg text-gray-700 dark:text-gray-300 leading-relaxed mb-4">
+                    היסטוריית השמות של העיר והמדינה משקפת את חילופי השלטון הקיצוניים:
+                </div>
+
+                <div class="space-y-6 mt-6">
+                    <!-- חלק 1 -->
+                    <div class="p-6 bg-blue-50/50 dark:bg-gray-800/30 rounded-2xl border-r-4 border-blue-500 dark:border-gold shadow-sm hover:bg-blue-50 dark:hover:bg-gray-800 transition-colors">
+                        <div class="flex flex-col sm:flex-row sm:items-center justify-between mb-3 gap-2">
+                            <h3 class="text-2xl font-mono font-bold text-gray-900 dark:text-white">
+                                New Amsterdam <span class="text-xl font-sans font-normal text-gray-500 dark:text-gray-400">(ניו אמסטרדם)</span>
+                            </h3>
+                            <span class="inline-block px-3 py-1 bg-blue-100 dark:bg-gray-700 text-blue-800 dark:text-blue-300 text-sm rounded-full font-semibold border border-blue-200 dark:border-gray-600">
+                                מקור: הולנדית / גיאוגרפי
+                            </span>
+                        </div>
+                        <p class="text-lg text-gray-700 dark:text-gray-300 leading-relaxed">
+                            השם המקורי של המושבה (1624). ההולנדים קראו לה על שם עיר הבירה והמרכז הכלכלי של מולדתם - אמסטרדם. השם המקורי של העיר האירופאית עצמה נובע מסכר (Dam) שנבנה על נהר האמסטל (Amstel), כלומר: <strong>הסכר על האמסטל החדש</strong>.
+                        </p>
+                    </div>
+
+                    <!-- חלק 2 -->
+                    <div class="p-6 bg-blue-50/50 dark:bg-gray-800/30 rounded-2xl border-r-4 border-blue-500 dark:border-gold shadow-sm hover:bg-blue-50 dark:hover:bg-gray-800 transition-colors">
+                        <div class="flex flex-col sm:flex-row sm:items-center justify-between mb-3 gap-2">
+                            <h3 class="text-2xl font-mono font-bold text-gray-900 dark:text-white">
+                                York <span class="text-xl font-sans font-normal text-gray-500 dark:text-gray-400">(יורק)</span>
+                            </h3>
+                            <span class="inline-block px-3 py-1 bg-blue-100 dark:bg-gray-700 text-blue-800 dark:text-blue-300 text-sm rounded-full font-semibold border border-blue-200 dark:border-gray-600">
+                                מקור: קלטי-רומי / ויקינגי
+                            </span>
+                        </div>
+                        <p class="text-lg text-gray-700 dark:text-gray-300 leading-relaxed">
+                            יורק היא עיר עתיקה מאוד בצפון אנגליה. שמה עבר גלגולים רבים: הרומאים קראו לה <em>Eboracum</em> (מילה קלטית שעברה לטיניזציה ופירושה עץ טקסוס). הוויקינגים שכבשו אותה שינו את השם ל-<em>Jórvík</em>, שעם השנים קוצר באנגלית ימי-הביניים ל-<strong>York</strong>.
+                        </p>
+                    </div>
+
+                    <!-- חלק 3 -->
+                    <div class="p-6 bg-blue-100/50 dark:bg-gray-800/80 rounded-2xl border-r-4 border-blue-700 dark:border-yellow-400 shadow-md">
+                        <div class="flex items-center gap-3 mb-3">
+                            <i class="ph ph-puzzle-piece text-3xl text-blue-700 dark:text-yellow-400"></i>
+                            <h3 class="text-2xl font-mono font-black text-blue-900 dark:text-white">
+                                New York <span class="text-xl font-sans font-normal text-gray-600 dark:text-gray-300">(ניו יורק)</span>
+                            </h3>
+                        </div>
+                        <p class="text-lg text-gray-800 dark:text-gray-200 leading-relaxed font-medium">
+                            עם הכיבוש האנגלי ב-1664, המלך צ'ארלס השני נתן את המושבה לאחיו הצעיר, מפקד הצי המלכותי, <strong>ג'יימס סטיוארט - הדוכס מיורק (Duke of York)</strong>. העיר והמושבה שונו מיד ל"ניו יורק" לכבודו של הבעלים החדש. כך נמחקה המורשת השמית של ההולנדים ביום אחד והוחלפה בחנופה פוליטית למלוכה הבריטית.
+                        </p>
+                    </div>
                 </div>
             </section>
 
         </article>
 
     </main>
+
+    <!-- חלון צף (Modal) להגדלת תמונות -->
+    <div id="imageModal" class="fixed inset-0 z-[100] hidden bg-black/90 backdrop-blur-md flex items-center justify-center p-4 touch-manipulation opacity-0 transition-opacity duration-300" onclick="closeImageModal()">
+        <button class="absolute top-4 right-4 text-white/70 hover:text-white p-3 bg-black/50 hover:bg-black/80 rounded-full transition-colors duration-200 z-10" onclick="closeImageModal()">
+            <i class="ph ph-x text-2xl"></i>
+        </button>
+        
+        <div class="relative max-w-5xl w-full h-full flex flex-col items-center justify-center">
+            <img id="modalImage" src="" alt="תמונה מוגדלת" class="max-w-full max-h-[80vh] object-contain rounded-xl shadow-2xl scale-95 transition-transform duration-300" onclick="event.stopPropagation()">
+            <div class="mt-6 p-4 bg-darkCard/80 backdrop-blur-sm rounded-xl border border-gray-700 text-white text-center shadow-lg max-w-3xl" onclick="event.stopPropagation()">
+                <p id="modalCaption" class="text-lg leading-relaxed"></p>
+            </div>
+        </div>
+    </div>
 
     <!-- כותרת תחתונה (Footer) -->
     <footer class="bg-white dark:bg-darkBg border-t border-gray-200 dark:border-gray-800 py-8 mt-12">
@@ -303,6 +358,53 @@
         } else {
             document.documentElement.classList.remove('dark');
         }
+
+        // פונקציות חלון צף (Data Attributes)
+        function openImageModal(element) {
+            const src = element.getAttribute('data-image');
+            const caption = element.getAttribute('data-caption');
+            
+            const modal = document.getElementById('imageModal');
+            const modalImg = document.getElementById('modalImage');
+            const modalCap = document.getElementById('modalCaption');
+            
+            modalImg.src = src;
+            modalCap.textContent = caption;
+            
+            modal.classList.remove('hidden');
+            document.body.classList.add('modal-open');
+            
+            setTimeout(() => {
+                modal.classList.remove('opacity-0');
+                modalImg.classList.remove('scale-95');
+                modalImg.classList.add('scale-100');
+            }, 10);
+        }
+
+        function closeImageModal() {
+            const modal = document.getElementById('imageModal');
+            const modalImg = document.getElementById('modalImage');
+            
+            modal.classList.add('opacity-0');
+            modalImg.classList.remove('scale-100');
+            modalImg.classList.add('scale-95');
+            
+            setTimeout(() => {
+                modal.classList.add('hidden');
+                document.body.classList.remove('modal-open');
+            }, 300);
+        }
+        
+        document.addEventListener('keydown', function(event) {
+            if (event.key === "Escape") {
+                const modal = document.getElementById('imageModal');
+                if (!modal.classList.contains('hidden')) {
+                    closeImageModal();
+                }
+            }
+        });
     </script>
 </body>
 </html>
+
+
