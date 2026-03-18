@@ -28,6 +28,8 @@
     <style>
         body { transition: background-color 0.3s ease, color 0.3s ease; }
         .content-section { scroll-margin-top: 100px; }
+        /* מניעת גלילה כשהחלון הצף פתוח */
+        .modal-open { overflow: hidden; }
     </style>
 </head>
 <body class="bg-gray-50 text-gray-900 dark:bg-darkBg dark:text-gray-100 font-sans antialiased selection:bg-blue-200 dark:selection:bg-blue-900">
@@ -36,8 +38,8 @@
     <header class="relative z-40 w-full bg-white dark:bg-darkBg border-b border-gray-200 dark:border-gray-800 shadow-sm">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex items-center justify-between h-20">
-                <!-- כפתור חזרה -->
-                <a href="index.html" class="flex items-center gap-2 text-blue-600 dark:text-gold hover:text-blue-800 dark:hover:text-yellow-400 transition-colors touch-manipulation font-semibold bg-blue-50 dark:bg-gray-800 px-4 py-2 rounded-full">
+                <!-- כפתור חזרה (מעודכן לתיקיית colonies) -->
+                <a href="../index.html" class="flex items-center gap-2 text-blue-600 dark:text-gold hover:text-blue-800 dark:hover:text-yellow-400 transition-colors touch-manipulation font-semibold bg-blue-50 dark:bg-gray-800 px-4 py-2 rounded-full">
                     <i class="ph ph-arrow-right text-xl"></i>
                     <span>חזרה לדף הבית</span>
                 </a>
@@ -69,11 +71,18 @@
             </p>
         </div>
 
-        <!-- תמונה ראשית -->
-        <div class="w-full h-64 md:h-96 rounded-3xl overflow-hidden mb-16 shadow-2xl relative border border-gray-200 dark:border-gray-800">
-            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/e5/Thomas_Hooker.jpg/1200px-Thomas_Hooker.jpg" alt="" class="w-full h-full object-cover">
-            <div class="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/80 to-transparent p-4 text-white text-sm md:text-base text-center">
-                תומאס הוקר וקהילתו חוצים את היערות בדרכם לייסד את הרטפורד שבקונטיקט, 1636.
+        <!-- תמונה ראשית 1 (מנגנון שאיבת נתונים בטוח) -->
+        <div class="w-full h-64 md:h-96 rounded-3xl overflow-hidden mb-16 shadow-2xl relative border border-gray-200 dark:border-gray-800 group cursor-pointer" 
+             onclick="openImageModal(this)" 
+             data-image="../images/connecticut_hero.jpg" 
+             data-caption="הכומר תומאס הוקר וקהילתו חוצים את היערות בדרכם לייסד את הרטפורד שבעמק קונטיקט, 1636.">
+            <img src="../images/connecticut_hero.jpg" alt="תומאס הוקר חוצה את היערות" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700">
+            <div class="absolute inset-0 bg-black/20 group-hover:bg-transparent transition-colors duration-500"></div>
+            <div class="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/90 via-black/60 to-transparent p-6 text-white text-sm md:text-base text-center">
+                תומאס הוקר וקהילתו חוצים את היערות בדרכם לייסד את הרטפורד שבעמק קונטיקט, 1636.
+                <div class="mt-2 text-xs text-gray-300 flex items-center justify-center gap-1 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                    <i class="ph ph-magnifying-glass-plus text-lg"></i> לחץ להגדלה
+                </div>
             </div>
         </div>
 
@@ -88,33 +97,44 @@
                     <h2 class="text-3xl font-bold">1. שנות פעילות, הקמה ויעדים</h2>
                 </div>
                 <div class="text-lg text-gray-700 dark:text-gray-300 leading-relaxed space-y-4">
-                    <p><strong>שנת הקמה:</strong> אביב 1636 (אמנם היו שם סוחרי פרוות הולנדים ומתיישבים בודדים קודם לכן, אך הקמת המושבה הממוסדת מיוחסת למסעו של תומאס הוקר ב-1636).</p>
-                    <p><strong>ישות מקימה:</strong> קבוצת פוריטנים פורשים (Dissenters) ממושבת מפרץ מסצ'וסטס, בהנהגת הכומר תומאס הוקר והמושל ג'ון היינס. הם הקימו מושבה באופן עצמאי ללא זיכיון מלכותי רשמי בתחילה. רק בשנת 1662 הצליח המושל ג'ון וינתרופ הבן להשיג מהמלך צ'ארלס השני זיכיון (Charter) רשמי שהעניק לקונטיקט מידה חסרת תקדים של ממשל עצמי חופשי.</p>
+                    <p><strong>שנת הקמה:</strong> אביב 1636 (אמנם היו שם סוחרי פרוות הולנדים קודם לכן, אך הקמת המושבה הממוסדת מיוחסת למסעו של תומאס הוקר).</p>
+                    <p><strong>ישות מקימה:</strong> קבוצת פוריטנים פורשים (Dissenters) ממסצ'וסטס. הם הקימו מושבה באופן עצמאי ללא זיכיון רשמי בתחילה. רק בשנת 1662 השיג המושל ג'ון וינתרופ הבן זיכיון מלכותי (Charter) מצ'ארלס השני שהעניק לקונטיקט מידה חסרת תקדים של ממשל עצמי.</p>
                     <p><strong>היעדים המקוריים (רוחניים וכלכליים):</strong> 
-                        קונטיקט נולדה מתוך תסכול. היעד הפוליטי היה להקים קהילה פוריטנית שבה סמכויות השלטון אינן מרוכזות רק בידי אליטה דתית צרה. היעד הכלכלי היה מציאת אדמות חקלאיות פוריות. אזור בוסטון סבל מאדמה סלעית וצפיפות אוכלוסין גוברת, בעוד שעמק נהר הקונטיקט הציע אדמות סחף פוריות וגישה נוחה למסחר בפרוות (בעיקר בונים) עם הילידים שבפנים היבשת.
+                        היעד הפוליטי היה להקים קהילה שבה סמכויות השלטון אינן מרוכזות רק בידי אליטה דתית צרה. היעד הכלכלי היה מציאת אדמות חקלאיות פוריות. אזור בוסטון סבל מאדמה סלעית, בעוד שעמק נהר הקונטיקט הציע אדמות סחף משובחות וגישה למסחר בפרוות בפנים היבשת.
                     </p>
                 </div>
             </section>
 
-            <!-- 2. דמויות מפתח: תומאס הוקר -->
+            <!-- 2. דמויות מפתח -->
             <section class="content-section bg-white dark:bg-darkCard p-8 rounded-3xl shadow-sm border border-gray-100 dark:border-gray-800 border-r-4 border-r-blue-500 dark:border-r-gold">
                 <div class="flex items-center gap-3 mb-6">
                     <div class="p-3 bg-blue-100 dark:bg-gray-800 rounded-2xl text-blue-600 dark:text-gold">
                         <i class="ph ph-user text-3xl"></i>
                     </div>
-                    <h2 class="text-3xl font-bold">2. רקע המייסדים: תומאס הוקר</h2>
+                    <h2 class="text-3xl font-bold">2. רקע המייסד: תומאס הוקר</h2>
                 </div>
-                <div class="text-lg text-gray-700 dark:text-gray-300 leading-relaxed space-y-4">
-                    <p><strong>תומאס הוקר (Thomas Hooker)</strong> - חי בין השנים 1586–1647. כומר פוריטני כריזמטי, המוכר כיום בתור "אבי הדמוקרטיה האמריקאית".</p>
-                    <p><strong>ילדות ורקע:</strong> 
-                        הוקר נולד במחוז לסטרשייר שבאנגליה, ככל הנראה למשפחת איכרים בעלי מעמד בינוני. בדומה לג'ון וינתרופ, הוא רכש השכלה באוניברסיטת קיימברידג', שהייתה כור ההיתוך של המחשבה הפוריטנית. הוא הפך לדרשן כריזמטי ופופולרי מאוד באנגליה, עד שהרשויות האנגליקניות החלו לרדוף אותו בגין אי-ציות. הוא נמלט להולנד ב-1630, ושלוש שנים מאוחר יותר הפליג למסצ'וסטס והפך לכומר הראשי של הקהילה בניוטאון (היום קיימברידג', מסצ'וסטס).
-                    </p>
-                    <p><strong>משבר אידאולוגי מול מסצ'וסטס:</strong> 
-                        במסצ'וסטס, הוקר נכנס למסלול התנגשות אידאולוגי עם המושל ג'ון וינתרופ. וינתרופ האמין באוליגרכיה - שלטון של מעטים ונבחרים (האליטה הכנסייתית). הוקר, לעומתו, האמין שלכל הגברים בקהילה, גם אלו שאינם חברי כנסייה רשמיים, צריכה להיות זכות להצביע בבחירות המקומיות, שכן הכוח הפוליטי נובע מהסכמת העם.
-                    </p>
-                    <p><strong>הישגים (המסע והחוקה):</strong> 
-                        באביב 1636, כשהוא מלווה בכ-100 מחסידיו, פרש הוקר ממסצ'וסטס והוביל מסע רגלי מפרך של כשבועיים דרך היערות אל עבר עמק קונטיקט, שם ייסדו את העיר הרטפורד. הישגו ההיסטורי הגדול ביותר היה דרשה שנשא ב-1638, בה הכריז כי "ייסוד הסמכות תלוי בהסכמה החופשית של האנשים". דרשה זו היוותה את הבסיס הישיר לכתיבת "הצווים היסודיים של קונטיקט" שנה לאחר מכן.
-                    </p>
+                
+                <div class="flex flex-col md:flex-row gap-8 items-start">
+                    <!-- תמונה 2 -->
+                    <div class="md:w-1/3 shrink-0 w-full group cursor-pointer relative rounded-2xl overflow-hidden shadow-md border border-gray-200 dark:border-gray-700" 
+                         onclick="openImageModal(this)" 
+                         data-image="../images/thomas_hooker_portrait.jpg" 
+                         data-caption="דיוקן קלאסי של הכומר תומאס הוקר, מייסד קונטיקט ואבי הדמוקרטיה האמריקאית.">
+                        <img src="../images/thomas_hooker_portrait.jpg" alt="דיוקן תומאס הוקר" class="w-full object-cover group-hover:scale-105 transition-transform duration-500">
+                        <div class="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
+                            <i class="ph ph-magnifying-glass-plus text-4xl text-white"></i>
+                        </div>
+                        <div class="absolute bottom-0 left-0 right-0 bg-black/70 p-2 text-xs text-white text-center">הכומר תומאס הוקר</div>
+                    </div>
+                    
+                    <div class="md:w-2/3 text-lg text-gray-700 dark:text-gray-300 leading-relaxed space-y-6">
+                        <div>
+                            <h3 class="text-2xl font-bold text-blue-800 dark:text-blue-300 mb-2">תומאס הוקר (Thomas Hooker) (1586–1647)</h3>
+                            <p><strong>רקע:</strong> הוקר נולד באנגליה למשפחת איכרים ממעמד בינוני. הוא רכש השכלה באוניברסיטת קיימברידג' והפך לדרשן כריזמטי ופופולרי מאוד. לאחר שנרדף על ידי הרשויות האנגליקניות, נמלט להולנד ב-1630, ומאוחר יותר הפליג למסצ'וסטס והפך לכומר הראשי של קהילת ניוטאון (קיימברידג' של ימינו).</p>
+                            <p class="mt-4"><strong>משבר אידאולוגי מול מסצ'וסטס:</strong> הוקר נכנס למסלול התנגשות אידאולוגי עם ג'ון וינתרופ ממסצ'וסטס. בעוד וינתרופ האמין באוליגרכיה שלטונית דתית, הוקר האמין שלכל הגברים בקהילה, גם אלו שאינם חברי כנסייה רשמיים, צריכה להיות זכות להצביע בבחירות המקומיות, שכן הכוח הפוליטי נובע מהסכמת העם.</p>
+                            <p class="mt-4"><strong>הישגים:</strong> באביב 1636 הוביל את הפיצול ומסע הייסוד של העיר הרטפורד. הישגו ההיסטורי הגדול ביותר היה דרשה ב-1638 בה הכריז כי "ייסוד הסמכות תלוי בהסכמה החופשית של האנשים". דרשה זו הובילה לכתיבת "הצווים היסודיים של קונטיקט".</p>
+                        </div>
+                    </div>
                 </div>
             </section>
 
@@ -131,8 +151,8 @@
                         האידאולוגיה שהניעה את מושבת קונטיקט הייתה שילוב מרתק של אמונה דתית עמוקה (פוריטניזם) יחד עם רעיונות פוליטיים רדיקליים לזמנם.
                     </p>
                     <ul class="list-disc list-inside space-y-4 ml-4">
-                        <li><strong>הפרדת זכות ההצבעה מהכנסייה:</strong> זה היה החידוש הגדול. בקונטיקט, בניגוד למסצ'וסטס, לא היית חייב להיות חבר כנסייה מאושר (מי שעבר "חווית ישועה" פומבית) כדי לקבל זכות בחירה לאסיפה הכללית או לבית המשפט (Court). כל גבר שהיה בעל רכוש בסיסי יכול היה להצביע. גישה זו פתחה את המערכת הפוליטית למעגלים רחבים הרבה יותר.</li>
-                        <li><strong>"הצווים היסודיים של קונטיקט" (1639):</strong> מסמך זה (Fundamental Orders of Connecticut) נחשב על ידי היסטוריונים רבים ל<strong>חוקה הכתובה הראשונה במסורת המערבית</strong>. המסמך פירט את מבנה הממשלה, את הליך בחירת המושל, את אופן הטלת המיסים, ואת זכויות האזרח. מדהים לציין שהמסמך אינו מזכיר כלל את סמכותו של מלך אנגליה – הממשל נשען באופן בלעדי על הסכמת האנשים החיים במושבה (Popular Sovereignty). בזכות מסמך זה, קונטיקט מכונה עד היום "מדינת החוקה" (The Constitution State).</li>
+                        <li><strong>הפרדת זכות ההצבעה מהכנסייה:</strong> זה היה החידוש הגדול. בקונטיקט לא היית חייב להיות חבר כנסייה מאושר כדי לקבל זכות בחירה. כל גבר שהיה בעל רכוש בסיסי יכול היה להצביע, מה שפתח את המערכת הפוליטית למעגלים רחבים.</li>
+                        <li><strong>"הצווים היסודיים של קונטיקט" (1639):</strong> מסמך זה (Fundamental Orders of Connecticut) נחשב על ידי היסטוריונים ל<strong>חוקה הכתובה הראשונה במסורת המערבית</strong>. המסמך פירט את מבנה הממשלה, בחירת המושל, והגדרת זכויות. המסמך אינו מזכיר כלל את סמכותו של מלך אנגליה – הממשל נשען בלעדית על הסכמת האנשים (Popular Sovereignty). בזכות מסמך זה, קונטיקט מכונה "מדינת החוקה".</li>
                     </ul>
                 </div>
             </section>
@@ -146,50 +166,54 @@
                     <h2 class="text-3xl font-bold">4. גיאוגרפיה ובחירת המיקום: עמק הנהר הגדול</h2>
                 </div>
                 
-                <div class="mb-10">
-                    <h3 class="text-2xl font-bold text-blue-800 dark:text-blue-300 mb-4 border-b border-gray-200 dark:border-gray-700 pb-2">א. נהר הקונטיקט (Connecticut River)</h3>
-                    <div class="text-lg text-gray-700 dark:text-gray-300 leading-relaxed space-y-4">
-                        <p><strong>מידע הידרולוגי וגיאוגרפי:</strong> נהר הקונטיקט הוא הנהר הארוך ביותר באזור ניו אינגלנד (כ-655 קילומטרים). הוא נובע סמוך לגבול קנדה וחוצה את מסצ'וסטס וקונטיקט עד שהוא נשפך ללונג איילנד סאונד (Long Island Sound). בחלקו הדרומי (היכן שהוקמה המושבה), הנהר הוא אסטואר כביר – שפך נהר המושפע מזרמי גאות ושפל של האוקיינוס, מה שמאפשר לספינות אוקיינוס לשוט עשרות קילומטרים לתוך היבשת.</p>
-                        <p><strong>אקולוגיה ופוריות:</strong> האזור שסביב הנהר זכה לכינוי "עמק נהר הקונטיקט". בניגוד לאדמה הקרחונית הסלעית והדלילה של בוסטון, נהר הקונטיקט הציף את העמק במשך אלפי שנים והותיר אחריו אדמת סחף (Alluvial soil) כהה ועמוקה. זו הייתה האדמה החקלאית העשירה ביותר בכל ניו אינגלנד, אידיאלית לגידול תירס, חיטה ומאוחר יותר גם טבק ייחודי ("עלי עטיפה" לסיגרים).</p>
+                <div class="flex flex-col md:flex-row-reverse gap-8 items-start mb-6">
+                    <!-- תמונה 3 -->
+                    <div class="md:w-1/3 shrink-0 w-full group cursor-pointer relative rounded-2xl overflow-hidden shadow-md border border-gray-200 dark:border-gray-700" 
+                         onclick="openImageModal(this)" 
+                         data-image="../images/connecticut_river_valley.jpg" 
+                         data-caption="עמק נהר קונטיקט הפורה, שהפך ל'סל הלחם' של ניו אינגלנד בזכות אדמת הסחף העשירה שלו.">
+                        <img src="../images/connecticut_river_valley.jpg" alt="עמק נהר קונטיקט" class="w-full object-cover group-hover:scale-105 transition-transform duration-500">
+                        <div class="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
+                            <i class="ph ph-magnifying-glass-plus text-4xl text-white"></i>
+                        </div>
+                        <div class="absolute bottom-0 left-0 right-0 bg-black/70 p-2 text-xs text-white text-center">עמק נהר קונטיקט</div>
+                    </div>
+                    
+                    <div class="md:w-2/3 text-lg text-gray-700 dark:text-gray-300 leading-relaxed space-y-4">
+                        <p><strong>מידע הידרולוגי וגיאוגרפי:</strong> נהר הקונטיקט הוא הנהר הארוך ביותר בניו אינגלנד. בחלקו הדרומי, הנהר הוא אסטואר (שפך נהר) המושפע מזרמי גאות ושפל של האוקיינוס, מה שמאפשר לספינות אוקיינוס לשוט עשרות קילומטרים לתוך היבשת.</p>
+                        <p><strong>אקולוגיה ופוריות:</strong> האזור שסביב הנהר זכה לכינוי "עמק נהר הקונטיקט". בניגוד לאדמה הסלעית של בוסטון, הנהר הציף את העמק במשך אלפי שנים והותיר אחריו אדמת סחף (Alluvial soil) עמוקה וכהה. זו הייתה האדמה החקלאית העשירה ביותר בכל ניו אינגלנד, אידיאלית לגידול תירס וחיטה.</p>
                     </div>
                 </div>
 
-                <!-- תת סעיף ב: בחירת המיקום -->
-                <div>
-                    <h3 class="text-2xl font-bold text-blue-800 dark:text-blue-300 mb-4 border-b border-gray-200 dark:border-gray-700 pb-2">ב. ייסוד הרטפורד והתנגשויות צבאיות</h3>
-                    <div class="text-lg text-gray-700 dark:text-gray-300 leading-relaxed space-y-4">
-                        <p>
-                            משלחת הוקר הגיעה לאזור שלימים ייקרא הרטפורד (Hartford). הבחירה במיקום זה לא הייתה נטולת סכנות.
-                        </p>
-                        <ul class="list-disc list-inside space-y-2 ml-4 mb-4">
-                            <li><strong>ההולנדים:</strong> בחירת המיקום הייתה פעולה של "קביעת עובדות בשטח". ההולנדים ממושבת "הולנד החדשה" (ניו יורק) כבר הקימו עמדת סחר זעירה בשם "התקווה הטובה" באזור. המתיישבים האנגלים פשוט התעלמו מהם, בנו יישובים סביבם, ובכך דחקו את ההולנדים החוצה באופן דמוגרפי.</li>
-                            <li><strong>מלחמת הפקווט (Pequot War):</strong> בחירת המיקום האסטרטגי בעמק הובילה להתנגשות ישירה עם שבט הפקווט האימתני ששלט באזור. המתח על זכויות הסחר בנהר הוביל לפריצת מלחמת הפקווט (1636-1638). המלחמה הסתיימה בטבח נורא (טבח מיסטיק), שבו מיליציות מקונטיקט וממסצ'וסטס השמידו כליל את כוחו של השבט, מה שהבטיח את שליטתם המוחלטת בעמק.</li>
-                        </ul>
-                    </div>
+                <div class="text-lg text-gray-700 dark:text-gray-300 leading-relaxed space-y-4 border-t border-gray-200 dark:border-gray-700 pt-6 mt-4">
+                    <h3 class="text-2xl font-bold text-blue-800 dark:text-blue-300 mb-2">ייסוד הרטפורד והתנגשויות צבאיות</h3>
+                    <p>הבחירה להקים את היישוב בעמק הייתה מלווה בסכנות אסטרטגיות:</p>
+                    <ul class="list-disc list-inside space-y-2 ml-4">
+                        <li><strong>דחיקת ההולנדים:</strong> ההולנדים מניו יורק כבר הקימו עמדת סחר בשם "התקווה הטובה" באזור. האנגלים פשוט התעלמו מהם, בנו יישובים סביבם ודחקו אותם החוצה.</li>
+                        <li><strong>מלחמת הפקווט (Pequot War):</strong> השליטה בעמק הובילה להתנגשות ישירה עם שבט הפקווט האימתני. המתח על זכויות הסחר הוביל לפרוץ מלחמה (1636-1638) שהסתיימה בהשמדת כוחו של השבט לחלוטין על ידי מיליציות אנגליות ובעלי בריתם.</li>
+                    </ul>
                 </div>
             </section>
 
-            <!-- 5. הסחר והכלכלה (חדש) -->
+            <!-- 5. הסחר והכלכלה -->
             <section class="content-section bg-white dark:bg-darkCard p-8 rounded-3xl shadow-sm border border-gray-100 dark:border-gray-800 border-r-4 border-r-green-500 dark:border-r-emerald-400">
                 <div class="flex items-center gap-3 mb-6">
                     <div class="p-3 bg-green-100 dark:bg-gray-800 rounded-2xl text-green-700 dark:text-emerald-400">
                         <i class="ph ph-coins text-3xl"></i>
                     </div>
-                    <h2 class="text-3xl font-bold">5. כלכלה ומערכת הסחר של קונטיקט</h2>
+                    <h2 class="text-3xl font-bold">5. כלכלה ומערכת הסחר</h2>
                 </div>
                 <div class="text-lg text-gray-700 dark:text-gray-300 leading-relaxed space-y-4">
-                    <p>
-                        כלכלתה של מושבת קונטיקט עברה מספר תמורות מרתקות מיום הקמתה, תוך ניצול מקסימלי של הגיאוגרפיה הנהרית שלה:
-                    </p>
+                    <p>כלכלת קונטיקט ניצלה באופן מקסימלי את הגיאוגרפיה הנהרית שלה:</p>
                     <ul class="list-disc list-inside space-y-3 ml-4">
-                        <li><strong>ראשית הדרך - סחר הפרוות:</strong> המניע הכלכלי הראשון להגירה לעמק היה <strong>סחר הפרוות (בעיקר עורות בונה - Beaver)</strong> מול השבטים האינדיאנים של פנים היבשת. הפרוות היו מבוקשות מאוד באירופה לייצור כובעים. השליטה על נהר הקונטיקט אפשרה לאנגלים ליירט את הסחר שזרם מהצפון, מה שגרם כאמור לתחרות מול ההולנדים ולמלחמת הפקווט.</li>
-                        <li><strong>המהפכה החקלאית בעמק:</strong> לאחר השתלטותם על האזור והשמדת שבט הפקווט, עברו המתיישבים לחקלאות אינטנסיבית. אדמת הסחף הפורייה (Alluvial soil) הפכה את קונטיקט ל"סל הלחם" של ניו אינגלנד. בניגוד לחוות הקטנות והסלעיות של מסצ'וסטס, כאן גידלו כמויות עצומות של חיטה, תירס, שעורה ושיפון, לצד גידול משק חי (בקר, סוסים וכבשים).</li>
-                        <li><strong>סחר החוץ (הסחר המשולש עם הקריביים):</strong> במחצית השנייה של המאה ה-17, קונטיקט הפכה לשחקן מפתח בסחר האוקיינוס האטלנטי. הם בנו ספינות קטנות ובינוניות ששטו מנמלי הנהר היישר אל <strong>איי הודו המערבית (הקריביים)</strong>. קונטיקט ייצאה בקר, סוסים, קמח, עץ ובשר חזיר מומלח למושבות הסוכר באיים (שהעסיקו עבדים ולא גידלו את מזונם בעצמם), ובתמורה ייבאה סוכר, דבשה (מולסה להכנת רום) ותבלינים. סחר זה העשיר את סוחרי הרטפורד וניו הייבן.</li>
+                        <li><strong>ראשית הדרך - סחר הפרוות:</strong> המניע הכלכלי הראשון היה סחר הפרוות (עורות בונה) מול השבטים של פנים היבשת. השליטה על הנהר אפשרה לאנגלים ליירט את הסחר שזרם מהצפון.</li>
+                        <li><strong>המהפכה החקלאית בעמק:</strong> אדמת הסחף הפורייה הפכה את קונטיקט ל"סל הלחם" של ניו אינגלנד. בניגוד למסצ'וסטס, כאן גידלו כמויות עצומות של חיטה, תירס, שעורה ושיפון, לצד משק חי.</li>
+                        <li><strong>הסחר המשולש עם הקריביים:</strong> במחצית השנייה של המאה ה-17, קונטיקט בנתה ספינות ששטו מנמלי הנהר היישר אל איי הודו המערבית. הם ייצאו קמח ובקר למושבות הסוכר, ובתמורה ייבאו סוכר ודבשה (מולסה), מסחר שהעשיר את המושבה.</li>
                     </ul>
                 </div>
             </section>
 
-            <!-- 6. הדמוגרפיה והחברה (חדש) -->
+            <!-- 6. הדמוגרפיה והחברה -->
             <section class="content-section bg-white dark:bg-darkCard p-8 rounded-3xl shadow-sm border border-gray-100 dark:border-gray-800 border-r-4 border-r-green-500 dark:border-r-emerald-400">
                 <div class="flex items-center gap-3 mb-6">
                     <div class="p-3 bg-green-100 dark:bg-gray-800 rounded-2xl text-green-700 dark:text-emerald-400">
@@ -198,71 +222,135 @@
                     <h2 class="text-3xl font-bold">6. דמוגרפיה ומבנה חברתי</h2>
                 </div>
                 <div class="text-lg text-gray-700 dark:text-gray-300 leading-relaxed space-y-4">
-                    <p>
-                        ההתפתחות הדמוגרפית של קונטיקט משקפת את ההצלחה המסחררת של התיישבות פוריטנית מבוססת-משפחה בתנאים סביבתיים נוחים, בניגוד גמור לטרגדיות שפקדו את המושבות הדרומיות בתחילת דרכן.
-                    </p>
+                    <p>ההתפתחות הדמוגרפית של קונטיקט משקפת הצלחה מסחררת של התיישבות מבוססת-משפחה בתנאים סביבתיים נוחים:</p>
                     <ul class="list-disc list-inside space-y-3 ml-4">
-                        <li><strong>נקודת ההתחלה והגירת משפחות:</strong> המושבה החלה במאי 1636 עם גרעין קטן של כמאה (100) חברי קהילתו של תומאס הוקר. בניגוד לווירג'יניה, שאליה הגיעו בעיקר גברים בודדים בחיפוש אחר התעשרות מהירה, קונטיקט אוכלסה מלכתחילה על ידי <strong>משפחות שלמות ממעמד הביניים</strong> (Middle-class). הגירת משפחות יצרה חברה יציבה באופן מיידי.</li>
-                        <li><strong>תוחלת חיים גבוהה במיוחד:</strong> הנתון הדמוגרפי המדהים ביותר של קונטיקט (וניו אינגלנד בכלל) היה תוחלת החיים. החורפים הקרים של הצפון חיסלו לחלוטין את היתושים נושאי המלריה והקדחת שאפיינו את הדרום. בנוסף, מי השתייה שמקורם בפשרת שלגים ובמעיינות היו נקיים לחלוטין. כתוצאה מכך, שיעור תמותת התינוקות היה נמוך מאוד ביחס לאירופה באותה תקופה, ומתיישבים רבים בקונטיקט זכו לחיות עד גיל 70 ואף למעלה מכך - תופעה שכונתה "המצאת הסבא והסבתא" (שכן לראשונה ילדים גדלו כשהם מכירים את סביהם).</li>
-                        <li><strong>גידול טבעי והומוגניות:</strong> בשל התנאים הבריאותיים המצוינים ושיעור ילודה גבוה (משפחות בנות 7-10 ילדים היו נפוצות), האוכלוסייה הכפילה את עצמה לערך כל 25 שנה, כמעט אך ורק בזכות ריבוי טבעי, שכן ההגירה מאנגליה פחתה משמעותית לאחר 1640. מבחינה חברתית, האוכלוסייה נותרה <strong>הומוגנית להפליא</strong>: כמעט כולם היו ממוצא אנגלי, פוריטנים באמונתם, וחקלאים-בעלי רכוש (Yeoman farmers). שיעור העבדות היה נמוך מאוד בהשוואה לדרום, שכן החוות המשפחתיות לא דרשו כוח אדם עצום של מטע טבק או כותנה.</li>
+                        <li><strong>הגירת משפחות:</strong> בניגוד לוירג'יניה, קונטיקט אוכלסה מלכתחילה על ידי משפחות פוריטניות ממעמד הביניים שהיגרו יחדיו, מה שיצר חברה יציבה מיידית.</li>
+                        <li><strong>תוחלת חיים גבוהה ו"המצאת הסבא":</strong> החורפים הקרים מנעו את מחלות הדרום, ומי השתייה היו נקיים. שיעור תמותת התינוקות היה נמוך מאוד, ומתיישבים רבים חיו עד גיל 70. תופעה זו כונתה "המצאת הסבא והסבתא" – לראשונה, ילדים רבים גדלו כשהם מכירים את סביהם.</li>
+                        <li><strong>הומוגניות וריבוי טבעי:</strong> האוכלוסייה נותרה הומוגנית מאוד (אנגלים, פוריטנים, חקלאים עצמאיים) והכפילה את עצמה לערך כל 25 שנה בזכות משפחות ברוכות ילדים וריבוי טבעי מהיר.</li>
                     </ul>
                 </div>
             </section>
 
-            <!-- 7. מחקר אטימולוגי מפורט של קונטיקט -->
+            <!-- 7. מאבקי השליטה (החדש) -->
+            <section class="content-section bg-white dark:bg-darkCard p-8 rounded-3xl shadow-sm border border-gray-100 dark:border-gray-800 border-r-4 border-r-red-500 dark:border-r-red-400">
+                <div class="flex items-center gap-3 mb-6">
+                    <div class="p-3 bg-red-100 dark:bg-gray-800 rounded-2xl text-red-600 dark:text-red-400">
+                        <i class="ph ph-swords text-3xl"></i>
+                    </div>
+                    <h2 class="text-3xl font-bold">7. מאבקי השליטה: אגדת "אלון הזיכיון" (The Charter Oak)</h2>
+                </div>
+                <div class="text-lg text-gray-700 dark:text-gray-300 leading-relaxed space-y-6">
+                    <p>עצמאותה של קונטיקט, כפי שהוגדרה ב"צווים היסודיים", עמדה במבחן מול כוחה הדורסני של האימפריה הבריטית:</p>
+                    
+                    <div class="bg-gray-50 dark:bg-gray-800/30 p-6 rounded-2xl border border-gray-200 dark:border-gray-700">
+                        <h3 class="text-2xl font-bold text-red-800 dark:text-red-400 mb-3 flex items-center gap-2">
+                            <i class="ph ph-flag-banner"></i> איום הסיפוח וגניבת המסמך (1687)
+                        </h3>
+                        <ul class="list-none space-y-3 text-lg">
+                            <li><strong>מועד האירוע:</strong> אוקטובר 1687.</li>
+                            <li><strong>אישים בולטים:</strong> המלך <strong>ג'יימס השני</strong> (King James II) הקתולי והרודני, והמושל האימפריאלי <strong>סר אדמונד אנדרוס</strong> (Sir Edmund Andros).</li>
+                            <li><strong>מהלך המאבק והאגדה:</strong> 
+                                בשנת 1686, המלך ג'יימס השני החליט לבטל את עצמאותן של כל מושבות ניו אינגלנד (כולל מסצ'וסטס וקונטיקט) ולמזג אותן לישות אחת ענקית הנשלטת כדיקטטורה: "דומיניון ניו אינגלנד". הוא שלח את המושל אנדרוס להרטפורד כדי להחרים פיזית את מסמך הזיכיון של קונטיקט, שנתן להם את החופש החוקתי שלהם.
+                                בליל ה-31 באוקטובר 1687, אנדרוס ישב בפאב עם מנהיגי המושבה, והמסמך היה מונח על השולחן לקראת מסירתו. לפתע, על פי האגדה, <strong>כל הנרות בחדר כבו באחת</strong>. כשהדליקו אותם מחדש, הזיכיון נעלם! סרן ג'וזף וודסוורת' לקח את מסמך הקלף בחסות החשיכה והחביא אותו בתוך גזעו החלול של עץ אלון לבן ענקי שהיה בסמוך. 
+                                אנדרוס שלט במושבה לזמן קצר, אך ב-1689 (כשהמלך ג'יימס הודח ב"מהפכה המהוללת" באנגליה), הוציאו מתיישבי קונטיקט את הזיכיון מהעץ שזכה לכינוי <strong>The Charter Oak (אלון הזיכיון)</strong>, והכריזו על חזרתה של הממשלה הדמוקרטית העצמאית שלהם. העץ הפך לסמל החירות של המדינה עד היום.
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </section>
+
+            <!-- 8. מחקר אטימולוגי מפורט (מעוצב כטקסט חופשי) -->
             <section class="content-section bg-white dark:bg-darkCard p-8 rounded-3xl shadow-sm border border-gray-100 dark:border-gray-800">
                 <div class="flex items-center gap-3 mb-6">
                     <div class="p-3 bg-blue-100 dark:bg-gray-800 rounded-2xl text-blue-600 dark:text-gold">
                         <i class="ph ph-text-aa text-3xl"></i>
                     </div>
-                    <h2 class="text-3xl font-bold">7. מחקר אטימולוגי: המושבה Connecticut</h2>
+                    <h2 class="text-3xl font-bold">8. מחקר אטימולוגי: המושבה Connecticut</h2>
                 </div>
                 
-                <div class="overflow-x-auto mt-6">
-                    <table class="w-full text-right border-collapse">
-                        <thead>
-                            <tr class="bg-blue-50 dark:bg-gray-800 text-blue-900 dark:text-gold border-b-2 border-blue-200 dark:border-gray-700">
-                                <th class="p-4 font-bold rounded-tr-xl">מרכיב בשם</th>
-                                <th class="p-4 font-bold">מקור לשוני (אלגונקווין/מוהיקן)</th>
-                                <th class="p-4 font-bold rounded-tl-xl">משמעות והסבר גיאוגרפי</th>
-                            </tr>
-                        </thead>
-                        <tbody class="text-gray-700 dark:text-gray-300">
-                            <tr class="border-b border-gray-100 dark:border-gray-800 hover:bg-gray-50 dark:hover:bg-gray-800/50 transition-colors">
-                                <td class="p-4 font-mono font-bold text-xl">Quinne</td>
-                                <td class="p-4">שפת המוהיקן-פקווט: <em>Quinne</em> או <em>Quin</em></td>
-                                <td class="p-4">
-                                    "ארוך" (Long). המרכיב מתאר את ממדיו העצומים של הנהר ביחס לנהרות אחרים באזור ניו אינגלנד.
-                                </td>
-                            </tr>
-                            <tr class="border-b border-gray-100 dark:border-gray-800 hover:bg-gray-50 dark:hover:bg-gray-800/50 transition-colors">
-                                <td class="p-4 font-mono font-bold text-xl">htuk</td>
-                                <td class="p-4">שפת המוהיקן: <em>-htuk</em></td>
-                                <td class="p-4">
-                                    "נהר המושפע מגאות ושפל" (Tidal river) או "גלים גדולים". בניגוד למילה "sepu" שמתארת נחל רגיל, המילה <em>htuk</em> מתארת נהר רחב באזור השפך שלו, שבו מימי האוקיינוס נדחפים פנימה ומשנים את מפלס המים.
-                                </td>
-                            </tr>
-                            <tr class="border-b border-gray-100 dark:border-gray-800 hover:bg-gray-50 dark:hover:bg-gray-800/50 transition-colors">
-                                <td class="p-4 font-mono font-bold text-xl">qut</td>
-                                <td class="p-4">סיומת לשונית ילידית: <em>-qut</em> או <em>-ut</em></td>
-                                <td class="p-4">
-                                    סיומת מיקום (Locative suffix) המציינת מקום מסוים, "ליד", "ב-" או "במקום של-".
-                                </td>
-                            </tr>
-                            <tr class="bg-blue-50/50 dark:bg-gray-800/30">
-                                <td class="p-4 font-bold text-blue-800 dark:text-blue-300">הלחם אנגלי מלא</td>
-                                <td colspan="2" class="p-4 text-lg font-semibold text-gray-900 dark:text-white">
-                                    ההגייה המקורית הייתה <strong>"Quinnehtukqut"</strong>. משמעות השם השלם היא <strong>"במקום של הנהר הארוך של הגאות"</strong> (Beside the long tidal river). האנגלים התקשו לבטא את העיצורים הילידיים, ובאמצעות אנגלוזציה (Anglicization) של השפה, עיוותו את הצליל המקורי למילה האנגלית "Connecticut", תוך הוספת האות "c" שאינה נהגית (שקטה) במרכז המילה.
-                                </td>
-                            </tr>
-                        </tbody>
-                    </table>
+                <div class="text-lg text-gray-700 dark:text-gray-300 leading-relaxed mb-4">
+                    השם מגיע משפת המוהיקן והאלגונקווין הילידית. להלן הפירוק הלשוני של השם השבטי שעבר אנגליזציה:
+                </div>
+
+                <div class="space-y-6 mt-6">
+                    <!-- חלק 1 -->
+                    <div class="p-6 bg-blue-50/50 dark:bg-gray-800/30 rounded-2xl border-r-4 border-blue-500 dark:border-gold shadow-sm hover:bg-blue-50 dark:hover:bg-gray-800 transition-colors">
+                        <div class="flex flex-col sm:flex-row sm:items-center justify-between mb-3 gap-2">
+                            <h3 class="text-2xl font-mono font-bold text-gray-900 dark:text-white">
+                                Quinne <span class="text-xl font-sans font-normal text-gray-500 dark:text-gray-400">(קווין)</span>
+                            </h3>
+                            <span class="inline-block px-3 py-1 bg-blue-100 dark:bg-gray-700 text-blue-800 dark:text-blue-300 text-sm rounded-full font-semibold border border-blue-200 dark:border-gray-600">
+                                מקור: שפת המוהיקן-פקווט
+                            </span>
+                        </div>
+                        <p class="text-lg text-gray-700 dark:text-gray-300 leading-relaxed">
+                            משמעותו <strong>"ארוך" (Long)</strong>. המרכיב מתאר את ממדיו העצומים של הנהר ביחס לנהרות ולנחלים האחרים שזורמים באזור ניו אינגלנד.
+                        </p>
+                    </div>
+
+                    <!-- חלק 2 -->
+                    <div class="p-6 bg-blue-50/50 dark:bg-gray-800/30 rounded-2xl border-r-4 border-blue-500 dark:border-gold shadow-sm hover:bg-blue-50 dark:hover:bg-gray-800 transition-colors">
+                        <div class="flex flex-col sm:flex-row sm:items-center justify-between mb-3 gap-2">
+                            <h3 class="text-2xl font-mono font-bold text-gray-900 dark:text-white">
+                                htuk <span class="text-xl font-sans font-normal text-gray-500 dark:text-gray-400">(טוק)</span>
+                            </h3>
+                            <span class="inline-block px-3 py-1 bg-blue-100 dark:bg-gray-700 text-blue-800 dark:text-blue-300 text-sm rounded-full font-semibold border border-blue-200 dark:border-gray-600">
+                                מקור: שפת המוהיקן
+                            </span>
+                        </div>
+                        <p class="text-lg text-gray-700 dark:text-gray-300 leading-relaxed">
+                            משמעותו <strong>"נהר המושפע מגאות ושפל" (Tidal river)</strong> או "גלים גדולים". בניגוד למילה "sepu" המתארת נחל רגיל הזורם לכיוון אחד, המילה <em>htuk</em> מתארת במדויק נהר רחב באזור השפך שלו לאוקיינוס, שבו מי הים נדחפים פנימה ומשנים את מפלס המים היומי.
+                        </p>
+                    </div>
+
+                    <!-- חלק 3 -->
+                    <div class="p-6 bg-blue-50/50 dark:bg-gray-800/30 rounded-2xl border-r-4 border-blue-500 dark:border-gold shadow-sm hover:bg-blue-50 dark:hover:bg-gray-800 transition-colors">
+                        <div class="flex flex-col sm:flex-row sm:items-center justify-between mb-3 gap-2">
+                            <h3 class="text-2xl font-mono font-bold text-gray-900 dark:text-white">
+                                qut <span class="text-xl font-sans font-normal text-gray-500 dark:text-gray-400">(קוט / אוט)</span>
+                            </h3>
+                            <span class="inline-block px-3 py-1 bg-blue-100 dark:bg-gray-700 text-blue-800 dark:text-blue-300 text-sm rounded-full font-semibold border border-blue-200 dark:border-gray-600">
+                                מקור: סיומת ילידית
+                            </span>
+                        </div>
+                        <p class="text-lg text-gray-700 dark:text-gray-300 leading-relaxed">
+                            זוהי סיומת מיקום (Locative suffix) נפוצה מאוד במזרח אמריקה, המציינת מקום מסוים – משמעותה <strong>"ליד"</strong>, "ב-" או "במקום של-".
+                        </p>
+                    </div>
+
+                    <!-- חלק 4 -->
+                    <div class="p-6 bg-blue-100/50 dark:bg-gray-800/80 rounded-2xl border-r-4 border-blue-700 dark:border-yellow-400 shadow-md">
+                        <div class="flex items-center gap-3 mb-3">
+                            <i class="ph ph-puzzle-piece text-3xl text-blue-700 dark:text-yellow-400"></i>
+                            <h3 class="text-2xl font-mono font-black text-blue-900 dark:text-white">
+                                Connecticut <span class="text-xl font-sans font-normal text-gray-600 dark:text-gray-300">(קונטיקט)</span>
+                            </h3>
+                        </div>
+                        <p class="text-lg text-gray-800 dark:text-gray-200 leading-relaxed font-medium">
+                            ההגייה הילידית המקורית הייתה <strong>"Quinnehtukqut" (קווינהטוקוט)</strong>. משמעות השם השלם היא פשוטה וגאוגרפית: <strong>"במקום של הנהר הארוך של הגאות"</strong>.<br><br>
+                            המתיישבים האנגלים התקשו מאוד לבטא את העיצורים ואת החיתוך הלשוני הילידי. במהלך השנים, באמצעות תהליך של אנגלוזציה (Anglicization - התאמה לאנגלית), הם עיוותו את הצליל המקורי למילה האנגלית המוכרת לנו כיום "Connecticut", תוך הוספת האות "c" (השנייה) שאינה נהגית כלל (אות שקטה) במרכז המילה.
+                        </p>
+                    </div>
                 </div>
             </section>
 
         </article>
 
     </main>
+
+    <!-- חלון צף (Modal) להגדלת תמונות -->
+    <div id="imageModal" class="fixed inset-0 z-[100] hidden bg-black/90 backdrop-blur-md flex items-center justify-center p-4 touch-manipulation opacity-0 transition-opacity duration-300" onclick="closeImageModal()">
+        <button class="absolute top-4 right-4 text-white/70 hover:text-white p-3 bg-black/50 hover:bg-black/80 rounded-full transition-colors duration-200 z-10" onclick="closeImageModal()">
+            <i class="ph ph-x text-2xl"></i>
+        </button>
+        
+        <div class="relative max-w-5xl w-full h-full flex flex-col items-center justify-center">
+            <img id="modalImage" src="" alt="תמונה מוגדלת" class="max-w-full max-h-[80vh] object-contain rounded-xl shadow-2xl scale-95 transition-transform duration-300" onclick="event.stopPropagation()">
+            <div class="mt-6 p-4 bg-darkCard/80 backdrop-blur-sm rounded-xl border border-gray-700 text-white text-center shadow-lg max-w-3xl" onclick="event.stopPropagation()">
+                <p id="modalCaption" class="text-lg leading-relaxed"></p>
+            </div>
+        </div>
+    </div>
 
     <!-- כותרת תחתונה (Footer) -->
     <footer class="bg-white dark:bg-darkBg border-t border-gray-200 dark:border-gray-800 py-8 mt-12">
@@ -272,7 +360,7 @@
         </div>
     </footer>
 
-    <!-- JavaScript Base Logic -->
+    <!-- JavaScript Base Logic (מנגנון Data Attributes בטוח) -->
     <script>
         function toggleDarkMode() {
             const htmlClasses = document.documentElement.classList;
@@ -290,8 +378,51 @@
         } else {
             document.documentElement.classList.remove('dark');
         }
+
+        // פונקציות חלון צף
+        function openImageModal(element) {
+            const src = element.getAttribute('data-image');
+            const caption = element.getAttribute('data-caption');
+            
+            const modal = document.getElementById('imageModal');
+            const modalImg = document.getElementById('modalImage');
+            const modalCap = document.getElementById('modalCaption');
+            
+            modalImg.src = src;
+            modalCap.textContent = caption;
+            
+            modal.classList.remove('hidden');
+            document.body.classList.add('modal-open');
+            
+            setTimeout(() => {
+                modal.classList.remove('opacity-0');
+                modalImg.classList.remove('scale-95');
+                modalImg.classList.add('scale-100');
+            }, 10);
+        }
+
+        function closeImageModal() {
+            const modal = document.getElementById('imageModal');
+            const modalImg = document.getElementById('modalImage');
+            
+            modal.classList.add('opacity-0');
+            modalImg.classList.remove('scale-100');
+            modalImg.classList.add('scale-95');
+            
+            setTimeout(() => {
+                modal.classList.add('hidden');
+                document.body.classList.remove('modal-open');
+            }, 300);
+        }
+        
+        document.addEventListener('keydown', function(event) {
+            if (event.key === "Escape") {
+                const modal = document.getElementById('imageModal');
+                if (!modal.classList.contains('hidden')) {
+                    closeImageModal();
+                }
+            }
+        });
     </script>
 </body>
 </html>
-
-
