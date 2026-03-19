@@ -87,13 +87,33 @@
                         <i class="ph ph-book-open-text"></i>
                     </a>
                 </div>
+                
+                <!-- שורת שיתוף חברתית -->
+                <div class="pt-6 flex flex-wrap gap-3 justify-center md:justify-start items-center border-t border-gray-100 dark:border-gray-800 mt-6 max-w-3xl">
+                    <span class="text-sm font-semibold text-gray-500 dark:text-gray-400 pl-2">שתף את המחקר:</span>
+                    
+                    <button onclick="shareToWhatsApp()" class="p-2.5 rounded-full bg-[#E8F5E9] text-[#25D366] hover:bg-[#C8E6C9] dark:bg-[#1b3d22] dark:text-[#25D366] transition-colors touch-manipulation" title="שתף ב-WhatsApp">
+                        <i class="ph ph-whatsapp-logo text-xl"></i>
+                    </button>
+                    
+                    <button onclick="shareToTwitter()" class="p-2.5 rounded-full bg-[#E1F5FE] text-[#1DA1F2] hover:bg-[#B3E5FC] dark:bg-[#0f3448] dark:text-[#1DA1F2] transition-colors touch-manipulation" title="שתף ב-X (טוויטר)">
+                        <i class="ph ph-twitter-logo text-xl"></i>
+                    </button>
+                    
+                    <button onclick="shareToFacebook()" class="p-2.5 rounded-full bg-[#E3F2FD] text-[#1877F2] hover:bg-[#BBDEFB] dark:bg-[#0c2a45] dark:text-[#1877F2] transition-colors touch-manipulation" title="שתף בפייסבוק">
+                        <i class="ph ph-facebook-logo text-xl"></i>
+                    </button>
+                    
+                    <button onclick="copyToClipboard()" id="copyBtn" class="p-2.5 rounded-full bg-gray-100 text-gray-600 hover:bg-gray-200 dark:bg-gray-800 dark:text-gray-300 transition-colors relative touch-manipulation" title="העתק קישור">
+                        <i id="copyIcon" class="ph ph-link text-xl"></i>
+                    </button>
+                </div>
             </div>
             
-            <!-- התמונה החדשה שהועלתה -->
+            <!-- התמונה החדשה של האמריקה הקולוניאלית -->
             <div class="md:w-1/3 relative w-full aspect-square max-w-md mx-auto group">
                 <div class="absolute inset-0 bg-gradient-to-tr from-blue-500/20 to-transparent dark:from-gold/20 rounded-3xl transform rotate-3 scale-105 transition-transform group-hover:rotate-6"></div>
-                <!-- הטמעת התמונה שהעלית -->
-                <img src="1773847448620.jpeg" alt="אמריקה הקולוניאלית" class="rounded-3xl shadow-2xl relative z-10 object-cover w-full h-full border border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-800 p-2 transition-transform duration-500 group-hover:scale-[1.02]">
+                <img src="american_colonies_cover.jpg" alt="אמריקה הקולוניאלית" class="rounded-3xl shadow-2xl relative z-10 object-cover w-full h-full border border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-800 p-2 transition-transform duration-500 group-hover:scale-[1.02]">
             </div>
         </section>
 
@@ -111,7 +131,7 @@
             </div>
         </section>
 
-        <!-- מילון מונחים (Glossary) - הוסף במיוחד לקהל ללא ידע מוקדם -->
+        <!-- מילון מונחים (Glossary) -->
         <section id="glossary" class="scroll-mt-24 mb-24">
             <div class="flex items-center gap-3 mb-10">
                 <i class="ph ph-book-open-text text-3xl text-blue-600 dark:text-gold"></i>
@@ -285,6 +305,58 @@
                 `;
             });
             container.innerHTML = html;
+        }
+
+        // פונקציות שיתוף חברתי
+        function shareToWhatsApp() {
+            const url = encodeURIComponent(window.location.href);
+            const text = encodeURIComponent("היכנסו לראות את פרויקט אמריקה הבריטית: היסטוריה ואטימולוגיה של 13 המושבות! 🧭\n\n");
+            window.open(`https://api.whatsapp.com/send?text=${text}${url}`, '_blank');
+        }
+
+        function shareToTwitter() {
+            const url = encodeURIComponent(window.location.href);
+            const text = encodeURIComponent("פרויקט מדהים על ההיסטוריה והאטימולוגיה של 13 המושבות האמריקאיות שייסדו את ארה\"ב. שווה קריאה! 🏛️");
+            window.open(`https://twitter.com/intent/tweet?url=${url}&text=${text}`, '_blank');
+        }
+
+        function shareToFacebook() {
+            const url = encodeURIComponent(window.location.href);
+            window.open(`https://www.facebook.com/sharer/sharer.php?u=${url}`, '_blank');
+        }
+
+        function copyToClipboard() {
+            const url = window.location.href;
+            
+            // שימוש ב-API המודרני עם Fallback
+            if (navigator.clipboard && window.isSecureContext) {
+                navigator.clipboard.writeText(url).then(showSuccessIcon);
+            } else {
+                let textArea = document.createElement("textarea");
+                textArea.value = url;
+                textArea.style.position = "fixed";
+                document.body.appendChild(textArea);
+                textArea.focus();
+                textArea.select();
+                try {
+                    document.execCommand('copy');
+                    showSuccessIcon();
+                } catch (err) {
+                    console.error('העתקה נכשלה', err);
+                }
+                document.body.removeChild(textArea);
+            }
+        }
+
+        function showSuccessIcon() {
+            const icon = document.getElementById('copyIcon');
+            icon.classList.remove('ph-link');
+            icon.classList.add('ph-check', 'text-green-500');
+            
+            setTimeout(() => {
+                icon.classList.remove('ph-check', 'text-green-500');
+                icon.classList.add('ph-link');
+            }, 2000);
         }
 
         // ניהול מצב כהה (Dark Mode)
